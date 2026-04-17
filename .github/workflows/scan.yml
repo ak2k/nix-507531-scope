@@ -48,12 +48,12 @@ jobs:
       actions: write    # cache-nix-action's purge step
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 2
 
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v17
+        uses: DeterminateSystems/nix-installer-action@v22
 
       # Cache /nix/store between runs so `nix profile install` is ~5 s
       # warm instead of ~30 s cold.
@@ -67,7 +67,7 @@ jobs:
           purge-created: 604800                 # 7 days
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v7
         with:
           version: latest
 
@@ -76,7 +76,7 @@ jobs:
 
       - name: Restore scanner state
         if: ${{ !inputs.force_full_rescan }}
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: |
             full.db
@@ -124,7 +124,7 @@ jobs:
             --summary verify-summary.md
 
       - name: Save scanner state
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: |
             full.db
@@ -134,7 +134,7 @@ jobs:
           key: scan-state-${{ github.run_id }}
 
       - name: Upload artifacts (30 days)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: scan-${{ github.run_id }}
           path: |
