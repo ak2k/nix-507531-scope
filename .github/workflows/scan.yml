@@ -1,0 +1,175 @@
+# Daily scan of nixpkgs-25.11-darwin for the NixOS/nixpkgs#507531 /
+# NixOS/nix#15638 page-hash bug.
+#
+# Companion scripts: ./scripts/{scan-darwin-cache,aggregate-scan,verify-failures}.py
+#
+# Behavior:
+#   * Daily 07:00 UTC (channels typically bump 00:00-06:00 UTC, so we run after).
+#   * Restores state DB + JSONL from GHA cache so only the channel delta is
+#     scanned (minutes per day after initial seed). Cold cache = ~45-60 min
+#     full rescan.
+#   * Emits REPORT.md, summary.json, failing.csv, verify-summary.md and
+#     commits them back to the repo.
+#   * State DB + JSONL stay in GHA cache only (grow unbounded,
+#     reconstructable from next scan).
+#
+# Required repo setting: Settings → Actions → General → Workflow
+# permissions = "Read and write". Otherwise the auto-commit step will 403.
+#
+# TODO: pin third-party actions to 40-char SHAs (not floating tags) and let
+# Dependabot auto-rotate. The tag-style refs below are placeholders.
+
+name: scan
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+    inputs:
+      channel_url:
+        description: 'Channel URL to scan (for ad-hoc runs)'
+        required: false
+        default: 'https://channels.nixos.org/nixpkgs-25.11-darwin'
+      force_full_rescan:
+        description: 'Ignore cached state DB and rescan from scratch'
+        type: boolean
+        default: false
+
+concurrency:
+  group: scan
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: write   # auto-commit outputs
+      actions: write    # cache-nix-action's purge step
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
+      # Cache /nix/store between runs so `nix profile install` is ~5 s
+      # warm instead of ~30 s cold.
+      - name: Cache /nix/store
+        uses: nix-community/cache-nix-action@v7
+        with:
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('.github/workflows/scan.yml') }}
+          restore-prefixes-first-match: nix-${{ runner.os }}-
+          gc-max-store-size-linux: 2147483648   # 2 GiB cap
+          purge: true
+          purge-created: 604800                 # 7 days
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: latest
+          # Our scripts declare deps via PEP 723 inline metadata (no uv.lock,
+          # no requirements.txt). Key the uv cache on the script files
+          # themselves — a dep change is necessarily a script edit.
+          cache-dependency-glob: 'scripts/*.py'
+
+      - name: Install rcodesign
+        run: nix profile install nixpkgs#rcodesign
+
+      - name: Restore scanner state
+        if: ${{ !inputs.force_full_rescan }}
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            full.db
+            full.db-shm
+            full.db-wal
+            full.jsonl
+          key: scan-state-${{ github.run_id }}
+          restore-keys: |
+            scan-state-
+
+      - name: Channel metadata
+        id: channel
+        run: |
+          URL="${{ inputs.channel_url || 'https://channels.nixos.org/nixpkgs-25.11-darwin' }}"
+          REV=$(curl -sL "$URL/git-revision")
+          echo "url=$URL"  >> "$GITHUB_OUTPUT"
+          echo "rev=$REV"  >> "$GITHUB_OUTPUT"
+          echo "label=${URL##*/} @ ${REV:0:12} ($(date -u +%Y-%m-%d))" >> "$GITHUB_OUTPUT"
+
+      - name: Scan
+        run: |
+          uv run scripts/scan-darwin-cache.py \
+            --channel "${{ steps.channel.outputs.url }}" \
+            --workers 3 \
+            --per-worker-concurrency 24 \
+            --batch-size 100 \
+            --state full.db \
+            --out full.jsonl \
+            --log-level INFO
+
+      - name: Aggregate
+        run: |
+          uv run scripts/aggregate-scan.py full.jsonl \
+            --out REPORT.md \
+            --summary-json summary.json \
+            --failing-csv failing.csv \
+            --channel-label '${{ steps.channel.outputs.label }}'
+
+      - name: Verify scanner findings
+        run: |
+          uv run scripts/verify-failures.py \
+            --failing-csv failing.csv \
+            --jsonl full.jsonl \
+            --out verify-results.jsonl \
+            --summary verify-summary.md
+
+      - name: Save scanner state
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            full.db
+            full.db-shm
+            full.db-wal
+            full.jsonl
+          key: scan-state-${{ github.run_id }}
+
+      - name: Upload artifacts (30 days)
+        uses: actions/upload-artifact@v4
+        with:
+          name: scan-${{ github.run_id }}
+          path: |
+            REPORT.md
+            summary.json
+            failing.csv
+            verify-results.jsonl
+            verify-summary.md
+          retention-days: 30
+
+      - name: Commit output files
+        run: |
+          git config user.name  'scan-bot'
+          git config user.email 'scan-bot@users.noreply.github.com'
+          git add REPORT.md summary.json failing.csv verify-summary.md verify-results.jsonl
+          if git diff --staged --quiet; then
+            echo 'no result changes'
+            exit 0
+          fi
+          git commit -m "auto: ${{ steps.channel.outputs.label }}
+
+          Channel URL:      ${{ steps.channel.outputs.url }}
+          Channel revision: ${{ steps.channel.outputs.rev }}
+          Workflow run:     ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          git push
+
+      - name: Fail loudly if scanner ↔ verifier disagree
+        run: |
+          if grep -q '^No disagreements' verify-summary.md; then
+            echo 'scanner ↔ verifier: 100% agreement'
+          else
+            echo '::error::Scanner-verifier disagreement detected. See verify-summary.md.'
+            exit 1
+          fi
