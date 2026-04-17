@@ -1,0 +1,17 @@
+# Scanner state (large, grows unbounded, reconstructable).
+# Lives in GHA cache between workflow runs, never committed.
+full.db
+full.db-shm
+full.db-wal
+full.jsonl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.uv-cache/
+
+# Editor
+.vscode/
+.idea/
+*.swp
