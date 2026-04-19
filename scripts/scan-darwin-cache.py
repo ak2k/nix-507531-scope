@@ -327,6 +327,16 @@ class SliceReport:
     first_bad_offset: Optional[int] = None
     mismatches_sample: list[int] = field(default_factory=list)
     error: Optional[str] = None
+    # Enriched fields (2026-04-18): capture the full SuperBlob shape so
+    # downstream queries can classify binaries by signature class
+    # (linker-signed, codesign-adhoc with empty CMS wrapper, Developer-ID
+    # with non-empty CMS, etc.) without re-walking the binary.
+    fat_variant: str = "thin"  # "thin" | "fat32" | "fat64"
+    slots: list = field(default_factory=list)  # [{slot_type, blob_magic, blob_length}]
+    alternate_cds: list = field(default_factory=list)  # non-primary CDs (SHA-1 + SHA-256 dual)
+    cms_blob_length: int = 0  # CS_SIGNATURESLOT blob length: 0=absent, 8=empty wrapper, >8=payload
+    has_entitlements: bool = False      # SuperBlob carries slot 0x5 (Entitlements XML)
+    has_entitlements_der: bool = False  # SuperBlob carries slot 0x7 (Entitlements-DER)
 
 
 def analyze_macho(data: bytes) -> list[SliceReport]:
@@ -387,6 +397,7 @@ def _analyze_fat(data: bytes, is_64: bool) -> list[SliceReport]:
         sub = data[offset : offset + size]
         rep = _analyze_thin(sub)
         rep.is_fat = True
+        rep.fat_variant = "fat64" if is_64 else "fat32"
         rep.arch = _cputype_name(cputype, cpusubtype)
         rep.cpu_type = cputype
         rep.cpu_subtype = cpusubtype
@@ -467,8 +478,31 @@ def _analyze_thin(data: bytes) -> SliceReport:
         rep.error = f"bad SuperBlob magic 0x{sb_magic:08x}"
         return rep
 
+    # Enriched pass (2026-04-18): record the full SuperBlob directory so
+    # downstream queries can categorize by signature shape without
+    # re-fetching the binary. Also populates the convenience fields
+    # has_entitlements / has_entitlements_der / cms_blob_length.
+    for i in range(sb_count):
+        idx_off = 12 + i * 8
+        if idx_off + 8 > len(blob):
+            break
+        etype, eoff = struct.unpack_from(">II", blob, idx_off)
+        if eoff + 8 > len(blob):
+            continue
+        bmagic, blength = struct.unpack_from(">II", blob, eoff)
+        rep.slots.append(
+            {"slot_type": etype, "blob_magic": bmagic, "blob_length": blength}
+        )
+        if etype == 0x5:
+            rep.has_entitlements = True
+        elif etype == 0x7:
+            rep.has_entitlements_der = True
+        elif etype == 0x10000:
+            rep.cms_blob_length = blength
+
     # Find all CodeDirectory entries (main + alternates), pick best.
     best = None
+    all_cds: list[dict] = []
     for i in range(sb_count):
         idx_off = 12 + i * 8
         if idx_off + 8 > len(blob):
@@ -513,6 +547,7 @@ def _analyze_thin(data: bytes) -> SliceReport:
             "page_size": (1 << page_size_log2) if page_size_log2 else 0,
             "cd_len": cd_len,
         }
+        all_cds.append(cand)
         if best is None or (
             best["hash_type"] != CS_HASHTYPE_SHA256 and hash_type == CS_HASHTYPE_SHA256
         ):
@@ -521,6 +556,21 @@ def _analyze_thin(data: bytes) -> SliceReport:
     if best is None:
         rep.error = "no CodeDirectory in signature"
         return rep
+
+    # Record non-primary CDs for dual-CD analysis (SHA-1 + SHA-256 alternates).
+    for cd in all_cds:
+        if cd["eoff"] == best["eoff"]:
+            continue
+        rep.alternate_cds.append(
+            {
+                "hash_algo": cd["hash_type"],
+                "n_code_slots": cd["n_code"],
+                "n_special_slots": cd["n_special"],
+                "code_limit": cd["code_limit"],
+                "page_size": cd["page_size"],
+                "cd_flags": cd["cd_flags"],
+            }
+        )
 
     rep.cd_flags = best["cd_flags"]
     rep.linker_signed = bool(best["cd_flags"] & CD_FLAG_LINKER_SIGNED)
@@ -778,6 +828,7 @@ async def scan_store_path(
                             "size": entry.size,
                             "executable": entry.executable,
                             "is_fat": rep.is_fat,
+                            "fat_variant": rep.fat_variant,
                             "arch": rep.arch,
                             "cpu_type": rep.cpu_type,
                             "cpu_subtype": rep.cpu_subtype,
@@ -793,6 +844,11 @@ async def scan_store_path(
                             "first_bad_page": rep.first_bad_page,
                             "first_bad_offset": rep.first_bad_offset,
                             "mismatches_sample": rep.mismatches_sample,
+                            "slots": rep.slots,
+                            "alternate_cds": rep.alternate_cds,
+                            "cms_blob_length": rep.cms_blob_length,
+                            "has_entitlements": rep.has_entitlements,
+                            "has_entitlements_der": rep.has_entitlements_der,
                             "error": rep.error,
                             "status": "ok",
                         }
