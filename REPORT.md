@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 67007518faf3 (2026-04-19)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ d7de041fe507 (2026-04-19)
 
-Generated: 2026-04-19 07:29:53 UTC
+Generated: 2026-04-19 12:23:50 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 172,961 |
-| Mach-O slices parsed | 223,604 |
+| Store paths scanned | 173,607 |
+| Mach-O slices parsed | 223,925 |
 | Page-hash mismatches (slices) | 65 |
 | Page-hash mismatches (distinct packages) | 19 |
 |   of which linker-signed (flags=0x20002) | 22 |
@@ -19,9 +19,9 @@ Generated: 2026-04-19 07:29:53 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 104,719 | 44 | 0 | 96,881 | 7,776 | 18 |
+| `arm64` | 104,877 | 44 | 0 | 97,039 | 7,776 | 18 |
 | `arm64e` | 53 | 0 | 0 | 13 | 0 | 40 |
-| `x86_64` | 111,176 | 21 | 1 | 8,160 | 102,931 | 63 |
+| `x86_64` | 111,339 | 21 | 1 | 8,160 | 103,094 | 63 |
 | `i386` | 169 | 0 | 0 | 113 | 54 | 2 |
 | other/legacy (10 arch codes) | 7,487 | 0 | 0 | 2 | 8 | 7,477 |
 
@@ -29,7 +29,7 @@ Generated: 2026-04-19 07:29:53 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 210,325 | 23 | 1 | 100,039 | 110,260 |
+| thin | 210,646 | 23 | 1 | 100,197 | 110,423 |
 | fat | 13,279 | 42 | 0 | 5,130 | 509 |
 
 Unique fat binary files: 10,281 in 531 packages. 5 of those packages contain at least one failing fat slice.
@@ -74,8 +74,8 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 |---|---:|
 | `page_hash_mismatch` | 65 |
 | `other_sig_invalid` | 1 |
-| `clean` (signed, verified) | 105,169 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 110,769 |
+| `clean` (signed, verified) | 105,327 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 110,932 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 7,600 |
 | `scanner_error` | 0 |
 
