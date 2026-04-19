@@ -7,8 +7,8 @@ Cross-validate every scanner-flagged failing slice against an independent
 Mach-O signature verifier (`codesign -v` on darwin, `rcodesign verify` on
 linux — both check page hashes in LC_CODE_SIGNATURE and report mismatch).
 
-Reads the aggregator's `failing.csv` plus the "other_sig_invalid" slices
-from the JSONL (not in failing.csv by design), realizes each unique store
+Reads the aggregator's `direct-failing.csv` plus the "other_sig_invalid" slices
+from the JSONL (not in direct-failing.csv by design), realizes each unique store
 path from cache.nixos.org via nix-store -r, runs the verifier on each
 flagged file, and records agreement.
 
@@ -57,7 +57,7 @@ def load_other_sig_from_jsonl(path: Path) -> list[dict]:
             if not s.get("has_code_signature"):
                 continue
             if (s.get("n_mismatches") or 0) > 0:
-                continue  # that's in failing.csv
+                continue  # that's in direct-failing.csv
             if s.get("error"):
                 out.append(
                     {
@@ -128,7 +128,7 @@ def run_verifier(verifier: list[str], full_path: str) -> tuple[int, str]:
 
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--failing-csv", default="./failing.csv")
+    p.add_argument("--failing-csv", default="./direct-failing.csv")
     p.add_argument("--jsonl", default="./full.jsonl")
     p.add_argument("--out", default="./verify-results.jsonl")
     p.add_argument("--summary", default="./verify-summary.md")

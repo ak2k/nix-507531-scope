@@ -2,7 +2,9 @@
 # NixOS/nixpkgs#507531 / NixOS/nix#15638 page-hash bug.
 #
 # Companion scripts:
-#   ./scripts/{scan-darwin-cache,aggregate-scan,verify-failures,combine-reports}.py
+#   ./scripts/{scan-darwin-cache,aggregate-scan,verify-failures,
+#              compute-load-time-dependents,compute-build-time-dependents,
+#              render-channel-report,combine-reports}.py
 #
 # Behavior:
 #   * Daily 07:00 UTC (channels typically bump 00:00-06:00 UTC, so we run after).
@@ -10,8 +12,15 @@
 #     and JSONL live under `<channel>/` subdirs both in the runner workspace
 #     and in GHA cache (per-channel cache keys prevent cross-leg clobber even
 #     on independent re-runs).
-#   * Per-channel aggregation writes `<channel>/{REPORT.md,summary.json,
-#     failing.csv,verify-summary.md,verify-results.jsonl}`.
+#   * Per channel, three tiers of analysis produce per-tier CSVs:
+#       Tier 1 (direct):           direct-failing.csv        from aggregate-scan.py
+#       Tier 2 (load-time transitive): load-time-dependents.csv  from compute-load-time-dependents.py
+#       Tier 3 (build-time dependent): build-time-dependents.csv from compute-build-time-dependents.py
+#     Tier-3 evaluation needs `nix-eval-jobs` against the channel's nixpkgs
+#     revision (metadata-only, no building).
+#   * Per-channel REPORT.md is assembled by render-channel-report.py, which
+#     splices Tier 2 + Tier 3 sections into aggregate-scan.py's Tier 1
+#     report.
 #   * A final `combine` job downloads both matrix legs' artifacts and emits
 #     top-level `REPORT.md` + `summary.json` via combine-reports.py, then
 #     commits everything in one push.
@@ -79,8 +88,8 @@ jobs:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
 
-      - name: Install rcodesign
-        run: nix profile install nixpkgs#rcodesign
+      - name: Install rcodesign + nix-eval-jobs
+        run: nix profile install nixpkgs#rcodesign nixpkgs#nix-eval-jobs
 
       - name: Restore scanner state (${{ matrix.channel.label }})
         if: ${{ !inputs.force_full_rescan }}
@@ -118,18 +127,46 @@ jobs:
             --out ${{ matrix.channel.label }}/full.jsonl \
             --log-level INFO
 
-      - name: Aggregate (${{ matrix.channel.label }})
+      - name: Aggregate Tier 1 (${{ matrix.channel.label }})
         run: |
           uv run scripts/aggregate-scan.py ${{ matrix.channel.label }}/full.jsonl \
             --out ${{ matrix.channel.label }}/REPORT.md \
             --summary-json ${{ matrix.channel.label }}/summary.json \
-            --failing-csv ${{ matrix.channel.label }}/failing.csv \
+            --direct-failing-csv ${{ matrix.channel.label }}/direct-failing.csv \
             --channel-label '${{ steps.channel.outputs.label }}'
+
+      - name: Compute Tier 2 load-time dependents (${{ matrix.channel.label }})
+        run: |
+          uv run scripts/compute-load-time-dependents.py \
+            ${{ matrix.channel.label }}/full.jsonl \
+            ${{ matrix.channel.label }}/direct-failing.csv \
+            --out-csv ${{ matrix.channel.label }}/load-time-dependents.csv \
+            --out-summary ${{ matrix.channel.label }}/load-time-summary.json \
+            --out-section ${{ matrix.channel.label }}/load-time-section.md
+
+      - name: Compute Tier 3 build-time dependents (${{ matrix.channel.label }})
+        run: |
+          uv run scripts/compute-build-time-dependents.py \
+            --nixpkgs-flake github:nixos/nixpkgs/${{ steps.channel.outputs.rev }} \
+            --direct-failing-csv ${{ matrix.channel.label }}/direct-failing.csv \
+            --out-csv ${{ matrix.channel.label }}/build-time-dependents.csv \
+            --out-summary ${{ matrix.channel.label }}/build-time-summary.json \
+            --out-section ${{ matrix.channel.label }}/build-time-section.md \
+            --eval-workers 6
+
+      - name: Render channel REPORT with all tier sections (${{ matrix.channel.label }})
+        run: |
+          uv run scripts/render-channel-report.py \
+            --report ${{ matrix.channel.label }}/REPORT.md \
+            --tier2-section ${{ matrix.channel.label }}/load-time-section.md \
+            --tier3-section ${{ matrix.channel.label }}/build-time-section.md \
+            --tier2-summary ${{ matrix.channel.label }}/load-time-summary.json \
+            --tier3-summary ${{ matrix.channel.label }}/build-time-summary.json
 
       - name: Verify scanner findings (${{ matrix.channel.label }})
         run: |
           uv run scripts/verify-failures.py \
-            --failing-csv ${{ matrix.channel.label }}/failing.csv \
+            --failing-csv ${{ matrix.channel.label }}/direct-failing.csv \
             --jsonl ${{ matrix.channel.label }}/full.jsonl \
             --out ${{ matrix.channel.label }}/verify-results.jsonl \
             --summary ${{ matrix.channel.label }}/verify-summary.md
@@ -194,6 +231,10 @@ jobs:
           uv run scripts/combine-reports.py \
             --channel stable:stable/summary.json \
             --channel unstable:unstable/summary.json \
+            --channel-tier2 stable:stable/load-time-summary.json \
+            --channel-tier2 unstable:unstable/load-time-summary.json \
+            --channel-tier3 stable:stable/build-time-summary.json \
+            --channel-tier3 unstable:unstable/build-time-summary.json \
             --out REPORT.md \
             --summary-json summary.json
 

@@ -264,6 +264,12 @@ async def iter_nar_regular_files(
 # ---------------------------------------------------------------------------
 
 LC_CODE_SIGNATURE = 0x1D
+LC_REQ_DYLD = 0x80000000
+LC_LOAD_DYLIB = 0x0C
+LC_LOAD_WEAK_DYLIB = 0x18 | LC_REQ_DYLD
+LC_REEXPORT_DYLIB = 0x1F | LC_REQ_DYLD
+_DYLIB_CMDS = {LC_LOAD_DYLIB, LC_LOAD_WEAK_DYLIB, LC_REEXPORT_DYLIB}
+
 CSMAGIC_EMBEDDED_SIGNATURE = 0xFADE0CC0
 CSMAGIC_CODEDIRECTORY = 0xFADE0C02
 CS_HASHTYPE_SHA1 = 1
@@ -337,6 +343,7 @@ class SliceReport:
     cms_blob_length: int = 0  # CS_SIGNATURESLOT blob length: 0=absent, 8=empty wrapper, >8=payload
     has_entitlements: bool = False      # SuperBlob carries slot 0x5 (Entitlements XML)
     has_entitlements_der: bool = False  # SuperBlob carries slot 0x7 (Entitlements-DER)
+    linked_dylibs: list[str] = field(default_factory=list)  # LC_LOAD_DYLIB / LC_LOAD_WEAK_DYLIB / LC_REEXPORT_DYLIB install names
 
 
 def analyze_macho(data: bytes) -> list[SliceReport]:
@@ -456,7 +463,19 @@ def _analyze_thin(data: bytes) -> SliceReport:
                 rep.error = "LC_CODE_SIGNATURE too small"
                 return rep
             sig_off, sig_size = struct.unpack_from("<II", data, lc_off + 8)
-            break
+        elif cmd in _DYLIB_CMDS:
+            # dylib_command: cmd/cmdsize, then dylib { name_offset, ts, cur_ver, compat_ver }.
+            # name is a null-terminated string starting at lc_off + name_offset
+            # (relative to the command itself), with total length cmdsize.
+            if cmdsize >= 24:
+                name_off = struct.unpack_from("<I", data, lc_off + 8)[0]
+                if 24 <= name_off < cmdsize:
+                    raw = bytes(data[lc_off + name_off : lc_off + cmdsize])
+                    raw = raw.split(b"\x00", 1)[0]
+                    try:
+                        rep.linked_dylibs.append(raw.decode("utf-8"))
+                    except UnicodeDecodeError:
+                        rep.linked_dylibs.append(raw.decode("latin-1"))
         lc_off += cmdsize
 
     if sig_off is None:
@@ -580,8 +599,13 @@ def _analyze_thin(data: bytes) -> SliceReport:
     rep.n_special_slots = best["n_special"]
     rep.code_limit = best["code_limit"]
 
-    if best["hash_type"] != CS_HASHTYPE_SHA256:
-        rep.error = f"unsupported hash_type {best['hash_type']} (SHA-256 only)"
+    hash_type = best["hash_type"]
+    if hash_type == CS_HASHTYPE_SHA256:
+        hasher = hashlib.sha256
+    elif hash_type == CS_HASHTYPE_SHA1:
+        hasher = hashlib.sha1
+    else:
+        rep.error = f"unsupported hash_type {hash_type} (expected SHA-1 or SHA-256)"
         return rep
     ps = best["page_size"]
     if ps == 0:
@@ -604,7 +628,7 @@ def _analyze_thin(data: bytes) -> SliceReport:
         ]
         page_start = i * ps
         page_end = min((i + 1) * ps, limit)
-        actual = hashlib.sha256(data[page_start:page_end]).digest()
+        actual = hasher(data[page_start:page_end]).digest()
         if expected != actual:
             mismatches.append(i)
 
@@ -849,6 +873,7 @@ async def scan_store_path(
                             "cms_blob_length": rep.cms_blob_length,
                             "has_entitlements": rep.has_entitlements,
                             "has_entitlements_der": rep.has_entitlements_der,
+                            "linked_dylibs": rep.linked_dylibs,
                             "error": rep.error,
                             "status": "ok",
                         }

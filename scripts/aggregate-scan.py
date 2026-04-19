@@ -7,18 +7,18 @@ Aggregate the JSONL output from scan-darwin-cache.py into:
   - REPORT.md           — human-readable, PR-pasteable markdown
   - summary.json        — machine-readable counts (for CI badges, trend
                           tracking, diffing between runs)
-  - failing.csv         — one row per failing Mach-O slice (optional)
+  - direct-failing.csv         — one row per failing Mach-O slice (optional)
 
 Classification scheme (per scanned Mach-O slice):
 
   page_hash_mismatch    status=ok, has_code_signature, n_mismatches > 0
                         → the NixOS/nixpkgs#507531 bug proper. Always in the
                           headline count. These are slices whose stored
-                          per-page SHA-256 in the CodeDirectory disagrees
-                          with the actual SHA-256 of the covered page
-                          bytes. codesign -v reports
-                          "invalid signature (code or signature have been
-                          modified)".
+                          per-page hash in the CodeDirectory disagrees
+                          with the actual hash of the covered page bytes,
+                          computed with the CD's own algorithm (SHA-256 or
+                          SHA-1). codesign -v reports "invalid signature
+                          (code or signature have been modified)".
 
   other_sig_invalid     status=ok, has_code_signature, error indicates a
                         structural signature problem (OOB signature,
@@ -41,7 +41,7 @@ Classification scheme (per scanned Mach-O slice):
 
 Usage:
   aggregate-scan.py <input.jsonl> [--out REPORT.md] [--summary-json summary.json]
-                                   [--failing-csv failing.csv]
+                                   [--failing-csv direct-failing.csv]
                                    [--channel-label 'nixpkgs-25.11-darwin @ <rev>']
 """
 
@@ -489,19 +489,21 @@ def render_markdown(agg: dict, channel_label: str) -> str:
         "- Per regular file: peek 4 bytes; buffer and analyze only if Mach-O magic matches."
     )
     lines.append(
-        "- Per Mach-O slice (thin or fat): parse `LC_CODE_SIGNATURE`, find the SHA-256"
-        " CodeDirectory, recompute per-page SHA-256 over"
-        " `data[i*ps : min((i+1)*ps, code_limit)]`, compare against the stored hash slot."
+        "- Per Mach-O slice (thin or fat): parse `LC_CODE_SIGNATURE`, pick the primary"
+        " CodeDirectory (SHA-256 preferred over SHA-1 when both are present, matching"
+        " the kernel's selection order), recompute per-page hash over"
+        " `data[i*ps : min((i+1)*ps, code_limit)]` with the CD's own algorithm, compare"
+        " against the stored hash slot."
     )
     lines.append(
-        "- `page_hash_mismatch` is defined as: at least one computed per-page SHA-256"
+        "- `page_hash_mismatch` is defined as: at least one computed per-page hash"
         " disagrees with its stored hash slot. This matches the kernel's page-in"
         " validator and `codesign -v` rejection criterion for adhoc-signed binaries."
     )
     lines.append(
         "- `other_sig_invalid` is defined as: LC_CODE_SIGNATURE is present but the"
         " signature blob is structurally unparseable (e.g. payload OOB, bad SuperBlob"
-        " magic, unsupported hash type)."
+        " magic, unsupported hash type such as SHA-384)."
     )
     lines.append("- Scanner source: see the PR repo.")
     lines.append("")
@@ -593,9 +595,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--summary-json", default="summary.json", help="JSON summary output path"
     )
     p.add_argument(
-        "--failing-csv",
+        "--direct-failing-csv",
+        "--failing-csv",  # legacy alias; kept to avoid breaking in-flight runs
+        dest="direct_failing_csv",
         default="",
-        help="Optional CSV of failing slices (page-hash mismatches)",
+        help="Optional CSV of direct-failing slices (page-hash mismatches)",
     )
     p.add_argument(
         "--channel-label",
@@ -619,8 +623,8 @@ def main() -> int:
     Path(args.summary_json).write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n"
     )
-    if args.failing_csv:
-        write_failing_csv(Path(args.failing_csv), agg["failing_rows"])
+    if args.direct_failing_csv:
+        write_failing_csv(Path(args.direct_failing_csv), agg["failing_rows"])
 
     # Brief terminal summary
     b = agg["buckets"]
@@ -638,7 +642,7 @@ def main() -> int:
     print(f"Scanner errors:             {b.get('scanner_error', 0)}")
     print(
         f"\nWrote: {args.out}, {args.summary_json}"
-        + (f", {args.failing_csv}" if args.failing_csv else "")
+        + (f", {args.direct_failing_csv}" if args.direct_failing_csv else "")
     )
     return 0
 
