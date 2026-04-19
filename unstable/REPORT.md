@@ -1,0 +1,89 @@
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ b86751bc4085 (2026-04-19)
+
+Generated: 2026-04-19 18:30:10 UTC
+
+## Summary
+
+| Metric | Count |
+|---|---:|
+| Store paths scanned | 376,114 |
+| Mach-O slices parsed | 286,182 |
+| Page-hash mismatches (slices) | 53 |
+| Page-hash mismatches (distinct packages) | 16 |
+|   of which linker-signed (flags=0x20002) | 7 |
+|   of which codesign-signed (flags=0x2) | 46 |
+| Other signature-invalid (slices) | 4 |
+| Other signature-invalid (distinct packages) | 2 |
+
+## By architecture
+
+| Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
+|---|---:|---:|---:|---:|---:|---:|
+| `arm64` | 112,528 | 29 | 0 | 103,540 | 8,925 | 34 |
+| `arm64e` | 65 | 0 | 0 | 25 | 0 | 40 |
+| `x86_64` | 116,136 | 24 | 2 | 8,896 | 107,138 | 76 |
+| `i386` | 310 | 0 | 2 | 129 | 175 | 4 |
+| other/legacy (10 arch codes) | 57,143 | 0 | 0 | 2 | 98 | 57,043 |
+
+## Fat vs thin Mach-O
+
+| Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
+|---|---:|---:|---:|---:|---:|
+| thin | 221,617 | 11 | 0 | 106,202 | 115,314 |
+| fat | 64,565 | 42 | 4 | 6,390 | 1,022 |
+
+Unique fat binary files: 60,616 in 903 packages. 5 of those packages contain at least one failing fat slice.
+
+## Failing packages (page-hash mismatch)
+
+Sorted alphabetically by package name.
+
+| Package | Failing slices | Store path |
+|---|---:|---|
+| avalonia-ilspy-7.2-rc | 6 | `/nix/store/5pmyw4c0gk169hbydyklyffxs1w2l65b-avalonia-ilspy-7.2-rc` |
+| filen-cli-0.0.36 | 1 | `/nix/store/11z5q863nnsvg66zpzn7dn78rwz3xgbv-filen-cli-0.0.36` |
+| filen-cli-0.0.36 | 1 | `/nix/store/9bl5v7src87m9b44v08fcnxxn8vmpa0z-filen-cli-0.0.36` |
+| httptoolkit-1.24.4 | 1 | `/nix/store/i7rj354mccdjhlm6k6njms8h2xpwxc25-httptoolkit-1.24.4` |
+| libtorch-2.9.0 | 1 | `/nix/store/p5qnfspgh425s92a9z8wwkfyk73s8gsb-libtorch-2.9.0` |
+| opencode-1.4.6 | 1 | `/nix/store/rnaz29q7npfcb123qkrjdgi8yjyc8gv5-opencode-1.4.6` |
+| shogihome-1.27.0 | 1 | `/nix/store/aczrg2ihvdcckis5bpcv12a915kvrjsk-shogihome-1.27.0` |
+| swift-5.10.1 | 11 | `/nix/store/9xyq2rnlkz59p7rwbxbp38r0b7n5980a-swift-5.10.1` |
+| swift-5.10.1 | 11 | `/nix/store/cm4qi9frxy6p73sq1nsh6p8892cc010w-swift-5.10.1` |
+| swift-5.10.1-lib | 7 | `/nix/store/hbw00ibnsqpr625mnih2hmzf8irkj0ns-swift-5.10.1-lib` |
+| swift-5.10.1-lib | 7 | `/nix/store/yqc83j7j1fdcwxhnrk6s8ijh94lkdfs2-swift-5.10.1-lib` |
+| tailwindcss_4-4.2.2 | 1 | `/nix/store/dwn6ifdgpj3f4wlk269s7rk9zqwvhpja-tailwindcss_4-4.2.2` |
+| tailwindcss_4-4.2.2 | 1 | `/nix/store/jp4vvsn2dv1a6mcdhz62pr5cj9c1nl33-tailwindcss_4-4.2.2` |
+| teams-for-linux-2.8.0 | 1 | `/nix/store/dll4aiqz9ryv6jnchb76dgww5fc5f55j-teams-for-linux-2.8.0` |
+| vscode-extension-kilocode-Kilo-Code-7.2.0 | 1 | `/nix/store/1y5adw7jbwsy6v8zy2shcjn7wlhnm5l1-vscode-extension-kilocode-Kilo-Code-7.2.0` |
+| vscode-extension-kilocode-Kilo-Code-7.2.0 | 1 | `/nix/store/gw6y9jk18hxz3inch9fznygcay23vqjh-vscode-extension-kilocode-Kilo-Code-7.2.0` |
+
+## Appendix — other signature-invalid binaries
+
+Slices where the scanner found a structural signature problem (not a page-hash mismatch). These also fail `codesign -v`. Mechanism may or may not be the same as NixOS/nixpkgs#507531.
+
+| Package | Slices | Error kind | Store path |
+|---|---:|---|---|
+| jitsi-2.11.5633 | 2 | unsupported hash_type 1 (SHA-256 only) | `/nix/store/8v0871n5q5s74r1qxb1xrbygmx6ndaa3-jitsi-2.11.5633` |
+| jitsi-2.11.5633 | 2 | unsupported hash_type 1 (SHA-256 only) | `/nix/store/w3vi8r0cxlw81i0g0piv2x14ij3yqiip-jitsi-2.11.5633` |
+
+## Slice classification
+
+| Category | Count |
+|---|---:|
+| `page_hash_mismatch` | 53 |
+| `other_sig_invalid` | 4 |
+| `clean` (signed, verified) | 112,592 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 116,336 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 57,197 |
+| `scanner_error` | 0 |
+
+## Methodology
+
+- Input: `store-paths.xz` from the channel release URL.
+- Per path: `<hash>.narinfo` → stream NAR over HTTP → decompress (xz/zstd/bz2) inline → walk entries, no on-disk NAR persistence.
+- Per regular file: peek 4 bytes; buffer and analyze only if Mach-O magic matches.
+- Per Mach-O slice (thin or fat): parse `LC_CODE_SIGNATURE`, find the SHA-256 CodeDirectory, recompute per-page SHA-256 over `data[i*ps : min((i+1)*ps, code_limit)]`, compare against the stored hash slot.
+- `page_hash_mismatch` is defined as: at least one computed per-page SHA-256 disagrees with its stored hash slot. This matches the kernel's page-in validator and `codesign -v` rejection criterion for adhoc-signed binaries.
+- `other_sig_invalid` is defined as: LC_CODE_SIGNATURE is present but the signature blob is structurally unparseable (e.g. payload OOB, bad SuperBlob magic, unsupported hash type).
+- Scanner source: see the PR repo.
+

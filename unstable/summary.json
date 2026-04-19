@@ -1,0 +1,112 @@
+{
+  "buckets": {
+    "clean": 112592,
+    "not_real_macho": 57197,
+    "other_sig_invalid": 4,
+    "page_hash_mismatch": 53,
+    "unsigned": 116336
+  },
+  "buckets_by_arch": {
+    "arm": {
+      "not_real_macho": 8,
+      "unsigned": 96
+    },
+    "arm64": {
+      "clean": 103540,
+      "not_real_macho": 34,
+      "page_hash_mismatch": 29,
+      "unsigned": 8925
+    },
+    "arm64e": {
+      "clean": 25,
+      "not_real_macho": 40
+    },
+    "cpu_0x00000001/0x00000000": {
+      "clean": 2
+    },
+    "cpu_0x00000002/0x00000000": {
+      "not_real_macho": 2
+    },
+    "cpu_0x00000004/0x00000000": {
+      "unsigned": 2
+    },
+    "cpu_0x00000005/0x00000000": {
+      "not_real_macho": 2
+    },
+    "cpu_0x00000012/0x00000000": {
+      "not_real_macho": 110
+    },
+    "cpu_0x00000012/0x0000000a": {
+      "not_real_macho": 21
+    },
+    "cpu_0x00000012/0x00000064": {
+      "not_real_macho": 2
+    },
+    "cpu_0x01000012/0x00000000": {
+      "not_real_macho": 32
+    },
+    "i386": {
+      "clean": 129,
+      "not_real_macho": 4,
+      "other_sig_invalid": 2,
+      "unsigned": 175
+    },
+    "unknown": {
+      "not_real_macho": 56866
+    },
+    "x86_64": {
+      "clean": 8896,
+      "not_real_macho": 76,
+      "other_sig_invalid": 2,
+      "page_hash_mismatch": 24,
+      "unsigned": 107138
+    }
+  },
+  "channel_label": "nixpkgs-unstable @ b86751bc4085 (2026-04-19)",
+  "coverage": {
+    "not_real_macho": 57197,
+    "page_size_zero_cds": 0,
+    "scanner_errors": 0,
+    "sha1_only_cds": 0
+  },
+  "generated_at": "2026-04-19 18:30:10 UTC",
+  "other_sig_invalid": {
+    "packages": 2,
+    "slices": 4
+  },
+  "page_hash_mismatch": {
+    "by_signature_class": {
+      "B7-empty": 1,
+      "B7-real": 2,
+      "C2": 43,
+      "L": 7
+    },
+    "by_signer": {
+      "codesign_signed": 46,
+      "linker_signed": 7
+    },
+    "packages": 16,
+    "slices": 53
+  },
+  "paths_by_status": {
+    "ok": 376114
+  },
+  "paths_scanned": 376114,
+  "slices_by_arch": {
+    "arm": 104,
+    "arm64": 112528,
+    "arm64e": 65,
+    "cpu_0x00000001/0x00000000": 2,
+    "cpu_0x00000002/0x00000000": 2,
+    "cpu_0x00000004/0x00000000": 2,
+    "cpu_0x00000005/0x00000000": 2,
+    "cpu_0x00000012/0x00000000": 110,
+    "cpu_0x00000012/0x0000000a": 21,
+    "cpu_0x00000012/0x00000064": 2,
+    "cpu_0x01000012/0x00000000": 32,
+    "i386": 310,
+    "unknown": 56866,
+    "x86_64": 116136
+  },
+  "slices_total": 286182
+}
