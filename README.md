@@ -15,27 +15,27 @@ Full technical detail: [issue](https://github.com/NixOS/nixpkgs/issues/507531), 
 
 ## What this repo does
 
-A daily GitHub Actions workflow walks the `nixpkgs-25.11-darwin` channel's `store-paths.xz` list, streams every path's NAR from `cache.nixos.org`, and for every Mach-O file it finds, recomputes per-page SHA-256 and compares against the stored CodeDirectory hashes. Any mismatch is the bug.
+A daily GitHub Actions workflow walks **both** darwin channels (`nixpkgs-25.11-darwin` stable and `nixpkgs-unstable`) in parallel, streams every path's NAR from `cache.nixos.org`, and for every Mach-O file it finds, recomputes per-page SHA-256 and compares against the stored CodeDirectory hashes. Any mismatch is the bug. Results are cross-validated by running `rcodesign verify` on every scanner-flagged slice — zero disagreements means the scanner's findings match Apple's reference semantics exactly.
 
-Results are cross-validated by running `rcodesign verify` on every scanner-flagged slice — zero disagreements in the baseline run means the scanner's findings match Apple's reference semantics exactly.
+Failing slices are further classified by SuperBlob shape (linker-signed / codesign ad-hoc / ad-hoc + Entitlements / Developer-ID-signed) so the NixOS/nix#15638 fix-up can be evaluated per-class (some are fixed in place; Developer-ID-signed is skipped with a warning because its PKCS#7 commits to the CodeDirectory's hash).
 
 Outputs (all auto-committed by the workflow):
 
 | File | What it is |
 |---|---|
-| [`REPORT.md`](REPORT.md) | Human-readable summary of the current scan |
-| [`summary.json`](summary.json) | Machine-readable bucket counts for dashboards / badges / trend tracking |
-| [`failing.csv`](failing.csv) | One row per Mach-O slice with a page-hash mismatch |
-| [`verify-summary.md`](verify-summary.md) | rcodesign cross-validation agreement matrix |
-| [`verify-results.jsonl`](verify-results.jsonl) | Per-slice verifier exit code + message |
+| [`REPORT.md`](REPORT.md) | Combined cross-channel summary: headline numbers, classification cross-tab, drill-down links |
+| [`summary.json`](summary.json) | Combined machine-readable counts (badges, dashboards); back-compat shortcut fields at `$.page_hash_mismatch.slices` etc. sum across channels |
+| [`stable/`](stable/) | Per-channel detail for `nixpkgs-25.11-darwin`: `REPORT.md`, `summary.json`, `failing.csv`, `verify-summary.md`, `verify-results.jsonl` |
+| [`unstable/`](unstable/) | Per-channel detail for `nixpkgs-unstable`: same files as above |
 
 ## Current status
 
 The workflow commits fresh outputs on every run. For the latest numbers:
 
-- [**REPORT.md**](REPORT.md) — full tables: signer split, arch breakdown, fat vs thin, failing packages
-- [**summary.json**](summary.json) — machine-readable counts
-- [**verify-summary.md**](verify-summary.md) — scanner × `rcodesign` agreement matrix (should always be 100%)
+- [**REPORT.md**](REPORT.md) — combined cross-channel view
+- [`stable/REPORT.md`](stable/REPORT.md) — stable channel drill-down (tables: signer split, arch breakdown, fat vs thin, failing packages)
+- [`unstable/REPORT.md`](unstable/REPORT.md) — unstable channel drill-down
+- `stable/verify-summary.md` / `unstable/verify-summary.md` — scanner × `rcodesign` agreement matrix per channel (should always be 100%)
 
 ## How it works
 
@@ -70,30 +70,40 @@ scripts/verify-failures.py
 Any darwin or Linux machine with Nix + `uv` + `rcodesign` (Linux) or `/usr/bin/codesign` (darwin):
 
 ```bash
-# Full channel scan (~45-60 min cold, bandwidth-heavy — ~1 TB for the seed).
-uv run scripts/scan-darwin-cache.py \
-  --channel https://channels.nixos.org/nixpkgs-25.11-darwin \
-  --workers 3 --per-worker-concurrency 24 --batch-size 100 \
-  --state full.db --out full.jsonl
+# Per-channel full scan (~2 h stable, ~4 h unstable cold, bandwidth-heavy).
+for ch_label in stable unstable; do
+  case "$ch_label" in
+    stable)   URL=https://channels.nixos.org/nixpkgs-25.11-darwin ;;
+    unstable) URL=https://channels.nixos.org/nixpkgs-unstable ;;
+  esac
+  mkdir -p "$ch_label"
+  uv run scripts/scan-darwin-cache.py --channel "$URL" \
+    --workers 5 --per-worker-concurrency 48 --batch-size 100 \
+    --state "$ch_label/full.db" --out "$ch_label/full.jsonl"
+  uv run scripts/aggregate-scan.py "$ch_label/full.jsonl" \
+    --out "$ch_label/REPORT.md" \
+    --summary-json "$ch_label/summary.json" \
+    --failing-csv "$ch_label/failing.csv" \
+    --channel-label "$ch_label"
+  uv run scripts/verify-failures.py \
+    --failing-csv "$ch_label/failing.csv" --jsonl "$ch_label/full.jsonl" \
+    --out "$ch_label/verify-results.jsonl" --summary "$ch_label/verify-summary.md"
+done
+
+# Merge both channels' summaries into top-level combined view.
+uv run scripts/combine-reports.py \
+  --channel stable:stable/summary.json \
+  --channel unstable:unstable/summary.json \
+  --out REPORT.md --summary-json summary.json
 
 # Quick smoke test against the first 100 paths (~15 s).
 uv run scripts/scan-darwin-cache.py --limit 100 \
   --state smoke.db --out smoke.jsonl
-
-# Aggregate the JSONL into the reports.
-uv run scripts/aggregate-scan.py full.jsonl \
-  --out REPORT.md --summary-json summary.json --failing-csv failing.csv
-
-# Cross-validate every flagged failure against Apple codesign semantics.
-# Needs nix profile install nixpkgs#rcodesign on Linux.
-uv run scripts/verify-failures.py \
-  --failing-csv failing.csv --jsonl full.jsonl \
-  --out verify-results.jsonl --summary verify-summary.md
 ```
 
 ## Scope notes
 
-- **Channel scanned**: `nixpkgs-25.11-darwin`.
+- **Channels scanned**: both `nixpkgs-25.11-darwin` (stable) and `nixpkgs-unstable`, in parallel.
 - **Lower bound, not a census**: the scan flags packages whose *currently cached build* has a mismatch. The bug is state-dependent on the Hydra worker that built each output. Packages with the structural setup for the bug (multi-output, binaries embedding `$out` or sibling store paths — `zsh`, `git`, `bash`, `curl`, etc.) are all at risk even if they don't appear in the current list; they just happened not to trigger the rewrite on their latest Hydra build.
 - **What the scanner catches**: page-hash mismatches in the SHA-256 CodeDirectory, plus structural signature errors (`LC_CODE_SIGNATURE` payload OOB, etc.). Detection is conservative and agnostic to the `linker-signed` flag — both `ld -adhoc_codesign` and `codesign -f -s -` outputs fall out cleanly.
 - **What the scanner correctly skips**: Java `.class` files (share `0xcafebabe` magic with Mach-O fat headers), PPC big-endian legacy binaries, unsigned Mach-O, all Linux ELFs. Non-coverage gaps.
