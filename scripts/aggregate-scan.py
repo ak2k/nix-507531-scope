@@ -61,6 +61,38 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 
 
+def classify_signature(s: dict) -> str:
+    """Classify a failing slice by its SuperBlob shape. Requires scanner
+    output from 2026-04-18 or later (fields `cms_blob_length`,
+    `has_entitlements`, `has_entitlements_der`). Older scans lack these
+    fields and will always land in "unknown".
+
+    Returns one of:
+      * "L"         — linker-signed ad-hoc; no CMS slot. The helper FIXES.
+      * "C2"        — codesign ad-hoc; empty 8 B CMS wrapper, no Entitlements.
+                      Helper FIXES.
+      * "B7-empty"  — ad-hoc with Entitlements + empty CMS wrapper
+                      (e.g. self-signed tools). Helper FIXES.
+      * "B7-real"   — embedded PKCS#7 payload (Developer ID / App Store).
+                      Helper SKIPS (the signer's cdhash commitment would
+                      otherwise be invalidated).
+      * "unknown"   — pre-enrichment scanner output, or a class we don't
+                      recognize yet.
+    """
+    cms = s.get("cms_blob_length")
+    if cms is None:
+        return "unknown"
+    if s.get("linker_signed"):
+        return "L"
+    if cms > 8:
+        return "B7-real"
+    if cms == 8 and s.get("has_entitlements") and s.get("has_entitlements_der"):
+        return "B7-empty"
+    if cms == 8:
+        return "C2"
+    return "unknown"
+
+
 def classify_slice(s: dict) -> str:
     """Return one of: page_hash_mismatch, other_sig_invalid, not_real_macho,
     unsigned, clean, scanner_error."""
@@ -121,6 +153,7 @@ def aggregate(input_path: Path):
         collections.Counter
     )
     linker_vs_codesign = collections.Counter()  # for page_hash_mismatch slices
+    buckets_by_signature_class = collections.Counter()  # for page_hash_mismatch slices
 
     # Fat vs thin split (both for all slices, and for failing slices only)
     buckets_by_kind: dict[str, collections.Counter] = collections.defaultdict(
@@ -162,6 +195,8 @@ def aggregate(input_path: Path):
                     "linker_signed" if s.get("linker_signed") else "codesign_signed"
                 ] += 1
                 pkg_page_hash[sp] += 1
+                sig_class = classify_signature(s)
+                buckets_by_signature_class[sig_class] += 1
                 failing_rows.append(
                     {
                         "store_path": sp,
@@ -176,6 +211,13 @@ def aggregate(input_path: Path):
                         "n_mismatches": s.get("n_mismatches"),
                         "first_bad_page": s.get("first_bad_page"),
                         "first_bad_offset": s.get("first_bad_offset"),
+                        # Enriched fields (scanner 2026-04-18+); "" on older scans.
+                        "fat_variant": s.get("fat_variant", ""),
+                        "cms_blob_length": s.get("cms_blob_length", ""),
+                        "has_entitlements": s.get("has_entitlements", ""),
+                        "has_entitlements_der": s.get("has_entitlements_der", ""),
+                        "n_alternate_cds": len(s.get("alternate_cds", []) or []),
+                        "signature_class": sig_class,
                     }
                 )
             elif b == "other_sig_invalid":
@@ -205,6 +247,7 @@ def aggregate(input_path: Path):
         "fat_packages": len(fat_packages),
         "fat_failing_packages": len(fat_failing_packages),
         "linker_vs_codesign": dict(linker_vs_codesign),
+        "buckets_by_signature_class": dict(buckets_by_signature_class),
         "pkg_page_hash": pkg_page_hash,
         "pkg_other_sig": pkg_other_sig,
         "failing_rows": failing_rows,
@@ -486,6 +529,7 @@ def build_summary(agg: dict, channel_label: str) -> dict:
             "slices": buckets.get("page_hash_mismatch", 0),
             "packages": len(agg["pkg_page_hash"]),
             "by_signer": agg["linker_vs_codesign"],
+            "by_signature_class": agg["buckets_by_signature_class"],
         },
         "other_sig_invalid": {
             "slices": buckets.get("other_sig_invalid", 0),
@@ -521,6 +565,13 @@ def write_failing_csv(path: Path, rows: list[dict]) -> None:
         "n_mismatches",
         "first_bad_page",
         "first_bad_offset",
+        # Enriched (scanner 2026-04-18+); blank on older scans.
+        "fat_variant",
+        "cms_blob_length",
+        "has_entitlements",
+        "has_entitlements_der",
+        "n_alternate_cds",
+        "signature_class",
     ]
     with path.open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
