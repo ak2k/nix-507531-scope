@@ -4,5 +4,6 @@
   "distinct_dependent_packages": 0,
   "distinct_seed_dylibs": 48,
   "by_seed_package": {},
-  "dependent_packages": []
+  "dependent_packages": [],
+  "dependents_by_package": {}
 }

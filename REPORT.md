@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-04-20 07:47:37 UTC
+Generated: 2026-04-20 11:18:35 UTC
 
 Daily scan across both darwin channels of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -15,7 +15,7 @@ The bug's effect surfaces in three distinguishable ways, in order of decreasing 
 | Tier| stable | unstable | Union |
 |---|---:|---:|---:|
 | **1. Direct failure** (slices) | 65 | 53 | 118 |
-| &emsp;↳ distinct packages | 19 | 16 | 35 |
+| &emsp;↳ distinct packages | 19 | 16 | 20 |
 | **3. Build-time dependent** (packages, default view) | 11 | 1 | 12 |
 
 ## Canonical examples
@@ -43,6 +43,45 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 | ad-hoc with Entitlements + empty CMS wrapper | 0 | 1 | 1 |
 | Developer-ID-signed (non-empty CMS payload) | 0 | 2 | 2 |
 | **Total** | **65** | **53** | **118** |
+
+## Affected packages
+
+Flat alphabetical list of every package implicated by any tier, across both channels. A package may appear on multiple rows if it hits more than one tier (e.g. `ffmpeg-8.0-lib` is directly broken AND its dylibs are load-time-linked by other packages).
+
+| Package | Type | Channel(s) | Seeded by |
+|---|---|---|---|
+| `Agda-2.8.0` | direct | stable | — |
+| `Agda-2.8.0-bin` | direct | stable | — |
+| `agda2hs-1.4` | build-time transitive | stable | `Agda-2.8.0` |
+| `arion-0.2.2.0` | direct | stable | — |
+| `avalonia-ilspy-7.2-rc` | direct | stable, unstable | — |
+| `bat-extras-2024.08.24-unstable-2025-02-22` | build-time transitive | stable | `fish-4.2.1` |
+| `batdiff-2024.08.24-unstable-2025-02-22` | build-time transitive | stable | `fish-4.2.1` |
+| `batman-2024.08.24-unstable-2025-02-22` | build-time transitive | stable | `fish-4.2.1` |
+| `batpipe-2024.08.24-unstable-2025-02-22` | build-time transitive | stable | `fish-4.2.1` |
+| `batwatch-2024.08.24-unstable-2025-02-22` | build-time transitive | stable | `fish-4.2.1` |
+| `direnv-2.37.1` | build-time transitive | stable | `fish-4.2.1` |
+| `esy-0.8.0` | direct | stable | — |
+| `ffmpeg-8.0-bin` | direct | stable | — |
+| `ffmpeg-8.0-lib` | direct | stable | — |
+| `filen-cli-0.0.36` | direct | unstable | — |
+| `fish-4.2.1` | direct | stable | — |
+| `fish-lsp-1.0.10` | build-time transitive | stable | `fish-4.2.1` |
+| `HCL-1.9` | direct | stable | — |
+| `httptoolkit-1.24.4` | direct | stable, unstable | — |
+| `kitty-0.44.0` | build-time transitive | stable | `fish-4.2.1` |
+| `libtorch-2.9.0` | direct | stable, unstable | — |
+| `oh-my-fish-unstable-2022-03-27` | build-time transitive | stable | `fish-4.2.1` |
+| `opencode-1.4.6` | direct | unstable | — |
+| `prettybat-2024.08.24-unstable-2025-02-22` | build-time transitive | stable | `fish-4.2.1` |
+| `rimgo-1.4.1` | build-time transitive | unstable | `tailwindcss_4-4.2.2` |
+| `shogihome-1.27.0` | direct | stable, unstable | — |
+| `swift-5.10.1` | direct | stable, unstable | — |
+| `swift-5.10.1-lib` | direct | stable, unstable | — |
+| `tailwindcss_4-4.1.18` | direct | stable | — |
+| `tailwindcss_4-4.2.2` | direct | unstable | — |
+| `teams-for-linux-2.8.0` | direct | stable, unstable | — |
+| `vscode-extension-kilocode-Kilo-Code-7.2.0` | direct | unstable | — |
 
 ## Drill-downs
 

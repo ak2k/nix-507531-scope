@@ -69,7 +69,7 @@
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-04-20 07:34:51 UTC",
+  "generated_at": "2026-04-20 11:06:02 UTC",
   "other_sig_invalid": {
     "packages": 2,
     "slices": 4
@@ -86,6 +86,19 @@
       "linker_signed": 7
     },
     "packages": 16,
+    "packages_list": [
+      "avalonia-ilspy-7.2-rc",
+      "filen-cli-0.0.36",
+      "httptoolkit-1.24.4",
+      "libtorch-2.9.0",
+      "opencode-1.4.6",
+      "shogihome-1.27.0",
+      "swift-5.10.1",
+      "swift-5.10.1-lib",
+      "tailwindcss_4-4.2.2",
+      "teams-for-linux-2.8.0",
+      "vscode-extension-kilocode-Kilo-Code-7.2.0"
+    ],
     "slices": 53
   },
   "paths_by_status": {

@@ -85,6 +85,41 @@
           "kitty",
           "oh-my-fish"
         ],
+        "dependents_by_pkg_default_view": {
+          "agda2hs-1.4": [
+            "Agda-2.8.0"
+          ],
+          "bat-extras-2024.08.24-unstable-2025-02-22": [
+            "fish-4.2.1"
+          ],
+          "batdiff-2024.08.24-unstable-2025-02-22": [
+            "fish-4.2.1"
+          ],
+          "batman-2024.08.24-unstable-2025-02-22": [
+            "fish-4.2.1"
+          ],
+          "batpipe-2024.08.24-unstable-2025-02-22": [
+            "fish-4.2.1"
+          ],
+          "batwatch-2024.08.24-unstable-2025-02-22": [
+            "fish-4.2.1"
+          ],
+          "direnv-2.37.1": [
+            "fish-4.2.1"
+          ],
+          "fish-lsp-1.0.10": [
+            "fish-4.2.1"
+          ],
+          "kitty-0.44.0": [
+            "fish-4.2.1"
+          ],
+          "oh-my-fish-unstable-2022-03-27": [
+            "fish-4.2.1"
+          ],
+          "prettybat-2024.08.24-unstable-2025-02-22": [
+            "fish-4.2.1"
+          ]
+        },
         "distinct_dependent_attrs_default_view": 11,
         "distinct_seeds": 19,
         "edge_filter_default": [
@@ -103,10 +138,11 @@
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-20 07:35:31 UTC",
+      "generated_at": "2026-04-20 11:06:06 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
+        "dependents_by_package": {},
         "distinct_binaries": 0,
         "distinct_dependent_packages": 0,
         "distinct_seed_dylibs": 48,
@@ -126,6 +162,24 @@
           "linker_signed": 22
         },
         "packages": 19,
+        "packages_list": [
+          "Agda-2.8.0",
+          "Agda-2.8.0-bin",
+          "HCL-1.9",
+          "arion-0.2.2.0",
+          "avalonia-ilspy-7.2-rc",
+          "esy-0.8.0",
+          "ffmpeg-8.0-bin",
+          "ffmpeg-8.0-lib",
+          "fish-4.2.1",
+          "httptoolkit-1.24.4",
+          "libtorch-2.9.0",
+          "shogihome-1.27.0",
+          "swift-5.10.1",
+          "swift-5.10.1-lib",
+          "tailwindcss_4-4.1.18",
+          "teams-for-linux-2.8.0"
+        ],
         "slices": 65
       },
       "paths_by_status": {
@@ -224,6 +278,11 @@
         "dependent_attrs_default_view": [
           "rimgo"
         ],
+        "dependents_by_pkg_default_view": {
+          "rimgo-1.4.1": [
+            "tailwindcss_4-4.2.2"
+          ]
+        },
         "distinct_dependent_attrs_default_view": 1,
         "distinct_seeds": 16,
         "edge_filter_default": [
@@ -242,10 +301,11 @@
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-20 07:34:51 UTC",
+      "generated_at": "2026-04-20 11:06:02 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
+        "dependents_by_package": {},
         "distinct_binaries": 0,
         "distinct_dependent_packages": 0,
         "distinct_seed_dylibs": 40,
@@ -267,6 +327,19 @@
           "linker_signed": 7
         },
         "packages": 16,
+        "packages_list": [
+          "avalonia-ilspy-7.2-rc",
+          "filen-cli-0.0.36",
+          "httptoolkit-1.24.4",
+          "libtorch-2.9.0",
+          "opencode-1.4.6",
+          "shogihome-1.27.0",
+          "swift-5.10.1",
+          "swift-5.10.1-lib",
+          "tailwindcss_4-4.2.2",
+          "teams-for-linux-2.8.0",
+          "vscode-extension-kilocode-Kilo-Code-7.2.0"
+        ],
         "slices": 53
       },
       "paths_by_status": {
@@ -292,7 +365,7 @@
       "slices_total": 286182
     }
   },
-  "generated_at": "2026-04-20 07:47:37 UTC",
+  "generated_at": "2026-04-20 11:18:35 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 1,

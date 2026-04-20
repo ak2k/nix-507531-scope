@@ -68,7 +68,7 @@
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-04-20 07:35:31 UTC",
+  "generated_at": "2026-04-20 11:06:06 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 1
@@ -83,6 +83,24 @@
       "linker_signed": 22
     },
     "packages": 19,
+    "packages_list": [
+      "Agda-2.8.0",
+      "Agda-2.8.0-bin",
+      "HCL-1.9",
+      "arion-0.2.2.0",
+      "avalonia-ilspy-7.2-rc",
+      "esy-0.8.0",
+      "ffmpeg-8.0-bin",
+      "ffmpeg-8.0-lib",
+      "fish-4.2.1",
+      "httptoolkit-1.24.4",
+      "libtorch-2.9.0",
+      "shogihome-1.27.0",
+      "swift-5.10.1",
+      "swift-5.10.1-lib",
+      "tailwindcss_4-4.1.18",
+      "teams-for-linux-2.8.0"
+    ],
     "slices": 65
   },
   "paths_by_status": {

@@ -17,5 +17,10 @@
   },
   "dependent_attrs_default_view": [
     "rimgo"
-  ]
+  ],
+  "dependents_by_pkg_default_view": {
+    "rimgo-1.4.1": [
+      "tailwindcss_4-4.2.2"
+    ]
+  }
 }

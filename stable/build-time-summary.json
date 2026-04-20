@@ -29,5 +29,40 @@
     "haskellPackages.agda2hs",
     "kitty",
     "oh-my-fish"
-  ]
+  ],
+  "dependents_by_pkg_default_view": {
+    "agda2hs-1.4": [
+      "Agda-2.8.0"
+    ],
+    "bat-extras-2024.08.24-unstable-2025-02-22": [
+      "fish-4.2.1"
+    ],
+    "batdiff-2024.08.24-unstable-2025-02-22": [
+      "fish-4.2.1"
+    ],
+    "batman-2024.08.24-unstable-2025-02-22": [
+      "fish-4.2.1"
+    ],
+    "batpipe-2024.08.24-unstable-2025-02-22": [
+      "fish-4.2.1"
+    ],
+    "batwatch-2024.08.24-unstable-2025-02-22": [
+      "fish-4.2.1"
+    ],
+    "direnv-2.37.1": [
+      "fish-4.2.1"
+    ],
+    "fish-lsp-1.0.10": [
+      "fish-4.2.1"
+    ],
+    "kitty-0.44.0": [
+      "fish-4.2.1"
+    ],
+    "oh-my-fish-unstable-2022-03-27": [
+      "fish-4.2.1"
+    ],
+    "prettybat-2024.08.24-unstable-2025-02-22": [
+      "fish-4.2.1"
+    ]
+  }
 }
