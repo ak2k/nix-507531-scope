@@ -100,11 +100,17 @@ jobs:
             ${{ matrix.channel.label }}/full.db-shm
             ${{ matrix.channel.label }}/full.db-wal
             ${{ matrix.channel.label }}/full.jsonl
-          key: scan-state-${{ matrix.channel.label }}-${{ github.run_id }}
-          # Per-channel prefix: a stable-leg restore can never pick up an
-          # unstable-leg save by accident.
+          # The per-run-id suffix forces a fresh save slot each run.
+          # The restore-key prefix is scoped to (channel, scanner code
+          # hash) so scanner-script changes invalidate the cache — a
+          # state DB recorded by an older scanner marks all paths
+          # "already scanned" and skips them, leaving the JSONL missing
+          # whatever fields the newer scanner was supposed to capture
+          # (learned the hard way: LC_LOAD_DYLIB capture silently went
+          # missing from a cached-state run).
+          key: scan-state-${{ matrix.channel.label }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-${{ github.run_id }}
           restore-keys: |
-            scan-state-${{ matrix.channel.label }}-
+            scan-state-${{ matrix.channel.label }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-
 
       - name: Channel metadata
         id: channel
