@@ -1,0 +1,21 @@
+{
+  "total_rows": 1,
+  "rows_in_default_view": 1,
+  "distinct_dependent_attrs_default_view": 1,
+  "distinct_seeds": 16,
+  "edge_filter_default": [
+    "buildInputs",
+    "checkInputs",
+    "nativeBuildInputs",
+    "nativeCheckInputs"
+  ],
+  "by_edge_kind_default_view": {
+    "nativeBuildInputs": 1
+  },
+  "by_seed_default_view": {
+    "tailwindcss_4-4.2.2": 1
+  },
+  "dependent_attrs_default_view": [
+    "rimgo"
+  ]
+}

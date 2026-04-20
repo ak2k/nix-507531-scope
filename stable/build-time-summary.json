@@ -1,0 +1,33 @@
+{
+  "total_rows": 11,
+  "rows_in_default_view": 11,
+  "distinct_dependent_attrs_default_view": 11,
+  "distinct_seeds": 19,
+  "edge_filter_default": [
+    "buildInputs",
+    "checkInputs",
+    "nativeBuildInputs",
+    "nativeCheckInputs"
+  ],
+  "by_edge_kind_default_view": {
+    "nativeBuildInputs": 9,
+    "buildInputs": 2
+  },
+  "by_seed_default_view": {
+    "fish-4.2.1": 10,
+    "Agda-2.8.0": 1
+  },
+  "dependent_attrs_default_view": [
+    "bat-extras.batdiff",
+    "bat-extras.batman",
+    "bat-extras.batpipe",
+    "bat-extras.batwatch",
+    "bat-extras.core",
+    "bat-extras.prettybat",
+    "direnv",
+    "fish-lsp",
+    "haskellPackages.agda2hs",
+    "kitty",
+    "oh-my-fish"
+  ]
+}
