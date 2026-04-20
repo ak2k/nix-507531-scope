@@ -61,24 +61,44 @@ def sum_by_class(channels: list[dict]) -> dict[str, int]:
     return out
 
 
+import re as _re
+
+# Strip the `-unstable-YYYY-MM-DD` tail that nixpkgs appends to
+# packages pinned to a post-release commit (e.g. `batman-2024.08.24-
+# unstable-2025-02-22` → `batman-2024.08.24`). The suffix is packaging
+# metadata — the nixpkgs pin date — not a semantic version. Keeping it
+# in the flat table makes rows unscannable; the full form is preserved
+# in the per-tier CSV drill-downs for anyone who needs it.
+_UNSTABLE_SUFFIX = _re.compile(r"-unstable-\d{4}-\d{2}-\d{2}$")
+
+
+def _strip_unstable_suffix(pkg: str) -> str:
+    return _UNSTABLE_SUFFIX.sub("", pkg)
+
+
 def render_affected_packages_rows(channels: list[dict]) -> list[dict]:
     """Flat alphabetical (package, tier) row list across channels.
 
     Keys emitted per row: `package`, `tier` (one of "direct" / "load-time
     transitive" / "build-time transitive"), `channels` (comma-joined),
     `seeded_by` (comma-joined seed package names, or "—" for direct).
+
+    Package names are normalised: the `-unstable-YYYY-MM-DD` pin-date tail
+    is stripped so readers scan `batman-2024.08.24` rather than the raw
+    nixpkgs form.
     """
     # Triple-keyed accumulator: {(package, tier): {"channels": set[str],
     # "seeds": set[str]}}
     entries: dict[tuple[str, str], dict] = {}
 
     def bump(pkg: str, tier: str, channel: str, seeds: list[str]) -> None:
+        pkg = _strip_unstable_suffix(pkg)
         key = (pkg, tier)
         e = entries.setdefault(key, {"channels": set(), "seeds": set()})
         e["channels"].add(channel)
         for s in seeds:
             if s:
-                e["seeds"].add(s)
+                e["seeds"].add(_strip_unstable_suffix(s))
 
     for ch in channels:
         label = ch["label"]
