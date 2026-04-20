@@ -518,6 +518,12 @@ def render_markdown(agg: dict, channel_label: str) -> str:
 
 def build_summary(agg: dict, channel_label: str) -> dict:
     buckets = agg["buckets"]
+    # Tier 1 package names (versioned, from the store-path basename).
+    # Used downstream by combine-reports.py to render the flat Affected-
+    # packages table. Sorted + deduplicated by package name.
+    direct_package_names = sorted(
+        {_pkg_name(sp) for sp in agg["pkg_page_hash"]}
+    )
     return {
         "channel_label": channel_label,
         "generated_at": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
@@ -530,6 +536,7 @@ def build_summary(agg: dict, channel_label: str) -> dict:
         "page_hash_mismatch": {
             "slices": buckets.get("page_hash_mismatch", 0),
             "packages": len(agg["pkg_page_hash"]),
+            "packages_list": direct_package_names,
             "by_signer": agg["linker_vs_codesign"],
             "by_signature_class": agg["buckets_by_signature_class"],
         },

@@ -61,6 +61,70 @@ def sum_by_class(channels: list[dict]) -> dict[str, int]:
     return out
 
 
+def render_affected_packages_rows(channels: list[dict]) -> list[dict]:
+    """Flat alphabetical (package, tier) row list across channels.
+
+    Keys emitted per row: `package`, `tier` (one of "direct" / "load-time
+    transitive" / "build-time transitive"), `channels` (comma-joined),
+    `seeded_by` (comma-joined seed package names, or "—" for direct).
+    """
+    # Triple-keyed accumulator: {(package, tier): {"channels": set[str],
+    # "seeds": set[str]}}
+    entries: dict[tuple[str, str], dict] = {}
+
+    def bump(pkg: str, tier: str, channel: str, seeds: list[str]) -> None:
+        key = (pkg, tier)
+        e = entries.setdefault(key, {"channels": set(), "seeds": set()})
+        e["channels"].add(channel)
+        for s in seeds:
+            if s:
+                e["seeds"].add(s)
+
+    for ch in channels:
+        label = ch["label"]
+        data = ch["data"]
+
+        # Tier 1 (direct): `page_hash_mismatch.packages_list`.
+        for pkg in (data.get("page_hash_mismatch") or {}).get("packages_list", []):
+            bump(pkg, "direct", label, [])
+
+        # Tier 2 (load-time): `tier2_summary.dependents_by_package`.
+        t2 = ch.get("tier2_summary") or {}
+        for pkg, seeds in (t2.get("dependents_by_package") or {}).items():
+            bump(pkg, "load-time transitive", label, list(seeds))
+
+        # Tier 3 (build-time, default view only): `tier3_summary.
+        # dependents_by_pkg_default_view`.
+        t3 = ch.get("tier3_summary") or {}
+        for pkg, seeds in (t3.get("dependents_by_pkg_default_view") or {}).items():
+            bump(pkg, "build-time transitive", label, list(seeds))
+
+    # Order: alphabetical by package (case-insensitive), then
+    # direct-before-load-time-before-build-time so multi-tier packages
+    # read naturally top-to-bottom.
+    TIER_ORDER = {"direct": 0, "load-time transitive": 1, "build-time transitive": 2}
+    ordered = sorted(
+        entries.items(),
+        key=lambda kv: (kv[0][0].lower(), TIER_ORDER.get(kv[0][1], 99)),
+    )
+
+    out: list[dict] = []
+    for (pkg, tier), e in ordered:
+        channels_str = ", ".join(sorted(e["channels"]))
+        seeds_str = (
+            ", ".join(f"`{s}`" for s in sorted(e["seeds"])) if e["seeds"] else "—"
+        )
+        out.append(
+            {
+                "package": pkg,
+                "tier": tier,
+                "channels": channels_str,
+                "seeded_by": seeds_str,
+            }
+        )
+    return out
+
+
 def render_markdown(channels: list[dict]) -> str:
     lines: list[str] = []
     lines.append("# NixOS/nixpkgs#507531 darwin Mach-O page-hash scope")
@@ -273,6 +337,25 @@ def render_markdown(channels: list[dict]) -> str:
         + " | ".join(f"**{n}**" for n in totals)
         + f" | **{grand_total}** |"
     )
+    lines.append("")
+
+    # ------------------------------------------------------ affected packages
+    lines.append("## Affected packages")
+    lines.append("")
+    lines.append(
+        "Flat alphabetical list of every package implicated by any tier, "
+        "across both channels. A package may appear on multiple rows if it "
+        "hits more than one tier (e.g. `ffmpeg-8.0-lib` is directly broken "
+        "AND its dylibs are load-time-linked by other packages)."
+    )
+    lines.append("")
+    lines.append("| Package | Type | Channel(s) | Seeded by |")
+    lines.append("|---|---|---|---|")
+    for row in render_affected_packages_rows(channels):
+        lines.append(
+            f"| `{row['package']}` | {row['tier']} | {row['channels']} | "
+            f"{row['seeded_by']} |"
+        )
     lines.append("")
 
     # ------------------------------------------------------------- drill-downs

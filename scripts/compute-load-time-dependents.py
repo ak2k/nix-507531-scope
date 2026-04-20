@@ -252,6 +252,20 @@ def compute(
                 "seed_store_path,seed_path,seed_package,seed_arch\n"
             )
 
+    # Build per-dependent → seed-packages map for the flat Affected-
+    # packages table in combine-reports.py. Each dependent package may
+    # link multiple failing dylibs; dedupe to unique seed package names.
+    dependents_by_package: dict[str, list[str]] = {}
+    for row in rows:
+        pkg = package_name(row["store_path"])
+        seed_pkg = row["seed_package"]
+        if pkg:
+            dependents_by_package.setdefault(pkg, [])
+            if seed_pkg not in dependents_by_package[pkg]:
+                dependents_by_package[pkg].append(seed_pkg)
+    for k in dependents_by_package:
+        dependents_by_package[k].sort()
+
     # Write summary JSON
     summary = {
         "total_rows": len(rows),
@@ -262,6 +276,7 @@ def compute(
             sorted(binaries_by_seed_pkg.items(), key=lambda kv: -kv[1])
         ),
         "dependent_packages": sorted(dependent_packages),
+        "dependents_by_package": dict(sorted(dependents_by_package.items())),
     }
     with out_summary.open("w") as f:
         json.dump(summary, f, indent=2, sort_keys=False)

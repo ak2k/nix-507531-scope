@@ -51,6 +51,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 from pathlib import Path
 
 
@@ -106,17 +107,25 @@ def eval_darwin_package_set(
 ) -> list[dict]:
     """Run nix-eval-jobs against `${flake}#legacyPackages.aarch64-darwin`.
 
-    Returns a list of {attr, drvPath, outputs} dicts. Attrs that failed
-    evaluation (unsupported system, broken, etc.) are dropped.
+    Returns a list of {attr, drvPath, outputs, inputDrvs} dicts. Attrs
+    that failed evaluation (unsupported system, broken, etc.) are dropped.
+
+    `--show-input-drvs` lets us enumerate each attr's direct drv-level
+    inputs in one streaming pass. Combined with the `outputs` field, we
+    can locally determine which attrs transitively depend on any failing
+    seed BEFORE calling `nix derivation show` on anything — the target-
+    count for the follow-up step shrinks from ~66k to a few hundred.
 
     `max_memory_mb` is the per-worker memory ceiling passed to
-    nix-eval-jobs as `--max-memory-size`. Tune down on small runners:
-    total ceiling = workers × max_memory_mb.
+    nix-eval-jobs as `--max-memory-size`. Total ceiling = workers ×
+    max_memory_mb. Tune down on small runners.
     """
-    # We DO want drvs instantiated (written to /nix/store), otherwise the
-    # subsequent `nix derivation show` calls fail to read them. We tried
-    # `--no-instantiate` for speed and it caused every downstream
-    # `nix derivation show` batch to fail, triggering per-drv fallbacks.
+    # Note: `--no-instantiate` is incompatible with `--show-input-drvs`.
+    # nix-eval-jobs requires drv files on disk to enumerate inputDrvs.
+    # Cache footprint is therefore identical to the pre-hybrid approach
+    # (~66k .drv files), but wall-clock time drops because the downstream
+    # `nix derivation show` step only runs on ~500 candidates instead of
+    # the full package set.
     cmd = [
         "nix-eval-jobs",
         "--flake",
@@ -125,22 +134,42 @@ def eval_darwin_package_set(
         str(workers),
         "--max-memory-size",
         str(max_memory_mb),
+        "--show-input-drvs",
     ]
     print(
         f"evaluating {flake}#legacyPackages.aarch64-darwin with {workers} workers",
         file=sys.stderr,
     )
-    # nix-eval-jobs writes progress/warnings to stderr. Sending it to
-    # DEVNULL avoids the classic two-PIPE deadlock: if we set
-    # stderr=PIPE and only drain stdout, stderr fills its buffer and
-    # nix-eval-jobs blocks on stderr write, which stalls all worker
-    # subprocesses waiting to write results back to the parent.
+    # nix-eval-jobs writes progress/warnings to stderr. We drain it in a
+    # daemon thread to (a) avoid the two-PIPE deadlock (if stderr fills
+    # the kernel buffer, nix-eval-jobs blocks on write and so do its
+    # workers), AND (b) surface nix-eval-jobs' own progress output to
+    # the user so the eval phase isn't a black box.
     proc = subprocess.Popen(
         cmd,
         stdout=subprocess.PIPE,
-        stderr=subprocess.DEVNULL,
+        stderr=subprocess.PIPE,
         text=True,
+        bufsize=1,
     )
+
+    def _drain_stderr(stream) -> None:
+        try:
+            for ln in stream:
+                # Forward to our stderr verbatim; nix-eval-jobs emits
+                # its own concise progress ("waiting for worker …",
+                # "evaluation error …") which is exactly what the user
+                # wants to see.
+                sys.stderr.write(ln)
+                sys.stderr.flush()
+        except Exception:
+            pass
+
+    drainer = threading.Thread(
+        target=_drain_stderr, args=(proc.stderr,), daemon=True
+    )
+    drainer.start()
+
     rows: list[dict] = []
     n_errors = 0
     assert proc.stdout is not None
@@ -158,15 +187,32 @@ def eval_darwin_package_set(
         drv = rec.get("drvPath")
         attr = rec.get("attr") or ".".join(rec.get("attrPath", []))
         outs = rec.get("outputs", {}) or {}
+        input_drvs = rec.get("inputDrvs", {}) or {}
         if not drv or not attr:
             continue
-        rows.append({"attr": attr, "drvPath": drv, "outputs": outs})
+        rows.append(
+            {
+                "attr": attr,
+                "drvPath": drv,
+                "outputs": outs,
+                "inputDrvs": input_drvs,
+            }
+        )
+        # Cheap streaming progress signal. nix-eval-jobs itself already
+        # emits a per-worker ticker on stderr, but this guarantees at
+        # least one line of forward-progress evidence even on silent
+        # workers or buffered-stderr environments.
+        if len(rows) % 2000 == 0:
+            print(
+                f"  evaluated {len(rows)} attrs so far ({n_errors} eval errors)",
+                file=sys.stderr,
+            )
     rc = proc.wait()
+    drainer.join(timeout=5)
     if rc != 0:
         print(
             f"nix-eval-jobs exited rc={rc}; {len(rows)} successful attrs, "
-            f"{n_errors} errors (stderr was sent to /dev/null to avoid pipe "
-            "deadlock; re-run with --debug-eval to capture it)",
+            f"{n_errors} errors",
             file=sys.stderr,
         )
     else:
@@ -335,10 +381,15 @@ def compute(
     # Index output store paths → (attr, drvPath). Every output of every attr
     # is a potential seed target.
     output_to_attr: dict[str, tuple[str, str]] = {}
+    # Reverse index: drvPath → primary output store path. Used to resolve
+    # seed store paths back to their drv paths so we can match against
+    # each attr's inputDrvs graph (which references drv paths, not outs).
+    drv_to_output: dict[str, str] = {}
     for p in pkgs:
         for out_name, out_path in (p.get("outputs") or {}).items():
             if isinstance(out_path, str) and out_path:
                 output_to_attr[out_path] = (p["attr"], p["drvPath"])
+                drv_to_output[p["drvPath"]] = out_path
 
     # Resolve failing store paths → (attr, drvPath) for reporting; some
     # failing paths may not correspond to any eval-jobs attr (e.g. a package
@@ -357,12 +408,52 @@ def compute(
             file=sys.stderr,
         )
 
-    # --- bulk derivation show ------------------------------------------------
-    top_drvs = sorted({p["drvPath"] for p in pkgs})
-    drv_json = bulk_derivation_show(top_drvs)
+    # --- resolve failing store paths → failing drv paths --------------------
+    # For the hybrid candidate filter we need failing seeds as drv paths,
+    # because nix-eval-jobs' `inputDrvs` field keys by drv path, not output
+    # store path. Invert drv_to_output to find each seed's drv.
+    seed_drvs: set[str] = set()
+    for sp in failing_store_paths:
+        for drv, out in drv_to_output.items():
+            if out == sp:
+                seed_drvs.add(drv)
+                break
+    print(
+        f"  resolved {len(seed_drvs)}/{len(failing_store_paths)} seed store "
+        f"paths to drv paths",
+        file=sys.stderr,
+    )
+
+    # --- candidate filter ----------------------------------------------------
+    # An attr is a Tier-3 candidate if any of its direct inputDrvs is a
+    # seed drv. We check this locally using the inputDrvs field already
+    # captured by `--show-input-drvs`; no nix subprocess calls yet.
+    candidates: list[dict] = []
+    for p in pkgs:
+        input_drvs = p.get("inputDrvs") or {}
+        # Across nix-eval-jobs versions, inputDrvs is either a dict
+        # `{drvPath: [output_names]}` or a plain list of drv paths.
+        if isinstance(input_drvs, dict):
+            inputs = set(input_drvs.keys())
+        elif isinstance(input_drvs, list):
+            inputs = set(input_drvs)
+        else:
+            inputs = set()
+        matched = inputs & seed_drvs
+        if matched:
+            candidates.append({**p, "matched_seed_drvs": sorted(matched)})
+    print(
+        f"  {len(candidates)} Tier-3 candidates (attrs with ≥1 inputDrv in the "
+        f"seed-drv set); running targeted derivation show on each",
+        file=sys.stderr,
+    )
+
+    # --- targeted derivation show on candidates only ------------------------
+    candidate_drvs = sorted({c["drvPath"] for c in candidates})
+    drv_json = bulk_derivation_show(candidate_drvs) if candidate_drvs else {}
 
     # --- edge matching -------------------------------------------------------
-    # For each top-level drv, inspect its env vars for any failing seed.
+    # For each candidate attr, inspect its env vars for any failing seed.
     edge_filter = (
         set(EDGE_KINDS) if include_propagated else DEFAULT_TIGHT_EDGE_KINDS
     )
@@ -371,14 +462,22 @@ def compute(
     by_edge_kind: dict[str, int] = {}
     by_seed: dict[str, int] = {}
 
-    for p in pkgs:
+    # Iterate only over candidates (attrs that referenced a seed drv in
+    # step 1); they're the only ones that can possibly match a seed env-
+    # var check. Non-candidates are guaranteed no-match.
+    for p in candidates:
         drv = p["drvPath"]
         attr = p["attr"]
         dinfo = drv_json.get(drv)
         if not dinfo:
             continue
         env = dinfo.get("env", {}) or {}
-        for seed_sp in failing_store_paths:
+        # Only check the seeds the candidate pre-matched (in step 1) —
+        # further narrows the inner loop from 19 seeds to ~1-3.
+        for seed_drv in p.get("matched_seed_drvs", []):
+            seed_sp = drv_to_output.get(seed_drv, "")
+            if not seed_sp or seed_sp not in failing_store_paths:
+                continue
             edge = classify_edge(env, seed_sp)
             if edge is None:
                 continue
@@ -422,6 +521,23 @@ def compute(
         w.writeheader()
         w.writerows(rows)
 
+    # Build per-dependent package lookup for the flat Affected-packages
+    # table in combine-reports.py. For each default-view row, record the
+    # dependent's versioned package name (from the drv name attr — more
+    # table-friendly than the bare attr), together with the seed package
+    # names it references. Multi-hit dedupes seeds per dependent.
+    dependents_by_pkg_default_view: dict[str, list[str]] = {}
+    for r in rows:
+        if not r["in_default_view"]:
+            continue
+        dep_pkg = r["dependent_pkg"] or r["dependent_attr"]
+        seed_pkg = r["seed_pkg"]
+        dependents_by_pkg_default_view.setdefault(dep_pkg, [])
+        if seed_pkg and seed_pkg not in dependents_by_pkg_default_view[dep_pkg]:
+            dependents_by_pkg_default_view[dep_pkg].append(seed_pkg)
+    for k in dependents_by_pkg_default_view:
+        dependents_by_pkg_default_view[k].sort()
+
     summary = {
         "total_rows": len(rows),
         "rows_in_default_view": sum(1 for r in rows if r["in_default_view"]),
@@ -438,6 +554,9 @@ def compute(
             )
         ),
         "dependent_attrs_default_view": sorted(dependent_attrs),
+        "dependents_by_pkg_default_view": dict(
+            sorted(dependents_by_pkg_default_view.items())
+        ),
     }
     with out_summary.open("w") as f:
         json.dump(summary, f, indent=2, sort_keys=False)
