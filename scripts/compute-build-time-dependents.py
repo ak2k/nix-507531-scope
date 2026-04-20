@@ -181,16 +181,33 @@ def chunks(seq: list, n: int):
         yield seq[i : i + n]
 
 
+def _merge_derivation_json(raw: dict, out: dict[str, dict]) -> None:
+    """Merge `nix derivation show` JSON into `out` keyed by full drv path.
+
+    Nix 2.19+ wraps output as `{"derivations": {...}, "version": N}` where
+    the inner keys may be either full `/nix/store/...drv` paths or bare
+    basenames depending on the version. Normalise to full paths.
+    """
+    derivs = raw.get("derivations") if isinstance(raw, dict) else None
+    if not isinstance(derivs, dict):
+        # Older nix: raw is the flat derivation map directly.
+        derivs = raw
+    for k, v in derivs.items():
+        if k.startswith("/nix/store/"):
+            out[k] = v
+        else:
+            out[f"/nix/store/{k}"] = v
+
+
 def bulk_derivation_show(
     drv_paths: list[str], chunk_size: int = 500
 ) -> dict[str, dict]:
-    """Call `nix derivation show <drv>...` in chunks. Returns merged JSON.
+    """Call `nix derivation show <drv>...` in chunks. Returns merged JSON
+    keyed by full drv path.
 
-    nix derivation show emits one top-level JSON object keyed by drv path.
-    It MAY exit non-zero if one drv in the batch fails, but the stdout
-    still contains valid JSON for the successful ones — we parse what we
-    can from stdout regardless of exit code. Only fall back to single-drv
-    retries if stdout is unparseable as JSON.
+    `nix derivation show` wraps output in `{"derivations": {...}, "version": N}`.
+    MAY exit non-zero if one drv in the batch fails, but stdout still
+    contains valid JSON for successes — we parse regardless of exit code.
     """
     out: dict[str, dict] = {}
     total = len(drv_paths)
@@ -213,7 +230,7 @@ def bulk_derivation_show(
         parsed = False
         if result.stdout:
             try:
-                out.update(json.loads(result.stdout))
+                _merge_derivation_json(json.loads(result.stdout), out)
                 parsed = True
             except json.JSONDecodeError:
                 pass
@@ -231,7 +248,7 @@ def bulk_derivation_show(
                     )
                     if r.stdout:
                         try:
-                            out.update(json.loads(r.stdout))
+                            _merge_derivation_json(json.loads(r.stdout), out)
                         except json.JSONDecodeError:
                             pass
                 except subprocess.TimeoutExpired:
