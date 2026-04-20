@@ -107,8 +107,10 @@ def eval_darwin_package_set(flake: str, workers: int = 8) -> list[dict]:
     Returns a list of {attr, drvPath, outputs} dicts. Attrs that failed
     evaluation (unsupported system, broken, etc.) are dropped.
     """
-    # --no-instantiate: we want drv paths and env metadata only, not the
-    # drvs themselves written to /nix/store.
+    # We DO want drvs instantiated (written to /nix/store), otherwise the
+    # subsequent `nix derivation show` calls fail to read them. We tried
+    # `--no-instantiate` for speed and it caused every downstream
+    # `nix derivation show` batch to fail, triggering per-drv fallbacks.
     cmd = [
         "nix-eval-jobs",
         "--flake",
@@ -117,7 +119,6 @@ def eval_darwin_package_set(flake: str, workers: int = 8) -> list[dict]:
         str(workers),
         "--max-memory-size",
         "8192",
-        "--no-instantiate",
     ]
     print(
         f"evaluating {flake}#legacyPackages.aarch64-darwin with {workers} workers",
