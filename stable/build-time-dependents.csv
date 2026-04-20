@@ -1,10 +1,10 @@
 dependent_attr,dependent_drv,dependent_pkg,seed_store_path,seed_attr,seed_pkg,edge_kind,in_default_view
+bat-extras.batdiff,/nix/store/ag90zk8ghp7rah3m68iqz04snf5d2cf5-batdiff-2024.08.24-unstable-2025-02-22.drv,batdiff-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.batman,/nix/store/3vv3hh21nisip9dxykifwpx8p9smli34-batman-2024.08.24-unstable-2025-02-22.drv,batman-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.batpipe,/nix/store/ik7wa6iq06xjnbn5wzy2njq9hh0zhrk5-batpipe-2024.08.24-unstable-2025-02-22.drv,batpipe-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.batwatch,/nix/store/b5dn1v794a7cqf6yzmdw1xyi9gin8b8i-batwatch-2024.08.24-unstable-2025-02-22.drv,batwatch-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.core,/nix/store/sincg19bn9gj00mnc3b3nqpwjvawm6zp-bat-extras-2024.08.24-unstable-2025-02-22.drv,bat-extras-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.prettybat,/nix/store/zzxvjky4qwy8l0xwsswhsh48g25swk2m-prettybat-2024.08.24-unstable-2025-02-22.drv,prettybat-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
-bat-extras.batdiff,/nix/store/ag90zk8ghp7rah3m68iqz04snf5d2cf5-batdiff-2024.08.24-unstable-2025-02-22.drv,batdiff-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 direnv,/nix/store/yqx9bl0yanbwyq6xbs0yfri8zkirm2l1-direnv-2.37.1.drv,direnv-2.37.1,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 fish-lsp,/nix/store/m822d7i5clh9wa73aw9d4fcaryy2svc1-fish-lsp-1.0.10.drv,fish-lsp-1.0.10,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 haskellPackages.agda2hs,/nix/store/vykdp0cq5q57xqyx9rgknn83dsay1bck-agda2hs-1.4.drv,agda2hs-1.4,/nix/store/45cc6ms1las7q0dxy7yfipnpxi5hz428-Agda-2.8.0,haskellPackages.Agda,Agda-2.8.0,buildInputs,True
