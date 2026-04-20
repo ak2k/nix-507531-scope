@@ -101,11 +101,17 @@ def ensure_tool(name: str) -> None:
 # ---------------------------------------------------------------------------
 
 
-def eval_darwin_package_set(flake: str, workers: int = 8) -> list[dict]:
+def eval_darwin_package_set(
+    flake: str, workers: int = 8, max_memory_mb: int = 4096
+) -> list[dict]:
     """Run nix-eval-jobs against `${flake}#legacyPackages.aarch64-darwin`.
 
     Returns a list of {attr, drvPath, outputs} dicts. Attrs that failed
     evaluation (unsupported system, broken, etc.) are dropped.
+
+    `max_memory_mb` is the per-worker memory ceiling passed to
+    nix-eval-jobs as `--max-memory-size`. Tune down on small runners:
+    total ceiling = workers × max_memory_mb.
     """
     # We DO want drvs instantiated (written to /nix/store), otherwise the
     # subsequent `nix derivation show` calls fail to read them. We tried
@@ -118,7 +124,7 @@ def eval_darwin_package_set(flake: str, workers: int = 8) -> list[dict]:
         "--workers",
         str(workers),
         "--max-memory-size",
-        "8192",
+        str(max_memory_mb),
     ]
     print(
         f"evaluating {flake}#legacyPackages.aarch64-darwin with {workers} workers",
@@ -301,6 +307,7 @@ def compute(
     out_csv: Path,
     out_summary: Path,
     eval_workers: int,
+    nix_eval_max_memory: int,
     include_propagated: bool,
 ) -> None:
     ensure_tool("nix")
@@ -319,7 +326,9 @@ def compute(
     )
 
     # --- package set ---------------------------------------------------------
-    pkgs = eval_darwin_package_set(flake, workers=eval_workers)
+    pkgs = eval_darwin_package_set(
+        flake, workers=eval_workers, max_memory_mb=nix_eval_max_memory
+    )
     if not pkgs:
         sys.exit("nix-eval-jobs returned no packages; cannot compute Tier 3")
 
@@ -558,6 +567,15 @@ def main(argv: list[str]) -> int:
     )
     p.add_argument("--eval-workers", type=int, default=8)
     p.add_argument(
+        "--nix-eval-max-memory",
+        type=int,
+        default=4096,
+        help="Per-worker --max-memory-size passed to nix-eval-jobs, in MB. "
+        "Total ceiling = eval-workers × nix-eval-max-memory. Default 4096 "
+        "(4 GB). Tune down on 2-vCPU / ≤8 GB runners (e.g. 3072 on "
+        "ubuntu-latest with 2 workers = 6 GB ceiling).",
+    )
+    p.add_argument(
         "--include-propagated",
         action="store_true",
         help="Include propagatedBuildInputs / propagatedNativeBuildInputs in "
@@ -576,6 +594,7 @@ def main(argv: list[str]) -> int:
         out_csv=args.out_csv,
         out_summary=args.out_summary,
         eval_workers=args.eval_workers,
+        nix_eval_max_memory=args.nix_eval_max_memory,
         include_propagated=args.include_propagated,
     )
     if args.out_section:

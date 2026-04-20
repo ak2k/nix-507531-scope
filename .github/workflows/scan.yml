@@ -146,13 +146,20 @@ jobs:
 
       - name: Compute Tier 3 build-time dependents (${{ matrix.channel.label }})
         run: |
+          # ubuntu-latest is 2 vCPU / 7 GB. Tuning for that shape:
+          # * --eval-workers 2 matches the core count (nix evaluator is
+          #   single-threaded per worker; more workers = scheduler
+          #   contention + more Boehm GC arenas).
+          # * --nix-eval-max-memory 3072: 2 workers × 3 GB = 6 GB ceiling,
+          #   leaves 1 GB for the rest of the runner.
           uv run scripts/compute-build-time-dependents.py \
             --nixpkgs-flake github:nixos/nixpkgs/${{ steps.channel.outputs.rev }} \
             --direct-failing-csv ${{ matrix.channel.label }}/direct-failing.csv \
             --out-csv ${{ matrix.channel.label }}/build-time-dependents.csv \
             --out-summary ${{ matrix.channel.label }}/build-time-summary.json \
             --out-section ${{ matrix.channel.label }}/build-time-section.md \
-            --eval-workers 6
+            --eval-workers 2 \
+            --nix-eval-max-memory 3072
 
       - name: Render channel REPORT with all tier sections (${{ matrix.channel.label }})
         run: |
