@@ -123,8 +123,16 @@ def eval_darwin_package_set(flake: str, workers: int = 8) -> list[dict]:
         f"evaluating {flake}#legacyPackages.aarch64-darwin with {workers} workers",
         file=sys.stderr,
     )
+    # nix-eval-jobs writes progress/warnings to stderr. Sending it to
+    # DEVNULL avoids the classic two-PIPE deadlock: if we set
+    # stderr=PIPE and only drain stdout, stderr fills its buffer and
+    # nix-eval-jobs blocks on stderr write, which stalls all worker
+    # subprocesses waiting to write results back to the parent.
     proc = subprocess.Popen(
-        cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        text=True,
     )
     rows: list[dict] = []
     n_errors = 0
@@ -148,10 +156,10 @@ def eval_darwin_package_set(flake: str, workers: int = 8) -> list[dict]:
         rows.append({"attr": attr, "drvPath": drv, "outputs": outs})
     rc = proc.wait()
     if rc != 0:
-        stderr_tail = (proc.stderr.read() if proc.stderr else "")[-500:]
         print(
             f"nix-eval-jobs exited rc={rc}; {len(rows)} successful attrs, "
-            f"{n_errors} errors. stderr tail:\n{stderr_tail}",
+            f"{n_errors} errors (stderr was sent to /dev/null to avoid pipe "
+            "deadlock; re-run with --debug-eval to capture it)",
             file=sys.stderr,
         )
     else:
@@ -175,7 +183,14 @@ def chunks(seq: list, n: int):
 def bulk_derivation_show(
     drv_paths: list[str], chunk_size: int = 500
 ) -> dict[str, dict]:
-    """Call `nix derivation show <drv>...` in chunks. Returns merged JSON."""
+    """Call `nix derivation show <drv>...` in chunks. Returns merged JSON.
+
+    nix derivation show emits one top-level JSON object keyed by drv path.
+    It MAY exit non-zero if one drv in the batch fails, but the stdout
+    still contains valid JSON for the successful ones — we parse what we
+    can from stdout regardless of exit code. Only fall back to single-drv
+    retries if stdout is unparseable as JSON.
+    """
     out: dict[str, dict] = {}
     total = len(drv_paths)
     done = 0
@@ -183,28 +198,52 @@ def bulk_derivation_show(
         cmd = ["nix", "derivation", "show"] + batch
         try:
             result = subprocess.run(
-                cmd, check=True, capture_output=True, text=True, timeout=300
+                cmd, capture_output=True, text=True, timeout=300
             )
-        except subprocess.CalledProcessError as e:
-            # One bad drv can tank the whole batch. Fall back to single-drv calls.
+        except subprocess.TimeoutExpired:
+            done += len(batch)
+            print(
+                f"  derivation show: {done}/{total} (batch timed out, skipped)",
+                file=sys.stderr,
+            )
+            continue
+
+        # Parse whatever valid JSON we got, regardless of exit code.
+        parsed = False
+        if result.stdout:
+            try:
+                out.update(json.loads(result.stdout))
+                parsed = True
+            except json.JSONDecodeError:
+                pass
+
+        if not parsed and result.returncode != 0:
+            # Batch output was unparseable and the call failed. Fall back
+            # to per-drv calls to salvage what we can.
             for single in batch:
                 try:
                     r = subprocess.run(
                         ["nix", "derivation", "show", single],
-                        check=True,
                         capture_output=True,
                         text=True,
                         timeout=60,
                     )
-                    out.update(json.loads(r.stdout))
-                except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
+                    if r.stdout:
+                        try:
+                            out.update(json.loads(r.stdout))
+                        except json.JSONDecodeError:
+                            pass
+                except subprocess.TimeoutExpired:
                     pass
             done += len(batch)
-            print(f"  derivation show: {done}/{total} (with retries)", file=sys.stderr)
+            print(
+                f"  derivation show: {done}/{total} (batch failed, per-drv fallback)",
+                file=sys.stderr,
+            )
             continue
-        out.update(json.loads(result.stdout))
+
         done += len(batch)
-        if done % 2000 == 0 or done == total:
+        if done % 5000 == 0 or done == total:
             print(f"  derivation show: {done}/{total}", file=sys.stderr)
     return out
 
