@@ -47,6 +47,14 @@ concurrency:
   group: scan
   cancel-in-progress: true
 
+# Silence the "Node.js 20 actions are deprecated" warnings we were
+# seeing on every step that uses actions/cache/*, actions/upload-artifact,
+# and astral-sh/setup-uv. This is GitHub's own opt-in to the Node 24
+# runtime ahead of the June 2026 default switch. Can be removed once
+# all our actions ship Node 24 natively.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   scan:
     name: scan-${{ matrix.channel }}-shard${{ matrix.shard }}of${{ matrix.total_shards }}
