@@ -2,7 +2,7 @@
   "total_rows": 11,
   "rows_in_default_view": 11,
   "distinct_dependent_attrs_default_view": 11,
-  "distinct_seeds": 19,
+  "distinct_seeds": 20,
   "edge_filter_default": [
     "buildInputs",
     "checkInputs",
