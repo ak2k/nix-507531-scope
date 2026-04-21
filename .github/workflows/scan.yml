@@ -94,7 +94,7 @@ jobs:
           fetch-depth: 1
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v8
+        uses: astral-sh/setup-uv@v8.1.0
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
@@ -187,7 +187,7 @@ jobs:
           purge-created: 604800                 # 7 days
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v8
+        uses: astral-sh/setup-uv@v8.1.0
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
@@ -309,7 +309,7 @@ jobs:
         with:
           fetch-depth: 2
 
-      - uses: astral-sh/setup-uv@v8
+      - uses: astral-sh/setup-uv@v8.1.0
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
