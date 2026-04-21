@@ -133,6 +133,26 @@ jobs:
             --out ${{ matrix.channel.label }}/full.jsonl \
             --log-level INFO
 
+      # Save scan state IMMEDIATELY after the scan completes, before any
+      # downstream analysis steps. This is specifically for the unstable
+      # channel's cold-start path on ubuntu-latest: a full cold scan takes
+      # ~5h56m, leaving <4 min for Tier 1+2+3 before GHA's 6h per-job
+      # hard timeout kills the runner. Empirically, GHA's 6h cap does NOT
+      # grant `if: always()` grace for cleanup steps — the runner is
+      # hard-killed and subsequent steps are simply not run. Saving here
+      # means a timeout in Tier 3 still preserves the fully-scanned state
+      # DB + JSONL for the next run to pick up (where Scan step restores
+      # in ~1s and the tier analyses run in ~5 min total).
+      - name: Save scanner state after scan (${{ matrix.channel.label }})
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ${{ matrix.channel.label }}/full.db
+            ${{ matrix.channel.label }}/full.db-shm
+            ${{ matrix.channel.label }}/full.db-wal
+            ${{ matrix.channel.label }}/full.jsonl
+          key: scan-state-${{ matrix.channel.label }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-${{ github.run_id }}
+
       - name: Aggregate Tier 1 (${{ matrix.channel.label }})
         run: |
           uv run scripts/aggregate-scan.py ${{ matrix.channel.label }}/full.jsonl \
@@ -184,21 +204,10 @@ jobs:
             --out ${{ matrix.channel.label }}/verify-results.jsonl \
             --summary ${{ matrix.channel.label }}/verify-summary.md
 
-      - name: Save scanner state (${{ matrix.channel.label }})
-        # Runs even on preceding-step failure so a scan that hits GHA's
-        # 6h per-job timeout still persists partial state for the next
-        # run to pick up.
-        if: always()
-        uses: actions/cache/save@v4
-        with:
-          path: |
-            ${{ matrix.channel.label }}/full.db
-            ${{ matrix.channel.label }}/full.db-shm
-            ${{ matrix.channel.label }}/full.db-wal
-            ${{ matrix.channel.label }}/full.jsonl
-          # Must match the Restore step's key structure exactly, otherwise
-          # future Restore lookups miss and every run starts cold.
-          key: scan-state-${{ matrix.channel.label }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-${{ github.run_id }}
+      # (Scanner state is now saved directly after the Scan step, before
+      # the tier analyses — moved to avoid losing 6h of scan work when a
+      # hard GHA timeout kills the runner mid-Tier-3 without running
+      # downstream `if: always()` cleanup steps.)
 
       - name: Upload outputs (${{ matrix.channel.label }})
         uses: actions/upload-artifact@v4
