@@ -1,29 +1,32 @@
 # Daily scan of darwin channels (stable + unstable) for the
 # NixOS/nixpkgs#507531 / NixOS/nix#15638 page-hash bug.
 #
+# Architecture: three jobs in sequence.
+#
+#   scan (matrix, 18 parallel jobs):
+#     * stable  split into 6 shards
+#     * unstable split into 12 shards
+#     Each shard scans paths[i] where i %% total_shards == shard_id.
+#     Wall time per shard ~25 min cold; all 18 run in parallel under
+#     GHA's 20-concurrent-runner cap. Per-shard state cached
+#     independently so a timeout in one shard doesn't leak into others.
+#
+#   analyze (matrix, 1 job per channel):
+#     * downloads all shard artifacts for one channel
+#     * concatenates JSONLs into the per-channel full.jsonl
+#     * runs Tier 1 / Tier 2 / Tier 3 / render / verify in sequence
+#     * uploads per-channel artifact
+#
+#   combine (1 job):
+#     * downloads both channels' artifacts
+#     * runs combine-reports.py (top-level REPORT + summary.json, with
+#       the flat Affected-packages table)
+#     * commits + pushes
+#
 # Companion scripts:
 #   ./scripts/{scan-darwin-cache,aggregate-scan,verify-failures,
 #              compute-load-time-dependents,compute-build-time-dependents,
 #              render-channel-report,combine-reports}.py
-#
-# Behavior:
-#   * Daily 07:00 UTC (channels typically bump 00:00-06:00 UTC, so we run after).
-#   * Matrix scans `stable` and `unstable` in parallel. Per-channel state DB
-#     and JSONL live under `<channel>/` subdirs both in the runner workspace
-#     and in GHA cache (per-channel cache keys prevent cross-leg clobber even
-#     on independent re-runs).
-#   * Per channel, three tiers of analysis produce per-tier CSVs:
-#       Tier 1 (direct):           direct-failing.csv        from aggregate-scan.py
-#       Tier 2 (load-time transitive): load-time-dependents.csv  from compute-load-time-dependents.py
-#       Tier 3 (build-time dependent): build-time-dependents.csv from compute-build-time-dependents.py
-#     Tier-3 evaluation needs `nix-eval-jobs` against the channel's nixpkgs
-#     revision (metadata-only, no building).
-#   * Per-channel REPORT.md is assembled by render-channel-report.py, which
-#     splices Tier 2 + Tier 3 sections into aggregate-scan.py's Tier 1
-#     report.
-#   * A final `combine` job downloads both matrix legs' artifacts and emits
-#     top-level `REPORT.md` + `summary.json` via combine-reports.py, then
-#     commits everything in one push.
 #
 # Required repo setting: Settings → Actions → General → Workflow permissions
 # = "Read and write". Otherwise the combine job's commit step will 403.
@@ -36,7 +39,7 @@ on:
   workflow_dispatch:
     inputs:
       force_full_rescan:
-        description: 'Ignore cached state DB and rescan from scratch'
+        description: 'Ignore cached shard state and rescan from scratch'
         type: boolean
         default: false
 
@@ -46,16 +49,116 @@ concurrency:
 
 jobs:
   scan:
-    name: scan-${{ matrix.channel.label }}
+    name: scan-${{ matrix.channel }}-shard${{ matrix.shard }}of${{ matrix.total_shards }}
     runs-on: ubuntu-latest
-    # Daily delta scans finish in minutes; cold `force_full_rescan=true`
-    # against the full channel has empirically taken ~2 h (stable) /
-    # ~4 h (unstable) with the 5×48 concurrency knob below. Give 12 h
-    # of headroom.
-    timeout-minutes: 720
+    # GHA's hard per-job cap on public-repo hosted runners is 6h.
+    # Each shard covers ~1/N of the channel so cold-scan stays well
+    # under this; leaving at the cap for slack.
+    timeout-minutes: 360
     permissions:
       contents: read
       actions: write    # cache-nix-action's purge step
+    strategy:
+      fail-fast: false
+      matrix:
+        # 18 total shards: stable×6 + unstable×12.
+        # Listed explicitly (GHA has no runtime expansion; include + a
+        # separate job per channel was the next-cleanest alternative).
+        # When changing shard counts, update BOTH the include list and
+        # the `total_shards` field on every entry of that channel.
+        include:
+          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 0, total_shards: 6 }
+          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 1, total_shards: 6 }
+          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 2, total_shards: 6 }
+          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 3, total_shards: 6 }
+          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 4, total_shards: 6 }
+          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 5, total_shards: 6 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  0, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  1, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  2, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  3, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  4, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  5, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  6, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  7, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  8, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  9, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 10, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 11, total_shards: 12 }
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: latest
+          cache-dependency-glob: 'scripts/*.py'
+
+      - name: Restore scanner shard state
+        if: ${{ !inputs.force_full_rescan }}
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db
+            ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db-shm
+            ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db-wal
+            ${{ matrix.channel }}-shard${{ matrix.shard }}/full.jsonl
+          # Key structure: scan-state-<channel>-shard<N>of<M>-<scanner-hash>-<run_id>.
+          # Scanner-hash invalidates on any scanner change (a stale state
+          # DB would mark paths as already-scanned and silently drop new
+          # scanner-added fields). Shard index/count in the key prevents
+          # cross-shard clobber even at the same run_id. Per-run-id suffix
+          # forces a fresh save slot each run.
+          key: scan-state-${{ matrix.channel }}-shard${{ matrix.shard }}of${{ matrix.total_shards }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-${{ github.run_id }}
+          restore-keys: |
+            scan-state-${{ matrix.channel }}-shard${{ matrix.shard }}of${{ matrix.total_shards }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-
+
+      - name: Scan shard
+        run: |
+          DIR=${{ matrix.channel }}-shard${{ matrix.shard }}
+          mkdir -p "$DIR"
+          uv run scripts/scan-darwin-cache.py \
+            --channel "${{ matrix.url }}" \
+            --shard ${{ matrix.shard }} \
+            --total-shards ${{ matrix.total_shards }} \
+            --workers 5 \
+            --per-worker-concurrency 48 \
+            --batch-size 100 \
+            --state "$DIR/full.db" \
+            --out "$DIR/full.jsonl" \
+            --log-level INFO
+
+      # Save shard state right after scan so a failure in any subsequent
+      # step still preserves the scan work for the next run.
+      - name: Save scanner shard state
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db
+            ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db-shm
+            ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db-wal
+            ${{ matrix.channel }}-shard${{ matrix.shard }}/full.jsonl
+          key: scan-state-${{ matrix.channel }}-shard${{ matrix.shard }}of${{ matrix.total_shards }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-${{ github.run_id }}
+
+      - name: Upload shard JSONL
+        uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ matrix.channel }}-${{ matrix.shard }}
+          path: ${{ matrix.channel }}-shard${{ matrix.shard }}/full.jsonl
+          # Only needed for the analyze job one step later; short retention.
+          retention-days: 1
+
+  analyze:
+    name: analyze-${{ matrix.channel.label }}
+    needs: scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      actions: write    # cache-nix-action
     strategy:
       fail-fast: false
       matrix:
@@ -64,11 +167,10 @@ jobs:
             url: https://channels.nixos.org/nixpkgs-25.11-darwin
           - label: unstable
             url: https://channels.nixos.org/nixpkgs-unstable
-
     steps:
       - uses: actions/checkout@v6
         with:
-          fetch-depth: 2
+          fetch-depth: 1
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
@@ -91,27 +193,6 @@ jobs:
       - name: Install rcodesign + nix-eval-jobs
         run: nix profile install nixpkgs#rcodesign nixpkgs#nix-eval-jobs
 
-      - name: Restore scanner state (${{ matrix.channel.label }})
-        if: ${{ !inputs.force_full_rescan }}
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            ${{ matrix.channel.label }}/full.db
-            ${{ matrix.channel.label }}/full.db-shm
-            ${{ matrix.channel.label }}/full.db-wal
-            ${{ matrix.channel.label }}/full.jsonl
-          # The per-run-id suffix forces a fresh save slot each run.
-          # The restore-key prefix is scoped to (channel, scanner code
-          # hash) so scanner-script changes invalidate the cache — a
-          # state DB recorded by an older scanner marks all paths
-          # "already scanned" and skips them, leaving the JSONL missing
-          # whatever fields the newer scanner was supposed to capture
-          # (learned the hard way: LC_LOAD_DYLIB capture silently went
-          # missing from a cached-state run).
-          key: scan-state-${{ matrix.channel.label }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-${{ github.run_id }}
-          restore-keys: |
-            scan-state-${{ matrix.channel.label }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-
-
       - name: Channel metadata
         id: channel
         run: |
@@ -121,37 +202,20 @@ jobs:
           echo "rev=$REV"  >> "$GITHUB_OUTPUT"
           echo "label=${URL##*/} @ ${REV:0:12} ($(date -u +%Y-%m-%d))" >> "$GITHUB_OUTPUT"
 
-      - name: Scan (${{ matrix.channel.label }})
-        run: |
-          mkdir -p ${{ matrix.channel.label }}
-          uv run scripts/scan-darwin-cache.py \
-            --channel "${{ steps.channel.outputs.url }}" \
-            --workers 5 \
-            --per-worker-concurrency 48 \
-            --batch-size 100 \
-            --state ${{ matrix.channel.label }}/full.db \
-            --out ${{ matrix.channel.label }}/full.jsonl \
-            --log-level INFO
-
-      # Save scan state IMMEDIATELY after the scan completes, before any
-      # downstream analysis steps. This is specifically for the unstable
-      # channel's cold-start path on ubuntu-latest: a full cold scan takes
-      # ~5h56m, leaving <4 min for Tier 1+2+3 before GHA's 6h per-job
-      # hard timeout kills the runner. Empirically, GHA's 6h cap does NOT
-      # grant `if: always()` grace for cleanup steps — the runner is
-      # hard-killed and subsequent steps are simply not run. Saving here
-      # means a timeout in Tier 3 still preserves the fully-scanned state
-      # DB + JSONL for the next run to pick up (where Scan step restores
-      # in ~1s and the tier analyses run in ~5 min total).
-      - name: Save scanner state after scan (${{ matrix.channel.label }})
-        uses: actions/cache/save@v4
+      - name: Download shard JSONLs
+        uses: actions/download-artifact@v4
         with:
-          path: |
-            ${{ matrix.channel.label }}/full.db
-            ${{ matrix.channel.label }}/full.db-shm
-            ${{ matrix.channel.label }}/full.db-wal
-            ${{ matrix.channel.label }}/full.jsonl
-          key: scan-state-${{ matrix.channel.label }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-${{ github.run_id }}
+          pattern: shard-${{ matrix.channel.label }}-*
+          path: ${{ matrix.channel.label }}-shards/
+
+      - name: Merge shard JSONLs
+        run: |
+          CHANNEL=${{ matrix.channel.label }}
+          mkdir -p "$CHANNEL"
+          # Each downloaded artifact lands in its own subdir named
+          # shard-<channel>-<N>/full.jsonl. Concatenate them all.
+          find "$CHANNEL-shards" -name full.jsonl -print0 | xargs -0 cat > "$CHANNEL/full.jsonl"
+          wc -l "$CHANNEL/full.jsonl"
 
       - name: Aggregate Tier 1 (${{ matrix.channel.label }})
         run: |
@@ -204,12 +268,7 @@ jobs:
             --out ${{ matrix.channel.label }}/verify-results.jsonl \
             --summary ${{ matrix.channel.label }}/verify-summary.md
 
-      # (Scanner state is now saved directly after the Scan step, before
-      # the tier analyses — moved to avoid losing 6h of scan work when a
-      # hard GHA timeout kills the runner mid-Tier-3 without running
-      # downstream `if: always()` cleanup steps.)
-
-      - name: Upload outputs (${{ matrix.channel.label }})
+      - name: Upload channel outputs (${{ matrix.channel.label }})
         uses: actions/upload-artifact@v4
         with:
           name: channel-${{ matrix.channel.label }}
@@ -227,7 +286,7 @@ jobs:
 
   combine:
     name: combine + commit
-    needs: scan
+    needs: analyze
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

@@ -645,13 +645,41 @@ def _analyze_thin(data: bytes) -> SliceReport:
 # ---------------------------------------------------------------------------
 
 
-async def fetch_store_paths(client: httpx.AsyncClient, channel_url: str) -> list[str]:
+async def fetch_store_paths(
+    client: httpx.AsyncClient,
+    channel_url: str,
+    shard: int = 0,
+    total_shards: int = 1,
+) -> list[str]:
+    """Fetch the channel's store-paths.xz and optionally return only this
+    shard's slice.
+
+    Sharding is a deterministic stripe by line index:
+        paths[i] belongs to shard (i % total_shards).
+    This gives each shard ~1/total_shards of the paths with roughly
+    balanced load characteristics, because the channel's path order is
+    not by size and there's no positional clustering by package kind.
+    Stripe beats chunk for load balance: a chunk-based split could
+    assign a single shard all the Swift toolchain or all the Electron
+    apps (both disproportionately expensive) while other shards finish
+    early.
+    """
     url = f"{channel_url.rstrip('/')}/store-paths.xz"
     log.info("fetching %s", url)
     r = await client.get(url)
     r.raise_for_status()
     raw = lzma.decompress(r.content)
     paths = [ln for ln in raw.decode().splitlines() if ln.strip()]
+    if total_shards > 1:
+        before = len(paths)
+        paths = [p for i, p in enumerate(paths) if i % total_shards == shard]
+        log.info(
+            "sharding: %d of %d paths assigned to shard %d/%d",
+            len(paths),
+            before,
+            shard,
+            total_shards,
+        )
     return paths
 
 
@@ -1033,10 +1061,15 @@ def _run_mp(args: argparse.Namespace) -> None:
             follow_redirects=True,
             headers={"User-Agent": "nixpkgs-507531-cache-scanner/1"},
         ) as client:
-            return await fetch_store_paths(client, args.channel)
+            return await fetch_store_paths(
+                client,
+                args.channel,
+                shard=args.shard,
+                total_shards=args.total_shards,
+            )
 
     paths = asyncio.run(_fetch())
-    log.info("channel has %d paths", len(paths))
+    log.info("channel slice has %d paths", len(paths))
     todo = [p for p in paths if p not in done]
     if args.limit:
         todo = todo[: args.limit]
@@ -1122,8 +1155,13 @@ async def _run_single(args: argparse.Namespace) -> None:
         follow_redirects=True,
         headers={"User-Agent": "nixpkgs-507531-cache-scanner/1"},
     ) as client:
-        paths = await fetch_store_paths(client, args.channel)
-        log.info("channel has %d paths", len(paths))
+        paths = await fetch_store_paths(
+            client,
+            args.channel,
+            shard=args.shard,
+            total_shards=args.total_shards,
+        )
+        log.info("channel slice has %d paths", len(paths))
         todo = [p for p in paths if p not in done]
         if args.limit:
             todo = todo[: args.limit]
@@ -1225,6 +1263,22 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         type=int,
         default=0,
         help="Limit paths scanned this run (0 = all; useful for smoke tests)",
+    )
+    p.add_argument(
+        "--shard",
+        type=int,
+        default=0,
+        help="This shard's index (0-based). Combined with --total-shards, "
+        "restricts the scanner to paths[i] where i %% total_shards == shard. "
+        "Default: 0 (process every path when total_shards is 1).",
+    )
+    p.add_argument(
+        "--total-shards",
+        type=int,
+        default=1,
+        help="Total number of shards. Default: 1 (no sharding). Used by the "
+        "GitHub Actions matrix to fan the scan across parallel jobs so no "
+        "single job hits the 6h per-job cap on public-repo hosted runners.",
     )
     p.add_argument(
         "--max-macho-bytes",
