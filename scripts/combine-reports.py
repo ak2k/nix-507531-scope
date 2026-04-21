@@ -404,15 +404,31 @@ def build_combined_summary(channels: list[dict]) -> dict:
             total += int(d.get(k) or 0)
         return total
 
+    # Union sets across channels for per-tier cross-channel totals.
+    # Packages that fail on BOTH channels count once in the union.
+    t1_union: set[str] = set()
+    t2_union: set[str] = set()
+    t3_union: set[str] = set()
+    for ch in channels:
+        t1 = (ch["data"].get("page_hash_mismatch") or {})
+        t2 = ch.get("tier2_summary") or {}
+        t3 = ch.get("tier3_summary") or {}
+        t1_union.update(t1.get("packages_list") or [])
+        t2_union.update(t2.get("dependent_packages") or [])
+        t3_union.update(t3.get("dependent_attrs_default_view") or [])
+
     out = {
         "generated_at": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
         "channels": {},
-        # Backward-compatible shortcut fields.
         "paths_scanned": s("paths_scanned"),
         "slices_total": s("slices_total"),
         "page_hash_mismatch": {
+            # Slices are per-scan-unique across channels, so sum is correct.
             "slices":   s("slices", "page_hash_mismatch"),
-            "packages": s("packages", "page_hash_mismatch"),
+            # Packages MUST be deduped — the same package can fail in both
+            # channels. The old sum-across-channels number double-counted
+            # those and misled the README badge.
+            "packages": len(t1_union),
             "by_signature_class": sum_by_class(channels),
         },
     }
@@ -424,21 +440,16 @@ def build_combined_summary(channels: list[dict]) -> dict:
             block["build_time_dependents"] = ch["tier3_summary"]
         out["channels"][ch["label"]] = block
 
-    # Union sets across channels for per-tier cross-channel totals.
-    union: dict[str, list[str]] = {}
-    t2_union = set()
-    t3_union = set()
-    for ch in channels:
-        t2 = ch.get("tier2_summary") or {}
-        t3 = ch.get("tier3_summary") or {}
-        t2_union.update(t2.get("dependent_packages") or [])
-        t3_union.update(t3.get("dependent_attrs_default_view") or [])
-    if t2_union:
-        union["load_time_packages"] = sorted(t2_union)
-    if t3_union:
-        union["build_time_packages_default_view"] = sorted(t3_union)
-    if union:
-        out["union"] = union
+    # Deduped union counts + lists per tier. Badges read the *_count
+    # scalars; the *_packages lists are for tooling that wants names.
+    out["union"] = {
+        "direct_packages": sorted(t1_union),
+        "direct_packages_count": len(t1_union),
+        "load_time_packages": sorted(t2_union),
+        "load_time_packages_count": len(t2_union),
+        "build_time_packages_default_view": sorted(t3_union),
+        "build_time_packages_default_view_count": len(t3_union),
+    }
 
     return out
 

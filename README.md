@@ -1,7 +1,8 @@
 # nix-507531-scope
 
-[![failing slices](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fak2k%2Fnix-507531-scope%2Fmain%2Fsummary.json&query=%24.page_hash_mismatch.slices&label=failing%20slices&color=red)](REPORT.md)
-[![affected packages](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fak2k%2Fnix-507531-scope%2Fmain%2Fsummary.json&query=%24.page_hash_mismatch.packages&label=affected%20packages&color=red)](REPORT.md)
+[![direct failures](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fak2k%2Fnix-507531-scope%2Fmain%2Fsummary.json&query=%24.union.direct_packages_count&label=direct%20failures&color=red)](REPORT.md#affected-packages)
+[![load-time transitive](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fak2k%2Fnix-507531-scope%2Fmain%2Fsummary.json&query=%24.union.load_time_packages_count&label=load-time%20transitive&color=orange)](REPORT.md#affected-packages)
+[![build-time dependent](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fak2k%2Fnix-507531-scope%2Fmain%2Fsummary.json&query=%24.union.build_time_packages_default_view_count&label=build-time%20dependent&color=yellow)](REPORT.md#affected-packages)
 [![paths scanned](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fak2k%2Fnix-507531-scope%2Fmain%2Fsummary.json&query=%24.paths_scanned&label=paths%20scanned&color=blue)](REPORT.md)
 [![Mach-O slices](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fak2k%2Fnix-507531-scope%2Fmain%2Fsummary.json&query=%24.slices_total&label=Mach-O%20slices&color=blue)](REPORT.md)
 
