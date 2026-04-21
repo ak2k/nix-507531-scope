@@ -135,6 +135,16 @@ def eval_darwin_package_set(
         "--max-memory-size",
         str(max_memory_mb),
         "--show-input-drvs",
+        # Impure mode: allow nixpkgs' check-meta.nix to read NIXPKGS_ALLOW_*
+        # env vars via builtins.getEnv. Without this, setting e.g.
+        # NIXPKGS_ALLOW_UNFREE=1 in the environment has no effect — the
+        # evaluator stays in pure mode and still rejects unfree packages
+        # with 'has an unfree license' errors. We set UNFREE + INSECURE
+        # from the workflow; BROKEN and UNSUPPORTED_SYSTEM are left off
+        # intentionally (broken won't build regardless; unsupported-
+        # system would evaluate ~30k linux-only packages on darwin that
+        # can't build on darwin — pure noise).
+        "--impure",
     ]
     print(
         f"evaluating {flake}#legacyPackages.aarch64-darwin with {workers} workers",

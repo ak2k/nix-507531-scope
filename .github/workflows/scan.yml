@@ -235,6 +235,17 @@ jobs:
             --out-section ${{ matrix.channel.label }}/load-time-section.md
 
       - name: Compute Tier 3 build-time dependents (${{ matrix.channel.label }})
+        env:
+          # Let the evaluator successfully walk unfree + insecure packages
+          # (users with `allowUnfree = true` / `permittedInsecurePackages`
+          # DO build these, so their build-time edges to failing seeds
+          # are real). Deliberately NOT setting NIXPKGS_ALLOW_BROKEN (by
+          # definition broken = won't build anyway, so a failing-seed
+          # edge adds no information) or NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM
+          # (would evaluate ~30k linux-only packages on darwin that can't
+          # build on darwin regardless — pure noise, no signal).
+          NIXPKGS_ALLOW_UNFREE: '1'
+          NIXPKGS_ALLOW_INSECURE: '1'
         run: |
           # ubuntu-latest is 2 vCPU / 7 GB. Tuning for that shape:
           # * --eval-workers 2 matches the core count (nix evaluator is
