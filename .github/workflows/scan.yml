@@ -47,14 +47,6 @@ concurrency:
   group: scan
   cancel-in-progress: true
 
-# Silence the "Node.js 20 actions are deprecated" warnings we were
-# seeing on every step that uses actions/cache/*, actions/upload-artifact,
-# and astral-sh/setup-uv. This is GitHub's own opt-in to the Node 24
-# runtime ahead of the June 2026 default switch. Can be removed once
-# all our actions ship Node 24 natively.
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   scan:
     name: scan-${{ matrix.channel }}-shard${{ matrix.shard }}of${{ matrix.total_shards }}
@@ -100,14 +92,14 @@ jobs:
           fetch-depth: 1
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v8
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
 
       - name: Restore scanner shard state
         if: ${{ !inputs.force_full_rescan }}
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: |
             ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db
@@ -142,7 +134,7 @@ jobs:
       # Save shard state right after scan so a failure in any subsequent
       # step still preserves the scan work for the next run.
       - name: Save scanner shard state
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: |
             ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db
@@ -152,7 +144,7 @@ jobs:
           key: scan-state-${{ matrix.channel }}-shard${{ matrix.shard }}of${{ matrix.total_shards }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-${{ github.run_id }}
 
       - name: Upload shard JSONL
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: shard-${{ matrix.channel }}-${{ matrix.shard }}
           path: ${{ matrix.channel }}-shard${{ matrix.shard }}/full.jsonl
@@ -193,7 +185,7 @@ jobs:
           purge-created: 604800                 # 7 days
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v8
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
@@ -211,7 +203,7 @@ jobs:
           echo "label=${URL##*/} @ ${REV:0:12} ($(date -u +%Y-%m-%d))" >> "$GITHUB_OUTPUT"
 
       - name: Download shard JSONLs
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: shard-${{ matrix.channel.label }}-*
           path: ${{ matrix.channel.label }}-shards/
@@ -277,7 +269,7 @@ jobs:
             --summary ${{ matrix.channel.label }}/verify-summary.md
 
       - name: Upload channel outputs (${{ matrix.channel.label }})
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: channel-${{ matrix.channel.label }}
           path: ${{ matrix.channel.label }}/
@@ -304,19 +296,19 @@ jobs:
         with:
           fetch-depth: 2
 
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v8
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
 
       - name: Download stable outputs
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: channel-stable
           path: stable/
 
       - name: Download unstable outputs
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: channel-unstable
           path: unstable/
