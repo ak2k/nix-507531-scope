@@ -1,9 +1,161 @@
 {
-  "total_rows": 0,
-  "distinct_binaries": 0,
-  "distinct_dependent_packages": 0,
+  "total_rows": 250,
+  "distinct_binaries": 56,
+  "distinct_dependent_packages": 37,
   "distinct_seed_dylibs": 48,
-  "by_seed_package": {},
-  "dependent_packages": [],
-  "dependents_by_package": {}
+  "by_seed_package": {
+    "ffmpeg-8.0-lib": 250
+  },
+  "dependent_packages": [
+    "auto-editor-29.3.1",
+    "ccextractor-0.94-unstable-2025-05-20",
+    "contour-0.6.1.7494",
+    "corsix-th-0.69.2",
+    "ddnet-19.5",
+    "dosbox-x-2025.10.07",
+    "ffms-5.0",
+    "freerdp-3.23.0",
+    "harvid-0.9.1",
+    "keyfinder-cli-1.1.2",
+    "libopenshot-0.4.0",
+    "loudgain-0.6.8",
+    "megacmd-1.7.0",
+    "moc-2.6-alpha3-unstable-2019-09-14",
+    "moonlight-qt-6.1.0",
+    "mpd-0.24.6",
+    "netgen-6.2.2505",
+    "notcurses-3.0.17",
+    "opencv-4.12.0",
+    "opencv-4.12.0-package_tests",
+    "phira-unwrapped-0.6.7",
+    "pianobar-2024.12.21",
+    "pqiv-2.13.3",
+    "q2pro-0-unstable-2025-07-21",
+    "qtmultimedia-6.10.2",
+    "rsgain-3.6",
+    "scrcpy-3.3.4",
+    "spek-0.8.5",
+    "squeezelite-2.0.0.1541",
+    "survex-1.4.18",
+    "taterclient-ddnet-10.6.0",
+    "timg-1.6.3",
+    "vgmstream-2055",
+    "video-compare-20250928",
+    "vivictpp-1.3.1",
+    "vtk-9.5.2",
+    "wxsvg-1.5.25"
+  ],
+  "dependents_by_package": {
+    "auto-editor-29.3.1": [
+      "ffmpeg-8.0-lib"
+    ],
+    "ccextractor-0.94-unstable-2025-05-20": [
+      "ffmpeg-8.0-lib"
+    ],
+    "contour-0.6.1.7494": [
+      "ffmpeg-8.0-lib"
+    ],
+    "corsix-th-0.69.2": [
+      "ffmpeg-8.0-lib"
+    ],
+    "ddnet-19.5": [
+      "ffmpeg-8.0-lib"
+    ],
+    "dosbox-x-2025.10.07": [
+      "ffmpeg-8.0-lib"
+    ],
+    "ffms-5.0": [
+      "ffmpeg-8.0-lib"
+    ],
+    "freerdp-3.23.0": [
+      "ffmpeg-8.0-lib"
+    ],
+    "harvid-0.9.1": [
+      "ffmpeg-8.0-lib"
+    ],
+    "keyfinder-cli-1.1.2": [
+      "ffmpeg-8.0-lib"
+    ],
+    "libopenshot-0.4.0": [
+      "ffmpeg-8.0-lib"
+    ],
+    "loudgain-0.6.8": [
+      "ffmpeg-8.0-lib"
+    ],
+    "megacmd-1.7.0": [
+      "ffmpeg-8.0-lib"
+    ],
+    "moc-2.6-alpha3-unstable-2019-09-14": [
+      "ffmpeg-8.0-lib"
+    ],
+    "moonlight-qt-6.1.0": [
+      "ffmpeg-8.0-lib"
+    ],
+    "mpd-0.24.6": [
+      "ffmpeg-8.0-lib"
+    ],
+    "netgen-6.2.2505": [
+      "ffmpeg-8.0-lib"
+    ],
+    "notcurses-3.0.17": [
+      "ffmpeg-8.0-lib"
+    ],
+    "opencv-4.12.0": [
+      "ffmpeg-8.0-lib"
+    ],
+    "opencv-4.12.0-package_tests": [
+      "ffmpeg-8.0-lib"
+    ],
+    "phira-unwrapped-0.6.7": [
+      "ffmpeg-8.0-lib"
+    ],
+    "pianobar-2024.12.21": [
+      "ffmpeg-8.0-lib"
+    ],
+    "pqiv-2.13.3": [
+      "ffmpeg-8.0-lib"
+    ],
+    "q2pro-0-unstable-2025-07-21": [
+      "ffmpeg-8.0-lib"
+    ],
+    "qtmultimedia-6.10.2": [
+      "ffmpeg-8.0-lib"
+    ],
+    "rsgain-3.6": [
+      "ffmpeg-8.0-lib"
+    ],
+    "scrcpy-3.3.4": [
+      "ffmpeg-8.0-lib"
+    ],
+    "spek-0.8.5": [
+      "ffmpeg-8.0-lib"
+    ],
+    "squeezelite-2.0.0.1541": [
+      "ffmpeg-8.0-lib"
+    ],
+    "survex-1.4.18": [
+      "ffmpeg-8.0-lib"
+    ],
+    "taterclient-ddnet-10.6.0": [
+      "ffmpeg-8.0-lib"
+    ],
+    "timg-1.6.3": [
+      "ffmpeg-8.0-lib"
+    ],
+    "vgmstream-2055": [
+      "ffmpeg-8.0-lib"
+    ],
+    "video-compare-20250928": [
+      "ffmpeg-8.0-lib"
+    ],
+    "vivictpp-1.3.1": [
+      "ffmpeg-8.0-lib"
+    ],
+    "vtk-9.5.2": [
+      "ffmpeg-8.0-lib"
+    ],
+    "wxsvg-1.5.25": [
+      "ffmpeg-8.0-lib"
+    ]
+  }
 }

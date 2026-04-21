@@ -1,6 +1,6 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ b86751bc4085 (2026-04-20)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ b86751bc4085 (2026-04-21)
 
-Generated: 2026-04-20 11:06:02 UTC
+Generated: 2026-04-21 03:37:19 UTC
 
 ## Summary
 
@@ -12,8 +12,8 @@ Generated: 2026-04-20 11:06:02 UTC
 | Page-hash mismatches (distinct packages) | 16 |
 |   of which linker-signed (flags=0x20002) | 7 |
 |   of which codesign-signed (flags=0x2) | 46 |
-| Other signature-invalid (slices) | 4 |
-| Other signature-invalid (distinct packages) | 2 |
+| Other signature-invalid (slices) | 0 |
+| Other signature-invalid (distinct packages) | 0 |
 | Tier 2 — binaries linking a failing dylib | 0 |
 | Tier 2 — distinct packages | 0 |
 | Tier 3 — packages directly declaring a failing build input (default view) | 1 |
@@ -24,8 +24,8 @@ Generated: 2026-04-20 11:06:02 UTC
 |---|---:|---:|---:|---:|---:|---:|
 | `arm64` | 112,528 | 29 | 0 | 103,540 | 8,925 | 34 |
 | `arm64e` | 65 | 0 | 0 | 25 | 0 | 40 |
-| `x86_64` | 116,136 | 24 | 2 | 8,896 | 107,138 | 76 |
-| `i386` | 310 | 0 | 2 | 129 | 175 | 4 |
+| `x86_64` | 116,136 | 24 | 0 | 8,898 | 107,138 | 76 |
+| `i386` | 310 | 0 | 0 | 131 | 175 | 4 |
 | other/legacy (10 arch codes) | 57,143 | 0 | 0 | 2 | 98 | 57,043 |
 
 ## Fat vs thin Mach-O
@@ -33,7 +33,7 @@ Generated: 2026-04-20 11:06:02 UTC
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
 | thin | 221,617 | 11 | 0 | 106,202 | 115,314 |
-| fat | 64,565 | 42 | 4 | 6,390 | 1,022 |
+| fat | 64,565 | 42 | 0 | 6,394 | 1,022 |
 
 Unique fat binary files: 60,616 in 903 packages. 5 of those packages contain at least one failing fat slice.
 
@@ -60,22 +60,13 @@ Sorted alphabetically by package name.
 | vscode-extension-kilocode-Kilo-Code-7.2.0 | 1 | `/nix/store/1y5adw7jbwsy6v8zy2shcjn7wlhnm5l1-vscode-extension-kilocode-Kilo-Code-7.2.0` |
 | vscode-extension-kilocode-Kilo-Code-7.2.0 | 1 | `/nix/store/gw6y9jk18hxz3inch9fznygcay23vqjh-vscode-extension-kilocode-Kilo-Code-7.2.0` |
 
-## Appendix — other signature-invalid binaries
-
-Slices where the scanner found a structural signature problem (not a page-hash mismatch). These also fail `codesign -v`. Mechanism may or may not be the same as NixOS/nixpkgs#507531.
-
-| Package | Slices | Error kind | Store path |
-|---|---:|---|---|
-| jitsi-2.11.5633 | 2 | unsupported hash_type 1 (SHA-256 only) | `/nix/store/8v0871n5q5s74r1qxb1xrbygmx6ndaa3-jitsi-2.11.5633` |
-| jitsi-2.11.5633 | 2 | unsupported hash_type 1 (SHA-256 only) | `/nix/store/w3vi8r0cxlw81i0g0piv2x14ij3yqiip-jitsi-2.11.5633` |
-
 ## Slice classification
 
 | Category | Count |
 |---|---:|
 | `page_hash_mismatch` | 53 |
-| `other_sig_invalid` | 4 |
-| `clean` (signed, verified) | 112,592 |
+| `other_sig_invalid` | 0 |
+| `clean` (signed, verified) | 112,596 |
 | `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 116,336 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 57,197 |
 | `scanner_error` | 0 |

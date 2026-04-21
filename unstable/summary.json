@@ -1,8 +1,7 @@
 {
   "buckets": {
-    "clean": 112592,
+    "clean": 112596,
     "not_real_macho": 57197,
-    "other_sig_invalid": 4,
     "page_hash_mismatch": 53,
     "unsigned": 116336
   },
@@ -46,33 +45,31 @@
       "not_real_macho": 32
     },
     "i386": {
-      "clean": 129,
+      "clean": 131,
       "not_real_macho": 4,
-      "other_sig_invalid": 2,
       "unsigned": 175
     },
     "unknown": {
       "not_real_macho": 56866
     },
     "x86_64": {
-      "clean": 8896,
+      "clean": 8898,
       "not_real_macho": 76,
-      "other_sig_invalid": 2,
       "page_hash_mismatch": 24,
       "unsigned": 107138
     }
   },
-  "channel_label": "nixpkgs-unstable @ b86751bc4085 (2026-04-20)",
+  "channel_label": "nixpkgs-unstable @ b86751bc4085 (2026-04-21)",
   "coverage": {
     "not_real_macho": 57197,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-04-20 11:06:02 UTC",
+  "generated_at": "2026-04-21 03:37:19 UTC",
   "other_sig_invalid": {
-    "packages": 2,
-    "slices": 4
+    "packages": 0,
+    "slices": 0
   },
   "page_hash_mismatch": {
     "by_signature_class": {

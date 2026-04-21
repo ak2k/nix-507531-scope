@@ -1,30 +1,30 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 755a5bb0f389 (2026-04-20)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 755a5bb0f389 (2026-04-21)
 
-Generated: 2026-04-20 11:06:06 UTC
+Generated: 2026-04-21 03:37:21 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 172,972 |
-| Mach-O slices parsed | 223,719 |
+| Store paths scanned | 172,954 |
+| Mach-O slices parsed | 223,605 |
 | Page-hash mismatches (slices) | 65 |
 | Page-hash mismatches (distinct packages) | 19 |
 |   of which linker-signed (flags=0x20002) | 22 |
 |   of which codesign-signed (flags=0x2) | 43 |
 | Other signature-invalid (slices) | 1 |
 | Other signature-invalid (distinct packages) | 1 |
-| Tier 2 — binaries linking a failing dylib | 0 |
-| Tier 2 — distinct packages | 0 |
+| Tier 2 — binaries linking a failing dylib | 56 |
+| Tier 2 — distinct packages | 37 |
 | Tier 3 — packages directly declaring a failing build input (default view) | 11 |
 
 ## By architecture
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 104,774 | 44 | 0 | 96,936 | 7,776 | 18 |
+| `arm64` | 104,717 | 44 | 0 | 96,879 | 7,776 | 18 |
 | `arm64e` | 53 | 0 | 0 | 13 | 0 | 40 |
-| `x86_64` | 111,236 | 21 | 1 | 8,196 | 102,955 | 63 |
+| `x86_64` | 111,179 | 21 | 1 | 8,160 | 102,934 | 63 |
 | `i386` | 169 | 0 | 0 | 113 | 54 | 2 |
 | other/legacy (10 arch codes) | 7,487 | 0 | 0 | 2 | 8 | 7,477 |
 
@@ -32,10 +32,10 @@ Generated: 2026-04-20 11:06:06 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 210,400 | 23 | 1 | 100,090 | 110,284 |
-| fat | 13,319 | 42 | 0 | 5,170 | 509 |
+| thin | 210,326 | 23 | 1 | 100,037 | 110,263 |
+| fat | 13,279 | 42 | 0 | 5,130 | 509 |
 
-Unique fat binary files: 10,301 in 535 packages. 5 of those packages contain at least one failing fat slice.
+Unique fat binary files: 10,281 in 531 packages. 5 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -77,8 +77,8 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 |---|---:|
 | `page_hash_mismatch` | 65 |
 | `other_sig_invalid` | 1 |
-| `clean` (signed, verified) | 105,260 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 110,793 |
+| `clean` (signed, verified) | 105,167 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 110,772 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 7,600 |
 | `scanner_error` | 0 |
 
@@ -88,10 +88,18 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 
 | Metric | Count |
 |---|---:|
-| Binaries that link at least one failing dylib | 0 |
-| Distinct packages containing such binaries | 0 |
+| Binaries that link at least one failing dylib | 56 |
+| Distinct packages containing such binaries | 37 |
 | Failing dylibs that serve as seeds | 48 |
-| Total (binary, failing-dylib) pairs | 0 |
+| Total (binary, failing-dylib) pairs | 250 |
+
+Top failing dylibs by number of downstream binaries:
+
+| Seed package | Downstream binaries |
+|---|---:|
+| `ffmpeg-8.0-lib` | 250 |
+
+Dependent packages (37): `auto-editor-29.3.1`, `ccextractor-0.94-unstable-2025-05-20`, `contour-0.6.1.7494`, `corsix-th-0.69.2`, `ddnet-19.5`, `dosbox-x-2025.10.07`, `ffms-5.0`, `freerdp-3.23.0`, `harvid-0.9.1`, `keyfinder-cli-1.1.2`, `libopenshot-0.4.0`, `loudgain-0.6.8`, `megacmd-1.7.0`, `moc-2.6-alpha3-unstable-2019-09-14`, `moonlight-qt-6.1.0`, `mpd-0.24.6`, `netgen-6.2.2505`, `notcurses-3.0.17`, `opencv-4.12.0`, `opencv-4.12.0-package_tests`, `phira-unwrapped-0.6.7`, `pianobar-2024.12.21`, `pqiv-2.13.3`, `q2pro-0-unstable-2025-07-21`, `qtmultimedia-6.10.2`, `rsgain-3.6`, `scrcpy-3.3.4`, `spek-0.8.5`, `squeezelite-2.0.0.1541`, `survex-1.4.18`, `taterclient-ddnet-10.6.0`, `timg-1.6.3`, `vgmstream-2055`, `video-compare-20250928`, `vivictpp-1.3.1`, `vtk-9.5.2`, `wxsvg-1.5.25`
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).
 ## Build-time dependents

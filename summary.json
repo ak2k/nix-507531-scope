@@ -2,11 +2,11 @@
   "channels": {
     "stable": {
       "buckets": {
-        "clean": 105260,
+        "clean": 105167,
         "not_real_macho": 7600,
         "other_sig_invalid": 1,
         "page_hash_mismatch": 65,
-        "unsigned": 110793
+        "unsigned": 110772
       },
       "buckets_by_arch": {
         "arm": {
@@ -14,7 +14,7 @@
           "unsigned": 6
         },
         "arm64": {
-          "clean": 96936,
+          "clean": 96879,
           "not_real_macho": 18,
           "page_hash_mismatch": 44,
           "unsigned": 7776
@@ -56,11 +56,11 @@
           "not_real_macho": 7355
         },
         "x86_64": {
-          "clean": 8196,
+          "clean": 8160,
           "not_real_macho": 63,
           "other_sig_invalid": 1,
           "page_hash_mismatch": 21,
-          "unsigned": 102955
+          "unsigned": 102934
         }
       },
       "build_time_dependents": {
@@ -131,22 +131,174 @@
         "rows_in_default_view": 11,
         "total_rows": 11
       },
-      "channel_label": "nixpkgs-25.11-darwin @ 755a5bb0f389 (2026-04-20)",
+      "channel_label": "nixpkgs-25.11-darwin @ 755a5bb0f389 (2026-04-21)",
       "coverage": {
         "not_real_macho": 7600,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-20 11:06:06 UTC",
+      "generated_at": "2026-04-21 03:37:21 UTC",
       "load_time_transitive": {
-        "by_seed_package": {},
-        "dependent_packages": [],
-        "dependents_by_package": {},
-        "distinct_binaries": 0,
-        "distinct_dependent_packages": 0,
+        "by_seed_package": {
+          "ffmpeg-8.0-lib": 250
+        },
+        "dependent_packages": [
+          "auto-editor-29.3.1",
+          "ccextractor-0.94-unstable-2025-05-20",
+          "contour-0.6.1.7494",
+          "corsix-th-0.69.2",
+          "ddnet-19.5",
+          "dosbox-x-2025.10.07",
+          "ffms-5.0",
+          "freerdp-3.23.0",
+          "harvid-0.9.1",
+          "keyfinder-cli-1.1.2",
+          "libopenshot-0.4.0",
+          "loudgain-0.6.8",
+          "megacmd-1.7.0",
+          "moc-2.6-alpha3-unstable-2019-09-14",
+          "moonlight-qt-6.1.0",
+          "mpd-0.24.6",
+          "netgen-6.2.2505",
+          "notcurses-3.0.17",
+          "opencv-4.12.0",
+          "opencv-4.12.0-package_tests",
+          "phira-unwrapped-0.6.7",
+          "pianobar-2024.12.21",
+          "pqiv-2.13.3",
+          "q2pro-0-unstable-2025-07-21",
+          "qtmultimedia-6.10.2",
+          "rsgain-3.6",
+          "scrcpy-3.3.4",
+          "spek-0.8.5",
+          "squeezelite-2.0.0.1541",
+          "survex-1.4.18",
+          "taterclient-ddnet-10.6.0",
+          "timg-1.6.3",
+          "vgmstream-2055",
+          "video-compare-20250928",
+          "vivictpp-1.3.1",
+          "vtk-9.5.2",
+          "wxsvg-1.5.25"
+        ],
+        "dependents_by_package": {
+          "auto-editor-29.3.1": [
+            "ffmpeg-8.0-lib"
+          ],
+          "ccextractor-0.94-unstable-2025-05-20": [
+            "ffmpeg-8.0-lib"
+          ],
+          "contour-0.6.1.7494": [
+            "ffmpeg-8.0-lib"
+          ],
+          "corsix-th-0.69.2": [
+            "ffmpeg-8.0-lib"
+          ],
+          "ddnet-19.5": [
+            "ffmpeg-8.0-lib"
+          ],
+          "dosbox-x-2025.10.07": [
+            "ffmpeg-8.0-lib"
+          ],
+          "ffms-5.0": [
+            "ffmpeg-8.0-lib"
+          ],
+          "freerdp-3.23.0": [
+            "ffmpeg-8.0-lib"
+          ],
+          "harvid-0.9.1": [
+            "ffmpeg-8.0-lib"
+          ],
+          "keyfinder-cli-1.1.2": [
+            "ffmpeg-8.0-lib"
+          ],
+          "libopenshot-0.4.0": [
+            "ffmpeg-8.0-lib"
+          ],
+          "loudgain-0.6.8": [
+            "ffmpeg-8.0-lib"
+          ],
+          "megacmd-1.7.0": [
+            "ffmpeg-8.0-lib"
+          ],
+          "moc-2.6-alpha3-unstable-2019-09-14": [
+            "ffmpeg-8.0-lib"
+          ],
+          "moonlight-qt-6.1.0": [
+            "ffmpeg-8.0-lib"
+          ],
+          "mpd-0.24.6": [
+            "ffmpeg-8.0-lib"
+          ],
+          "netgen-6.2.2505": [
+            "ffmpeg-8.0-lib"
+          ],
+          "notcurses-3.0.17": [
+            "ffmpeg-8.0-lib"
+          ],
+          "opencv-4.12.0": [
+            "ffmpeg-8.0-lib"
+          ],
+          "opencv-4.12.0-package_tests": [
+            "ffmpeg-8.0-lib"
+          ],
+          "phira-unwrapped-0.6.7": [
+            "ffmpeg-8.0-lib"
+          ],
+          "pianobar-2024.12.21": [
+            "ffmpeg-8.0-lib"
+          ],
+          "pqiv-2.13.3": [
+            "ffmpeg-8.0-lib"
+          ],
+          "q2pro-0-unstable-2025-07-21": [
+            "ffmpeg-8.0-lib"
+          ],
+          "qtmultimedia-6.10.2": [
+            "ffmpeg-8.0-lib"
+          ],
+          "rsgain-3.6": [
+            "ffmpeg-8.0-lib"
+          ],
+          "scrcpy-3.3.4": [
+            "ffmpeg-8.0-lib"
+          ],
+          "spek-0.8.5": [
+            "ffmpeg-8.0-lib"
+          ],
+          "squeezelite-2.0.0.1541": [
+            "ffmpeg-8.0-lib"
+          ],
+          "survex-1.4.18": [
+            "ffmpeg-8.0-lib"
+          ],
+          "taterclient-ddnet-10.6.0": [
+            "ffmpeg-8.0-lib"
+          ],
+          "timg-1.6.3": [
+            "ffmpeg-8.0-lib"
+          ],
+          "vgmstream-2055": [
+            "ffmpeg-8.0-lib"
+          ],
+          "video-compare-20250928": [
+            "ffmpeg-8.0-lib"
+          ],
+          "vivictpp-1.3.1": [
+            "ffmpeg-8.0-lib"
+          ],
+          "vtk-9.5.2": [
+            "ffmpeg-8.0-lib"
+          ],
+          "wxsvg-1.5.25": [
+            "ffmpeg-8.0-lib"
+          ]
+        },
+        "distinct_binaries": 56,
+        "distinct_dependent_packages": 37,
         "distinct_seed_dylibs": 48,
-        "total_rows": 0
+        "total_rows": 250
       },
       "other_sig_invalid": {
         "packages": 1,
@@ -183,12 +335,12 @@
         "slices": 65
       },
       "paths_by_status": {
-        "ok": 172972
+        "ok": 172954
       },
-      "paths_scanned": 172972,
+      "paths_scanned": 172954,
       "slices_by_arch": {
         "arm": 10,
-        "arm64": 104774,
+        "arm64": 104717,
         "arm64e": 53,
         "cpu_0x00000001/0x00000000": 2,
         "cpu_0x00000002/0x00000000": 2,
@@ -200,15 +352,14 @@
         "cpu_0x01000012/0x00000000": 15,
         "i386": 169,
         "unknown": 7355,
-        "x86_64": 111236
+        "x86_64": 111179
       },
-      "slices_total": 223719
+      "slices_total": 223605
     },
     "unstable": {
       "buckets": {
-        "clean": 112592,
+        "clean": 112596,
         "not_real_macho": 57197,
-        "other_sig_invalid": 4,
         "page_hash_mismatch": 53,
         "unsigned": 116336
       },
@@ -252,18 +403,16 @@
           "not_real_macho": 32
         },
         "i386": {
-          "clean": 129,
+          "clean": 131,
           "not_real_macho": 4,
-          "other_sig_invalid": 2,
           "unsigned": 175
         },
         "unknown": {
           "not_real_macho": 56866
         },
         "x86_64": {
-          "clean": 8896,
+          "clean": 8898,
           "not_real_macho": 76,
-          "other_sig_invalid": 2,
           "page_hash_mismatch": 24,
           "unsigned": 107138
         }
@@ -294,14 +443,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-unstable @ b86751bc4085 (2026-04-20)",
+      "channel_label": "nixpkgs-unstable @ b86751bc4085 (2026-04-21)",
       "coverage": {
         "not_real_macho": 57197,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-20 11:06:02 UTC",
+      "generated_at": "2026-04-21 03:37:19 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -312,8 +461,8 @@
         "total_rows": 0
       },
       "other_sig_invalid": {
-        "packages": 2,
-        "slices": 4
+        "packages": 0,
+        "slices": 0
       },
       "page_hash_mismatch": {
         "by_signature_class": {
@@ -365,7 +514,7 @@
       "slices_total": 286182
     }
   },
-  "generated_at": "2026-04-20 11:18:35 UTC",
+  "generated_at": "2026-04-21 03:51:40 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 1,
@@ -377,8 +526,8 @@
     "packages": 35,
     "slices": 118
   },
-  "paths_scanned": 549086,
-  "slices_total": 509901,
+  "paths_scanned": 549068,
+  "slices_total": 509787,
   "union": {
     "build_time_packages_default_view": [
       "bat-extras.batdiff",
@@ -393,6 +542,45 @@
       "kitty",
       "oh-my-fish",
       "rimgo"
+    ],
+    "load_time_packages": [
+      "auto-editor-29.3.1",
+      "ccextractor-0.94-unstable-2025-05-20",
+      "contour-0.6.1.7494",
+      "corsix-th-0.69.2",
+      "ddnet-19.5",
+      "dosbox-x-2025.10.07",
+      "ffms-5.0",
+      "freerdp-3.23.0",
+      "harvid-0.9.1",
+      "keyfinder-cli-1.1.2",
+      "libopenshot-0.4.0",
+      "loudgain-0.6.8",
+      "megacmd-1.7.0",
+      "moc-2.6-alpha3-unstable-2019-09-14",
+      "moonlight-qt-6.1.0",
+      "mpd-0.24.6",
+      "netgen-6.2.2505",
+      "notcurses-3.0.17",
+      "opencv-4.12.0",
+      "opencv-4.12.0-package_tests",
+      "phira-unwrapped-0.6.7",
+      "pianobar-2024.12.21",
+      "pqiv-2.13.3",
+      "q2pro-0-unstable-2025-07-21",
+      "qtmultimedia-6.10.2",
+      "rsgain-3.6",
+      "scrcpy-3.3.4",
+      "spek-0.8.5",
+      "squeezelite-2.0.0.1541",
+      "survex-1.4.18",
+      "taterclient-ddnet-10.6.0",
+      "timg-1.6.3",
+      "vgmstream-2055",
+      "video-compare-20250928",
+      "vivictpp-1.3.1",
+      "vtk-9.5.2",
+      "wxsvg-1.5.25"
     ]
   }
 }
