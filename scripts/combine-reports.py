@@ -13,9 +13,9 @@ Usage:
                      [--channel-tier3 LABEL:PATH ...]
 
 `--channel` points at a channel's `summary.json` produced by
-aggregate-scan.py (Tier 1). `--channel-tier2` and `--channel-tier3` are
-optional per-channel Tier-2 / Tier-3 summary paths; when provided, the
-headline table and drill-down links are extended with those tiers.
+aggregate-scan.py (Type 1). `--channel-tier2` and `--channel-tier3` are
+optional per-channel Type-2 / Type-3 summary paths; when provided, the
+headline table and drill-down links are extended with those types.
 
 The top-level summary.json keeps backward-compatible shortcut fields
 (`page_hash_mismatch.slices`, `paths_scanned`, `slices_total`) so
@@ -68,7 +68,7 @@ import re as _re
 # unstable-2025-02-22` → `batman-2024.08.24`). The suffix is packaging
 # metadata — the nixpkgs pin date — not a semantic version. Keeping it
 # in the flat table makes rows unscannable; the full form is preserved
-# in the per-tier CSV drill-downs for anyone who needs it.
+# in the per-type CSV drill-downs for anyone who needs it.
 _UNSTABLE_SUFFIX = _re.compile(r"-unstable-\d{4}-\d{2}-\d{2}$")
 
 
@@ -104,23 +104,23 @@ def render_affected_packages_rows(channels: list[dict]) -> list[dict]:
         label = ch["label"]
         data = ch["data"]
 
-        # Tier 1 (direct): `page_hash_mismatch.packages_list`.
+        # Type 1 (direct): `page_hash_mismatch.packages_list`.
         for pkg in (data.get("page_hash_mismatch") or {}).get("packages_list", []):
             bump(pkg, "direct", label, [])
 
-        # Tier 2 (load-time): `tier2_summary.dependents_by_package`.
+        # Type 2 (load-time): `tier2_summary.dependents_by_package`.
         t2 = ch.get("tier2_summary") or {}
         for pkg, seeds in (t2.get("dependents_by_package") or {}).items():
             bump(pkg, "load-time transitive", label, list(seeds))
 
-        # Tier 3 (build-time, default view only): `tier3_summary.
+        # Type 3 (build-time, default view only): `tier3_summary.
         # dependents_by_pkg_default_view`.
         t3 = ch.get("tier3_summary") or {}
         for pkg, seeds in (t3.get("dependents_by_pkg_default_view") or {}).items():
             bump(pkg, "build-time transitive", label, list(seeds))
 
     # Order: alphabetical by package (case-insensitive), then
-    # direct-before-load-time-before-build-time so multi-tier packages
+    # direct-before-load-time-before-build-time so multi-type packages
     # read naturally top-to-bottom.
     TIER_ORDER = {"direct": 0, "load-time transitive": 1, "build-time transitive": 2}
     ordered = sorted(
@@ -161,11 +161,11 @@ def render_markdown(channels: list[dict]) -> str:
     )
     lines.append("")
 
-    # ----------------------------------------------------- three-tier headline
-    lines.append("## Blast-radius tiers")
+    # ----------------------------------------------------- three-type headline
+    lines.append("## Failure types")
     lines.append("")
     lines.append(
-        "The bug's effect surfaces in three types of failure. Each tier's "
+        "The bug's effect surfaces in three types of failure. Each type's "
         "membership and how we detect it:"
     )
     lines.append("")
@@ -193,14 +193,14 @@ def render_markdown(channels: list[dict]) -> str:
     )
     lines.append("")
 
-    # Two-channel × three-tier table
-    header_cells = ["| Tier"] + [f" {ch['label']} " for ch in channels] + [" Union |"]
+    # Two-channel × three-type table
+    header_cells = ["| Type"] + [f" {ch['label']} " for ch in channels] + [" Union |"]
     header = "|".join(header_cells)
     sep = "|---|" + "---:|" * (len(channels) + 1)
     lines.append(header)
     lines.append(sep)
 
-    # Tier 1
+    # Type 1
     t1_counts = [
         int((ch["data"].get("page_hash_mismatch") or {}).get("slices") or 0)
         for ch in channels
@@ -228,7 +228,7 @@ def render_markdown(channels: list[dict]) -> str:
         + f"| {t1_union_pkgs} |"
     )
 
-    # Tier 2
+    # Type 2
     t2_counts_bins = []
     t2_counts_pkgs = []
     t2_pkgs_lists = []
@@ -250,7 +250,7 @@ def render_markdown(channels: list[dict]) -> str:
             + f"| {t2_union_pkgs} |"
         )
 
-    # Tier 3
+    # Type 3
     t3_counts = []
     t3_pkgs_lists = []
     for ch in channels:
@@ -270,18 +270,18 @@ def render_markdown(channels: list[dict]) -> str:
     lines.append("## Canonical examples")
     lines.append("")
     lines.append(
-        "- **Tier 1 (direct)**: `fish-4.2.1/bin/fish` SIGKILLs on launch on "
+        "- **Type 1 (direct)**: `fish-4.2.1/bin/fish` SIGKILLs on launch on "
         "darwin. End-user reports in "
         "[nixpkgs#208951](https://github.com/NixOS/nixpkgs/issues/208951)."
     )
     lines.append(
-        "- **Tier 2 (load-time transitive)**: any Mach-O whose "
+        "- **Type 2 (load-time transitive)**: any Mach-O whose "
         "`LC_LOAD_DYLIB` points at e.g. "
         "`ffmpeg-8.0-lib/lib/libavformat.61.dylib` fails at process start — "
         "deterministic from kernel page-in semantics."
     )
     lines.append(
-        "- **Tier 3 (build-time dependent)**: `direnv` declares "
+        "- **Type 3 (build-time dependent)**: `direnv` declares "
         "`nativeCheckInputs = [ fish ]` with `doCheck = true`; its "
         "`checkPhase` runs `fish ./test/direnv-test.fish`, fish SIGKILLs, "
         "direnv fails to build on Hydra. Origin of "
@@ -386,8 +386,8 @@ def render_markdown(channels: list[dict]) -> str:
             f" — `{ch['data'].get('channel_label', ch['label'])}`"
         )
     lines.append("- [Scanner source](scripts/scan-darwin-cache.py)")
-    lines.append("- [Tier 2 analyzer](scripts/compute-load-time-dependents.py)")
-    lines.append("- [Tier 3 analyzer](scripts/compute-build-time-dependents.py)")
+    lines.append("- [Type 2 analyzer](scripts/compute-load-time-dependents.py)")
+    lines.append("- [Type 3 analyzer](scripts/compute-build-time-dependents.py)")
     lines.append("")
 
     return "\n".join(lines) + "\n"
@@ -403,7 +403,7 @@ def build_combined_summary(channels: list[dict]) -> dict:
             total += int(d.get(k) or 0)
         return total
 
-    # Union sets across channels for per-tier cross-channel totals.
+    # Union sets across channels for per-type cross-channel totals.
     # Packages that fail on BOTH channels count once in the union.
     t1_union: set[str] = set()
     t2_union: set[str] = set()
@@ -495,7 +495,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 def main() -> int:
     args = parse_args(sys.argv[1:])
 
-    # Index Tier 2 / Tier 3 paths by channel label.
+    # Index Type 2 / Type 3 paths by channel label.
     t2_map = {
         parse_channel_arg(raw)[0]: parse_channel_arg(raw)[1]
         for raw in args.channel_tier2

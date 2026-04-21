@@ -3,7 +3,7 @@
 # requires-python = ">=3.12"
 # ///
 """
-Compute Tier 2 (load-time transitive) dependents of direct-failing dylibs.
+Compute Type 2 (load-time transitive) dependents of direct-failing dylibs.
 
 A Mach-O binary that embeds an LC_LOAD_DYLIB / LC_LOAD_WEAK_DYLIB /
 LC_REEXPORT_DYLIB pointing at a direct-failing dylib will SIGKILL at
@@ -13,14 +13,14 @@ CodeDirectory. A broken dylib's pages fail validation, dyld aborts, the
 caller never runs main().
 
 This is a strong claim — kernel behavior at process start is deterministic
-per slice. It's disjoint from Tier 1 (direct failures): a binary whose
+per slice. It's disjoint from Type 1 (direct failures): a binary whose
 OWN hashes are stale fails before dyld even runs its dylib dispatch.
 Dependent binaries listed here are clean themselves; they fail because
 of what they load.
 
 Inputs:
   - Scan JSONL (per-slice scan data with `linked_dylibs`).
-  - `direct-failing.csv` (Tier 1 output).
+  - `direct-failing.csv` (Type 1 output).
 
 Outputs:
   - `load-time-dependents.csv`: one row per (dependent-binary, failing-dylib) pair.
@@ -181,11 +181,11 @@ def compute(
     seeds = load_failing_dylib_seeds(failing_csv_path)
     if not seeds:
         print(
-            f"No failing dylibs in {failing_csv_path}; Tier 2 will be empty.",
+            f"No failing dylibs in {failing_csv_path}; Type 2 will be empty.",
             file=sys.stderr,
         )
 
-    # Direct-failing (path, slice-arch) set: skip these in Tier 2 output
+    # Direct-failing (path, slice-arch) set: skip these in Type 2 output
     # (they fail at their own page-in, not at dylib dispatch).
     direct_failing_keys: set[tuple[str, str]] = set()
     with failing_csv_path.open() as f:
@@ -203,8 +203,8 @@ def compute(
         rel = s.get("path", "")
         arch = s.get("arch", "")
         full_path = f"{store_path}/{rel}"
-        # Tier 2 is only for binaries whose own hashes are clean. A slice
-        # that is itself direct-failing is covered by Tier 1; listing it
+        # Type 2 is only for binaries whose own hashes are clean. A slice
+        # that is itself direct-failing is covered by Type 1; listing it
         # here would double-count.
         if (full_path, arch) in direct_failing_keys:
             continue
@@ -283,7 +283,7 @@ def compute(
         f.write("\n")
 
     print(
-        f"Tier 2: {summary['distinct_binaries']} distinct binaries across "
+        f"Type 2: {summary['distinct_binaries']} distinct binaries across "
         f"{summary['distinct_dependent_packages']} packages link at least one "
         f"of {summary['distinct_seed_dylibs']} failing dylibs "
         f"({summary['total_rows']} total (binary, failing-dylib) pairs)",

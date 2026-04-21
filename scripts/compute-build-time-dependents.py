@@ -4,7 +4,7 @@
 # dependencies = ["httpx[http2]>=0.27"]
 # ///
 """
-Compute Tier 3 (build-time) dependents of direct-failing packages.
+Compute Type 3 (build-time) dependents of direct-failing packages.
 
 A package P is a "build-time dependent" if P's derivation directly declares
 a direct-failing package as a build input — i.e. that failing package is
@@ -28,7 +28,7 @@ The canonical 1-hop case is direnv (nixpkgs#507531): direnv's
 Inputs:
   - `--nixpkgs-flake <flakeref>`: the channel's nixpkgs revision as a flake
     reference (e.g. `github:nixos/nixpkgs/d7de041fe507`).
-  - `--direct-failing-csv <path>`: Tier 1 output from aggregate-scan.py.
+  - `--direct-failing-csv <path>`: Type 1 output from aggregate-scan.py.
 
 Outputs:
   - `build-time-dependents.csv`: one row per (dependent package, edge kind,
@@ -371,7 +371,7 @@ def compute(
 
     # --- seeds ---------------------------------------------------------------
     # Failing STORE PATHS (from direct-failing.csv). We dedupe; a store path
-    # with multiple failing slices counts once for Tier 3.
+    # with multiple failing slices counts once for Type 3.
     failing_store_paths: set[str] = set()
     with failing_csv.open() as f:
         for row in csv.DictReader(f):
@@ -386,7 +386,7 @@ def compute(
         flake, workers=eval_workers, max_memory_mb=nix_eval_max_memory
     )
     if not pkgs:
-        sys.exit("nix-eval-jobs returned no packages; cannot compute Tier 3")
+        sys.exit("nix-eval-jobs returned no packages; cannot compute Type 3")
 
     # Index output store paths → (attr, drvPath). Every output of every attr
     # is a potential seed target.
@@ -435,7 +435,7 @@ def compute(
     )
 
     # --- candidate filter ----------------------------------------------------
-    # An attr is a Tier-3 candidate if any of its direct inputDrvs is a
+    # An attr is a Type-3 candidate if any of its direct inputDrvs is a
     # seed drv. We check this locally using the inputDrvs field already
     # captured by `--show-input-drvs`; no nix subprocess calls yet.
     candidates: list[dict] = []
@@ -453,7 +453,7 @@ def compute(
         if matched:
             candidates.append({**p, "matched_seed_drvs": sorted(matched)})
     print(
-        f"  {len(candidates)} Tier-3 candidates (attrs with ≥1 inputDrv in the "
+        f"  {len(candidates)} Type-3 candidates (attrs with ≥1 inputDrv in the "
         f"seed-drv set); running targeted derivation show on each",
         file=sys.stderr,
     )
@@ -573,14 +573,14 @@ def compute(
         f.write("\n")
 
     print(
-        f"Tier 3 (default view, 1-hop, build/check edges only): "
+        f"Type 3 (default view, 1-hop, build/check edges only): "
         f"{summary['distinct_dependent_attrs_default_view']} packages directly "
         f"declare at least one failing seed as a build/check input "
         f"({summary['rows_in_default_view']} rows)",
         file=sys.stderr,
     )
     print(
-        f"Tier 3 (all edges including propagated): {len(rows)} total rows",
+        f"Type 3 (all edges including propagated): {len(rows)} total rows",
         file=sys.stderr,
     )
 
