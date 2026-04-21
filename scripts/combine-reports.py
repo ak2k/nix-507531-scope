@@ -165,9 +165,9 @@ def render_markdown(channels: list[dict]) -> str:
     lines.append("## Blast-radius tiers")
     lines.append("")
     lines.append(
-        "The bug's effect surfaces in three distinguishable ways, in order of "
-        "decreasing certainty per listed package. Each tier's membership and "
-        "how we detect it:"
+        "The bug's effect surfaces in three types of failure, each with a "
+        "distinct certainty level per listed package. Each tier's "
+        "membership and how we detect it:"
     )
     lines.append("")
     lines.append(
