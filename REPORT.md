@@ -1,18 +1,18 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-04-21 12:26:42 UTC
+Generated: 2026-04-21 22:55:48 UTC
 
 Daily scan across both darwin channels of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
-## Blast-radius tiers
+## Failure types
 
-The bug's effect surfaces in three distinguishable ways, in order of decreasing certainty per listed package. Each tier's membership and how we detect it:
+The bug's effect surfaces in three types of failure. Each type's membership and how we detect it:
 
 1. **Direct failure** — cached binary's page hashes are stale; kernel SIGKILLs on first page-in. Detected by SHA-256/SHA-1 recomputation against every Mach-O slice in `cache.nixos.org`. Certain per binary.
 2. **Load-time transitive** — binary is clean itself, but an `LC_LOAD_DYLIB` points at a direct-failing dylib; dyld maps the broken lib at process start, kernel SIGKILLs before `main()`. Detected by Mach-O load-command parse. Certain per binary.
 3. **Build-time dependent** — package's nix expression directly declares a direct-failing package as `buildInputs` / `nativeBuildInputs` / `checkInputs` / `nativeCheckInputs`. Detected by evaluating the channel's nixpkgs aarch64-darwin package set and inspecting drv env vars. Graph-level only — not every listed package actually invokes the failing binary during build. Default view excludes `propagatedBuildInputs` (propagation threads the input forward, it isn't invoked).
 
-| Tier| stable | unstable | Union |
+| Type| stable | unstable | Union |
 |---|---:|---:|---:|
 | **1. Direct failure** (slices) | 130 | 53 | 183 |
 | &emsp;↳ distinct packages | 20 | 16 | 20 |
@@ -22,9 +22,9 @@ The bug's effect surfaces in three distinguishable ways, in order of decreasing 
 
 ## Canonical examples
 
-- **Tier 1 (direct)**: `fish-4.2.1/bin/fish` SIGKILLs on launch on darwin. End-user reports in [nixpkgs#208951](https://github.com/NixOS/nixpkgs/issues/208951).
-- **Tier 2 (load-time transitive)**: any Mach-O whose `LC_LOAD_DYLIB` points at e.g. `ffmpeg-8.0-lib/lib/libavformat.61.dylib` fails at process start — deterministic from kernel page-in semantics.
-- **Tier 3 (build-time dependent)**: `direnv` declares `nativeCheckInputs = [ fish ]` with `doCheck = true`; its `checkPhase` runs `fish ./test/direnv-test.fish`, fish SIGKILLs, direnv fails to build on Hydra. Origin of [nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531).
+- **Type 1 (direct)**: `fish-4.2.1/bin/fish` SIGKILLs on launch on darwin. End-user reports in [nixpkgs#208951](https://github.com/NixOS/nixpkgs/issues/208951).
+- **Type 2 (load-time transitive)**: any Mach-O whose `LC_LOAD_DYLIB` points at e.g. `ffmpeg-8.0-lib/lib/libavformat.61.dylib` fails at process start — deterministic from kernel page-in semantics.
+- **Type 3 (build-time dependent)**: `direnv` declares `nativeCheckInputs = [ fish ]` with `doCheck = true`; its `checkPhase` runs `fish ./test/direnv-test.fish`, fish SIGKILLs, direnv fails to build on Hydra. Origin of [nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531).
 
 ## Scan totals
 
@@ -127,6 +127,6 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 - [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 7a8c107078da (2026-04-21)`
 - [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ b86751bc4085 (2026-04-21)`
 - [Scanner source](scripts/scan-darwin-cache.py)
-- [Tier 2 analyzer](scripts/compute-load-time-dependents.py)
-- [Tier 3 analyzer](scripts/compute-build-time-dependents.py)
+- [Type 2 analyzer](scripts/compute-load-time-dependents.py)
+- [Type 3 analyzer](scripts/compute-build-time-dependents.py)
 
