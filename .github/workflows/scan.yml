@@ -57,7 +57,6 @@ jobs:
     timeout-minutes: 360
     permissions:
       contents: read
-      actions: write    # cache-nix-action's purge step
     strategy:
       fail-fast: false
       matrix:
@@ -160,7 +159,6 @@ jobs:
     timeout-minutes: 60
     permissions:
       contents: read
-      actions: write    # cache-nix-action
     strategy:
       fail-fast: false
       matrix:
@@ -177,14 +175,13 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v31
 
-      - name: Cache /nix/store
-        uses: nix-community/cache-nix-action@v7
-        with:
-          primary-key: nix-${{ runner.os }}-${{ hashFiles('.github/workflows/scan.yml') }}
-          restore-prefixes-first-match: nix-${{ runner.os }}-
-          gc-max-store-size-linux: 2147483648   # 2 GiB cap
-          purge: true
-          purge-created: 604800                 # 7 days
+      # Deliberately NO cache-nix-action /nix/store caching. Each
+      # analyze job installs nix + rcodesign + nix-eval-jobs fresh;
+      # the cold install takes ~30s total and saves ~800 MB of repo-
+      # cache footprint per run. With 2 analyze jobs × 18 daily runs
+      # × ~800 MB, cache-nix-action was the dominant cache-usage item,
+      # pushing the repo past its 10 GB cap and LRU-evicting shard
+      # scan-state caches.
 
       - name: Install uv
         uses: astral-sh/setup-uv@v8.1.0
