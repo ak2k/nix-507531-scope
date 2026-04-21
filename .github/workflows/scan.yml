@@ -73,18 +73,20 @@ jobs:
           - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 3, total_shards: 6 }
           - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 4, total_shards: 6 }
           - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 5, total_shards: 6 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  0, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  1, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  2, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  3, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  4, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  5, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  6, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  7, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  8, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  9, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 10, total_shards: 12 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 11, total_shards: 12 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  0, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  1, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  2, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  3, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  4, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  5, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  6, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  7, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  8, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  9, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 10, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 11, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 12, total_shards: 14 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 13, total_shards: 14 }
 
     steps:
       - uses: actions/checkout@v6
@@ -348,4 +350,20 @@ jobs:
           git commit -m "auto: dual-channel scan
 
           Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          git push
+          # Main may have moved while this run was in flight (a separate
+          # push to main rebuild drops the run's push as non-fast-forward).
+          # Rebase the scan-output commit onto whatever main is now, then
+          # push. Scan outputs only touch scan-managed files (stable/,
+          # unstable/, REPORT.md, summary.json), so a rebase across
+          # scanner-code or workflow edits is always conflict-free.
+          # Retry once in case of a concurrent push race.
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin main; then
+              exit 0
+            fi
+            echo "push attempt $attempt failed, retrying..."
+            sleep 5
+          done
+          echo "::error::combine+commit push failed after 3 attempts"
+          exit 1
