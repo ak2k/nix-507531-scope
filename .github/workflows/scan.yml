@@ -347,17 +347,38 @@ jobs:
           git commit -m "auto: dual-channel scan
 
           Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          # Main may have moved while this run was in flight (a separate
-          # push to main rebuild drops the run's push as non-fast-forward).
-          # Rebase the scan-output commit onto whatever main is now, then
-          # push. Scan outputs only touch scan-managed files (stable/,
-          # unstable/, REPORT.md, summary.json), so a rebase across
-          # scanner-code or workflow edits is always conflict-free.
-          # Retry once in case of a concurrent push race.
+          # Main may have moved while this run was in flight (either a
+          # code/workflow push or a manual regen of the scan outputs).
+          # Rebase the scan commit onto whatever main is now, then push.
+          #
+          # REPORT.md and summary.json are deterministic regens from the
+          # per-channel inputs in stable/ and unstable/, so conflicts on
+          # those two files are auto-resolved in favor of this run's
+          # version (`--theirs` during rebase = the commit being replayed
+          # = the scan's fresh output). Any OTHER conflict halts the job
+          # so a human can inspect — that's unexpected and worth looking
+          # into. Retry for concurrent push races.
           for attempt in 1 2 3; do
-            git pull --rebase origin main
-            if git push origin main; then
-              exit 0
+            if git pull --rebase origin main; then
+              if git push origin main; then
+                exit 0
+              fi
+            else
+              # Rebase hit a conflict. Auto-resolve only on the two
+              # deterministic top-level files; bail on anything else.
+              conflicted=$(git diff --name-only --diff-filter=U)
+              unexpected=$(echo "$conflicted" | grep -vE '^(REPORT\.md|summary\.json)$' || true)
+              if [[ -n "$unexpected" ]]; then
+                echo "::error::unexpected rebase conflict(s): $unexpected"
+                git rebase --abort
+                exit 1
+              fi
+              git checkout --theirs -- REPORT.md summary.json
+              git add REPORT.md summary.json
+              GIT_EDITOR=true git rebase --continue
+              if git push origin main; then
+                exit 0
+              fi
             fi
             echo "push attempt $attempt failed, retrying..."
             sleep 5
