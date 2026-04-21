@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-04-21 22:55:48 UTC
+Generated: 2026-04-21 22:59:36 UTC
 
 Daily scan across both darwin channels of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -14,7 +14,7 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| stable | unstable | Union |
 |---|---:|---:|---:|
-| **1. Direct failure** (slices) | 130 | 53 | 183 |
+| **1. Direct failure** (slices) | 180 | 53 | 233 |
 | &emsp;↳ distinct packages | 20 | 16 | 20 |
 | **2. Load-time transitive** (binaries) | 56 | 0 | 56 |
 | &emsp;↳ distinct packages | 37 | 0 | 37 |
@@ -30,9 +30,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | stable | unstable |
 |---|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ 7a8c107078da (2026-04-21) | nixpkgs-unstable @ b86751bc4085 (2026-04-21) |
-| Paths scanned | 316,948 | 376,114 |
-| Mach-O slices | 412,486 | 286,182 |
+| Channel label | nixpkgs-25.11-darwin @ 377ba9abb3f4 (2026-04-21) | nixpkgs-unstable @ b86751bc4085 (2026-04-21) |
+| Paths scanned | 441,940 | 376,114 |
+| Mach-O slices | 571,651 | 286,182 |
 
 ## Direct-failure slices by signature shape
 
@@ -40,11 +40,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | stable | unstable | Total |
 |---|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 44 | 7 | 51 |
-| codesign ad-hoc, empty 8 B CMS wrapper | 86 | 43 | 129 |
+| linker-signed ad-hoc, no CMS slot | 58 | 7 | 65 |
+| codesign ad-hoc, empty 8 B CMS wrapper | 122 | 43 | 165 |
 | ad-hoc with Entitlements + empty CMS wrapper | 0 | 1 | 1 |
 | Developer-ID-signed (non-empty CMS payload) | 0 | 2 | 2 |
-| **Total** | **130** | **53** | **183** |
+| **Total** | **180** | **53** | **233** |
 
 ## Affected packages
 
@@ -124,7 +124,7 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 
 ## Drill-downs
 
-- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 7a8c107078da (2026-04-21)`
+- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 377ba9abb3f4 (2026-04-21)`
 - [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ b86751bc4085 (2026-04-21)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)

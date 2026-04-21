@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ b86751bc4085 (2026-04-21)
 
-Generated: 2026-04-21 12:11:23 UTC
+Generated: 2026-04-21 22:45:28 UTC
 
 ## Summary
 
@@ -14,9 +14,9 @@ Generated: 2026-04-21 12:11:23 UTC
 |   of which codesign-signed (flags=0x2) | 46 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
-| Tier 2 — binaries linking a failing dylib | 0 |
-| Tier 2 — distinct packages | 0 |
-| Tier 3 — packages directly declaring a failing build input (default view) | 1 |
+| Type 2 — binaries linking a failing dylib | 0 |
+| Type 2 — distinct packages | 0 |
+| Type 3 — packages directly declaring a failing build input (default view) | 1 |
 
 ## By architecture
 

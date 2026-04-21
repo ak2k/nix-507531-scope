@@ -2,65 +2,65 @@
   "channels": {
     "stable": {
       "buckets": {
-        "clean": 195215,
-        "not_real_macho": 13352,
-        "other_sig_invalid": 2,
-        "page_hash_mismatch": 130,
-        "unsigned": 203787
+        "clean": 274200,
+        "not_real_macho": 16546,
+        "other_sig_invalid": 3,
+        "page_hash_mismatch": 180,
+        "unsigned": 280722
       },
       "buckets_by_arch": {
         "arm": {
-          "not_real_macho": 8,
-          "unsigned": 12
+          "not_real_macho": 12,
+          "unsigned": 18
         },
         "arm64": {
-          "clean": 180077,
-          "not_real_macho": 37,
-          "page_hash_mismatch": 88,
-          "unsigned": 13177
+          "clean": 252920,
+          "not_real_macho": 52,
+          "page_hash_mismatch": 124,
+          "unsigned": 19126
         },
         "arm64e": {
-          "clean": 24,
-          "not_real_macho": 74
+          "clean": 29,
+          "not_real_macho": 90
         },
         "cpu_0x00000001/0x00000000": {
-          "clean": 4
+          "clean": 5
         },
         "cpu_0x00000002/0x00000000": {
-          "not_real_macho": 4
+          "not_real_macho": 5
         },
         "cpu_0x00000004/0x00000000": {
-          "unsigned": 4
+          "unsigned": 5
         },
         "cpu_0x00000005/0x00000000": {
-          "not_real_macho": 4
+          "not_real_macho": 5
         },
         "cpu_0x00000012/0x00000000": {
-          "not_real_macho": 171
+          "not_real_macho": 251
         },
         "cpu_0x00000012/0x0000000a": {
-          "not_real_macho": 20
-        },
-        "cpu_0x00000012/0x00000064": {
-          "not_real_macho": 4
-        },
-        "cpu_0x01000012/0x00000000": {
           "not_real_macho": 27
         },
+        "cpu_0x00000012/0x00000064": {
+          "not_real_macho": 6
+        },
+        "cpu_0x01000012/0x00000000": {
+          "not_real_macho": 37
+        },
         "i386": {
-          "clean": 220,
-          "not_real_macho": 4,
-          "unsigned": 96
+          "clean": 314,
+          "not_real_macho": 6,
+          "unsigned": 143
         },
         "unknown": {
-          "not_real_macho": 12880
+          "not_real_macho": 15905
         },
         "x86_64": {
-          "clean": 14890,
-          "not_real_macho": 119,
-          "other_sig_invalid": 2,
-          "page_hash_mismatch": 42,
-          "unsigned": 190498
+          "clean": 20932,
+          "not_real_macho": 150,
+          "other_sig_invalid": 3,
+          "page_hash_mismatch": 56,
+          "unsigned": 261430
         }
       },
       "build_time_dependents": {
@@ -131,17 +131,17 @@
         "rows_in_default_view": 11,
         "total_rows": 11
       },
-      "channel_label": "nixpkgs-25.11-darwin @ 7a8c107078da (2026-04-21)",
+      "channel_label": "nixpkgs-25.11-darwin @ 377ba9abb3f4 (2026-04-21)",
       "coverage": {
-        "not_real_macho": 13352,
+        "not_real_macho": 16546,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-21 12:11:17 UTC",
+      "generated_at": "2026-04-21 22:45:32 UTC",
       "load_time_transitive": {
         "by_seed_package": {
-          "ffmpeg-8.0-lib": 451
+          "ffmpeg-8.0-lib": 633
         },
         "dependent_packages": [
           "auto-editor-29.3.1",
@@ -298,20 +298,20 @@
         "distinct_binaries": 56,
         "distinct_dependent_packages": 37,
         "distinct_seed_dylibs": 51,
-        "total_rows": 451
+        "total_rows": 633
       },
       "other_sig_invalid": {
         "packages": 1,
-        "slices": 2
+        "slices": 3
       },
       "page_hash_mismatch": {
         "by_signature_class": {
-          "C2": 86,
-          "L": 44
+          "C2": 122,
+          "L": 58
         },
         "by_signer": {
-          "codesign_signed": 86,
-          "linker_signed": 44
+          "codesign_signed": 122,
+          "linker_signed": 58
         },
         "packages": 20,
         "packages_list": [
@@ -332,29 +332,29 @@
           "tailwindcss_4-4.1.18",
           "teams-for-linux-2.8.0"
         ],
-        "slices": 130
+        "slices": 180
       },
       "paths_by_status": {
-        "ok": 316948
+        "ok": 441940
       },
-      "paths_scanned": 316948,
+      "paths_scanned": 441940,
       "slices_by_arch": {
-        "arm": 20,
-        "arm64": 193379,
-        "arm64e": 98,
-        "cpu_0x00000001/0x00000000": 4,
-        "cpu_0x00000002/0x00000000": 4,
-        "cpu_0x00000004/0x00000000": 4,
-        "cpu_0x00000005/0x00000000": 4,
-        "cpu_0x00000012/0x00000000": 171,
-        "cpu_0x00000012/0x0000000a": 20,
-        "cpu_0x00000012/0x00000064": 4,
-        "cpu_0x01000012/0x00000000": 27,
-        "i386": 320,
-        "unknown": 12880,
-        "x86_64": 205551
+        "arm": 30,
+        "arm64": 272222,
+        "arm64e": 119,
+        "cpu_0x00000001/0x00000000": 5,
+        "cpu_0x00000002/0x00000000": 5,
+        "cpu_0x00000004/0x00000000": 5,
+        "cpu_0x00000005/0x00000000": 5,
+        "cpu_0x00000012/0x00000000": 251,
+        "cpu_0x00000012/0x0000000a": 27,
+        "cpu_0x00000012/0x00000064": 6,
+        "cpu_0x01000012/0x00000000": 37,
+        "i386": 463,
+        "unknown": 15905,
+        "x86_64": 282571
       },
-      "slices_total": 412486
+      "slices_total": 571651
     },
     "unstable": {
       "buckets": {
@@ -450,7 +450,7 @@
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-21 12:11:23 UTC",
+      "generated_at": "2026-04-21 22:45:28 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -514,20 +514,20 @@
       "slices_total": 286182
     }
   },
-  "generated_at": "2026-04-21 22:55:48 UTC",
+  "generated_at": "2026-04-21 22:59:36 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 1,
       "B7-real": 2,
-      "C2": 129,
-      "L": 51,
+      "C2": 165,
+      "L": 65,
       "unknown": 0
     },
     "packages": 20,
-    "slices": 183
+    "slices": 233
   },
-  "paths_scanned": 693062,
-  "slices_total": 698668,
+  "paths_scanned": 818054,
+  "slices_total": 857833,
   "union": {
     "build_time_packages_default_view": [
       "bat-extras.batdiff",
