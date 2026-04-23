@@ -131,14 +131,14 @@
         "rows_in_default_view": 11,
         "total_rows": 11
       },
-      "channel_label": "nixpkgs-25.11-darwin @ 377ba9abb3f4 (2026-04-22)",
+      "channel_label": "nixpkgs-25.11-darwin @ 377ba9abb3f4 (2026-04-23)",
       "coverage": {
         "not_real_macho": 16546,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-22 07:32:36 UTC",
+      "generated_at": "2026-04-23 07:32:48 UTC",
       "load_time_transitive": {
         "by_seed_package": {
           "ffmpeg-8.0-lib": 633
@@ -443,14 +443,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-unstable @ b86751bc4085 (2026-04-22)",
+      "channel_label": "nixpkgs-unstable @ b86751bc4085 (2026-04-23)",
       "coverage": {
         "not_real_macho": 57197,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-22 07:32:38 UTC",
+      "generated_at": "2026-04-23 07:32:50 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -514,7 +514,7 @@
       "slices_total": 286182
     }
   },
-  "generated_at": "2026-04-22 07:44:01 UTC",
+  "generated_at": "2026-04-23 07:45:51 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 1,
