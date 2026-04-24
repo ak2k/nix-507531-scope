@@ -1,8 +1,8 @@
 {
-  "total_rows": 1,
+  "total_rows": 2,
   "rows_in_default_view": 1,
   "distinct_dependent_attrs_default_view": 1,
-  "distinct_seeds": 16,
+  "distinct_seeds": 35,
   "edge_filter_default": [
     "buildInputs",
     "checkInputs",
@@ -13,14 +13,14 @@
     "nativeBuildInputs": 1
   },
   "by_seed_default_view": {
-    "tailwindcss_4-4.2.2": 1
+    "tailwindcss_4-4.2.3": 1
   },
   "dependent_attrs_default_view": [
     "rimgo"
   ],
   "dependents_by_pkg_default_view": {
-    "rimgo-1.4.1": [
-      "tailwindcss_4-4.2.2"
+    "rimgo-1.4.2": [
+      "tailwindcss_4-4.2.3"
     ]
   }
 }

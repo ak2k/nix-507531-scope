@@ -1,9 +1,25 @@
 {
-  "total_rows": 0,
-  "distinct_binaries": 0,
-  "distinct_dependent_packages": 0,
-  "distinct_seed_dylibs": 40,
-  "by_seed_package": {},
-  "dependent_packages": [],
-  "dependents_by_package": {}
+  "total_rows": 20,
+  "distinct_binaries": 5,
+  "distinct_dependent_packages": 3,
+  "distinct_seed_dylibs": 88,
+  "by_seed_package": {
+    "ffmpeg-headless-8.0.1-lib": 20
+  },
+  "dependent_packages": [
+    "ffmpegthumbnailer-2.3.0",
+    "gst-libav-1.26.11",
+    "musikcube-3.0.5"
+  ],
+  "dependents_by_package": {
+    "ffmpegthumbnailer-2.3.0": [
+      "ffmpeg-headless-8.0.1-lib"
+    ],
+    "gst-libav-1.26.11": [
+      "ffmpeg-headless-8.0.1-lib"
+    ],
+    "musikcube-3.0.5": [
+      "ffmpeg-headless-8.0.1-lib"
+    ]
+  }
 }
