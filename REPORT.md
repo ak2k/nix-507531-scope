@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-04-24 08:24:47 UTC
+Generated: 2026-04-25 08:13:08 UTC
 
 Daily scan across both darwin channels of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -14,11 +14,11 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| stable | unstable | Union |
 |---|---:|---:|---:|
-| **1. Direct failure** (slices) | 218 | 116 | 334 |
+| **1. Direct failure** (slices) | 238 | 116 | 354 |
 | &emsp;↳ distinct packages | 21 | 35 | 26 |
 | **2. Load-time transitive** (binaries) | 56 | 5 | 61 |
 | &emsp;↳ distinct packages | 37 | 3 | 40 |
-| **3. Build-time dependent** (packages, default view) | 11 | 1 | 12 |
+| **3. Build-time dependent** (packages, default view) | 10 | 1 | 11 |
 
 ## Canonical examples
 
@@ -30,9 +30,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | stable | unstable |
 |---|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ 6ea81a59ced1 (2026-04-24) | nixpkgs-unstable @ 01fbdeef22b7 (2026-04-24) |
-| Paths scanned | 541,974 | 755,322 |
-| Mach-O slices | 698,129 | 559,279 |
+| Channel label | nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-04-25) | nixpkgs-unstable @ 01fbdeef22b7 (2026-04-25) |
+| Paths scanned | 619,804 | 755,435 |
+| Mach-O slices | 813,805 | 559,325 |
 
 ## Direct-failure slices by signature shape
 
@@ -40,11 +40,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | stable | unstable | Total |
 |---|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 75 | 24 | 99 |
-| codesign ad-hoc, empty 8 B CMS wrapper | 143 | 86 | 229 |
+| linker-signed ad-hoc, no CMS slot | 89 | 24 | 113 |
+| codesign ad-hoc, empty 8 B CMS wrapper | 149 | 86 | 235 |
 | ad-hoc with Entitlements + empty CMS wrapper | 0 | 2 | 2 |
 | Developer-ID-signed (non-empty CMS payload) | 0 | 4 | 4 |
-| **Total** | **218** | **116** | **334** |
+| **Total** | **238** | **116** | **354** |
 
 ## Affected packages
 
@@ -54,7 +54,6 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 |---|---|---|---|
 | `Agda-2.8.0` | direct | stable | — |
 | `Agda-2.8.0-bin` | direct | stable | — |
-| `agda2hs-1.4` | build-time transitive | stable | `Agda-2.8.0` |
 | `arion-0.2.2.0` | direct | stable | — |
 | `auto-editor-29.3.1` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `avalonia-ilspy-7.2-rc` | direct | stable, unstable | — |
@@ -133,8 +132,8 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 
 ## Drill-downs
 
-- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 6ea81a59ced1 (2026-04-24)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 01fbdeef22b7 (2026-04-24)`
+- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-04-25)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 01fbdeef22b7 (2026-04-25)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)

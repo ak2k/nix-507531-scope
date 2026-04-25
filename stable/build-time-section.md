@@ -6,9 +6,9 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 
 | Metric | Count |
 |---|---:|
-| Packages with failing seeds in declared build/check inputs (default view) | 11 |
-| Total direct-edge rows (default view) | 11 |
-| Total rows including propagated edges | 11 |
+| Packages with failing seeds in declared build/check inputs (default view) | 10 |
+| Total direct-edge rows (default view) | 10 |
+| Total rows including propagated edges | 10 |
 | Distinct failing seeds | 21 |
 
 Edges by kind (default view only):
@@ -16,15 +16,14 @@ Edges by kind (default view only):
 | Edge kind | Count |
 |---|---:|
 | `nativeBuildInputs` | 9 |
-| `buildInputs` | 2 |
+| `buildInputs` | 1 |
 
 Top seed packages by downstream dependent count:
 
 | Seed package | Downstream dependents |
 |---|---:|
 | `fish-4.2.1` | 10 |
-| `Agda-2.8.0` | 1 |
 
-Dependent packages (11): `bat-extras.batdiff`, `bat-extras.batman`, `bat-extras.batpipe`, `bat-extras.batwatch`, `bat-extras.core`, `bat-extras.prettybat`, `direnv`, `fish-lsp`, `haskellPackages.agda2hs`, `kitty`, `oh-my-fish`
+Dependent packages (10): `bat-extras.batdiff`, `bat-extras.batman`, `bat-extras.batpipe`, `bat-extras.batwatch`, `bat-extras.core`, `bat-extras.prettybat`, `direnv`, `fish-lsp`, `kitty`, `oh-my-fish`
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
