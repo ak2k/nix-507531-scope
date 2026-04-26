@@ -126,14 +126,14 @@
         "rows_in_default_view": 10,
         "total_rows": 10
       },
-      "channel_label": "nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-04-25)",
+      "channel_label": "nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-04-26)",
       "coverage": {
         "not_real_macho": 23978,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-25 07:56:37 UTC",
+      "generated_at": "2026-04-26 07:31:19 UTC",
       "load_time_transitive": {
         "by_seed_package": {
           "ffmpeg-8.0-lib": 849
@@ -438,14 +438,14 @@
         "rows_in_default_view": 1,
         "total_rows": 2
       },
-      "channel_label": "nixpkgs-unstable @ 01fbdeef22b7 (2026-04-25)",
+      "channel_label": "nixpkgs-unstable @ 01fbdeef22b7 (2026-04-26)",
       "coverage": {
         "not_real_macho": 115145,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-04-25 07:56:39 UTC",
+      "generated_at": "2026-04-26 07:31:19 UTC",
       "load_time_transitive": {
         "by_seed_package": {
           "ffmpeg-headless-8.0.1-lib": 20
@@ -533,7 +533,7 @@
       "slices_total": 559325
     }
   },
-  "generated_at": "2026-04-25 08:13:08 UTC",
+  "generated_at": "2026-04-26 07:45:10 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 2,
