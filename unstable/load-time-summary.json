@@ -1,17 +1,21 @@
 {
-  "total_rows": 20,
-  "distinct_binaries": 5,
-  "distinct_dependent_packages": 3,
+  "total_rows": 45,
+  "distinct_binaries": 6,
+  "distinct_dependent_packages": 4,
   "distinct_seed_dylibs": 88,
   "by_seed_package": {
-    "ffmpeg-headless-8.0.1-lib": 20
+    "ffmpeg-headless-8.0.1-lib": 45
   },
   "dependent_packages": [
+    "cyanrip-0.9.3.1",
     "ffmpegthumbnailer-2.3.0",
     "gst-libav-1.26.11",
     "musikcube-3.0.5"
   ],
   "dependents_by_package": {
+    "cyanrip-0.9.3.1": [
+      "ffmpeg-headless-8.0.1-lib"
+    ],
     "ffmpegthumbnailer-2.3.0": [
       "ffmpeg-headless-8.0.1-lib"
     ],

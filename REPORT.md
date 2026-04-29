@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-04-28 08:04:03 UTC
+Generated: 2026-04-29 08:27:53 UTC
 
 Daily scan across both darwin channels of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -14,10 +14,10 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| stable | unstable | Union |
 |---|---:|---:|---:|
-| **1. Direct failure** (slices) | 238 | 116 | 354 |
-| &emsp;↳ distinct packages | 21 | 35 | 26 |
-| **2. Load-time transitive** (binaries) | 56 | 5 | 61 |
-| &emsp;↳ distinct packages | 37 | 3 | 40 |
+| **1. Direct failure** (slices) | 238 | 179 | 417 |
+| &emsp;↳ distinct packages | 21 | 39 | 27 |
+| **2. Load-time transitive** (binaries) | 56 | 6 | 62 |
+| &emsp;↳ distinct packages | 37 | 4 | 41 |
 | **3. Build-time dependent** (packages, default view) | 10 | 1 | 11 |
 
 ## Canonical examples
@@ -30,9 +30,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | stable | unstable |
 |---|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-04-28) | nixpkgs-unstable @ 01fbdeef22b7 (2026-04-28) |
-| Paths scanned | 619,804 | 755,435 |
-| Mach-O slices | 813,805 | 559,325 |
+| Channel label | nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-04-29) | nixpkgs-unstable @ 6368eda62c97 (2026-04-29) |
+| Paths scanned | 619,804 | 1,108,640 |
+| Mach-O slices | 813,805 | 824,132 |
 
 ## Direct-failure slices by signature shape
 
@@ -40,11 +40,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | stable | unstable | Total |
 |---|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 89 | 24 | 113 |
-| codesign ad-hoc, empty 8 B CMS wrapper | 149 | 86 | 235 |
-| ad-hoc with Entitlements + empty CMS wrapper | 0 | 2 | 2 |
-| Developer-ID-signed (non-empty CMS payload) | 0 | 4 | 4 |
-| **Total** | **238** | **116** | **354** |
+| linker-signed ad-hoc, no CMS slot | 89 | 41 | 130 |
+| codesign ad-hoc, empty 8 B CMS wrapper | 149 | 129 | 278 |
+| ad-hoc with Entitlements + empty CMS wrapper | 0 | 3 | 3 |
+| Developer-ID-signed (non-empty CMS payload) | 0 | 6 | 6 |
+| **Total** | **238** | **179** | **417** |
 
 ## Affected packages
 
@@ -65,6 +65,7 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 | `ccextractor-0.94` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `contour-0.6.1.7494` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `corsix-th-0.69.2` | load-time transitive | stable | `ffmpeg-8.0-lib` |
+| `cyanrip-0.9.3.1` | load-time transitive | unstable | `ffmpeg-headless-8.0.1-lib` |
 | `ddnet-19.5` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `direnv-2.37.1` | build-time transitive | stable | `fish-4.2.1` |
 | `dosbox-x-2025.10.07` | load-time transitive | stable | `ffmpeg-8.0-lib` |
@@ -98,6 +99,7 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 | `notcurses-3.0.17` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `oh-my-fish` | build-time transitive | stable | `fish-4.2.1` |
 | `opencode-1.14.20` | direct | unstable | — |
+| `opencode-1.14.25` | direct | unstable | — |
 | `opencode-1.4.6` | direct | unstable | — |
 | `opencv-4.12.0` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `opencv-4.12.0-package_tests` | load-time transitive | stable | `ffmpeg-8.0-lib` |
@@ -132,8 +134,8 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 
 ## Drill-downs
 
-- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-04-28)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 01fbdeef22b7 (2026-04-28)`
+- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-04-29)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 6368eda62c97 (2026-04-29)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)
