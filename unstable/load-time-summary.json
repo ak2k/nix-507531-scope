@@ -1,10 +1,10 @@
 {
-  "total_rows": 70,
+  "total_rows": 87,
   "distinct_binaries": 6,
   "distinct_dependent_packages": 4,
   "distinct_seed_dylibs": 88,
   "by_seed_package": {
-    "ffmpeg-headless-8.0.1-lib": 70
+    "ffmpeg-headless-8.0.1-lib": 87
   },
   "dependent_packages": [
     "cyanrip-0.9.3.1",
