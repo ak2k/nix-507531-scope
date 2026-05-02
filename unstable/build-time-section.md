@@ -9,7 +9,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 2 |
-| Distinct failing seeds | 41 |
+| Distinct failing seeds | 44 |
 
 Edges by kind (default view only):
 
@@ -21,7 +21,7 @@ Top seed packages by downstream dependent count:
 
 | Seed package | Downstream dependents |
 |---|---:|
-| `tailwindcss_4-4.2.3` | 1 |
+| `tailwindcss_4-4.2.4` | 1 |
 
 Dependent packages (1): `rimgo`
 

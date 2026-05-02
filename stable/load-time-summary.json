@@ -1,10 +1,10 @@
 {
-  "total_rows": 849,
-  "distinct_binaries": 56,
-  "distinct_dependent_packages": 37,
+  "total_rows": 932,
+  "distinct_binaries": 58,
+  "distinct_dependent_packages": 38,
   "distinct_seed_dylibs": 51,
   "by_seed_package": {
-    "ffmpeg-8.0-lib": 849
+    "ffmpeg-8.0-lib": 932
   },
   "dependent_packages": [
     "auto-editor-29.3.1",
@@ -23,6 +23,7 @@
     "moc-2.6-alpha3-unstable-2019-09-14",
     "moonlight-qt-6.1.0",
     "mpd-0.24.6",
+    "mpv-0.41.0",
     "netgen-6.2.2505",
     "notcurses-3.0.17",
     "opencv-4.12.0",
@@ -92,6 +93,9 @@
       "ffmpeg-8.0-lib"
     ],
     "mpd-0.24.6": [
+      "ffmpeg-8.0-lib"
+    ],
+    "mpv-0.41.0": [
       "ffmpeg-8.0-lib"
     ],
     "netgen-6.2.2505": [

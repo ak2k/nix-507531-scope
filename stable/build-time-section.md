@@ -9,7 +9,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 10 |
 | Total direct-edge rows (default view) | 10 |
 | Total rows including propagated edges | 10 |
-| Distinct failing seeds | 21 |
+| Distinct failing seeds | 24 |
 
 Edges by kind (default view only):
 

@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-05-01 08:26:48 UTC
+Generated: 2026-05-02 08:13:23 UTC
 
 Daily scan across both darwin channels of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -14,10 +14,10 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| stable | unstable | Union |
 |---|---:|---:|---:|
-| **1. Direct failure** (slices) | 238 | 283 | 521 |
-| &emsp;↳ distinct packages | 21 | 41 | 28 |
-| **2. Load-time transitive** (binaries) | 56 | 6 | 62 |
-| &emsp;↳ distinct packages | 37 | 4 | 41 |
+| **1. Direct failure** (slices) | 264 | 328 | 592 |
+| &emsp;↳ distinct packages | 24 | 44 | 30 |
+| **2. Load-time transitive** (binaries) | 58 | 6 | 64 |
+| &emsp;↳ distinct packages | 38 | 4 | 42 |
 | **3. Build-time dependent** (packages, default view) | 10 | 1 | 11 |
 
 ## Canonical examples
@@ -30,9 +30,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | stable | unstable |
 |---|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-05-01) | nixpkgs-unstable @ ebc08544afa7 (2026-05-01) |
-| Paths scanned | 619,804 | 1,742,547 |
-| Mach-O slices | 813,805 | 1,280,901 |
+| Channel label | nixpkgs-25.11-darwin @ dff323366779 (2026-05-02) | nixpkgs-unstable @ 7aaa00e7cc9b (2026-05-02) |
+| Paths scanned | 693,249 | 2,033,330 |
+| Mach-O slices | 918,362 | 1,489,522 |
 
 ## Direct-failure slices by signature shape
 
@@ -40,11 +40,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | stable | unstable | Total |
 |---|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 89 | 63 | 152 |
-| codesign ad-hoc, empty 8 B CMS wrapper | 149 | 204 | 353 |
-| ad-hoc with Entitlements + empty CMS wrapper | 0 | 6 | 6 |
-| Developer-ID-signed (non-empty CMS payload) | 0 | 10 | 10 |
-| **Total** | **238** | **283** | **521** |
+| linker-signed ad-hoc, no CMS slot | 96 | 80 | 176 |
+| codesign ad-hoc, empty 8 B CMS wrapper | 168 | 228 | 396 |
+| ad-hoc with Entitlements + empty CMS wrapper | 0 | 8 | 8 |
+| Developer-ID-signed (non-empty CMS payload) | 0 | 12 | 12 |
+| **Total** | **264** | **328** | **592** |
 
 ## Affected packages
 
@@ -95,6 +95,7 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 | `moc-2.6-alpha3` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `moonlight-qt-6.1.0` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `mpd-0.24.6` | load-time transitive | stable | `ffmpeg-8.0-lib` |
+| `mpv-0.41.0` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `musikcube-3.0.5` | load-time transitive | unstable | `ffmpeg-headless-8.0.1-lib` |
 | `netgen-6.2.2505` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `notcurses-3.0.17` | load-time transitive | stable | `ffmpeg-8.0-lib` |
@@ -110,7 +111,7 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 | `prettybat-2024.08.24` | build-time transitive | stable | `fish-4.2.1` |
 | `q2pro-0` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `qtmultimedia-6.10.2` | load-time transitive | stable | `ffmpeg-8.0-lib` |
-| `rimgo-1.4.2` | build-time transitive | unstable | `tailwindcss_4-4.2.3` |
+| `rimgo-1.4.2` | build-time transitive | unstable | `tailwindcss_4-4.2.4` |
 | `rsgain-3.6` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `scrcpy-3.3.4` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `shogihome-1.27.0` | direct | stable, unstable | — |
@@ -122,8 +123,10 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 | `tailwindcss_4-4.1.18` | direct | stable | — |
 | `tailwindcss_4-4.2.2` | direct | unstable | — |
 | `tailwindcss_4-4.2.3` | direct | unstable | — |
+| `tailwindcss_4-4.2.4` | direct | unstable | — |
 | `taterclient-ddnet-10.6.0` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `teams-for-linux-2.8.0` | direct | stable, unstable | — |
+| `teams-for-linux-2.8.1` | direct | unstable | — |
 | `timg-1.6.3` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `vgmstream-2055` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `video-compare-20250928` | load-time transitive | stable | `ffmpeg-8.0-lib` |
@@ -135,8 +138,8 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 
 ## Drill-downs
 
-- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-05-01)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ ebc08544afa7 (2026-05-01)`
+- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ dff323366779 (2026-05-02)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 7aaa00e7cc9b (2026-05-02)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)

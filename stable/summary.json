@@ -1,25 +1,25 @@
 {
   "buckets": {
-    "clean": 385475,
-    "not_real_macho": 23978,
+    "clean": 433071,
+    "not_real_macho": 28469,
     "other_sig_invalid": 4,
-    "page_hash_mismatch": 238,
-    "unsigned": 404110
+    "page_hash_mismatch": 264,
+    "unsigned": 456554
   },
   "buckets_by_arch": {
     "arm": {
-      "not_real_macho": 16,
+      "not_real_macho": 20,
       "unsigned": 24
     },
     "arm64": {
-      "clean": 356566,
-      "not_real_macho": 76,
-      "page_hash_mismatch": 169,
-      "unsigned": 28304
+      "clean": 400960,
+      "not_real_macho": 82,
+      "page_hash_mismatch": 188,
+      "unsigned": 30937
     },
     "arm64e": {
-      "clean": 46,
-      "not_real_macho": 144
+      "clean": 53,
+      "not_real_macho": 164
     },
     "cpu_0x00000001/0x00000000": {
       "clean": 8
@@ -34,55 +34,55 @@
       "not_real_macho": 8
     },
     "cpu_0x00000012/0x00000000": {
-      "not_real_macho": 335
+      "not_real_macho": 345
     },
     "cpu_0x00000012/0x0000000a": {
-      "not_real_macho": 33
+      "not_real_macho": 37
     },
     "cpu_0x00000012/0x00000064": {
       "not_real_macho": 8
     },
     "cpu_0x01000012/0x00000000": {
-      "not_real_macho": 52
+      "not_real_macho": 59
     },
     "i386": {
-      "clean": 414,
-      "not_real_macho": 8,
-      "unsigned": 189
+      "clean": 437,
+      "not_real_macho": 10,
+      "unsigned": 208
     },
     "unknown": {
-      "not_real_macho": 23057
+      "not_real_macho": 27466
     },
     "x86_64": {
-      "clean": 28441,
-      "not_real_macho": 233,
+      "clean": 31613,
+      "not_real_macho": 262,
       "other_sig_invalid": 4,
-      "page_hash_mismatch": 69,
-      "unsigned": 375585
+      "page_hash_mismatch": 76,
+      "unsigned": 425377
     }
   },
-  "channel_label": "nixpkgs-25.11-darwin @ 3f05c8657c70 (2026-05-01)",
+  "channel_label": "nixpkgs-25.11-darwin @ dff323366779 (2026-05-02)",
   "coverage": {
-    "not_real_macho": 23978,
+    "not_real_macho": 28469,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-05-01 08:10:03 UTC",
+  "generated_at": "2026-05-02 07:56:56 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 4
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "C2": 149,
-      "L": 89
+      "C2": 168,
+      "L": 96
     },
     "by_signer": {
-      "codesign_signed": 149,
-      "linker_signed": 89
+      "codesign_signed": 168,
+      "linker_signed": 96
     },
-    "packages": 21,
+    "packages": 24,
     "packages_list": [
       "Agda-2.8.0",
       "Agda-2.8.0-bin",
@@ -101,27 +101,27 @@
       "tailwindcss_4-4.1.18",
       "teams-for-linux-2.8.0"
     ],
-    "slices": 238
+    "slices": 264
   },
   "paths_by_status": {
-    "ok": 619804
+    "ok": 693249
   },
-  "paths_scanned": 619804,
+  "paths_scanned": 693249,
   "slices_by_arch": {
-    "arm": 40,
-    "arm64": 385115,
-    "arm64e": 190,
+    "arm": 44,
+    "arm64": 432167,
+    "arm64e": 217,
     "cpu_0x00000001/0x00000000": 8,
     "cpu_0x00000002/0x00000000": 8,
     "cpu_0x00000004/0x00000000": 8,
     "cpu_0x00000005/0x00000000": 8,
-    "cpu_0x00000012/0x00000000": 335,
-    "cpu_0x00000012/0x0000000a": 33,
+    "cpu_0x00000012/0x00000000": 345,
+    "cpu_0x00000012/0x0000000a": 37,
     "cpu_0x00000012/0x00000064": 8,
-    "cpu_0x01000012/0x00000000": 52,
-    "i386": 611,
-    "unknown": 23057,
-    "x86_64": 404332
+    "cpu_0x01000012/0x00000000": 59,
+    "i386": 655,
+    "unknown": 27466,
+    "x86_64": 457332
   },
-  "slices_total": 813805
+  "slices_total": 918362
 }
