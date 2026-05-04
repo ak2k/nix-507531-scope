@@ -1,9 +1,9 @@
 dependent_attr,dependent_drv,dependent_pkg,seed_store_path,seed_attr,seed_pkg,edge_kind,in_default_view
+bat-extras.batdiff,/nix/store/lhwc7dkjxs20xw9vm9ndykrgc0gfp5sm-batdiff-2024.08.24-unstable-2025-02-22.drv,batdiff-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.batman,/nix/store/qjh94wpbgz5s8kvgfpzijqspdmvfblxf-batman-2024.08.24-unstable-2025-02-22.drv,batman-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.batpipe,/nix/store/rppb4l2gwlyzr2bqm2g3xv0k7r62gia1-batpipe-2024.08.24-unstable-2025-02-22.drv,batpipe-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.batwatch,/nix/store/klknnkffkkl95hlj0x9rdvw9j1bp0qzc-batwatch-2024.08.24-unstable-2025-02-22.drv,batwatch-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.core,/nix/store/zjh1kms3q79qgyz58llsxrcifxbv93mb-bat-extras-2024.08.24-unstable-2025-02-22.drv,bat-extras-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
-bat-extras.batdiff,/nix/store/lhwc7dkjxs20xw9vm9ndykrgc0gfp5sm-batdiff-2024.08.24-unstable-2025-02-22.drv,batdiff-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 bat-extras.prettybat,/nix/store/kbi7fd303czisxa3rpjssxrjj3rp7wfn-prettybat-2024.08.24-unstable-2025-02-22.drv,prettybat-2024.08.24-unstable-2025-02-22,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 direnv,/nix/store/rx35iklj5mnfwsy0fmmchpbdjkhh7h7l-direnv-2.37.1.drv,direnv-2.37.1,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True
 fish-lsp,/nix/store/fvzbwvm4375z7a02y3yfdjckly2m76xv-fish-lsp-1.0.10.drv,fish-lsp-1.0.10,/nix/store/gngn7y9mn510mf1hkmr0l69qbpvxfbfh-fish-4.2.1,fish,fish-4.2.1,nativeBuildInputs,True

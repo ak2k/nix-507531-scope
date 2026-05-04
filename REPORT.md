@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-05-03 08:17:54 UTC
+Generated: 2026-05-04 08:39:50 UTC
 
 Daily scan across both darwin channels of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -14,8 +14,8 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| stable | unstable | Union |
 |---|---:|---:|---:|
-| **1. Direct failure** (slices) | 264 | 373 | 637 |
-| &emsp;↳ distinct packages | 24 | 46 | 32 |
+| **1. Direct failure** (slices) | 294 | 429 | 723 |
+| &emsp;↳ distinct packages | 25 | 51 | 33 |
 | **2. Load-time transitive** (binaries) | 58 | 6 | 64 |
 | &emsp;↳ distinct packages | 38 | 4 | 42 |
 | **3. Build-time dependent** (packages, default view) | 10 | 1 | 11 |
@@ -30,9 +30,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | stable | unstable |
 |---|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ dff323366779 (2026-05-03) | nixpkgs-unstable @ c6d65881c562 (2026-05-03) |
-| Paths scanned | 693,249 | 2,305,712 |
-| Mach-O slices | 918,362 | 1,704,106 |
+| Channel label | nixpkgs-25.11-darwin @ 8cbe20ad0f64 (2026-05-04) | nixpkgs-unstable @ 73c703c22422 (2026-05-04) |
+| Paths scanned | 753,318 | 2,560,139 |
+| Mach-O slices | 1,015,277 | 1,881,626 |
 
 ## Direct-failure slices by signature shape
 
@@ -40,11 +40,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | stable | unstable | Total |
 |---|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 96 | 96 | 192 |
-| codesign ad-hoc, empty 8 B CMS wrapper | 168 | 254 | 422 |
-| ad-hoc with Entitlements + empty CMS wrapper | 0 | 9 | 9 |
-| Developer-ID-signed (non-empty CMS payload) | 0 | 14 | 14 |
-| **Total** | **264** | **373** | **637** |
+| linker-signed ad-hoc, no CMS slot | 108 | 112 | 220 |
+| codesign ad-hoc, empty 8 B CMS wrapper | 186 | 290 | 476 |
+| ad-hoc with Entitlements + empty CMS wrapper | 0 | 11 | 11 |
+| Developer-ID-signed (non-empty CMS payload) | 0 | 16 | 16 |
+| **Total** | **294** | **429** | **723** |
 
 ## Affected packages
 
@@ -103,6 +103,7 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 | `opencode-1.14.20` | direct | unstable | — |
 | `opencode-1.14.25` | direct | unstable | — |
 | `opencode-1.14.30` | direct | unstable | — |
+| `opencode-1.14.31` | direct | unstable | — |
 | `opencode-1.4.6` | direct | unstable | — |
 | `opencv-4.12.0` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `opencv-4.12.0-package_tests` | load-time transitive | stable | `ffmpeg-8.0-lib` |
@@ -116,7 +117,7 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 | `rsgain-3.6` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `scrcpy-3.3.4` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `shogihome-1.27.0` | direct | stable, unstable | — |
-| `shogihome-1.27.1` | direct | unstable | — |
+| `shogihome-1.27.1` | direct | stable, unstable | — |
 | `spek-0.8.5` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `squeezelite-2.0.0.1541` | load-time transitive | stable | `ffmpeg-8.0-lib` |
 | `survex-1.4.18` | load-time transitive | stable | `ffmpeg-8.0-lib` |
@@ -140,8 +141,8 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 
 ## Drill-downs
 
-- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ dff323366779 (2026-05-03)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ c6d65881c562 (2026-05-03)`
+- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 8cbe20ad0f64 (2026-05-04)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 73c703c22422 (2026-05-04)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)
