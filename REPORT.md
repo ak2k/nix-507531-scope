@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-05-04 08:39:50 UTC
+Generated: 2026-05-05 07:54:48 UTC
 
 Daily scan across both darwin channels of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -30,7 +30,7 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | stable | unstable |
 |---|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ 8cbe20ad0f64 (2026-05-04) | nixpkgs-unstable @ 73c703c22422 (2026-05-04) |
+| Channel label | nixpkgs-25.11-darwin @ 8cbe20ad0f64 (2026-05-05) | nixpkgs-unstable @ 73c703c22422 (2026-05-05) |
 | Paths scanned | 753,318 | 2,560,139 |
 | Mach-O slices | 1,015,277 | 1,881,626 |
 
@@ -141,8 +141,8 @@ Flat alphabetical list of every package implicated by any tier, across both chan
 
 ## Drill-downs
 
-- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 8cbe20ad0f64 (2026-05-04)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 73c703c22422 (2026-05-04)`
+- [stable channel report](stable/REPORT.md) — `nixpkgs-25.11-darwin @ 8cbe20ad0f64 (2026-05-05)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 73c703c22422 (2026-05-05)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)
