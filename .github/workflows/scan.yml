@@ -424,6 +424,12 @@ jobs:
   combine:
     name: combine + commit
     needs: analyze
+    # Defensive guard: combine pushes to origin/main, so it must only run
+    # when triggered against main itself (scheduled cron or manual
+    # dispatch on main). Workflow_dispatch on a feature branch lets us
+    # exercise eval-release-paths + scan + analyze end-to-end without the
+    # commit step accidentally fast-forwarding main onto the branch.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
