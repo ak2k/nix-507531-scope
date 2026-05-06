@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 479426,
-    "not_real_macho": 31981,
+    "clean": 508371,
+    "not_real_macho": 32965,
     "other_sig_invalid": 4,
-    "page_hash_mismatch": 294,
-    "unsigned": 503572
+    "page_hash_mismatch": 311,
+    "unsigned": 532938
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,14 +12,14 @@
       "unsigned": 27
     },
     "arm64": {
-      "clean": 445036,
-      "not_real_macho": 92,
-      "page_hash_mismatch": 211,
-      "unsigned": 33009
+      "clean": 471069,
+      "not_real_macho": 94,
+      "page_hash_mismatch": 218,
+      "unsigned": 34733
     },
     "arm64e": {
-      "clean": 59,
-      "not_real_macho": 184
+      "clean": 63,
+      "not_real_macho": 196
     },
     "cpu_0x00000001/0x00000000": {
       "clean": 8
@@ -34,55 +34,55 @@
       "not_real_macho": 8
     },
     "cpu_0x00000012/0x00000000": {
-      "not_real_macho": 386
+      "not_real_macho": 426
     },
     "cpu_0x00000012/0x0000000a": {
-      "not_real_macho": 42
+      "not_real_macho": 46
     },
     "cpu_0x00000012/0x00000064": {
-      "not_real_macho": 9
+      "not_real_macho": 10
     },
     "cpu_0x01000012/0x00000000": {
-      "not_real_macho": 64
+      "not_real_macho": 69
     },
     "i386": {
-      "clean": 488,
+      "clean": 543,
       "not_real_macho": 10,
-      "unsigned": 237
+      "unsigned": 251
     },
     "unknown": {
-      "not_real_macho": 30863
+      "not_real_macho": 31767
     },
     "x86_64": {
-      "clean": 33835,
-      "not_real_macho": 295,
+      "clean": 36688,
+      "not_real_macho": 311,
       "other_sig_invalid": 4,
-      "page_hash_mismatch": 83,
-      "unsigned": 470291
+      "page_hash_mismatch": 93,
+      "unsigned": 497919
     }
   },
-  "channel_label": "nixpkgs-25.11-darwin @ 8cbe20ad0f64 (2026-05-05)",
+  "channel_label": "nixpkgs-25.11-darwin @ 41a7bd591bc4 (2026-05-06)",
   "coverage": {
-    "not_real_macho": 31981,
+    "not_real_macho": 32965,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-05-05 07:37:57 UTC",
+  "generated_at": "2026-05-06 08:07:17 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 4
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "C2": 186,
-      "L": 108
+      "C2": 199,
+      "L": 112
     },
     "by_signer": {
-      "codesign_signed": 186,
-      "linker_signed": 108
+      "codesign_signed": 199,
+      "linker_signed": 112
     },
-    "packages": 25,
+    "packages": 26,
     "packages_list": [
       "Agda-2.8.0",
       "Agda-2.8.0-bin",
@@ -95,6 +95,7 @@
       "fish-4.2.1",
       "httptoolkit-1.24.4",
       "libtorch-2.9.0",
+      "niv-0.2.22-bin",
       "shogihome-1.27.0",
       "shogihome-1.27.1",
       "swift-5.10.1",
@@ -102,27 +103,27 @@
       "tailwindcss_4-4.1.18",
       "teams-for-linux-2.8.0"
     ],
-    "slices": 294
+    "slices": 311
   },
   "paths_by_status": {
-    "ok": 753318
+    "ok": 800976
   },
-  "paths_scanned": 753318,
+  "paths_scanned": 800976,
   "slices_by_arch": {
     "arm": 47,
-    "arm64": 478348,
-    "arm64e": 243,
+    "arm64": 506114,
+    "arm64e": 259,
     "cpu_0x00000001/0x00000000": 8,
     "cpu_0x00000002/0x00000000": 8,
     "cpu_0x00000004/0x00000000": 8,
     "cpu_0x00000005/0x00000000": 8,
-    "cpu_0x00000012/0x00000000": 386,
-    "cpu_0x00000012/0x0000000a": 42,
-    "cpu_0x00000012/0x00000064": 9,
-    "cpu_0x01000012/0x00000000": 64,
-    "i386": 735,
-    "unknown": 30863,
-    "x86_64": 504508
+    "cpu_0x00000012/0x00000000": 426,
+    "cpu_0x00000012/0x0000000a": 46,
+    "cpu_0x00000012/0x00000064": 10,
+    "cpu_0x01000012/0x00000000": 69,
+    "i386": 804,
+    "unknown": 31767,
+    "x86_64": 535015
   },
-  "slices_total": 1015277
+  "slices_total": 1074589
 }

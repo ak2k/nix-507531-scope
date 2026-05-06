@@ -2,11 +2,11 @@
   "channels": {
     "stable": {
       "buckets": {
-        "clean": 479426,
-        "not_real_macho": 31981,
+        "clean": 508371,
+        "not_real_macho": 32965,
         "other_sig_invalid": 4,
-        "page_hash_mismatch": 294,
-        "unsigned": 503572
+        "page_hash_mismatch": 311,
+        "unsigned": 532938
       },
       "buckets_by_arch": {
         "arm": {
@@ -14,14 +14,14 @@
           "unsigned": 27
         },
         "arm64": {
-          "clean": 445036,
-          "not_real_macho": 92,
-          "page_hash_mismatch": 211,
-          "unsigned": 33009
+          "clean": 471069,
+          "not_real_macho": 94,
+          "page_hash_mismatch": 218,
+          "unsigned": 34733
         },
         "arm64e": {
-          "clean": 59,
-          "not_real_macho": 184
+          "clean": 63,
+          "not_real_macho": 196
         },
         "cpu_0x00000001/0x00000000": {
           "clean": 8
@@ -36,31 +36,31 @@
           "not_real_macho": 8
         },
         "cpu_0x00000012/0x00000000": {
-          "not_real_macho": 386
+          "not_real_macho": 426
         },
         "cpu_0x00000012/0x0000000a": {
-          "not_real_macho": 42
+          "not_real_macho": 46
         },
         "cpu_0x00000012/0x00000064": {
-          "not_real_macho": 9
+          "not_real_macho": 10
         },
         "cpu_0x01000012/0x00000000": {
-          "not_real_macho": 64
+          "not_real_macho": 69
         },
         "i386": {
-          "clean": 488,
+          "clean": 543,
           "not_real_macho": 10,
-          "unsigned": 237
+          "unsigned": 251
         },
         "unknown": {
-          "not_real_macho": 30863
+          "not_real_macho": 31767
         },
         "x86_64": {
-          "clean": 33835,
-          "not_real_macho": 295,
+          "clean": 36688,
+          "not_real_macho": 311,
           "other_sig_invalid": 4,
-          "page_hash_mismatch": 83,
-          "unsigned": 470291
+          "page_hash_mismatch": 93,
+          "unsigned": 497919
         }
       },
       "build_time_dependents": {
@@ -116,7 +116,7 @@
           ]
         },
         "distinct_dependent_attrs_default_view": 10,
-        "distinct_seeds": 25,
+        "distinct_seeds": 26,
         "edge_filter_default": [
           "buildInputs",
           "checkInputs",
@@ -126,17 +126,17 @@
         "rows_in_default_view": 10,
         "total_rows": 10
       },
-      "channel_label": "nixpkgs-25.11-darwin @ 8cbe20ad0f64 (2026-05-05)",
+      "channel_label": "nixpkgs-25.11-darwin @ 41a7bd591bc4 (2026-05-06)",
       "coverage": {
-        "not_real_macho": 31981,
+        "not_real_macho": 32965,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-05-05 07:37:57 UTC",
+      "generated_at": "2026-05-06 08:07:17 UTC",
       "load_time_transitive": {
         "by_seed_package": {
-          "ffmpeg-8.0-lib": 1059
+          "ffmpeg-8.0-lib": 1168
         },
         "dependent_packages": [
           "auto-editor-29.3.1",
@@ -297,7 +297,7 @@
         "distinct_binaries": 58,
         "distinct_dependent_packages": 38,
         "distinct_seed_dylibs": 51,
-        "total_rows": 1059
+        "total_rows": 1168
       },
       "other_sig_invalid": {
         "packages": 1,
@@ -305,14 +305,14 @@
       },
       "page_hash_mismatch": {
         "by_signature_class": {
-          "C2": 186,
-          "L": 108
+          "C2": 199,
+          "L": 112
         },
         "by_signer": {
-          "codesign_signed": 186,
-          "linker_signed": 108
+          "codesign_signed": 199,
+          "linker_signed": 112
         },
-        "packages": 25,
+        "packages": 26,
         "packages_list": [
           "Agda-2.8.0",
           "Agda-2.8.0-bin",
@@ -325,6 +325,7 @@
           "fish-4.2.1",
           "httptoolkit-1.24.4",
           "libtorch-2.9.0",
+          "niv-0.2.22-bin",
           "shogihome-1.27.0",
           "shogihome-1.27.1",
           "swift-5.10.1",
@@ -332,89 +333,89 @@
           "tailwindcss_4-4.1.18",
           "teams-for-linux-2.8.0"
         ],
-        "slices": 294
+        "slices": 311
       },
       "paths_by_status": {
-        "ok": 753318
+        "ok": 800976
       },
-      "paths_scanned": 753318,
+      "paths_scanned": 800976,
       "slices_by_arch": {
         "arm": 47,
-        "arm64": 478348,
-        "arm64e": 243,
+        "arm64": 506114,
+        "arm64e": 259,
         "cpu_0x00000001/0x00000000": 8,
         "cpu_0x00000002/0x00000000": 8,
         "cpu_0x00000004/0x00000000": 8,
         "cpu_0x00000005/0x00000000": 8,
-        "cpu_0x00000012/0x00000000": 386,
-        "cpu_0x00000012/0x0000000a": 42,
-        "cpu_0x00000012/0x00000064": 9,
-        "cpu_0x01000012/0x00000000": 64,
-        "i386": 735,
-        "unknown": 30863,
-        "x86_64": 504508
+        "cpu_0x00000012/0x00000000": 426,
+        "cpu_0x00000012/0x0000000a": 46,
+        "cpu_0x00000012/0x00000064": 10,
+        "cpu_0x01000012/0x00000000": 69,
+        "i386": 804,
+        "unknown": 31767,
+        "x86_64": 535015
       },
-      "slices_total": 1015277
+      "slices_total": 1074589
     },
     "unstable": {
       "buckets": {
-        "clean": 746559,
-        "not_real_macho": 368878,
-        "page_hash_mismatch": 429,
-        "unsigned": 765760
+        "clean": 814796,
+        "not_real_macho": 419135,
+        "page_hash_mismatch": 464,
+        "unsigned": 833492
       },
       "buckets_by_arch": {
         "arm": {
-          "not_real_macho": 54,
-          "unsigned": 609
+          "not_real_macho": 60,
+          "unsigned": 699
         },
         "arm64": {
-          "clean": 686414,
-          "not_real_macho": 242,
-          "page_hash_mismatch": 259,
-          "unsigned": 60085
+          "clean": 749201,
+          "not_real_macho": 257,
+          "page_hash_mismatch": 284,
+          "unsigned": 64574
         },
         "arm64e": {
-          "clean": 161,
-          "not_real_macho": 272
+          "clean": 177,
+          "not_real_macho": 286
         },
         "cpu_0x00000001/0x00000000": {
-          "clean": 16
+          "clean": 18
         },
         "cpu_0x00000002/0x00000000": {
-          "not_real_macho": 16
+          "not_real_macho": 18
         },
         "cpu_0x00000004/0x00000000": {
-          "unsigned": 16
+          "unsigned": 18
         },
         "cpu_0x00000005/0x00000000": {
-          "not_real_macho": 16
+          "not_real_macho": 18
         },
         "cpu_0x00000012/0x00000000": {
-          "not_real_macho": 783
+          "not_real_macho": 842
         },
         "cpu_0x00000012/0x0000000a": {
-          "not_real_macho": 137
+          "not_real_macho": 147
         },
         "cpu_0x00000012/0x00000064": {
-          "not_real_macho": 15
+          "not_real_macho": 16
         },
         "cpu_0x01000012/0x00000000": {
-          "not_real_macho": 211
+          "not_real_macho": 231
         },
         "i386": {
-          "clean": 938,
-          "not_real_macho": 27,
-          "unsigned": 1139
+          "clean": 1011,
+          "not_real_macho": 30,
+          "unsigned": 1246
         },
         "unknown": {
-          "not_real_macho": 366575
+          "not_real_macho": 416671
         },
         "x86_64": {
-          "clean": 59030,
-          "not_real_macho": 530,
-          "page_hash_mismatch": 170,
-          "unsigned": 703911
+          "clean": 64389,
+          "not_real_macho": 559,
+          "page_hash_mismatch": 180,
+          "unsigned": 766955
         }
       },
       "build_time_dependents": {
@@ -443,17 +444,17 @@
         "rows_in_default_view": 1,
         "total_rows": 2
       },
-      "channel_label": "nixpkgs-unstable @ 73c703c22422 (2026-05-05)",
+      "channel_label": "nixpkgs-unstable @ bc57abace076 (2026-05-06)",
       "coverage": {
-        "not_real_macho": 368878,
+        "not_real_macho": 419135,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-05-05 07:38:05 UTC",
+      "generated_at": "2026-05-06 08:07:38 UTC",
       "load_time_transitive": {
         "by_seed_package": {
-          "ffmpeg-headless-8.0.1-lib": 153
+          "ffmpeg-headless-8.0.1-lib": 166
         },
         "dependent_packages": [
           "cyanrip-0.9.3.1",
@@ -478,7 +479,7 @@
         "distinct_binaries": 6,
         "distinct_dependent_packages": 4,
         "distinct_seed_dylibs": 88,
-        "total_rows": 153
+        "total_rows": 166
       },
       "other_sig_invalid": {
         "packages": 0,
@@ -486,14 +487,14 @@
       },
       "page_hash_mismatch": {
         "by_signature_class": {
-          "B7-empty": 11,
-          "B7-real": 16,
-          "C2": 290,
-          "L": 112
+          "B7-empty": 12,
+          "B7-real": 18,
+          "C2": 305,
+          "L": 129
         },
         "by_signer": {
-          "codesign_signed": 317,
-          "linker_signed": 112
+          "codesign_signed": 335,
+          "linker_signed": 129
         },
         "packages": 51,
         "packages_list": [
@@ -522,47 +523,47 @@
           "vscode-extension-kilocode-Kilo-Code-7.2.0",
           "vscode-extension-kilocode-Kilo-Code-7.2.20"
         ],
-        "slices": 429
+        "slices": 464
       },
       "paths_by_status": {
         "fetch_error": 326,
-        "ok": 2559269,
+        "ok": 2797035,
         "parse_error": 544
       },
-      "paths_scanned": 2560139,
+      "paths_scanned": 2797905,
       "slices_by_arch": {
-        "arm": 663,
-        "arm64": 747000,
-        "arm64e": 433,
-        "cpu_0x00000001/0x00000000": 16,
-        "cpu_0x00000002/0x00000000": 16,
-        "cpu_0x00000004/0x00000000": 16,
-        "cpu_0x00000005/0x00000000": 16,
-        "cpu_0x00000012/0x00000000": 783,
-        "cpu_0x00000012/0x0000000a": 137,
-        "cpu_0x00000012/0x00000064": 15,
-        "cpu_0x01000012/0x00000000": 211,
-        "i386": 2104,
-        "unknown": 366575,
-        "x86_64": 763641
+        "arm": 759,
+        "arm64": 814316,
+        "arm64e": 463,
+        "cpu_0x00000001/0x00000000": 18,
+        "cpu_0x00000002/0x00000000": 18,
+        "cpu_0x00000004/0x00000000": 18,
+        "cpu_0x00000005/0x00000000": 18,
+        "cpu_0x00000012/0x00000000": 842,
+        "cpu_0x00000012/0x0000000a": 147,
+        "cpu_0x00000012/0x00000064": 16,
+        "cpu_0x01000012/0x00000000": 231,
+        "i386": 2287,
+        "unknown": 416671,
+        "x86_64": 832083
       },
-      "slices_total": 1881626
+      "slices_total": 2067887
     }
   },
-  "generated_at": "2026-05-05 07:54:48 UTC",
+  "generated_at": "2026-05-06 08:26:18 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-empty": 11,
-      "B7-real": 16,
-      "C2": 476,
-      "L": 220,
+      "B7-empty": 12,
+      "B7-real": 18,
+      "C2": 504,
+      "L": 241,
       "unknown": 0
     },
-    "packages": 33,
-    "slices": 723
+    "packages": 34,
+    "slices": 775
   },
-  "paths_scanned": 3313457,
-  "slices_total": 2896903,
+  "paths_scanned": 3598881,
+  "slices_total": 3142476,
   "union": {
     "build_time_packages_default_view": [
       "bat-extras.batdiff",
@@ -595,6 +596,7 @@
       "httptoolkit-1.24.4",
       "libtorch-2.9.0",
       "mmsyn7ukr-array-0.3.0.0",
+      "niv-0.2.22-bin",
       "opencode-1.14.20",
       "opencode-1.14.25",
       "opencode-1.14.30",
@@ -613,7 +615,7 @@
       "vscode-extension-kilocode-Kilo-Code-7.2.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "direct_packages_count": 33,
+    "direct_packages_count": 34,
     "load_time_packages": [
       "auto-editor-29.3.1",
       "ccextractor-0.94-unstable-2025-05-20",
