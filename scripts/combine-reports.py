@@ -4,7 +4,7 @@
 # dependencies = []
 # ///
 """Combine per-channel aggregator outputs into a top-level REPORT.md and
-summary.json that cover both darwin channels at once.
+summary.json that cover every darwin lane at once.
 
 Usage:
   combine-reports.py [--channel LABEL:PATH ...] [--out REPORT.md] \\
@@ -408,7 +408,7 @@ def render_markdown(channels: list[dict]) -> str:
     lines.append("")
     lines.append(
         "Flat alphabetical list of every package implicated by any tier, "
-        "across both channels. A package may appear on multiple rows if it "
+        "across all lanes. A package may appear on multiple rows if it "
         "hits more than one tier (e.g. `ffmpeg-8.0-lib` is directly broken "
         "AND its dylibs are load-time-linked by other packages)."
     )
@@ -448,8 +448,8 @@ def build_combined_summary(channels: list[dict]) -> dict:
             total += int(d.get(k) or 0)
         return total
 
-    # Union sets across channels for per-type cross-channel totals.
-    # Packages that fail on BOTH channels count once in the union.
+    # Union sets across lanes for per-type cross-lane totals.
+    # Packages that fail in multiple lanes count once in the union.
     t1_union: set[str] = set()
     t2_union: set[str] = set()
     t3_union: set[str] = set()
@@ -467,11 +467,11 @@ def build_combined_summary(channels: list[dict]) -> dict:
         "paths_scanned": s("paths_scanned"),
         "slices_total": s("slices_total"),
         "page_hash_mismatch": {
-            # Slices are per-scan-unique across channels, so sum is correct.
+            # Slices are per-scan-unique across lanes, so sum is correct.
             "slices":   s("slices", "page_hash_mismatch"),
-            # Packages MUST be deduped — the same package can fail in both
-            # channels. The old sum-across-channels number double-counted
-            # those and misled the README badge.
+            # Packages MUST be deduped — the same package can fail in
+            # more than one lane. The old sum-across-lanes number
+            # double-counted those and misled the README badge.
             "packages": len(t1_union),
             "by_signature_class": sum_by_class(channels),
         },
