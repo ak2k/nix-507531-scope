@@ -154,10 +154,47 @@ def render_markdown(channels: list[dict]) -> str:
     )
     lines.append("")
     lines.append(
-        "Daily scan across both darwin channels of the "
+        "Daily scan across three darwin caches of the "
         "[NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) "
         "page-hash bug. Fix PR: "
         "[NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638)."
+    )
+    lines.append("")
+    lines.append(
+        "Lanes (one column per lane in the table below):"
+    )
+    lines.append("")
+    lines.append(
+        "- `darwin` — `nixpkgs-25.11-darwin` channel "
+        "(`store-paths.xz` published by Hydra's darwin-curated jobset; "
+        "advances only when its darwin test-gate passes, so its rev can "
+        "lag `release-25.11` tip)."
+    )
+    lines.append(
+        "- `release` — synthesised from `release-25.11` branch tip via "
+        "`nix-eval-jobs --flake github:NixOS/nixpkgs/<tip>#legacyPackages.aarch64-darwin`, "
+        "expanded to runtime closure via `cache.nixos.org` `narinfo.References` BFS. "
+        "Captures cached darwin paths at the release-branch tip even when "
+        "the curated darwin channel is gated on a poisoned-fish FTB."
+    )
+    lines.append(
+        "- `unstable` — `nixpkgs-unstable` channel (trunk-combined, "
+        "all-platforms; aarch64-darwin slice of fish here is on 4.6.0)."
+    )
+    lines.append("")
+    lines.append(
+        "**Bistability note**: the bug's trigger depends on the Hydra "
+        "worker's store state at build time — same source, two different "
+        "drv hashes (driven by transitive stdenv churn), can yield "
+        "opposite outcomes. The poisoned `fish-4.2.1` aarch64-darwin "
+        "build at outpath `gngn7y9mn510m…` was the visible breakage that "
+        "stuck the `nixpkgs-25.11-darwin` channel for ~7 days "
+        "(2026-04-28 → 2026-05-05); the channel ratcheted past it after "
+        "[`0c88e1f2bdb9`](https://github.com/NixOS/nixpkgs/commit/0c88e1f2bdb9) "
+        "(staging-next-25.11 iteration 6, #513189) flipped fish's drv "
+        "hash and Hydra's rebuild happened to land cleanly. The poisoned "
+        "bytes remain in `cache.nixos.org` and still SIGKILL on first "
+        "page-in for anyone pinned to a pre-pivot rev."
     )
     lines.append("")
 
@@ -270,9 +307,17 @@ def render_markdown(channels: list[dict]) -> str:
     lines.append("## Canonical examples")
     lines.append("")
     lines.append(
-        "- **Type 1 (direct)**: `fish-4.2.1/bin/fish` SIGKILLs on launch on "
-        "darwin. End-user reports in "
-        "[nixpkgs#208951](https://github.com/NixOS/nixpkgs/issues/208951)."
+        "- **Type 1 (direct)**: `fish-4.2.1/bin/fish` at outpath "
+        "`gngn7y9mn510m…` SIGKILLs on launch on Apple Silicon — the bug's "
+        "highest-profile case. End-user reports in "
+        "[nixpkgs#208951](https://github.com/NixOS/nixpkgs/issues/208951). "
+        "This particular cached binary is no longer referenced by the "
+        "current `nixpkgs-25.11-darwin` channel pointer (rev advanced "
+        "past it on 2026-05-05), but it remains in `cache.nixos.org` and "
+        "still SIGKILLs for anyone pinned to a pre-pivot rev — illustrating "
+        "the bistability point: a clean post-pivot fish build at "
+        "`s87z9chym2j5…` happens to coexist in cache, same source, opposite "
+        "Hydra-worker outcome."
     )
     lines.append(
         "- **Type 2 (load-time transitive)**: any Mach-O whose "
