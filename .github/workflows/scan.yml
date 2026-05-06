@@ -17,15 +17,21 @@
 #
 # Architecture: four jobs in sequence.
 #
-#   eval-release-paths (1 job, ~5-8 min):
+#   eval-release-paths (1 job, ~10-15 min):
 #     * `git ls-remote release-25.11` → release_rev
-#     * `nix-eval-jobs --workers 2 --max-memory-size 3072 ...` → release-paths.txt
-#       (parallelism mirrors compute-build-time-dependents.py's existing
+#     * `nix-eval-jobs --workers 2 --max-memory-size 3072 ...` → direct
+#       outputs.* per attr (~107K /nix/store paths, ~5-8 min).
+#       Parallelism mirrors compute-build-time-dependents.py's existing
 #       Tier 3 invocation; ubuntu-latest is 2 vCPU so 2 workers matches
-#       core count without overcommitting)
+#       core count without overcommitting.
+#     * scripts/expand-closure.py → BFS expansion via cache.nixos.org
+#       narinfo.References (~107K → ~170K paths, ~3-5 min). Without this
+#       step, Tier 2 LC_LOAD_DYLIB classification underreports and Tier 1
+#       misses runtime-only dylibs; with it, the synthetic release lane
+#       reaches parity with what Hydra publishes in store-paths.xz.
 #     * Uploads release-paths.txt + release-rev.txt as artifacts. Single
 #       run shared by all 7 release-channel scan shards (no redundant
-#       per-shard re-eval).
+#       per-shard re-eval or re-expansion).
 #
 #   scan (matrix, 17 parallel jobs):
 #     * darwin   split into 3 shards (was 6 under the 2-channel layout;
@@ -53,8 +59,8 @@
 #     * commits + pushes
 #
 # Companion scripts:
-#   ./scripts/{scan-darwin-cache,eval-darwin-paths,aggregate-scan,
-#              verify-failures,compute-load-time-dependents,
+#   ./scripts/{scan-darwin-cache,eval-darwin-paths,expand-closure,
+#              aggregate-scan,verify-failures,compute-load-time-dependents,
 #              compute-build-time-dependents,render-channel-report,
 #              combine-reports}.py
 #
@@ -129,8 +135,25 @@ jobs:
             --flake "github:NixOS/nixpkgs/${{ steps.pin.outputs.rev }}" \
             --workers 2 \
             --max-memory-size 3072 \
-            > release-paths.txt
-          wc -l release-paths.txt
+            > release-paths-direct.txt
+          wc -l release-paths-direct.txt
+
+      - name: Expand to runtime closure via cache.nixos.org narinfo
+        # nix-eval-jobs gives only `outputs.*` per attr (~107K paths);
+        # Hydra's published store-paths.xz includes the full runtime
+        # closure (~170K paths) — the extra ~64K are transitive
+        # narinfo.References (toolchain, libsystem stubs, shared libs).
+        # Without this expansion, Tier 2 LC_LOAD_DYLIB classification
+        # underreports and Tier 1 misses runtime-only-referenced dylibs.
+        # Validated locally byte-identical to `nix path-info --recursive
+        # --store https://cache.nixos.org`, but parallelised so we don't
+        # pay the ~9h serial cost.
+        run: |
+          uv run scripts/expand-closure.py \
+            --in release-paths-direct.txt \
+            --out release-paths.txt \
+            --concurrency 64
+          wc -l release-paths-direct.txt release-paths.txt
 
       - name: Upload release-paths artifact
         uses: actions/upload-artifact@v7

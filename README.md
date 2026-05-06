@@ -60,7 +60,11 @@ unstable lane:  channels.nixos.org/nixpkgs-unstable/store-paths.xz
 release lane:   scripts/eval-darwin-paths.py --flake github:NixOS/nixpkgs/<release-25.11-tip>
                   · runs nix-eval-jobs --workers 2 --max-memory-size 3072
                   · emits one /nix/store path per outputs.* across the
-                    aarch64-darwin package set (synthetic store-paths.xz)
+                    aarch64-darwin package set (~107K paths)
+                scripts/expand-closure.py
+                  · BFS expansion via cache.nixos.org narinfo.References
+                  · ~107K → ~170K paths, parity with Hydra's store-paths.xz
+                  · validated byte-identical to `nix path-info --recursive`
         │
         ▼
 scripts/scan-darwin-cache.py           ← Type 1 + LC_LOAD_DYLIB capture
@@ -109,7 +113,12 @@ mkdir -p release-input
 uv run scripts/eval-darwin-paths.py \
   --flake "github:NixOS/nixpkgs/$RELEASE_REV" \
   --workers 2 --max-memory-size 3072 \
-  > release-input/release-paths.txt
+  > release-input/release-paths-direct.txt
+# Expand to runtime closure (parity with Hydra's store-paths.xz)
+uv run scripts/expand-closure.py \
+  --in release-input/release-paths-direct.txt \
+  --out release-input/release-paths.txt \
+  --concurrency 64
 echo "$RELEASE_REV" > release-input/release-rev.txt
 
 # Per-channel full scan (~30–90 min per lane cold, bandwidth-heavy).
