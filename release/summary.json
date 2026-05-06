@@ -1,0 +1,118 @@
+{
+  "buckets": {
+    "clean": 106629,
+    "not_real_macho": 4234,
+    "page_hash_mismatch": 24,
+    "unsigned": 9720
+  },
+  "buckets_by_arch": {
+    "arm": {
+      "clean": 3,
+      "not_real_macho": 1,
+      "unsigned": 7
+    },
+    "arm64": {
+      "clean": 104184,
+      "not_real_macho": 10,
+      "page_hash_mismatch": 24,
+      "unsigned": 8451
+    },
+    "arm64e": {
+      "clean": 13,
+      "not_real_macho": 38
+    },
+    "cpu_0x00000001/0x00000000": {
+      "clean": 1
+    },
+    "cpu_0x00000002/0x00000000": {
+      "not_real_macho": 1
+    },
+    "cpu_0x00000004/0x00000000": {
+      "unsigned": 1
+    },
+    "cpu_0x00000005/0x00000000": {
+      "not_real_macho": 1
+    },
+    "cpu_0x00000012/0x00000000": {
+      "not_real_macho": 44
+    },
+    "cpu_0x00000012/0x0000000a": {
+      "not_real_macho": 5
+    },
+    "cpu_0x00000012/0x00000064": {
+      "not_real_macho": 1
+    },
+    "cpu_0x01000012/0x00000000": {
+      "not_real_macho": 8
+    },
+    "i386": {
+      "clean": 56,
+      "not_real_macho": 1,
+      "unsigned": 28
+    },
+    "unknown": {
+      "not_real_macho": 4083
+    },
+    "x86_64": {
+      "clean": 2372,
+      "not_real_macho": 41,
+      "unsigned": 1233
+    }
+  },
+  "channel_label": "release-25.11 @ a87be52aacec (2026-05-06)",
+  "coverage": {
+    "not_real_macho": 4234,
+    "page_size_zero_cds": 0,
+    "scanner_errors": 0,
+    "sha1_only_cds": 0
+  },
+  "generated_at": "2026-05-06 23:46:00 UTC",
+  "other_sig_invalid": {
+    "packages": 0,
+    "slices": 0
+  },
+  "page_hash_mismatch": {
+    "by_signature_class": {
+      "C2": 19,
+      "L": 5
+    },
+    "by_signer": {
+      "codesign_signed": 19,
+      "linker_signed": 5
+    },
+    "packages": 8,
+    "packages_list": [
+      "cmdargs-browser-0.1.4",
+      "httptoolkit-1.24.4",
+      "libtorch-2.9.0",
+      "shogihome-1.27.1",
+      "swift-5.10.1",
+      "swift-5.10.1-lib",
+      "tailwindcss_4-4.1.18",
+      "teams-for-linux-2.8.0"
+    ],
+    "slices": 24
+  },
+  "paths_by_status": {
+    "no_narinfo": 18745,
+    "ok": 100632
+  },
+  "paths_scanned": 119377,
+  "slices_by_arch": {
+    "arm": 11,
+    "arm64": 112669,
+    "arm64e": 51,
+    "cpu_0x00000001/0x00000000": 1,
+    "cpu_0x00000002/0x00000000": 1,
+    "cpu_0x00000004/0x00000000": 1,
+    "cpu_0x00000005/0x00000000": 1,
+    "cpu_0x00000012/0x00000000": 44,
+    "cpu_0x00000012/0x0000000a": 5,
+    "cpu_0x00000012/0x00000064": 1,
+    "cpu_0x01000012/0x00000000": 8,
+    "i386": 85,
+    "unknown": 4083,
+    "x86_64": 3646
+  },
+  "slices_total": 120607
+}
