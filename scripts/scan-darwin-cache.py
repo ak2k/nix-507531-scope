@@ -645,6 +645,29 @@ def _analyze_thin(data: bytes) -> SliceReport:
 # ---------------------------------------------------------------------------
 
 
+def _apply_shard_stripe(
+    paths: list[str], shard: int, total_shards: int, source: str
+) -> list[str]:
+    """Deterministic stripe by line index: paths[i] belongs to shard
+    (i % total_shards). Stripe beats chunk for load balance — a chunk
+    split could assign one shard all the Swift toolchain or all the
+    Electron apps while others finish early.
+    """
+    if total_shards <= 1:
+        return paths
+    before = len(paths)
+    sliced = [p for i, p in enumerate(paths) if i % total_shards == shard]
+    log.info(
+        "sharding (%s): %d of %d paths assigned to shard %d/%d",
+        source,
+        len(sliced),
+        before,
+        shard,
+        total_shards,
+    )
+    return sliced
+
+
 async def fetch_store_paths(
     client: httpx.AsyncClient,
     channel_url: str,
@@ -652,35 +675,32 @@ async def fetch_store_paths(
     total_shards: int = 1,
 ) -> list[str]:
     """Fetch the channel's store-paths.xz and optionally return only this
-    shard's slice.
-
-    Sharding is a deterministic stripe by line index:
-        paths[i] belongs to shard (i % total_shards).
-    This gives each shard ~1/total_shards of the paths with roughly
-    balanced load characteristics, because the channel's path order is
-    not by size and there's no positional clustering by package kind.
-    Stripe beats chunk for load balance: a chunk-based split could
-    assign a single shard all the Swift toolchain or all the Electron
-    apps (both disproportionately expensive) while other shards finish
-    early.
-    """
+    shard's slice."""
     url = f"{channel_url.rstrip('/')}/store-paths.xz"
     log.info("fetching %s", url)
     r = await client.get(url)
     r.raise_for_status()
     raw = lzma.decompress(r.content)
     paths = [ln for ln in raw.decode().splitlines() if ln.strip()]
-    if total_shards > 1:
-        before = len(paths)
-        paths = [p for i, p in enumerate(paths) if i % total_shards == shard]
-        log.info(
-            "sharding: %d of %d paths assigned to shard %d/%d",
-            len(paths),
-            before,
-            shard,
-            total_shards,
-        )
-    return paths
+    return _apply_shard_stripe(paths, shard, total_shards, "channel")
+
+
+def load_paths_from_file(
+    path_file: str, shard: int = 0, total_shards: int = 1
+) -> list[str]:
+    """Read a newline-separated list of /nix/store paths from disk.
+    Mirrors fetch_store_paths' shard-stripe behaviour so the synthetic
+    `release` channel (paths derived from `nix-eval-jobs` against
+    `release-25.11`) drops in wherever fetch_store_paths is used.
+    """
+    log.info("loading paths from %s", path_file)
+    with open(path_file) as f:
+        paths = [
+            ln.strip()
+            for ln in f
+            if ln.strip() and ln.lstrip().startswith("/nix/store/")
+        ]
+    return _apply_shard_stripe(paths, shard, total_shards, "file")
 
 
 async def fetch_narinfo(
@@ -1054,22 +1074,27 @@ def _run_mp(args: argparse.Namespace) -> None:
 
     out_f = open(args.out, "a", buffering=1)
 
-    # Fetch store-paths list once in main (short-lived async client).
-    async def _fetch() -> list[str]:
-        async with httpx.AsyncClient(
-            timeout=httpx.Timeout(60.0),
-            follow_redirects=True,
-            headers={"User-Agent": "nixpkgs-507531-cache-scanner/1"},
-        ) as client:
-            return await fetch_store_paths(
-                client,
-                args.channel,
-                shard=args.shard,
-                total_shards=args.total_shards,
-            )
+    if args.paths_file:
+        paths = load_paths_from_file(
+            args.paths_file, shard=args.shard, total_shards=args.total_shards
+        )
+    else:
+        # Fetch store-paths list once in main (short-lived async client).
+        async def _fetch() -> list[str]:
+            async with httpx.AsyncClient(
+                timeout=httpx.Timeout(60.0),
+                follow_redirects=True,
+                headers={"User-Agent": "nixpkgs-507531-cache-scanner/1"},
+            ) as client:
+                return await fetch_store_paths(
+                    client,
+                    args.channel,
+                    shard=args.shard,
+                    total_shards=args.total_shards,
+                )
 
-    paths = asyncio.run(_fetch())
-    log.info("channel slice has %d paths", len(paths))
+        paths = asyncio.run(_fetch())
+    log.info("path-list slice has %d paths", len(paths))
     todo = [p for p in paths if p not in done]
     if args.limit:
         todo = todo[: args.limit]
@@ -1155,13 +1180,20 @@ async def _run_single(args: argparse.Namespace) -> None:
         follow_redirects=True,
         headers={"User-Agent": "nixpkgs-507531-cache-scanner/1"},
     ) as client:
-        paths = await fetch_store_paths(
-            client,
-            args.channel,
-            shard=args.shard,
-            total_shards=args.total_shards,
-        )
-        log.info("channel slice has %d paths", len(paths))
+        if args.paths_file:
+            paths = load_paths_from_file(
+                args.paths_file,
+                shard=args.shard,
+                total_shards=args.total_shards,
+            )
+        else:
+            paths = await fetch_store_paths(
+                client,
+                args.channel,
+                shard=args.shard,
+                total_shards=args.total_shards,
+            )
+        log.info("path-list slice has %d paths", len(paths))
         todo = [p for p in paths if p not in done]
         if args.limit:
             todo = todo[: args.limit]
@@ -1211,10 +1243,19 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     p = argparse.ArgumentParser(
         description="Scan an aarch64-darwin nixpkgs channel's cache for the NixOS/nixpkgs#507531 page-hash bug."
     )
-    p.add_argument(
+    src = p.add_mutually_exclusive_group()
+    src.add_argument(
         "--channel",
-        default=DEFAULT_CHANNEL,
-        help=f"Channel base URL (default: {DEFAULT_CHANNEL})",
+        default=None,
+        help=f"Channel base URL; fetches <url>/store-paths.xz (default: {DEFAULT_CHANNEL})",
+    )
+    src.add_argument(
+        "--paths-file",
+        default=None,
+        help="Local file with newline-separated /nix/store paths to scan, "
+        "instead of fetching <channel>/store-paths.xz. Used by the synthetic "
+        "`release` channel whose path list is generated by `nix-eval-jobs` "
+        "against `release-25.11#legacyPackages.aarch64-darwin`.",
     )
     p.add_argument(
         "--cache",
@@ -1298,6 +1339,8 @@ def main() -> int:
         level=args.log_level,
         format="%(asctime)s %(levelname)s %(message)s",
     )
+    if args.channel is None and args.paths_file is None:
+        args.channel = DEFAULT_CHANNEL
     try:
         if args.workers > 0:
             _run_mp(args)

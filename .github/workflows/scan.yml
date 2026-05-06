@@ -1,32 +1,62 @@
-# Daily scan of darwin channels (stable + unstable) for the
-# NixOS/nixpkgs#507531 / NixOS/nix#15638 page-hash bug.
+# Daily scan of darwin caches for NixOS/nixpkgs#507531 / NixOS/nix#15638.
 #
-# Architecture: three jobs in sequence.
+# Three channels, each emits its own per-channel report:
 #
-#   scan (matrix, 18 parallel jobs):
-#     * stable  split into 6 shards
-#     * unstable split into 12 shards
+#   `darwin`   — `https://channels.nixos.org/nixpkgs-25.11-darwin`. Hydra's
+#                darwin-curated stable channel; lags release-25.11 tip on
+#                darwin test-gate failures. Currently the poisoned channel.
+#   `release`  — synthetic. `release-25.11` branch tip is not a published
+#                channel slug, so we evaluate
+#                  github:NixOS/nixpkgs/<release-25.11-tip>#legacyPackages.aarch64-darwin
+#                via nix-eval-jobs in a pre-job and feed the resulting
+#                /nix/store path list to scan-darwin-cache.py via
+#                --paths-file. Same Tier 1 pipeline as the other channels.
+#   `unstable` — `https://channels.nixos.org/nixpkgs-unstable`. Trunk-
+#                combined unstable, all platforms; aarch64-darwin slice
+#                of fish there is on 4.6.0.
+#
+# Architecture: four jobs in sequence.
+#
+#   eval-release-paths (1 job, ~5-8 min):
+#     * `git ls-remote release-25.11` → release_rev
+#     * `nix-eval-jobs --workers 2 --max-memory-size 3072 ...` → release-paths.txt
+#       (parallelism mirrors compute-build-time-dependents.py's existing
+#       Tier 3 invocation; ubuntu-latest is 2 vCPU so 2 workers matches
+#       core count without overcommitting)
+#     * Uploads release-paths.txt + release-rev.txt as artifacts. Single
+#       run shared by all 7 release-channel scan shards (no redundant
+#       per-shard re-eval).
+#
+#   scan (matrix, 17 parallel jobs):
+#     * darwin   split into 3 shards (was 6 under the 2-channel layout;
+#                rebalanced for 17-job total)
+#     * release  split into 7 shards
+#     * unstable split into 7 shards (was 14; rebalanced for 17-job total)
 #     Each shard scans paths[i] where i %% total_shards == shard_id.
-#     Wall time per shard ~25 min cold; all 18 run in parallel under
-#     GHA's 20-concurrent-runner cap. Per-shard state cached
+#     17 < GHA's 20-concurrent-runner cap. Per-shard state cached
 #     independently so a timeout in one shard doesn't leak into others.
+#     Release shards `needs: eval-release-paths` and download its artifact.
 #
 #   analyze (matrix, 1 job per channel):
 #     * downloads all shard artifacts for one channel
 #     * concatenates JSONLs into the per-channel full.jsonl
 #     * runs Tier 1 / Tier 2 / Tier 3 / render / verify in sequence
+#     * Tier 3 evaluates against the channel's pinned rev (release uses
+#       the rev from eval-release-paths' artifact; the other two pull
+#       from <channel-url>/git-revision)
 #     * uploads per-channel artifact
 #
 #   combine (1 job):
-#     * downloads both channels' artifacts
-#     * runs combine-reports.py (top-level REPORT + summary.json, with
-#       the flat Affected-packages table)
+#     * downloads all three channels' artifacts
+#     * runs combine-reports.py (top-level REPORT + summary.json with the
+#       flat Affected-packages table)
 #     * commits + pushes
 #
 # Companion scripts:
-#   ./scripts/{scan-darwin-cache,aggregate-scan,verify-failures,
-#              compute-load-time-dependents,compute-build-time-dependents,
-#              render-channel-report,combine-reports}.py
+#   ./scripts/{scan-darwin-cache,eval-darwin-paths,aggregate-scan,
+#              verify-failures,compute-load-time-dependents,
+#              compute-build-time-dependents,render-channel-report,
+#              combine-reports}.py
 #
 # Required repo setting: Settings → Actions → General → Workflow permissions
 # = "Read and write". Otherwise the combine job's commit step will 403.
@@ -48,8 +78,72 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  eval-release-paths:
+    # Pin release-25.11 tip rev once, then synthesise its
+    # legacyPackages.aarch64-darwin path list via nix-eval-jobs. Single
+    # run shared by all 7 release-channel scan shards.
+    name: eval-release-paths
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    outputs:
+      release_rev: ${{ steps.pin.outputs.rev }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - uses: astral-sh/setup-uv@v8.1.0
+        with:
+          version: latest
+          cache-dependency-glob: 'scripts/*.py'
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: Install nix-eval-jobs
+        run: nix profile install nixpkgs#nix-eval-jobs
+
+      - name: Pin release-25.11 tip
+        id: pin
+        run: |
+          REV=$(git ls-remote https://github.com/NixOS/nixpkgs release-25.11 | awk '{print $1}')
+          if [ -z "$REV" ]; then
+            echo "::error::failed to resolve release-25.11"
+            exit 1
+          fi
+          echo "rev=$REV" >> "$GITHUB_OUTPUT"
+          echo "$REV" > release-rev.txt
+          echo "release-25.11 pinned at $REV"
+
+      - name: Evaluate aarch64-darwin package set
+        env:
+          # Same UNFREE/INSECURE allowlist as compute-build-time-dependents.py:
+          # users with these allowed at build time DO substitute these
+          # paths from cache, so they belong in the synthetic path list.
+          NIXPKGS_ALLOW_UNFREE: '1'
+          NIXPKGS_ALLOW_INSECURE: '1'
+        run: |
+          uv run scripts/eval-darwin-paths.py \
+            --flake "github:NixOS/nixpkgs/${{ steps.pin.outputs.rev }}" \
+            --workers 2 \
+            --max-memory-size 3072 \
+            > release-paths.txt
+          wc -l release-paths.txt
+
+      - name: Upload release-paths artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: release-paths
+          path: |
+            release-paths.txt
+            release-rev.txt
+          retention-days: 1
+
   scan:
     name: scan-${{ matrix.channel }}-shard${{ matrix.shard }}of${{ matrix.total_shards }}
+    needs: eval-release-paths
     runs-on: ubuntu-latest
     # GHA's hard per-job cap on public-repo hosted runners is 6h.
     # Each shard covers ~1/N of the channel so cold-scan stays well
@@ -60,32 +154,32 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # 18 total shards: stable×6 + unstable×12.
-        # Listed explicitly (GHA has no runtime expansion; include + a
-        # separate job per channel was the next-cleanest alternative).
-        # When changing shard counts, update BOTH the include list and
-        # the `total_shards` field on every entry of that channel.
+        # 17 total shards: darwin×3 + release×7 + unstable×7. Under GHA's
+        # 20-concurrent-runner cap. Listed explicitly (GHA has no runtime
+        # expansion; include + a separate job per channel was the next-
+        # cleanest alternative). When changing shard counts, update BOTH
+        # the include list and the `total_shards` field on every entry of
+        # that channel. `release` entries have an empty `url` — they read
+        # paths from the eval-release-paths artifact instead of fetching
+        # store-paths.xz from channels.nixos.org.
         include:
-          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 0, total_shards: 6 }
-          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 1, total_shards: 6 }
-          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 2, total_shards: 6 }
-          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 3, total_shards: 6 }
-          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 4, total_shards: 6 }
-          - { channel: stable, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 5, total_shards: 6 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  0, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  1, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  2, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  3, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  4, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  5, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  6, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  7, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  8, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard:  9, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 10, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 11, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 12, total_shards: 14 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 13, total_shards: 14 }
+          - { channel: darwin, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 0, total_shards: 3 }
+          - { channel: darwin, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 1, total_shards: 3 }
+          - { channel: darwin, url: 'https://channels.nixos.org/nixpkgs-25.11-darwin', shard: 2, total_shards: 3 }
+          - { channel: release, url: '', shard: 0, total_shards: 7 }
+          - { channel: release, url: '', shard: 1, total_shards: 7 }
+          - { channel: release, url: '', shard: 2, total_shards: 7 }
+          - { channel: release, url: '', shard: 3, total_shards: 7 }
+          - { channel: release, url: '', shard: 4, total_shards: 7 }
+          - { channel: release, url: '', shard: 5, total_shards: 7 }
+          - { channel: release, url: '', shard: 6, total_shards: 7 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 0, total_shards: 7 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 1, total_shards: 7 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 2, total_shards: 7 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 3, total_shards: 7 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 4, total_shards: 7 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 5, total_shards: 7 }
+          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 6, total_shards: 7 }
 
     steps:
       - uses: actions/checkout@v6
@@ -97,6 +191,13 @@ jobs:
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
+
+      - name: Download release-paths artifact
+        if: matrix.channel == 'release'
+        uses: actions/download-artifact@v8
+        with:
+          name: release-paths
+          path: release-input/
 
       - name: Restore scanner shard state
         if: ${{ !inputs.force_full_rescan }}
@@ -121,8 +222,15 @@ jobs:
         run: |
           DIR=${{ matrix.channel }}-shard${{ matrix.shard }}
           mkdir -p "$DIR"
+          # `release` reads its path list from the eval-release-paths
+          # artifact; the other channels fetch <url>/store-paths.xz.
+          if [ '${{ matrix.channel }}' = 'release' ]; then
+            SOURCE='--paths-file release-input/release-paths.txt'
+          else
+            SOURCE='--channel ${{ matrix.url }}'
+          fi
           uv run scripts/scan-darwin-cache.py \
-            --channel "${{ matrix.url }}" \
+            $SOURCE \
             --shard ${{ matrix.shard }} \
             --total-shards ${{ matrix.total_shards }} \
             --workers 5 \
@@ -163,8 +271,10 @@ jobs:
       fail-fast: false
       matrix:
         channel:
-          - label: stable
+          - label: darwin
             url: https://channels.nixos.org/nixpkgs-25.11-darwin
+          - label: release
+            url: ''  # synthetic; rev comes from eval-release-paths artifact
           - label: unstable
             url: https://channels.nixos.org/nixpkgs-unstable
     steps:
@@ -178,8 +288,8 @@ jobs:
       # Deliberately NO cache-nix-action /nix/store caching. Each
       # analyze job installs nix + rcodesign + nix-eval-jobs fresh;
       # the cold install takes ~30s total and saves ~800 MB of repo-
-      # cache footprint per run. With 2 analyze jobs × 18 daily runs
-      # × ~800 MB, cache-nix-action was the dominant cache-usage item,
+      # cache footprint per run. With 3 analyze jobs × 1 daily run ×
+      # ~800 MB, cache-nix-action was the dominant cache-usage item,
       # pushing the repo past its 10 GB cap and LRU-evicting shard
       # scan-state caches.
 
@@ -192,14 +302,31 @@ jobs:
       - name: Install rcodesign + nix-eval-jobs
         run: nix profile install nixpkgs#rcodesign nixpkgs#nix-eval-jobs
 
+      - name: Download release-paths artifact (rev pin)
+        if: matrix.channel.label == 'release'
+        uses: actions/download-artifact@v8
+        with:
+          name: release-paths
+          path: release-input/
+
       - name: Channel metadata
         id: channel
         run: |
-          URL="${{ matrix.channel.url }}"
-          REV=$(curl -sL "$URL/git-revision")
-          echo "url=$URL"  >> "$GITHUB_OUTPUT"
-          echo "rev=$REV"  >> "$GITHUB_OUTPUT"
-          echo "label=${URL##*/} @ ${REV:0:12} ($(date -u +%Y-%m-%d))" >> "$GITHUB_OUTPUT"
+          if [ '${{ matrix.channel.label }}' = 'release' ]; then
+            # Synthetic channel: rev was pinned by eval-release-paths
+            # at the start of the run. Reuse it so Tier 3 evaluates
+            # against the same rev whose path list we already scanned.
+            REV=$(cat release-input/release-rev.txt)
+            URL="github:NixOS/nixpkgs/release-25.11"
+            DISPLAY="release-25.11 @ ${REV:0:12} ($(date -u +%Y-%m-%d))"
+          else
+            URL="${{ matrix.channel.url }}"
+            REV=$(curl -sL "$URL/git-revision")
+            DISPLAY="${URL##*/} @ ${REV:0:12} ($(date -u +%Y-%m-%d))"
+          fi
+          echo "url=$URL"      >> "$GITHUB_OUTPUT"
+          echo "rev=$REV"      >> "$GITHUB_OUTPUT"
+          echo "label=$DISPLAY" >> "$GITHUB_OUTPUT"
 
       - name: Download shard JSONLs
         uses: actions/download-artifact@v8
@@ -311,11 +438,17 @@ jobs:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
 
-      - name: Download stable outputs
+      - name: Download darwin outputs
         uses: actions/download-artifact@v8
         with:
-          name: channel-stable
-          path: stable/
+          name: channel-darwin
+          path: darwin/
+
+      - name: Download release outputs
+        uses: actions/download-artifact@v8
+        with:
+          name: channel-release
+          path: release/
 
       - name: Download unstable outputs
         uses: actions/download-artifact@v8
@@ -326,11 +459,14 @@ jobs:
       - name: Combine
         run: |
           uv run scripts/combine-reports.py \
-            --channel stable:stable/summary.json \
+            --channel darwin:darwin/summary.json \
+            --channel release:release/summary.json \
             --channel unstable:unstable/summary.json \
-            --channel-tier2 stable:stable/load-time-summary.json \
+            --channel-tier2 darwin:darwin/load-time-summary.json \
+            --channel-tier2 release:release/load-time-summary.json \
             --channel-tier2 unstable:unstable/load-time-summary.json \
-            --channel-tier3 stable:stable/build-time-summary.json \
+            --channel-tier3 darwin:darwin/build-time-summary.json \
+            --channel-tier3 release:release/build-time-summary.json \
             --channel-tier3 unstable:unstable/build-time-summary.json \
             --out REPORT.md \
             --summary-json summary.json
@@ -339,12 +475,12 @@ jobs:
         run: |
           git config user.name  'scan-bot'
           git config user.email 'scan-bot@users.noreply.github.com'
-          git add stable/ unstable/ REPORT.md summary.json
+          git add darwin/ release/ unstable/ REPORT.md summary.json
           if git diff --staged --quiet; then
             echo 'no result changes'
             exit 0
           fi
-          git commit -m "auto: dual-channel scan
+          git commit -m "auto: tri-channel scan
 
           Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           # Main may have moved while this run was in flight (either a
@@ -352,8 +488,8 @@ jobs:
           # Rebase the scan commit onto whatever main is now, then push.
           #
           # REPORT.md and summary.json are deterministic regens from the
-          # per-channel inputs in stable/ and unstable/, so conflicts on
-          # those two files are auto-resolved in favor of this run's
+          # per-channel inputs in darwin/, release/, and unstable/, so
+          # conflicts on those two files are auto-resolved in favor of this run's
           # version (`--theirs` during rebase = the commit being replayed
           # = the scan's fresh output). Any OTHER conflict halts the job
           # so a human can inspect — that's unexpected and worth looking
