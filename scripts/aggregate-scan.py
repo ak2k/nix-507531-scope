@@ -171,12 +171,38 @@ def aggregate(input_path: Path):
     other_sig_rows: list[dict] = []  # other_sig_invalid slice rows
     error_samples: dict[str, dict] = {}  # keyed by error text prefix
 
+    # Dedup at the loop level: scan-state caches are keyed per-shard, but
+    # the `i %% total_shards` stripe assignment depends on input ordering.
+    # When the input path-list shape changes between runs (e.g. release
+    # lane growing as eval/expand outputs change), a path that lived in
+    # shard A's cached JSONL last run can land in shard B's fresh JSONL
+    # this run. Both copies survive the analyze-stage concat. Without
+    # dedup every downstream counter (paths_scanned, buckets, slice
+    # counts, signature-class splits, package counts) is inflated for
+    # affected paths. First-occurrence wins; the duplicate copies carry
+    # identical measurements anyway (same bytes, same hashing).
+    seen_paths: set[str] = set()
+    seen_slices: set[tuple[str, str, str]] = set()
+
     for r in load(input_path):
+        sp = r.get("store_path", "")
+        if sp and sp in seen_paths:
+            # Already processed this store_path's slices via another
+            # shard's JSONL — skip.
+            continue
+        if sp:
+            seen_paths.add(sp)
         paths_scanned += 1
         paths_by_status[r.get("status", "unknown")] += 1
-        sp = r.get("store_path", "")
         for s in r.get("slices", []):
             arch = s.get("arch", "unknown")
+            slice_key = (sp, str(s.get("path") or ""), str(arch))
+            if slice_key in seen_slices:
+                # Defensive: a single store_path's row should never be
+                # processed twice (caught above), but if a JSONL row
+                # internally has duplicate slices this still skips.
+                continue
+            seen_slices.add(slice_key)
             slices_by_arch[arch] += 1
             b = classify_slice(s)
             buckets[b] += 1
@@ -582,10 +608,28 @@ def write_failing_csv(path: Path, rows: list[dict]) -> None:
         "n_alternate_cds",
         "signature_class",
     ]
+    # Dedup by (store_path, path, arch) — the natural slice-uniqueness key.
+    # Cross-shard duplicates can occur when the input path-list shape
+    # changes between runs: scan-state caches are keyed per-shard, but the
+    # `i %% total_shards` stripe assignment depends on the input order, so
+    # a path that lived in shard A's cached JSONL last run can land in
+    # shard B's fresh JSONL this run. Both copies survive the analyze-
+    # stage concat, and without dedup each failing slice gets reported
+    # twice. First-occurrence wins: ordering is stable within a single
+    # scanner's emit, and the shard-overlap copies carry identical
+    # measurements anyway (same bytes, same hashing).
+    seen: set[tuple[str, str, str]] = set()
+    deduped: list[dict] = []
+    for r in rows:
+        key = (str(r.get("store_path", "")), str(r.get("path", "")), str(r.get("arch", "")))
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(r)
     with path.open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
-        for r in rows:
+        for r in deduped:
             w.writerow({k: r.get(k, "") for k in fieldnames})
 
 
