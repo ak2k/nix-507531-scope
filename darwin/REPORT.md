@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ e3f3598f6dcc (2026-05-07)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 25b257cc0377 (2026-05-08)
 
-Generated: 2026-05-07 08:22:15 UTC
+Generated: 2026-05-08 08:32:45 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 171,489 |
-| Mach-O slices parsed | 218,780 |
+| Store paths scanned | 171,573 |
+| Mach-O slices parsed | 218,872 |
 | Page-hash mismatches (slices) | 50 |
 | Page-hash mismatches (distinct packages) | 13 |
 |   of which linker-signed (flags=0x20002) | 7 |
@@ -22,9 +22,9 @@ Generated: 2026-05-07 08:22:15 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 104,797 | 29 | 0 | 96,960 | 7,788 | 20 |
+| `arm64` | 104,843 | 29 | 0 | 97,006 | 7,788 | 20 |
 | `arm64e` | 53 | 0 | 0 | 13 | 0 | 40 |
-| `x86_64` | 106,278 | 21 | 1 | 8,180 | 98,024 | 52 |
+| `x86_64` | 106,324 | 21 | 1 | 8,180 | 98,070 | 52 |
 | `i386` | 170 | 0 | 0 | 113 | 55 | 2 |
 | other/legacy (10 arch codes) | 7,482 | 0 | 0 | 2 | 8 | 7,472 |
 
@@ -32,7 +32,7 @@ Generated: 2026-05-07 08:22:15 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 205,425 | 8 | 1 | 100,074 | 105,340 |
+| thin | 205,517 | 8 | 1 | 100,120 | 105,386 |
 | fat | 13,355 | 42 | 0 | 5,194 | 535 |
 
 Unique fat binary files: 10,325 in 538 packages. 5 of those packages contain at least one failing fat slice.
@@ -71,8 +71,8 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 |---|---:|
 | `page_hash_mismatch` | 50 |
 | `other_sig_invalid` | 1 |
-| `clean` (signed, verified) | 105,268 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 105,875 |
+| `clean` (signed, verified) | 105,314 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 105,921 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 7,586 |
 | `scanner_error` | 0 |
 
