@@ -1,41 +1,41 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 68a8af93ff42 (2026-05-09)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ b3da656039dc (2026-05-10)
 
-Generated: 2026-05-09 08:02:55 UTC
+Generated: 2026-05-10 08:39:00 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 390,430 |
-| Mach-O slices parsed | 290,283 |
-| Page-hash mismatches (slices) | 66 |
-| Page-hash mismatches (distinct packages) | 22 |
-|   of which linker-signed (flags=0x20002) | 19 |
+| Store paths scanned | 412,541 |
+| Mach-O slices parsed | 298,010 |
+| Page-hash mismatches (slices) | 67 |
+| Page-hash mismatches (distinct packages) | 23 |
+|   of which linker-signed (flags=0x20002) | 20 |
 |   of which codesign-signed (flags=0x2) | 47 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
-| Type 2 — binaries linking a failing dylib | 6 |
-| Type 2 — distinct packages | 4 |
+| Type 2 — binaries linking a failing dylib | 7 |
+| Type 2 — distinct packages | 5 |
 | Type 3 — packages directly declaring a failing build input (default view) | 1 |
 
 ## By architecture
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 115,056 | 41 | 0 | 105,475 | 9,500 | 40 |
+| `arm64` | 119,516 | 42 | 0 | 109,105 | 10,329 | 40 |
 | `arm64e` | 65 | 0 | 0 | 25 | 0 | 40 |
-| `x86_64` | 116,707 | 25 | 0 | 8,728 | 107,884 | 70 |
-| `i386` | 329 | 0 | 0 | 133 | 188 | 8 |
-| other/legacy (10 arch codes) | 58,126 | 0 | 0 | 2 | 65 | 58,059 |
+| `x86_64` | 119,924 | 25 | 0 | 8,929 | 110,900 | 70 |
+| `i386` | 353 | 0 | 0 | 141 | 204 | 8 |
+| other/legacy (10 arch codes) | 58,152 | 0 | 0 | 2 | 65 | 58,085 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 224,889 | 24 | 0 | 108,192 | 116,580 |
-| fat | 65,394 | 42 | 0 | 6,171 | 1,057 |
+| thin | 232,259 | 25 | 0 | 111,839 | 120,302 |
+| fat | 65,751 | 42 | 0 | 6,363 | 1,196 |
 
-Unique fat binary files: 61,561 in 965 packages. 5 of those packages contain at least one failing fat slice.
+Unique fat binary files: 61,735 in 1,079 packages. 5 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -55,6 +55,7 @@ Sorted alphabetically by package name.
 | mmsyn7ukr-array-0.3.0.0 | 1 | `/nix/store/ffmz0x0yik7jgrw0ljlmg1n6y041fh2x-mmsyn7ukr-array-0.3.0.0` |
 | opencode-1.14.35 | 1 | `/nix/store/g1r8yb5n0k1kpy13k16a3vw8w6admpyi-opencode-1.14.35` |
 | opencode-1.14.35 | 1 | `/nix/store/npqyfwp0j1172ypv11zmzx0qias179wd-opencode-1.14.35` |
+| opencode-1.14.35 | 1 | `/nix/store/q95hrhjnsk49f6h70p0hym0a3pk73v9q-opencode-1.14.35` |
 | shogihome-1.27.1 | 1 | `/nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1` |
 | swift-5.10.1 | 11 | `/nix/store/p1fpxz9l7rc91fzp0ckwrsxmizqmbvc1-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/qg9vqxfpaqq8cra97dpxk7l2ry1bsrax-swift-5.10.1` |
@@ -70,11 +71,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 66 |
+| `page_hash_mismatch` | 67 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 114,363 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 117,637 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 58,217 |
+| `clean` (signed, verified) | 118,202 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 121,498 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 58,243 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -83,18 +84,18 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 
 | Metric | Count |
 |---|---:|
-| Binaries that link at least one failing dylib | 6 |
-| Distinct packages containing such binaries | 4 |
+| Binaries that link at least one failing dylib | 7 |
+| Distinct packages containing such binaries | 5 |
 | Failing dylibs that serve as seeds | 48 |
-| Total (binary, failing-dylib) pairs | 41 |
+| Total (binary, failing-dylib) pairs | 70 |
 
 Top failing dylibs by number of downstream binaries:
 
 | Seed package | Downstream binaries |
 |---|---:|
-| `ffmpeg-headless-8.0.1-lib` | 41 |
+| `ffmpeg-headless-8.0.1-lib` | 70 |
 
-Dependent packages (4): `cyanrip-0.9.3.1`, `ffmpegthumbnailer-2.3.0`, `gst-libav-1.26.11`, `musikcube-3.0.5`
+Dependent packages (5): `cliairplay-1.1-unstable-2026-03-16`, `cyanrip-0.9.3.1`, `ffmpegthumbnailer-2.3.0`, `gst-libav-1.26.11`, `musikcube-3.0.5`
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).
 ## Build-time dependents
@@ -108,7 +109,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 2 |
-| Distinct failing seeds | 22 |
+| Distinct failing seeds | 23 |
 
 Edges by kind (default view only):
 

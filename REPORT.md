@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-05-09 08:14:54 UTC
+Generated: 2026-05-10 08:50:15 UTC
 
 Daily scan across three darwin caches of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -22,10 +22,10 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| darwin | release | unstable | Union |
 |---|---:|---:|---:|---:|
-| **1. Direct failure** (slices) | 50 | 24 | 66 | 140 |
-| &emsp;↳ distinct packages | 13 | 8 | 22 | 19 |
-| **2. Load-time transitive** (binaries) | 0 | 0 | 6 | 6 |
-| &emsp;↳ distinct packages | 0 | 0 | 4 | 4 |
+| **1. Direct failure** (slices) | 50 | 24 | 67 | 141 |
+| &emsp;↳ distinct packages | 13 | 8 | 23 | 19 |
+| **2. Load-time transitive** (binaries) | 0 | 0 | 7 | 7 |
+| &emsp;↳ distinct packages | 0 | 0 | 5 | 5 |
 | **3. Build-time dependent** (packages, default view) | 0 | 0 | 1 | 1 |
 
 ## Canonical examples
@@ -38,9 +38,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | darwin | release | unstable |
 |---|---:|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ 25b257cc0377 (2026-05-09) | release-25.11 @ b24034905ce4 (2026-05-09) | nixpkgs-unstable @ 68a8af93ff42 (2026-05-09) |
-| Paths scanned | 171,573 | 119,971 | 390,430 |
-| Mach-O slices | 218,872 | 120,879 | 290,283 |
+| Channel label | nixpkgs-25.11-darwin @ 25b257cc0377 (2026-05-10) | release-25.11 @ 1e0ace4e6109 (2026-05-10) | nixpkgs-unstable @ b3da656039dc (2026-05-10) |
+| Paths scanned | 171,573 | 120,553 | 412,541 |
+| Mach-O slices | 218,872 | 120,891 | 298,010 |
 
 ## Direct-failure slices by signature shape
 
@@ -48,11 +48,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | darwin | release | unstable | Total |
 |---|---:|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 7 | 5 | 19 | 31 |
+| linker-signed ad-hoc, no CMS slot | 7 | 5 | 20 | 32 |
 | codesign ad-hoc, empty 8 B CMS wrapper | 43 | 19 | 43 | 105 |
 | ad-hoc with Entitlements + empty CMS wrapper | 0 | 0 | 2 | 2 |
 | Developer-ID-signed (non-empty CMS payload) | 0 | 0 | 2 | 2 |
-| **Total** | **50** | **24** | **66** | **140** |
+| **Total** | **50** | **24** | **67** | **141** |
 
 ## Affected packages
 
@@ -61,6 +61,7 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 | Package | Type | Channel(s) | Seeded by |
 |---|---|---|---|
 | `avalonia-ilspy-7.2-rc` | direct | darwin, unstable | — |
+| `cliairplay-1.1` | load-time transitive | unstable | `ffmpeg-headless-8.0.1-lib` |
 | `cmdargs-browser-0.1.4` | direct | darwin, release | — |
 | `cyanrip-0.9.3.1` | load-time transitive | unstable | `ffmpeg-headless-8.0.1-lib` |
 | `esy-0.8.0` | direct | darwin | — |
@@ -87,9 +88,9 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 
 ## Drill-downs
 
-- [darwin channel report](darwin/REPORT.md) — `nixpkgs-25.11-darwin @ 25b257cc0377 (2026-05-09)`
-- [release channel report](release/REPORT.md) — `release-25.11 @ b24034905ce4 (2026-05-09)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 68a8af93ff42 (2026-05-09)`
+- [darwin channel report](darwin/REPORT.md) — `nixpkgs-25.11-darwin @ 25b257cc0377 (2026-05-10)`
+- [release channel report](release/REPORT.md) — `release-25.11 @ 1e0ace4e6109 (2026-05-10)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ b3da656039dc (2026-05-10)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)

@@ -1,18 +1,22 @@
 {
-  "total_rows": 41,
-  "distinct_binaries": 6,
-  "distinct_dependent_packages": 4,
+  "total_rows": 70,
+  "distinct_binaries": 7,
+  "distinct_dependent_packages": 5,
   "distinct_seed_dylibs": 48,
   "by_seed_package": {
-    "ffmpeg-headless-8.0.1-lib": 41
+    "ffmpeg-headless-8.0.1-lib": 70
   },
   "dependent_packages": [
+    "cliairplay-1.1-unstable-2026-03-16",
     "cyanrip-0.9.3.1",
     "ffmpegthumbnailer-2.3.0",
     "gst-libav-1.26.11",
     "musikcube-3.0.5"
   ],
   "dependents_by_package": {
+    "cliairplay-1.1-unstable-2026-03-16": [
+      "ffmpeg-headless-8.0.1-lib"
+    ],
     "cyanrip-0.9.3.1": [
       "ffmpeg-headless-8.0.1-lib"
     ],
