@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ b3da656039dc (2026-05-11)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ c6e5ca3c836a (2026-05-12)
 
-Generated: 2026-05-11 08:41:34 UTC
+Generated: 2026-05-12 08:52:39 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 412,541 |
-| Mach-O slices parsed | 298,010 |
-| Page-hash mismatches (slices) | 67 |
-| Page-hash mismatches (distinct packages) | 23 |
-|   of which linker-signed (flags=0x20002) | 20 |
-|   of which codesign-signed (flags=0x2) | 47 |
+| Store paths scanned | 424,350 |
+| Mach-O slices parsed | 305,095 |
+| Page-hash mismatches (slices) | 70 |
+| Page-hash mismatches (distinct packages) | 26 |
+|   of which linker-signed (flags=0x20002) | 22 |
+|   of which codesign-signed (flags=0x2) | 48 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 7 |
@@ -22,20 +22,20 @@ Generated: 2026-05-11 08:41:34 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 119,516 | 42 | 0 | 109,105 | 10,329 | 40 |
+| `arm64` | 122,019 | 44 | 0 | 111,031 | 10,898 | 46 |
 | `arm64e` | 65 | 0 | 0 | 25 | 0 | 40 |
-| `x86_64` | 119,924 | 25 | 0 | 8,929 | 110,900 | 70 |
-| `i386` | 353 | 0 | 0 | 141 | 204 | 8 |
-| other/legacy (10 arch codes) | 58,152 | 0 | 0 | 2 | 65 | 58,085 |
+| `x86_64` | 122,444 | 26 | 0 | 9,033 | 113,309 | 76 |
+| `i386` | 361 | 0 | 0 | 141 | 212 | 8 |
+| other/legacy (10 arch codes) | 60,206 | 0 | 0 | 2 | 65 | 60,139 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 232,259 | 25 | 0 | 111,839 | 120,302 |
-| fat | 65,751 | 42 | 0 | 6,363 | 1,196 |
+| thin | 236,895 | 28 | 0 | 113,649 | 123,125 |
+| fat | 68,200 | 42 | 0 | 6,583 | 1,359 |
 
-Unique fat binary files: 61,735 in 1,079 packages. 5 of those packages contain at least one failing fat slice.
+Unique fat binary files: 63,987 in 1,196 packages. 5 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -48,6 +48,8 @@ Sorted alphabetically by package name.
 | ffmpeg-headless-8.0.1-lib | 7 | `/nix/store/04iq3b9rv98l2grc82mh53w1br70ms1b-ffmpeg-headless-8.0.1-lib` |
 | filen-cli-0.0.36 | 1 | `/nix/store/md6winyqwbjwq94fw7zj8jfjz9klxjhf-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/mg7c9jnrr3704l55vjw6y55sgf0imhh1-filen-cli-0.0.36` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/6pzd3yz3x8ib4vv4ky9i8v00q8q2nd5w-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/73sbgp26iy1v29ygq3yf07x4ckmim21w-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/aikmh7rgqwnrwawffpbdcvw0akf9nlbw-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/w3jakkvd5dkaycb0b55z4hpgl0cfg8z4-gitlab-duo-8.89.0` |
 | httptoolkit-1.24.4 | 1 | `/nix/store/47wl1p5bsk4c54r8vbkyhn3n2nm0588s-httptoolkit-1.24.4` |
@@ -57,6 +59,7 @@ Sorted alphabetically by package name.
 | opencode-1.14.35 | 1 | `/nix/store/npqyfwp0j1172ypv11zmzx0qias179wd-opencode-1.14.35` |
 | opencode-1.14.35 | 1 | `/nix/store/q95hrhjnsk49f6h70p0hym0a3pk73v9q-opencode-1.14.35` |
 | shogihome-1.27.1 | 1 | `/nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1` |
+| shogihome-1.27.2 | 1 | `/nix/store/5xvqqb06qb22vz2jfz8mn80w9ma2fzby-shogihome-1.27.2` |
 | swift-5.10.1 | 11 | `/nix/store/p1fpxz9l7rc91fzp0ckwrsxmizqmbvc1-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/qg9vqxfpaqq8cra97dpxk7l2ry1bsrax-swift-5.10.1` |
 | swift-5.10.1-lib | 7 | `/nix/store/85sw2bgkpnqnsrj324cz61hxf7r57v5i-swift-5.10.1-lib` |
@@ -71,11 +74,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 67 |
+| `page_hash_mismatch` | 70 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 118,202 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 121,498 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 58,243 |
+| `clean` (signed, verified) | 120,232 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 124,484 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 60,309 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -87,13 +90,13 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 | Binaries that link at least one failing dylib | 7 |
 | Distinct packages containing such binaries | 5 |
 | Failing dylibs that serve as seeds | 48 |
-| Total (binary, failing-dylib) pairs | 70 |
+| Total (binary, failing-dylib) pairs | 99 |
 
 Top failing dylibs by number of downstream binaries:
 
 | Seed package | Downstream binaries |
 |---|---:|
-| `ffmpeg-headless-8.0.1-lib` | 70 |
+| `ffmpeg-headless-8.0.1-lib` | 99 |
 
 Dependent packages (5): `cliairplay-1.1-unstable-2026-03-16`, `cyanrip-0.9.3.1`, `ffmpegthumbnailer-2.3.0`, `gst-libav-1.26.11`, `musikcube-3.0.5`
 
@@ -109,7 +112,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 2 |
-| Distinct failing seeds | 23 |
+| Distinct failing seeds | 26 |
 
 Edges by kind (default view only):
 
