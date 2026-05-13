@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ c6e5ca3c836a (2026-05-12)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 48d91f2c0ce7 (2026-05-13)
 
-Generated: 2026-05-12 08:52:39 UTC
+Generated: 2026-05-13 08:46:41 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 424,350 |
-| Mach-O slices parsed | 305,095 |
-| Page-hash mismatches (slices) | 70 |
-| Page-hash mismatches (distinct packages) | 26 |
-|   of which linker-signed (flags=0x20002) | 22 |
+| Store paths scanned | 435,274 |
+| Mach-O slices parsed | 347,903 |
+| Page-hash mismatches (slices) | 71 |
+| Page-hash mismatches (distinct packages) | 27 |
+|   of which linker-signed (flags=0x20002) | 23 |
 |   of which codesign-signed (flags=0x2) | 48 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-05-12 08:52:39 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 122,019 | 44 | 0 | 111,031 | 10,898 | 46 |
+| `arm64` | 142,880 | 45 | 0 | 131,843 | 10,946 | 46 |
 | `arm64e` | 65 | 0 | 0 | 25 | 0 | 40 |
-| `x86_64` | 122,444 | 26 | 0 | 9,033 | 113,309 | 76 |
-| `i386` | 361 | 0 | 0 | 141 | 212 | 8 |
-| other/legacy (10 arch codes) | 60,206 | 0 | 0 | 2 | 65 | 60,139 |
+| `x86_64` | 142,774 | 26 | 0 | 9,277 | 133,395 | 76 |
+| `i386` | 363 | 0 | 0 | 143 | 212 | 8 |
+| other/legacy (10 arch codes) | 61,821 | 0 | 0 | 4 | 67 | 61,750 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 236,895 | 28 | 0 | 113,649 | 123,125 |
-| fat | 68,200 | 42 | 0 | 6,583 | 1,359 |
+| thin | 277,632 | 29 | 0 | 134,265 | 143,245 |
+| fat | 70,271 | 42 | 0 | 7,027 | 1,375 |
 
-Unique fat binary files: 63,987 in 1,196 packages. 5 of those packages contain at least one failing fat slice.
+Unique fat binary files: 65,822 in 1,230 packages. 5 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -58,6 +58,7 @@ Sorted alphabetically by package name.
 | opencode-1.14.35 | 1 | `/nix/store/g1r8yb5n0k1kpy13k16a3vw8w6admpyi-opencode-1.14.35` |
 | opencode-1.14.35 | 1 | `/nix/store/npqyfwp0j1172ypv11zmzx0qias179wd-opencode-1.14.35` |
 | opencode-1.14.35 | 1 | `/nix/store/q95hrhjnsk49f6h70p0hym0a3pk73v9q-opencode-1.14.35` |
+| opencode-1.14.48 | 1 | `/nix/store/js2z13p2d8ym7j3x6dx58vdkk2z36bpa-opencode-1.14.48` |
 | shogihome-1.27.1 | 1 | `/nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1` |
 | shogihome-1.27.2 | 1 | `/nix/store/5xvqqb06qb22vz2jfz8mn80w9ma2fzby-shogihome-1.27.2` |
 | swift-5.10.1 | 11 | `/nix/store/p1fpxz9l7rc91fzp0ckwrsxmizqmbvc1-swift-5.10.1` |
@@ -74,11 +75,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 70 |
+| `page_hash_mismatch` | 71 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 120,232 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 124,484 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 60,309 |
+| `clean` (signed, verified) | 141,292 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 144,620 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 61,920 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -90,13 +91,13 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 | Binaries that link at least one failing dylib | 7 |
 | Distinct packages containing such binaries | 5 |
 | Failing dylibs that serve as seeds | 48 |
-| Total (binary, failing-dylib) pairs | 99 |
+| Total (binary, failing-dylib) pairs | 123 |
 
 Top failing dylibs by number of downstream binaries:
 
 | Seed package | Downstream binaries |
 |---|---:|
-| `ffmpeg-headless-8.0.1-lib` | 99 |
+| `ffmpeg-headless-8.0.1-lib` | 123 |
 
 Dependent packages (5): `cliairplay-1.1-unstable-2026-03-16`, `cyanrip-0.9.3.1`, `ffmpegthumbnailer-2.3.0`, `gst-libav-1.26.11`, `musikcube-3.0.5`
 
@@ -112,7 +113,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 2 |
-| Distinct failing seeds | 26 |
+| Distinct failing seeds | 27 |
 
 Edges by kind (default view only):
 
