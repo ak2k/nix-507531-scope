@@ -1,10 +1,10 @@
 {
-  "total_rows": 123,
+  "total_rows": 127,
   "distinct_binaries": 7,
   "distinct_dependent_packages": 5,
   "distinct_seed_dylibs": 48,
   "by_seed_package": {
-    "ffmpeg-headless-8.0.1-lib": 123
+    "ffmpeg-headless-8.0.1-lib": 127
   },
   "dependent_packages": [
     "cliairplay-1.1-unstable-2026-03-16",
