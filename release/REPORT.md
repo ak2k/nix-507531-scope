@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — release-25.11 @ d7a713c0b7e4 (2026-05-14)
+# NixOS/nixpkgs#507531 cache scan — release-25.11 @ a3c34a1dd631 (2026-05-15)
 
-Generated: 2026-05-14 08:39:48 UTC
+Generated: 2026-05-15 08:42:12 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 122,580 |
-| Mach-O slices parsed | 122,534 |
-| Page-hash mismatches (slices) | 14 |
-| Page-hash mismatches (distinct packages) | 8 |
+| Store paths scanned | 122,735 |
+| Mach-O slices parsed | 122,941 |
+| Page-hash mismatches (slices) | 25 |
+| Page-hash mismatches (distinct packages) | 9 |
 |   of which linker-signed (flags=0x20002) | 6 |
-|   of which codesign-signed (flags=0x2) | 8 |
+|   of which codesign-signed (flags=0x2) | 19 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-05-14 08:39:48 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 114,577 | 14 | 0 | 105,916 | 8,637 | 10 |
+| `arm64` | 114,974 | 25 | 0 | 106,290 | 8,647 | 12 |
 | `arm64e` | 51 | 0 | 0 | 13 | 0 | 38 |
-| `x86_64` | 3,666 | 0 | 0 | 2,383 | 1,242 | 41 |
-| `i386` | 84 | 0 | 0 | 55 | 28 | 1 |
+| `x86_64` | 3,675 | 0 | 0 | 2,385 | 1,248 | 42 |
+| `i386` | 85 | 0 | 0 | 56 | 28 | 1 |
 | other/legacy (10 arch codes) | 4,156 | 0 | 0 | 4 | 8 | 4,144 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 115,139 | 7 | 0 | 105,498 | 9,632 |
-| fat | 7,395 | 7 | 0 | 2,873 | 283 |
+| thin | 115,518 | 7 | 0 | 105,863 | 9,646 |
+| fat | 7,423 | 18 | 0 | 2,885 | 285 |
 
-Unique fat binary files: 5,716 in 309 packages. 1 of those packages contain at least one failing fat slice.
+Unique fat binary files: 5,741 in 310 packages. 2 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -48,6 +48,7 @@ Sorted alphabetically by package name.
 | libtorch-2.9.0 | 1 | `/nix/store/jfcf9833px3lhy28lw8qys66gdgsm3np-libtorch-2.9.0` |
 | shogihome-1.27.1 | 1 | `/nix/store/gsb5xp7asp9z88la7kwm6mgij6aygb43-shogihome-1.27.1` |
 | shogihome-1.27.2 | 1 | `/nix/store/lbvvlkhp8yjbdm2j2nhc5avi2nabvvai-shogihome-1.27.2` |
+| swift-5.10.1 | 11 | `/nix/store/cmlwmnf60kjj6j8l5k05z7761xjynp6r-swift-5.10.1` |
 | swift-5.10.1-lib | 7 | `/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib` |
 | tailwindcss_4-4.1.18 | 1 | `/nix/store/p0qpifvs9lpm8797gzby7ip8hmzfdydq-tailwindcss_4-4.1.18` |
 | teams-for-linux-2.8.0 | 1 | `/nix/store/iqkd5xy9n5zrcyxfhw5y8zw0zhjjdrgw-teams-for-linux-2.8.0` |
@@ -56,11 +57,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 14 |
+| `page_hash_mismatch` | 25 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 108,371 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 9,915 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 4,234 |
+| `clean` (signed, verified) | 108,748 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 9,931 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 4,237 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -71,7 +72,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 0 |
 | Distinct packages containing such binaries | 0 |
-| Failing dylibs that serve as seeds | 8 |
+| Failing dylibs that serve as seeds | 19 |
 | Total (binary, failing-dylib) pairs | 0 |
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).
@@ -86,7 +87,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 8 |
+| Distinct failing seeds | 9 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 
