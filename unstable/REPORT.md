@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 27198194e521 (2026-05-15)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 8a1b0127302e (2026-05-16)
 
-Generated: 2026-05-15 08:42:16 UTC
+Generated: 2026-05-16 08:11:30 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 451,003 |
-| Mach-O slices parsed | 359,499 |
+| Store paths scanned | 456,476 |
+| Mach-O slices parsed | 360,414 |
 | Page-hash mismatches (slices) | 77 |
 | Page-hash mismatches (distinct packages) | 33 |
 |   of which linker-signed (flags=0x20002) | 27 |
@@ -22,20 +22,20 @@ Generated: 2026-05-15 08:42:16 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 149,243 | 49 | 0 | 136,547 | 12,595 | 52 |
+| `arm64` | 149,659 | 49 | 0 | 136,957 | 12,601 | 52 |
 | `arm64e` | 65 | 0 | 0 | 25 | 0 | 40 |
-| `x86_64` | 147,987 | 28 | 0 | 9,755 | 138,125 | 79 |
-| `i386` | 377 | 0 | 0 | 144 | 225 | 8 |
-| other/legacy (10 arch codes) | 61,827 | 0 | 0 | 4 | 67 | 61,756 |
+| `x86_64` | 148,473 | 28 | 0 | 9,760 | 138,606 | 79 |
+| `i386` | 384 | 0 | 0 | 144 | 232 | 8 |
+| other/legacy (10 arch codes) | 61,833 | 0 | 0 | 4 | 67 | 61,762 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 288,171 | 35 | 0 | 138,722 | 149,321 |
-| fat | 71,328 | 42 | 0 | 7,753 | 1,691 |
+| thin | 289,050 | 35 | 0 | 139,120 | 149,802 |
+| fat | 71,364 | 42 | 0 | 7,770 | 1,704 |
 
-Unique fat binary files: 66,357 in 1,450 packages. 5 of those packages contain at least one failing fat slice.
+Unique fat binary files: 66,376 in 1,462 packages. 5 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -83,9 +83,9 @@ Sorted alphabetically by package name.
 |---|---:|
 | `page_hash_mismatch` | 77 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 146,475 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 151,012 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 61,935 |
+| `clean` (signed, verified) | 146,890 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 151,506 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 61,941 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -97,13 +97,13 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 | Binaries that link at least one failing dylib | 7 |
 | Distinct packages containing such binaries | 5 |
 | Failing dylibs that serve as seeds | 48 |
-| Total (binary, failing-dylib) pairs | 132 |
+| Total (binary, failing-dylib) pairs | 140 |
 
 Top failing dylibs by number of downstream binaries:
 
 | Seed package | Downstream binaries |
 |---|---:|
-| `ffmpeg-headless-8.0.1-lib` | 132 |
+| `ffmpeg-headless-8.0.1-lib` | 140 |
 
 Dependent packages (5): `cliairplay-1.1-unstable-2026-03-16`, `cyanrip-0.9.3.1`, `ffmpegthumbnailer-2.3.0`, `gst-libav-1.26.11`, `musikcube-3.0.5`
 
