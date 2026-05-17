@@ -72,7 +72,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/q95hrhjnsk49f6h70p0hym0a3pk73v9q-opencode-1.14.35,bin/.opencode-wrapped,arm64,104795938,True,131074,4096,25387,103983440,1,25386,103981056,thin,0,False,False,0,L
 /nix/store/6v6qv6c6ix4pdshb00i4w476b9svaffi-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/js2z13p2d8ym7j3x6dx58vdkk2z36bpa-opencode-1.14.48,bin/.opencode-wrapped,arm64,106826914,True,131074,4096,25879,105998672,1,25878,105996288,thin,0,False,False,0,L
+/nix/store/kdjbkgsi89f7n9ldhfvfficl76593vlg-teams-for-linux-2.9.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179095920,True,131074,4096,43386,177707424,1,38747,158707712,thin,0,False,False,0,L
 /nix/store/g1r8yb5n0k1kpy13k16a3vw8w6admpyi-opencode-1.14.35,bin/.opencode-wrapped,arm64,104746402,True,131074,4096,25375,103934288,1,25374,103931904,thin,0,False,False,0,L
 /nix/store/r91sl334r0k4f7f73k0g8r3in62kj212-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
 /nix/store/npqyfwp0j1172ypv11zmzx0qias179wd-opencode-1.14.35,bin/.opencode-wrapped,arm64,104746402,True,131074,4096,25375,103934288,1,25374,103931904,thin,0,False,False,0,L
-/nix/store/kdjbkgsi89f7n9ldhfvfficl76593vlg-teams-for-linux-2.9.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179095920,True,131074,4096,43386,177707424,1,38747,158707712,thin,0,False,False,0,L
