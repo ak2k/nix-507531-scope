@@ -11,5 +11,5 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/jfcf9833px3lhy28lw8qys66gdgsm3np-libtorch-2.9.0,lib/libomp.dylib,arm64,754912,False,2,4096,179,730928,1,0,0,thin,8,False,False,0,C2
 /nix/store/gfpx3q94dxsga2z9iakpci2vprbxmrxx-cmdargs-browser-0.1.4,bin/cmdargs-browser,arm64,41966160,True,131074,4096,10167,41640688,1,5453,22335488,thin,0,False,False,0,L
 /nix/store/lbvvlkhp8yjbdm2j2nhc5avi2nabvvai-shogihome-1.27.2,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176717744,True,131074,4096,42810,175347680,1,38236,156614656,thin,0,False,False,0,L
-/nix/store/p0qpifvs9lpm8797gzby7ip8hmzfdydq-tailwindcss_4-4.1.18,bin/.tailwindcss-wrapped,arm64,75389328,True,131074,4096,18259,74785600,1,18258,74784768,thin,0,False,False,0,L
 /nix/store/iqkd5xy9n5zrcyxfhw5y8zw0zhjjdrgw-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179095920,True,131074,4096,43386,177707424,1,38747,158707712,thin,0,False,False,0,L
+/nix/store/p0qpifvs9lpm8797gzby7ip8hmzfdydq-tailwindcss_4-4.1.18,bin/.tailwindcss-wrapped,arm64,75389328,True,131074,4096,18259,74785600,1,18258,74784768,thin,0,False,False,0,L
