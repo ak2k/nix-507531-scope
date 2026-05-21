@@ -2,7 +2,7 @@
   "total_rows": 2,
   "rows_in_default_view": 1,
   "distinct_dependent_attrs_default_view": 1,
-  "distinct_seeds": 33,
+  "distinct_seeds": 35,
   "edge_filter_default": [
     "buildInputs",
     "checkInputs",
@@ -13,14 +13,14 @@
     "nativeBuildInputs": 1
   },
   "by_seed_default_view": {
-    "tailwindcss_4-4.2.4": 1
+    "tailwindcss_4-4.3.0": 1
   },
   "dependent_attrs_default_view": [
     "rimgo"
   ],
   "dependents_by_pkg_default_view": {
     "rimgo-1.4.2": [
-      "tailwindcss_4-4.2.4"
+      "tailwindcss_4-4.3.0"
     ]
   }
 }

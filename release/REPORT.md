@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — release-25.11 @ 7f04f29e010f (2026-05-20)
+# NixOS/nixpkgs#507531 cache scan — release-25.11 @ f28a5cbbf859 (2026-05-21)
 
-Generated: 2026-05-20 08:26:49 UTC
+Generated: 2026-05-21 08:46:04 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 124,080 |
-| Mach-O slices parsed | 125,338 |
-| Page-hash mismatches (slices) | 14 |
-| Page-hash mismatches (distinct packages) | 8 |
-|   of which linker-signed (flags=0x20002) | 6 |
+| Store paths scanned | 124,155 |
+| Mach-O slices parsed | 126,003 |
+| Page-hash mismatches (slices) | 17 |
+| Page-hash mismatches (distinct packages) | 11 |
+|   of which linker-signed (flags=0x20002) | 9 |
 |   of which codesign-signed (flags=0x2) | 8 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-05-20 08:26:49 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 117,281 | 14 | 0 | 108,598 | 8,659 | 10 |
+| `arm64` | 117,923 | 17 | 0 | 109,210 | 8,686 | 10 |
 | `arm64e` | 51 | 0 | 0 | 13 | 0 | 38 |
-| `x86_64` | 3,765 | 0 | 0 | 2,430 | 1,294 | 41 |
-| `i386` | 85 | 0 | 0 | 55 | 29 | 1 |
+| `x86_64` | 3,787 | 0 | 0 | 2,434 | 1,312 | 41 |
+| `i386` | 86 | 0 | 0 | 55 | 30 | 1 |
 | other/legacy (10 arch codes) | 4,156 | 0 | 0 | 4 | 8 | 4,144 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 117,807 | 7 | 0 | 108,120 | 9,678 |
-| fat | 7,531 | 7 | 0 | 2,980 | 312 |
+| thin | 118,454 | 10 | 0 | 108,726 | 9,716 |
+| fat | 7,549 | 7 | 0 | 2,990 | 320 |
 
-Unique fat binary files: 5,784 in 324 packages. 1 of those packages contain at least one failing fat slice.
+Unique fat binary files: 5,793 in 329 packages. 1 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -45,21 +45,24 @@ Sorted alphabetically by package name.
 |---|---:|---|
 | cmdargs-browser-0.1.4 | 1 | `/nix/store/gfpx3q94dxsga2z9iakpci2vprbxmrxx-cmdargs-browser-0.1.4` |
 | httptoolkit-1.24.4 | 1 | `/nix/store/63y47sm78b2fzjzljyd4zckqm9j2ljds-httptoolkit-1.24.4` |
+| httptoolkit-1.24.4 | 1 | `/nix/store/hkfbkgns19ci16wjnizssn1m7idpb765-httptoolkit-1.24.4` |
 | libtorch-2.9.0 | 1 | `/nix/store/jfcf9833px3lhy28lw8qys66gdgsm3np-libtorch-2.9.0` |
 | shogihome-1.27.1 | 1 | `/nix/store/gsb5xp7asp9z88la7kwm6mgij6aygb43-shogihome-1.27.1` |
+| shogihome-1.27.2 | 1 | `/nix/store/d0dk2sq2nanhkikqmdk54zlvv46g6sf6-shogihome-1.27.2` |
 | shogihome-1.27.2 | 1 | `/nix/store/lbvvlkhp8yjbdm2j2nhc5avi2nabvvai-shogihome-1.27.2` |
 | swift-5.10.1-lib | 7 | `/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib` |
 | tailwindcss_4-4.1.18 | 1 | `/nix/store/p0qpifvs9lpm8797gzby7ip8hmzfdydq-tailwindcss_4-4.1.18` |
+| teams-for-linux-2.8.0 | 1 | `/nix/store/ahd6q635mfpc7zidmisg3hbdncw10qgj-teams-for-linux-2.8.0` |
 | teams-for-linux-2.8.0 | 1 | `/nix/store/iqkd5xy9n5zrcyxfhw5y8zw0zhjjdrgw-teams-for-linux-2.8.0` |
 
 ## Slice classification
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 14 |
+| `page_hash_mismatch` | 17 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 111,100 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 9,990 |
+| `clean` (signed, verified) | 111,716 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 10,036 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 4,234 |
 | `scanner_error` | 0 |
 
@@ -86,7 +89,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 8 |
+| Distinct failing seeds | 11 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 

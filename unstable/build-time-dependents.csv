@@ -1,3 +1,3 @@
 dependent_attr,dependent_drv,dependent_pkg,seed_store_path,seed_attr,seed_pkg,edge_kind,in_default_view
 haskellPackages.dobutokO2,/nix/store/5xn8dpr1dh5s3jmw66z2k4yw0jfpck1n-dobutokO2-0.45.3.0.drv,dobutokO2-0.45.3.0,/nix/store/ffmz0x0yik7jgrw0ljlmg1n6y041fh2x-mmsyn7ukr-array-0.3.0.0,haskellPackages.mmsyn7ukr-array,mmsyn7ukr-array-0.3.0.0,propagatedBuildInputs,False
-rimgo,/nix/store/43d8lyd437fdm2wj230nxzzhaf2s0m2z-rimgo-1.4.2.drv,rimgo-1.4.2,/nix/store/fpcmaqm4a8df6c38wzh5lz7s7d12178q-tailwindcss_4-4.2.4,tailwindcss_4,tailwindcss_4-4.2.4,nativeBuildInputs,True
+rimgo,/nix/store/bp1hk7q94dd8smm931d0d2hwz9wzxrb0-rimgo-1.4.2.drv,rimgo-1.4.2,/nix/store/rcdpbw2hfzljsmvrdcjny1brix3xy1fv-tailwindcss_4-4.3.0,tailwindcss_4,tailwindcss_4-4.3.0,nativeBuildInputs,True

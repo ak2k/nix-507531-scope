@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ f58ee5f04eb7 (2026-05-20)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 45a1ddc2fb77 (2026-05-21)
 
-Generated: 2026-05-20 08:26:40 UTC
+Generated: 2026-05-21 08:46:10 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 179,152 |
-| Mach-O slices parsed | 228,314 |
-| Page-hash mismatches (slices) | 51 |
-| Page-hash mismatches (distinct packages) | 14 |
-|   of which linker-signed (flags=0x20002) | 8 |
+| Store paths scanned | 179,256 |
+| Mach-O slices parsed | 229,575 |
+| Page-hash mismatches (slices) | 54 |
+| Page-hash mismatches (distinct packages) | 17 |
+|   of which linker-signed (flags=0x20002) | 11 |
 |   of which codesign-signed (flags=0x2) | 43 |
 | Other signature-invalid (slices) | 1 |
 | Other signature-invalid (distinct packages) | 1 |
@@ -22,20 +22,20 @@ Generated: 2026-05-20 08:26:40 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 109,777 | 30 | 0 | 101,729 | 7,996 | 22 |
+| `arm64` | 110,400 | 33 | 0 | 102,319 | 8,026 | 22 |
 | `arm64e` | 53 | 0 | 0 | 13 | 0 | 40 |
-| `x86_64` | 110,446 | 21 | 1 | 8,330 | 102,041 | 53 |
-| `i386` | 171 | 0 | 0 | 113 | 56 | 2 |
+| `x86_64` | 111,082 | 21 | 1 | 8,428 | 102,579 | 53 |
+| `i386` | 173 | 0 | 0 | 113 | 58 | 2 |
 | other/legacy (10 arch codes) | 7,867 | 0 | 0 | 2 | 8 | 7,857 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 214,303 | 9 | 1 | 104,773 | 109,518 |
-| fat | 14,011 | 42 | 0 | 5,414 | 583 |
+| thin | 215,528 | 12 | 1 | 105,441 | 110,072 |
+| fat | 14,047 | 42 | 0 | 5,434 | 599 |
 
-Unique fat binary files: 10,846 in 571 packages. 5 of those packages contain at least one failing fat slice.
+Unique fat binary files: 10,864 in 581 packages. 5 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -48,14 +48,17 @@ Sorted alphabetically by package name.
 | esy-0.8.0 | 1 | `/nix/store/2lr8bssdw0z5zx18mnbbff45yc6bwrj2-esy-0.8.0` |
 | esy-0.8.0 | 1 | `/nix/store/jzid9i43xxs0lmpay7n5kp0f1a7rspa4-esy-0.8.0` |
 | httptoolkit-1.24.4 | 1 | `/nix/store/63y47sm78b2fzjzljyd4zckqm9j2ljds-httptoolkit-1.24.4` |
+| httptoolkit-1.24.4 | 1 | `/nix/store/hkfbkgns19ci16wjnizssn1m7idpb765-httptoolkit-1.24.4` |
 | libtorch-2.9.0 | 1 | `/nix/store/jfcf9833px3lhy28lw8qys66gdgsm3np-libtorch-2.9.0` |
 | shogihome-1.27.1 | 1 | `/nix/store/gsb5xp7asp9z88la7kwm6mgij6aygb43-shogihome-1.27.1` |
+| shogihome-1.27.2 | 1 | `/nix/store/d0dk2sq2nanhkikqmdk54zlvv46g6sf6-shogihome-1.27.2` |
 | shogihome-1.27.2 | 1 | `/nix/store/lbvvlkhp8yjbdm2j2nhc5avi2nabvvai-shogihome-1.27.2` |
 | swift-5.10.1 | 11 | `/nix/store/cmlwmnf60kjj6j8l5k05z7761xjynp6r-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/jb8pabcbxalxif948gwadnryjarixkym-swift-5.10.1` |
 | swift-5.10.1-lib | 7 | `/nix/store/1fr07icxrb1xmnwc93v61508y3f3slzh-swift-5.10.1-lib` |
 | swift-5.10.1-lib | 7 | `/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib` |
 | tailwindcss_4-4.1.18 | 1 | `/nix/store/p0qpifvs9lpm8797gzby7ip8hmzfdydq-tailwindcss_4-4.1.18` |
+| teams-for-linux-2.8.0 | 1 | `/nix/store/ahd6q635mfpc7zidmisg3hbdncw10qgj-teams-for-linux-2.8.0` |
 | teams-for-linux-2.8.0 | 1 | `/nix/store/iqkd5xy9n5zrcyxfhw5y8zw0zhjjdrgw-teams-for-linux-2.8.0` |
 
 ## Appendix — other signature-invalid binaries
@@ -70,10 +73,10 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 51 |
+| `page_hash_mismatch` | 54 |
 | `other_sig_invalid` | 1 |
-| `clean` (signed, verified) | 110,187 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 110,101 |
+| `clean` (signed, verified) | 110,875 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 110,671 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 7,974 |
 | `scanner_error` | 0 |
 
@@ -100,7 +103,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 14 |
+| Distinct failing seeds | 17 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 

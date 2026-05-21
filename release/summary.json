@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 111100,
+    "clean": 111716,
     "not_real_macho": 4234,
-    "page_hash_mismatch": 14,
-    "unsigned": 9990
+    "page_hash_mismatch": 17,
+    "unsigned": 10036
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 7
     },
     "arm64": {
-      "clean": 108598,
+      "clean": 109210,
       "not_real_macho": 10,
-      "page_hash_mismatch": 14,
-      "unsigned": 8659
+      "page_hash_mismatch": 17,
+      "unsigned": 8686
     },
     "arm64e": {
       "clean": 13,
@@ -48,25 +48,25 @@
     "i386": {
       "clean": 55,
       "not_real_macho": 1,
-      "unsigned": 29
+      "unsigned": 30
     },
     "unknown": {
       "not_real_macho": 4083
     },
     "x86_64": {
-      "clean": 2430,
+      "clean": 2434,
       "not_real_macho": 41,
-      "unsigned": 1294
+      "unsigned": 1312
     }
   },
-  "channel_label": "release-25.11 @ 7f04f29e010f (2026-05-20)",
+  "channel_label": "release-25.11 @ f28a5cbbf859 (2026-05-21)",
   "coverage": {
     "not_real_macho": 4234,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-05-20 08:26:49 UTC",
+  "generated_at": "2026-05-21 08:46:04 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -74,13 +74,13 @@
   "page_hash_mismatch": {
     "by_signature_class": {
       "C2": 8,
-      "L": 6
+      "L": 9
     },
     "by_signer": {
       "codesign_signed": 8,
-      "linker_signed": 6
+      "linker_signed": 9
     },
-    "packages": 8,
+    "packages": 11,
     "packages_list": [
       "cmdargs-browser-0.1.4",
       "httptoolkit-1.24.4",
@@ -91,18 +91,18 @@
       "tailwindcss_4-4.1.18",
       "teams-for-linux-2.8.0"
     ],
-    "slices": 14
+    "slices": 17
   },
   "paths_by_status": {
     "fetch_error": 4,
-    "no_narinfo": 20078,
-    "ok": 103954,
+    "no_narinfo": 20056,
+    "ok": 104051,
     "parse_error": 44
   },
-  "paths_scanned": 124080,
+  "paths_scanned": 124155,
   "slices_by_arch": {
     "arm": 11,
-    "arm64": 117281,
+    "arm64": 117923,
     "arm64e": 51,
     "cpu_0x00000001/0x00000000": 1,
     "cpu_0x00000002/0x00000000": 1,
@@ -112,9 +112,9 @@
     "cpu_0x00000012/0x0000000a": 5,
     "cpu_0x00000012/0x00000064": 1,
     "cpu_0x01000012/0x00000000": 8,
-    "i386": 85,
+    "i386": 86,
     "unknown": 4083,
-    "x86_64": 3765
+    "x86_64": 3787
   },
-  "slices_total": 125338
+  "slices_total": 126003
 }
