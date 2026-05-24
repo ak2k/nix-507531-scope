@@ -53,6 +53,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/g8ifnf6b7v65bp2hl78i5mrjc8kbblaw-swift-5.10.1,lib/lldb/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
 /nix/store/g8ifnf6b7v65bp2hl78i5mrjc8kbblaw-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/g8ifnf6b7v65bp2hl78i5mrjc8kbblaw-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/vijmlhfcw3n8bil836rwz1k0jnwfqab2-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/5p0fv320r59zjq0g8vdlszqc9m9a5cnc-vscode-extension-kilocode-Kilo-Code-7.2.20,share/vscode/extensions/kilocode.Kilo-Code/bin/kilo,arm64,102332704,True,131074,4096,24786,101520112,1,24785,101519360,thin,0,False,False,0,L
 /nix/store/w3jakkvd5dkaycb0b55z4hpgl0cfg8z4-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
 /nix/store/i7j1sls91fmn5vynqryfwhn463mv3jn0-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
@@ -75,6 +76,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/516v4myw7xx03knkf3alcn62j7lcac37-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
 /nix/store/8mfvp0gg4igjs62dj457rprvx0lnwxv2-tailwindcss_4-4.3.0,bin/.tailwindcss-wrapped,x86_64,82625024,False,65536,4096,16535,67724080,56,0,0,thin,8984,True,True,0,B7-real
 /nix/store/pdf6h2gw3a1m466w03j4ibxrfbd289ms-vscode-extension-kilocode-Kilo-Code-7.2.20,share/vscode/extensions/kilocode.Kilo-Code/bin/kilo,x86_64,107088448,False,65536,4096,16015,65596528,54,0,0,thin,8984,True,True,0,B7-real
+/nix/store/x5l1x55hk5qvgiwshl5bakr7n2sj4ndr-httptoolkit-1.26.0,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38794,158900224,thin,0,False,False,0,L
 /nix/store/qg9vqxfpaqq8cra97dpxk7l2ry1bsrax-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,arm64,8349008,False,2,4096,2019,8266752,2,0,0,fat32,8,False,False,0,C2
 /nix/store/qg9vqxfpaqq8cra97dpxk7l2ry1bsrax-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,arm64,122192,False,2,4096,26,103712,1,0,0,fat32,8,False,False,0,C2
 /nix/store/qg9vqxfpaqq8cra97dpxk7l2ry1bsrax-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
@@ -125,7 +127,6 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/lxabgj4a939bv2s4wdxjrgb3yqfq4yjj-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,arm64,2245648,False,2,4096,249,1018192,1,0,0,fat32,8,False,False,1,C2
 /nix/store/lxabgj4a939bv2s4wdxjrgb3yqfq4yjj-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,x86_64,15155072,False,2,4096,2081,8521088,1,0,0,fat32,8,False,False,1,C2
 /nix/store/lxabgj4a939bv2s4wdxjrgb3yqfq4yjj-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,arm64,15155072,False,2,4096,1560,6388352,1,0,0,fat32,8,False,False,1,C2
-/nix/store/vijmlhfcw3n8bil836rwz1k0jnwfqab2-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/1vpqmjivp6j62rcpkrr86pirpn12fzaq-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
 /nix/store/1vpqmjivp6j62rcpkrr86pirpn12fzaq-swift-5.10.1-lib,lib/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
 /nix/store/1vpqmjivp6j62rcpkrr86pirpn12fzaq-swift-5.10.1-lib,lib/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
