@@ -522,8 +522,12 @@ jobs:
           # version (`--theirs` during rebase = the commit being replayed
           # = the scan's fresh output). Any OTHER conflict halts the job
           # so a human can inspect — that's unexpected and worth looking
-          # into. Retry for concurrent push races.
-          for attempt in 1 2 3; do
+          # into. Retry for concurrent push races AND transient GitHub-side
+          # push failures (500 Internal Server Error), which can persist for
+          # minutes — so back off exponentially (15s, 30s, 60s, 120s) across
+          # 5 attempts rather than hammering with a flat short delay.
+          max_attempts=5
+          for attempt in $(seq 1 "$max_attempts"); do
             if git pull --rebase origin main; then
               if git push origin main; then
                 exit 0
@@ -545,8 +549,11 @@ jobs:
                 exit 0
               fi
             fi
-            echo "push attempt $attempt failed, retrying..."
-            sleep 5
+            if [[ "$attempt" -lt "$max_attempts" ]]; then
+              backoff=$(( 15 * 2 ** (attempt - 1) ))
+              echo "push attempt $attempt/$max_attempts failed, retrying in ${backoff}s..."
+              sleep "$backoff"
+            fi
           done
-          echo "::error::combine+commit push failed after 3 attempts"
+          echo "::error::combine+commit push failed after $max_attempts attempts"
           exit 1
