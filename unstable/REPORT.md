@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 3d8f0f3f72a6 (2026-05-25)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ f9d8b6595035 (2026-05-26)
 
-Generated: 2026-05-25 08:44:34 UTC
+Generated: 2026-05-26 09:07:31 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 892,101 |
-| Mach-O slices parsed | 674,437 |
-| Page-hash mismatches (slices) | 137 |
-| Page-hash mismatches (distinct packages) | 56 |
-|   of which linker-signed (flags=0x20002) | 39 |
-|   of which codesign-signed (flags=0x2) | 98 |
+| Store paths scanned | 912,825 |
+| Mach-O slices parsed | 686,410 |
+| Page-hash mismatches (slices) | 141 |
+| Page-hash mismatches (distinct packages) | 60 |
+|   of which linker-signed (flags=0x20002) | 42 |
+|   of which codesign-signed (flags=0x2) | 99 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 7 |
@@ -22,20 +22,20 @@ Generated: 2026-05-25 08:44:34 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 275,235 | 83 | 0 | 251,693 | 23,375 | 84 |
+| `arm64` | 281,263 | 86 | 0 | 256,611 | 24,478 | 88 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 274,884 | 54 | 0 | 19,098 | 255,591 | 141 |
-| `i386` | 744 | 0 | 0 | 277 | 455 | 12 |
-| other/legacy (11 arch codes) | 123,444 | 0 | 0 | 6 | 123 | 123,315 |
+| `x86_64` | 280,766 | 55 | 0 | 19,334 | 261,232 | 145 |
+| `i386` | 791 | 0 | 0 | 279 | 496 | 16 |
+| other/legacy (11 arch codes) | 123,460 | 0 | 0 | 6 | 123 | 123,331 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 533,085 | 53 | 0 | 256,233 | 276,616 |
-| fat | 141,352 | 84 | 0 | 14,891 | 2,928 |
+| thin | 544,413 | 57 | 0 | 261,050 | 283,123 |
+| fat | 141,997 | 84 | 0 | 15,230 | 3,206 |
 
-Unique fat binary files: 131,977 in 2,581 packages. 10 of those packages contain at least one failing fat slice.
+Unique fat binary files: 132,293 in 2,788 packages. 10 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -51,12 +51,14 @@ Sorted alphabetically by package name.
 | filen-cli-0.0.36 | 1 | `/nix/store/md6winyqwbjwq94fw7zj8jfjz9klxjhf-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/mg7c9jnrr3704l55vjw6y55sgf0imhh1-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/yv5dpd687w0qkkk829861cb3g9diq8zs-filen-cli-0.0.36` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/1xakdirg2mk3pk1qpyrk5p1hqs6m7yaq-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/516v4myw7xx03knkf3alcn62j7lcac37-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/6pzd3yz3x8ib4vv4ky9i8v00q8q2nd5w-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/6v6qv6c6ix4pdshb00i4w476b9svaffi-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/73sbgp26iy1v29ygq3yf07x4ckmim21w-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/8acx3f6s0dnwizwbv74f0x5zdvah0dvv-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/aikmh7rgqwnrwawffpbdcvw0akf9nlbw-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/c8i3ml8rqbrmxpwc1p6cmxpjzllg9gw9-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/jq1vw06zzsy83i1x4f13zf60168psbqb-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/r91sl334r0k4f7f73k0g8r3in62kj212-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/vijmlhfcw3n8bil836rwz1k0jnwfqab2-gitlab-duo-8.89.0` |
@@ -72,6 +74,7 @@ Sorted alphabetically by package name.
 | opencode-1.14.35 | 1 | `/nix/store/npqyfwp0j1172ypv11zmzx0qias179wd-opencode-1.14.35` |
 | opencode-1.14.35 | 1 | `/nix/store/q95hrhjnsk49f6h70p0hym0a3pk73v9q-opencode-1.14.35` |
 | opencode-1.14.48 | 1 | `/nix/store/js2z13p2d8ym7j3x6dx58vdkk2z36bpa-opencode-1.14.48` |
+| opencode-1.15.10 | 1 | `/nix/store/wlwjm1g4qgqpnxkddzrxkz0wbgwjcj5p-opencode-1.15.10` |
 | opencode-1.15.5 | 1 | `/nix/store/r0xz5ic3z79r3anfssz60j8bbjls6n4d-opencode-1.15.5` |
 | opencode-1.15.7 | 1 | `/nix/store/swvx6k42qawwj376byi0fxjiy3yf9yb9-opencode-1.15.7` |
 | shogihome-1.27.1 | 1 | `/nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1` |
@@ -92,6 +95,7 @@ Sorted alphabetically by package name.
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/8mfvp0gg4igjs62dj457rprvx0lnwxv2-tailwindcss_4-4.3.0` |
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/m01q2947z343bhqh59fdc1xzsi9ni8h9-tailwindcss_4-4.3.0` |
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/rcdpbw2hfzljsmvrdcjny1brix3xy1fv-tailwindcss_4-4.3.0` |
+| teams-for-linux-2.10.0 | 1 | `/nix/store/4qsz50ns5gj04lvfbfjji53lxbqnw3fp-teams-for-linux-2.10.0` |
 | teams-for-linux-2.8.1 | 1 | `/nix/store/a36aakz4z3ihzamlvkq6384c3vqp8pcb-teams-for-linux-2.8.1` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/f1r0hs7dgi6wfv59ms698gnlv76n09wb-teams-for-linux-2.9.0` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/kdjbkgsi89f7n9ldhfvfficl76593vlg-teams-for-linux-2.9.0` |
@@ -104,11 +108,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 137 |
+| `page_hash_mismatch` | 141 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 271,124 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 279,544 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 123,632 |
+| `clean` (signed, verified) | 276,280 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 286,329 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 123,660 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -142,7 +146,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 2 |
 | Total direct-edge rows (default view) | 2 |
 | Total rows including propagated edges | 5 |
-| Distinct failing seeds | 56 |
+| Distinct failing seeds | 60 |
 
 Edges by kind (default view only):
 
