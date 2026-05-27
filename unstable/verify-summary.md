@@ -1,6 +1,6 @@
 # Scanner × codesign -v cross-validation
 
-Generated: 2026-05-26 09:25:12 UTC
+Generated: 2026-05-27 08:51:47 UTC
 
 Verified every slice the scanner flagged as failing against an
 independent signature verifier: `/home/runner/.nix-profile/bin/rcodesign verify`.
