@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ f9d8b6595035 (2026-05-27)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 4100e830e085 (2026-05-28)
 
-Generated: 2026-05-27 08:34:07 UTC
+Generated: 2026-05-28 09:02:38 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 912,825 |
-| Mach-O slices parsed | 686,410 |
-| Page-hash mismatches (slices) | 141 |
-| Page-hash mismatches (distinct packages) | 60 |
-|   of which linker-signed (flags=0x20002) | 42 |
+| Store paths scanned | 924,820 |
+| Mach-O slices parsed | 692,499 |
+| Page-hash mismatches (slices) | 144 |
+| Page-hash mismatches (distinct packages) | 63 |
+|   of which linker-signed (flags=0x20002) | 45 |
 |   of which codesign-signed (flags=0x2) | 99 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-05-27 08:34:07 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 281,263 | 86 | 0 | 256,611 | 24,478 | 88 |
+| `arm64` | 284,322 | 89 | 0 | 259,494 | 24,647 | 92 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 280,766 | 55 | 0 | 19,334 | 261,232 | 145 |
-| `i386` | 791 | 0 | 0 | 279 | 496 | 16 |
-| other/legacy (11 arch codes) | 123,460 | 0 | 0 | 6 | 123 | 123,331 |
+| `x86_64` | 283,783 | 55 | 0 | 19,492 | 264,087 | 149 |
+| `i386` | 800 | 0 | 0 | 279 | 501 | 20 |
+| other/legacy (11 arch codes) | 123,464 | 0 | 0 | 6 | 123 | 123,335 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 544,413 | 57 | 0 | 261,050 | 283,123 |
-| fat | 141,997 | 84 | 0 | 15,230 | 3,206 |
+| thin | 550,346 | 60 | 0 | 263,995 | 286,108 |
+| fat | 142,153 | 84 | 0 | 15,326 | 3,250 |
 
-Unique fat binary files: 132,293 in 2,788 packages. 10 of those packages contain at least one failing fat slice.
+Unique fat binary files: 132,367 in 2,825 packages. 10 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -75,11 +75,13 @@ Sorted alphabetically by package name.
 | opencode-1.14.35 | 1 | `/nix/store/q95hrhjnsk49f6h70p0hym0a3pk73v9q-opencode-1.14.35` |
 | opencode-1.14.48 | 1 | `/nix/store/js2z13p2d8ym7j3x6dx58vdkk2z36bpa-opencode-1.14.48` |
 | opencode-1.15.10 | 1 | `/nix/store/wlwjm1g4qgqpnxkddzrxkz0wbgwjcj5p-opencode-1.15.10` |
+| opencode-1.15.11 | 1 | `/nix/store/cpc1xsvv08azx11c8y6zp68xv1czdkfr-opencode-1.15.11` |
 | opencode-1.15.5 | 1 | `/nix/store/r0xz5ic3z79r3anfssz60j8bbjls6n4d-opencode-1.15.5` |
 | opencode-1.15.7 | 1 | `/nix/store/swvx6k42qawwj376byi0fxjiy3yf9yb9-opencode-1.15.7` |
 | shogihome-1.27.1 | 1 | `/nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1` |
 | shogihome-1.27.2 | 1 | `/nix/store/1cwb73vi5aa1nlpbr7ychywlbmkpl19l-shogihome-1.27.2` |
 | shogihome-1.27.2 | 1 | `/nix/store/5xvqqb06qb22vz2jfz8mn80w9ma2fzby-shogihome-1.27.2` |
+| shogihome-1.27.3 | 1 | `/nix/store/63fx8404ppm6n773sdkcwvwhfwggai5g-shogihome-1.27.3` |
 | stache-2.3.4 | 1 | `/nix/store/19vf8xbrlh0i4qqvqvvqpc1jxy1klvz8-stache-2.3.4` |
 | swift-5.10.1 | 11 | `/nix/store/f7d3lcdzanmqw5icnxkgcx6kqha1ibif-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/g8ifnf6b7v65bp2hl78i5mrjc8kbblaw-swift-5.10.1` |
@@ -96,6 +98,7 @@ Sorted alphabetically by package name.
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/m01q2947z343bhqh59fdc1xzsi9ni8h9-tailwindcss_4-4.3.0` |
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/rcdpbw2hfzljsmvrdcjny1brix3xy1fv-tailwindcss_4-4.3.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/4qsz50ns5gj04lvfbfjji53lxbqnw3fp-teams-for-linux-2.10.0` |
+| teams-for-linux-2.10.0 | 1 | `/nix/store/q2dbgmblhxcc0dq5a5yv1adyz0i5hfzm-teams-for-linux-2.10.0` |
 | teams-for-linux-2.8.1 | 1 | `/nix/store/a36aakz4z3ihzamlvkq6384c3vqp8pcb-teams-for-linux-2.8.1` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/f1r0hs7dgi6wfv59ms698gnlv76n09wb-teams-for-linux-2.9.0` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/kdjbkgsi89f7n9ldhfvfficl76593vlg-teams-for-linux-2.9.0` |
@@ -108,11 +111,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 141 |
+| `page_hash_mismatch` | 144 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 276,280 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 286,329 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 123,660 |
+| `clean` (signed, verified) | 279,321 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 289,358 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 123,676 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -146,7 +149,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 2 |
 | Total direct-edge rows (default view) | 2 |
 | Total rows including propagated edges | 5 |
-| Distinct failing seeds | 60 |
+| Distinct failing seeds | 63 |
 
 Edges by kind (default view only):
 

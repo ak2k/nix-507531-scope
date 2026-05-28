@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 111261,
-    "not_real_macho": 7974,
+    "clean": 113126,
+    "not_real_macho": 7980,
     "other_sig_invalid": 1,
-    "page_hash_mismatch": 54,
-    "unsigned": 111225
+    "page_hash_mismatch": 61,
+    "unsigned": 111898
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 6
     },
     "arm64": {
-      "clean": 102671,
-      "not_real_macho": 22,
-      "page_hash_mismatch": 33,
-      "unsigned": 8185
+      "clean": 104253,
+      "not_real_macho": 26,
+      "page_hash_mismatch": 37,
+      "unsigned": 8215
     },
     "arm64e": {
       "clean": 13,
@@ -48,41 +48,41 @@
     "i386": {
       "clean": 113,
       "not_real_macho": 2,
-      "unsigned": 58
+      "unsigned": 62
     },
     "unknown": {
       "not_real_macho": 7737
     },
     "x86_64": {
-      "clean": 8462,
-      "not_real_macho": 53,
+      "clean": 8745,
+      "not_real_macho": 55,
       "other_sig_invalid": 1,
-      "page_hash_mismatch": 21,
-      "unsigned": 102974
+      "page_hash_mismatch": 24,
+      "unsigned": 103613
     }
   },
-  "channel_label": "nixpkgs-25.11-darwin @ cae661c6ce67 (2026-05-27)",
+  "channel_label": "nixpkgs-25.11-darwin @ 283ec1093a0e (2026-05-28)",
   "coverage": {
-    "not_real_macho": 7974,
+    "not_real_macho": 7980,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-05-27 08:33:42 UTC",
+  "generated_at": "2026-05-28 09:02:09 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 1
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "C2": 43,
-      "L": 11
+      "C2": 49,
+      "L": 12
     },
     "by_signer": {
-      "codesign_signed": 43,
-      "linker_signed": 11
+      "codesign_signed": 49,
+      "linker_signed": 12
     },
-    "packages": 17,
+    "packages": 19,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "cmdargs-browser-0.1.4",
@@ -91,22 +91,23 @@
       "libtorch-2.9.0",
       "shogihome-1.27.1",
       "shogihome-1.27.2",
+      "shogihome-1.27.3",
       "swift-5.10.1",
       "swift-5.10.1-lib",
       "tailwindcss_4-4.1.18",
       "teams-for-linux-2.8.0"
     ],
-    "slices": 54
+    "slices": 61
   },
   "paths_by_status": {
     "fetch_error": 40,
-    "ok": 179388,
+    "ok": 179735,
     "parse_error": 37
   },
-  "paths_scanned": 179465,
+  "paths_scanned": 179812,
   "slices_by_arch": {
     "arm": 8,
-    "arm64": 110911,
+    "arm64": 112531,
     "arm64e": 53,
     "cpu_0x00000001/0x00000000": 2,
     "cpu_0x00000002/0x00000000": 2,
@@ -116,9 +117,9 @@
     "cpu_0x00000012/0x0000000a": 10,
     "cpu_0x00000012/0x00000064": 2,
     "cpu_0x01000012/0x00000000": 15,
-    "i386": 173,
+    "i386": 177,
     "unknown": 7737,
-    "x86_64": 111511
+    "x86_64": 112438
   },
-  "slices_total": 230515
+  "slices_total": 233066
 }

@@ -1,16 +1,16 @@
 # Scanner × codesign -v cross-validation
 
-Generated: 2026-05-27 08:46:00 UTC
+Generated: 2026-05-28 09:15:14 UTC
 
 Verified every slice the scanner flagged as failing against an
 independent signature verifier: `/home/runner/.nix-profile/bin/rcodesign verify`.
 
 | Outcome | Count |
 |---|---:|
-| Scanner failing, verifier fails (agreement) | 57 |
+| Scanner failing, verifier fails (agreement) | 64 |
 | Scanner failing, verifier passes (disagreement — possible false positive) | 0 |
 | Realize failed (could not fetch package from cache) | 0 |
-| **Total slices verified** | **57** |
+| **Total slices verified** | **64** |
 
 No disagreements: every scanner-flagged failure was independently confirmed by the verifier.
 
