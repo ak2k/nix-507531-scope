@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 113804,
-    "not_real_macho": 4333,
-    "page_hash_mismatch": 17,
-    "unsigned": 10301
+    "clean": 114322,
+    "not_real_macho": 4433,
+    "page_hash_mismatch": 29,
+    "unsigned": 10253
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 7
     },
     "arm64": {
-      "clean": 111281,
-      "not_real_macho": 10,
-      "page_hash_mismatch": 17,
-      "unsigned": 8889
+      "clean": 111790,
+      "not_real_macho": 14,
+      "page_hash_mismatch": 29,
+      "unsigned": 8901
     },
     "arm64e": {
       "clean": 13,
@@ -46,63 +46,65 @@
       "not_real_macho": 8
     },
     "i386": {
-      "clean": 55,
+      "clean": 56,
       "not_real_macho": 1,
-      "unsigned": 31
+      "unsigned": 29
     },
     "unknown": {
-      "not_real_macho": 4182
+      "not_real_macho": 4276
     },
     "x86_64": {
-      "clean": 2451,
-      "not_real_macho": 41,
-      "unsigned": 1373
+      "clean": 2459,
+      "not_real_macho": 43,
+      "unsigned": 1315
     }
   },
-  "channel_label": "release-25.11 @ f5190b692864 (2026-05-28)",
+  "channel_label": "release-25.11 @ c171c7e29b1a (2026-05-29)",
   "coverage": {
-    "not_real_macho": 4333,
+    "not_real_macho": 4433,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-05-28 09:02:08 UTC",
+  "generated_at": "2026-05-29 08:31:42 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "C2": 8,
-      "L": 9
+      "C2": 19,
+      "L": 10
     },
     "by_signer": {
-      "codesign_signed": 8,
-      "linker_signed": 9
+      "codesign_signed": 19,
+      "linker_signed": 10
     },
-    "packages": 11,
+    "packages": 13,
     "packages_list": [
       "cmdargs-browser-0.1.4",
       "httptoolkit-1.24.4",
       "libtorch-2.9.0",
       "shogihome-1.27.1",
       "shogihome-1.27.2",
+      "shogihome-1.27.3",
+      "swift-5.10.1",
       "swift-5.10.1-lib",
       "tailwindcss_4-4.1.18",
       "teams-for-linux-2.8.0"
     ],
-    "slices": 17
+    "slices": 29
   },
   "paths_by_status": {
-    "fetch_error": 4,
-    "no_narinfo": 20191,
-    "ok": 104490,
-    "parse_error": 44
+    "fetch_error": 34,
+    "no_narinfo": 20379,
+    "ok": 104528,
+    "parse_error": 18
   },
-  "paths_scanned": 124729,
+  "paths_scanned": 124959,
   "slices_by_arch": {
     "arm": 11,
-    "arm64": 120197,
+    "arm64": 120734,
     "arm64e": 51,
     "cpu_0x00000001/0x00000000": 1,
     "cpu_0x00000002/0x00000000": 1,
@@ -112,9 +114,9 @@
     "cpu_0x00000012/0x0000000a": 5,
     "cpu_0x00000012/0x00000064": 1,
     "cpu_0x01000012/0x00000000": 8,
-    "i386": 87,
-    "unknown": 4182,
-    "x86_64": 3865
+    "i386": 86,
+    "unknown": 4276,
+    "x86_64": 3817
   },
-  "slices_total": 128455
+  "slices_total": 129037
 }
