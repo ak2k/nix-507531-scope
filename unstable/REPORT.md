@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 4100e830e085 (2026-05-30)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ e9a7635a5759 (2026-05-31)
 
-Generated: 2026-05-30 08:07:56 UTC
+Generated: 2026-05-31 08:49:37 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 924,820 |
-| Mach-O slices parsed | 692,702 |
-| Page-hash mismatches (slices) | 144 |
-| Page-hash mismatches (distinct packages) | 63 |
-|   of which linker-signed (flags=0x20002) | 45 |
-|   of which codesign-signed (flags=0x2) | 99 |
+| Store paths scanned | 939,811 |
+| Mach-O slices parsed | 703,700 |
+| Page-hash mismatches (slices) | 149 |
+| Page-hash mismatches (distinct packages) | 68 |
+|   of which linker-signed (flags=0x20002) | 49 |
+|   of which codesign-signed (flags=0x2) | 100 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 7 |
@@ -22,20 +22,20 @@ Generated: 2026-05-30 08:07:56 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 284,284 | 89 | 0 | 259,472 | 24,631 | 92 |
+| `arm64` | 290,003 | 93 | 0 | 264,405 | 25,413 | 92 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 284,000 | 55 | 0 | 19,490 | 264,306 | 149 |
-| `i386` | 802 | 0 | 0 | 279 | 503 | 20 |
-| other/legacy (11 arch codes) | 123,486 | 0 | 0 | 6 | 123 | 123,357 |
+| `x86_64` | 289,208 | 56 | 0 | 19,635 | 269,368 | 149 |
+| `i386` | 812 | 0 | 0 | 279 | 513 | 20 |
+| other/legacy (11 arch codes) | 123,547 | 0 | 0 | 6 | 123 | 123,418 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 550,516 | 60 | 0 | 263,967 | 286,306 |
-| fat | 142,186 | 84 | 0 | 15,330 | 3,257 |
+| thin | 560,918 | 65 | 0 | 268,766 | 291,904 |
+| fat | 142,782 | 84 | 0 | 15,609 | 3,513 |
 
-Unique fat binary files: 132,393 in 2,827 packages. 10 of those packages contain at least one failing fat slice.
+Unique fat binary files: 132,722 in 2,991 packages. 10 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -60,12 +60,15 @@ Sorted alphabetically by package name.
 | gitlab-duo-8.89.0 | 1 | `/nix/store/aikmh7rgqwnrwawffpbdcvw0akf9nlbw-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/c8i3ml8rqbrmxpwc1p6cmxpjzllg9gw9-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/jq1vw06zzsy83i1x4f13zf60168psbqb-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/lyxx5v9grgp86pnr5m7wxik8md5frgw7-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/r91sl334r0k4f7f73k0g8r3in62kj212-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/sfw4r997dgdrscywhjyp9lj875vhs8hq-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/vijmlhfcw3n8bil836rwz1k0jnwfqab2-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/w3jakkvd5dkaycb0b55z4hpgl0cfg8z4-gitlab-duo-8.89.0` |
 | httptoolkit-1.24.4 | 1 | `/nix/store/2s8sjmvjwammxn1kmxh65xz96qdhvzhs-httptoolkit-1.24.4` |
 | httptoolkit-1.24.4 | 1 | `/nix/store/47wl1p5bsk4c54r8vbkyhn3n2nm0588s-httptoolkit-1.24.4` |
 | httptoolkit-1.24.4 | 1 | `/nix/store/rjxrkxzfp47bskl0543cakbx80indwm1-httptoolkit-1.24.4` |
+| httptoolkit-1.26.0 | 1 | `/nix/store/rsz3j3r7d0gl5h9d6hv17mqp9xy9vix0-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/x5l1x55hk5qvgiwshl5bakr7n2sj4ndr-httptoolkit-1.26.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/jd0fnglnhz9pf6vyqsdl22z65cidmz21-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/vla1rdlyipmbynck3vq0vr51gij4fryk-libtorch-2.9.0` |
@@ -82,6 +85,7 @@ Sorted alphabetically by package name.
 | shogihome-1.27.2 | 1 | `/nix/store/1cwb73vi5aa1nlpbr7ychywlbmkpl19l-shogihome-1.27.2` |
 | shogihome-1.27.2 | 1 | `/nix/store/5xvqqb06qb22vz2jfz8mn80w9ma2fzby-shogihome-1.27.2` |
 | shogihome-1.27.3 | 1 | `/nix/store/63fx8404ppm6n773sdkcwvwhfwggai5g-shogihome-1.27.3` |
+| shogihome-1.27.3 | 1 | `/nix/store/qj3ifm7z75y5j7mjch9sah0jwabqr35x-shogihome-1.27.3` |
 | stache-2.3.4 | 1 | `/nix/store/19vf8xbrlh0i4qqvqvvqpc1jxy1klvz8-stache-2.3.4` |
 | swift-5.10.1 | 11 | `/nix/store/f7d3lcdzanmqw5icnxkgcx6kqha1ibif-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/g8ifnf6b7v65bp2hl78i5mrjc8kbblaw-swift-5.10.1` |
@@ -98,6 +102,7 @@ Sorted alphabetically by package name.
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/m01q2947z343bhqh59fdc1xzsi9ni8h9-tailwindcss_4-4.3.0` |
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/rcdpbw2hfzljsmvrdcjny1brix3xy1fv-tailwindcss_4-4.3.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/4qsz50ns5gj04lvfbfjji53lxbqnw3fp-teams-for-linux-2.10.0` |
+| teams-for-linux-2.10.0 | 1 | `/nix/store/bw8x9wyvi6vbhjwjpjisq982s02217mb-teams-for-linux-2.10.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/q2dbgmblhxcc0dq5a5yv1adyz0i5hfzm-teams-for-linux-2.10.0` |
 | teams-for-linux-2.8.1 | 1 | `/nix/store/a36aakz4z3ihzamlvkq6384c3vqp8pcb-teams-for-linux-2.8.1` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/f1r0hs7dgi6wfv59ms698gnlv76n09wb-teams-for-linux-2.9.0` |
@@ -111,11 +116,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 144 |
+| `page_hash_mismatch` | 149 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 279,297 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 289,563 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 123,698 |
+| `clean` (signed, verified) | 284,375 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 295,417 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 123,759 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -149,7 +154,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 2 |
 | Total direct-edge rows (default view) | 2 |
 | Total rows including propagated edges | 5 |
-| Distinct failing seeds | 63 |
+| Distinct failing seeds | 68 |
 
 Edges by kind (default view only):
 

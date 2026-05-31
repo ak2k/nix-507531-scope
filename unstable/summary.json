@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 279297,
-    "not_real_macho": 123698,
-    "page_hash_mismatch": 144,
-    "unsigned": 289563
+    "clean": 284375,
+    "not_real_macho": 123759,
+    "page_hash_mismatch": 149,
+    "unsigned": 295417
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 117
     },
     "arm64": {
-      "clean": 259472,
+      "clean": 264405,
       "not_real_macho": 92,
-      "page_hash_mismatch": 89,
-      "unsigned": 24631
+      "page_hash_mismatch": 93,
+      "unsigned": 25413
     },
     "arm64e": {
       "clean": 50,
@@ -50,42 +50,42 @@
     "i386": {
       "clean": 279,
       "not_real_macho": 20,
-      "unsigned": 503
+      "unsigned": 513
     },
     "unknown": {
-      "not_real_macho": 122955
+      "not_real_macho": 123016
     },
     "x86_64": {
-      "clean": 19490,
+      "clean": 19635,
       "not_real_macho": 149,
-      "page_hash_mismatch": 55,
-      "unsigned": 264306
+      "page_hash_mismatch": 56,
+      "unsigned": 269368
     }
   },
-  "channel_label": "nixpkgs-unstable @ 4100e830e085 (2026-05-30)",
+  "channel_label": "nixpkgs-unstable @ e9a7635a5759 (2026-05-31)",
   "coverage": {
-    "not_real_macho": 123698,
+    "not_real_macho": 123759,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-05-30 08:07:56 UTC",
+  "generated_at": "2026-05-31 08:49:37 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-empty": 8,
+      "B7-empty": 9,
       "B7-real": 5,
       "C2": 86,
-      "L": 45
+      "L": 49
     },
     "by_signer": {
-      "codesign_signed": 99,
-      "linker_signed": 45
+      "codesign_signed": 100,
+      "linker_signed": 49
     },
-    "packages": 63,
+    "packages": 68,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "ffmpeg-headless-8.0.1-bin",
@@ -115,17 +115,17 @@
       "teams-for-linux-2.9.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 144
+    "slices": 149
   },
   "paths_by_status": {
-    "fetch_error": 126,
-    "ok": 924455,
-    "parse_error": 239
+    "fetch_error": 120,
+    "ok": 939461,
+    "parse_error": 230
   },
-  "paths_scanned": 924820,
+  "paths_scanned": 939811,
   "slices_by_arch": {
     "arm": 137,
-    "arm64": 284284,
+    "arm64": 290003,
     "arm64e": 130,
     "cpu_0x00000001/0x00000000": 6,
     "cpu_0x00000002/0x00000000": 6,
@@ -136,9 +136,9 @@
     "cpu_0x00000012/0x00000064": 4,
     "cpu_0x01000012/0x00000000": 76,
     "cpu_0x01000012/0x80000000": 2,
-    "i386": 802,
-    "unknown": 122955,
-    "x86_64": 284000
+    "i386": 812,
+    "unknown": 123016,
+    "x86_64": 289208
   },
-  "slices_total": 692702
+  "slices_total": 703700
 }
