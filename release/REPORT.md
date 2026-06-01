@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — release-25.11 @ 73bc11249747 (2026-05-31)
+# NixOS/nixpkgs#507531 cache scan — release-25.11 @ 22025f1c1372 (2026-06-01)
 
-Generated: 2026-05-31 08:49:08 UTC
+Generated: 2026-06-01 09:03:04 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 125,065 |
-| Mach-O slices parsed | 129,237 |
+| Store paths scanned | 125,133 |
+| Mach-O slices parsed | 129,483 |
 | Page-hash mismatches (slices) | 29 |
 | Page-hash mismatches (distinct packages) | 13 |
 |   of which linker-signed (flags=0x20002) | 10 |
@@ -22,9 +22,9 @@ Generated: 2026-05-31 08:49:08 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 120,934 | 29 | 0 | 111,990 | 8,901 | 14 |
+| `arm64` | 121,177 | 29 | 0 | 112,233 | 8,901 | 14 |
 | `arm64e` | 51 | 0 | 0 | 13 | 0 | 38 |
-| `x86_64` | 3,817 | 0 | 0 | 2,459 | 1,315 | 43 |
+| `x86_64` | 3,820 | 0 | 0 | 2,462 | 1,315 | 43 |
 | `i386` | 86 | 0 | 0 | 56 | 29 | 1 |
 | other/legacy (10 arch codes) | 4,349 | 0 | 0 | 4 | 8 | 4,337 |
 
@@ -32,10 +32,10 @@ Generated: 2026-05-31 08:49:08 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 121,442 | 11 | 0 | 111,486 | 9,943 |
-| fat | 7,795 | 18 | 0 | 3,036 | 310 |
+| thin | 121,682 | 11 | 0 | 111,726 | 9,943 |
+| fat | 7,801 | 18 | 0 | 3,042 | 310 |
 
-Unique fat binary files: 6,024 in 341 packages. 2 of those packages contain at least one failing fat slice.
+Unique fat binary files: 6,027 in 342 packages. 2 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -63,7 +63,7 @@ Sorted alphabetically by package name.
 |---|---:|
 | `page_hash_mismatch` | 29 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 114,522 |
+| `clean` (signed, verified) | 114,768 |
 | `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 10,253 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 4,433 |
 | `scanner_error` | 0 |
