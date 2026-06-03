@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-06-01 09:24:12 UTC
+Generated: 2026-06-03 09:21:05 UTC
 
 Daily scan across three darwin caches of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -22,8 +22,8 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| darwin | release | unstable | Union |
 |---|---:|---:|---:|---:|
-| **1. Direct failure** (slices) | 61 | 29 | 149 | 239 |
-| &emsp;↳ distinct packages | 19 | 13 | 68 | 31 |
+| **1. Direct failure** (slices) | 61 | 29 | 155 | 245 |
+| &emsp;↳ distinct packages | 19 | 13 | 74 | 33 |
 | **2. Load-time transitive** (binaries) | 0 | 0 | 7 | 7 |
 | &emsp;↳ distinct packages | 0 | 0 | 5 | 5 |
 | **3. Build-time dependent** (packages, default view) | 0 | 0 | 2 | 2 |
@@ -38,9 +38,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | darwin | release | unstable |
 |---|---:|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ 531bd2221317 (2026-06-01) | release-25.11 @ 22025f1c1372 (2026-06-01) | nixpkgs-unstable @ e9a7635a5759 (2026-06-01) |
-| Paths scanned | 180,455 | 125,133 | 939,811 |
-| Mach-O slices | 235,332 | 129,483 | 703,700 |
+| Channel label | nixpkgs-25.11-darwin @ d439513fc917 (2026-06-03) | release-25.11 @ 1e20d7f402b5 (2026-06-03) | nixpkgs-unstable @ 4df1b885d76a (2026-06-03) |
+| Paths scanned | 180,469 | 125,200 | 955,734 |
+| Mach-O slices | 235,368 | 129,709 | 751,890 |
 
 ## Direct-failure slices by signature shape
 
@@ -48,11 +48,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | darwin | release | unstable | Total |
 |---|---:|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 12 | 10 | 49 | 71 |
+| linker-signed ad-hoc, no CMS slot | 12 | 10 | 53 | 75 |
 | codesign ad-hoc, empty 8 B CMS wrapper | 49 | 19 | 86 | 154 |
-| ad-hoc with Entitlements + empty CMS wrapper | 0 | 0 | 9 | 9 |
+| ad-hoc with Entitlements + empty CMS wrapper | 0 | 0 | 11 | 11 |
 | Developer-ID-signed (non-empty CMS payload) | 0 | 0 | 5 | 5 |
-| **Total** | **61** | **29** | **149** | **239** |
+| **Total** | **61** | **29** | **155** | **245** |
 
 ## Affected packages
 
@@ -81,6 +81,7 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 | `opencode-1.14.48` | direct | unstable | — |
 | `opencode-1.15.10` | direct | unstable | — |
 | `opencode-1.15.11` | direct | unstable | — |
+| `opencode-1.15.13` | direct | unstable | — |
 | `opencode-1.15.5` | direct | unstable | — |
 | `opencode-1.15.7` | direct | unstable | — |
 | `rimgo-1.4.2` | build-time transitive | unstable | `tailwindcss_4-4.3.0` |
@@ -94,6 +95,7 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 | `tailwindcss_4-4.2.4` | direct | unstable | — |
 | `tailwindcss_4-4.3.0` | direct | unstable | — |
 | `teams-for-linux-2.10.0` | direct | unstable | — |
+| `teams-for-linux-2.11.1` | direct | unstable | — |
 | `teams-for-linux-2.8.0` | direct | darwin, release | — |
 | `teams-for-linux-2.8.1` | direct | unstable | — |
 | `teams-for-linux-2.9.0` | direct | unstable | — |
@@ -101,9 +103,9 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 
 ## Drill-downs
 
-- [darwin channel report](darwin/REPORT.md) — `nixpkgs-25.11-darwin @ 531bd2221317 (2026-06-01)`
-- [release channel report](release/REPORT.md) — `release-25.11 @ 22025f1c1372 (2026-06-01)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ e9a7635a5759 (2026-06-01)`
+- [darwin channel report](darwin/REPORT.md) — `nixpkgs-25.11-darwin @ d439513fc917 (2026-06-03)`
+- [release channel report](release/REPORT.md) — `release-25.11 @ 1e20d7f402b5 (2026-06-03)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 4df1b885d76a (2026-06-03)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)

@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ e9a7635a5759 (2026-06-01)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 4df1b885d76a (2026-06-03)
 
-Generated: 2026-06-01 09:03:59 UTC
+Generated: 2026-06-03 08:53:30 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 939,811 |
-| Mach-O slices parsed | 703,700 |
-| Page-hash mismatches (slices) | 149 |
-| Page-hash mismatches (distinct packages) | 68 |
-|   of which linker-signed (flags=0x20002) | 49 |
-|   of which codesign-signed (flags=0x2) | 100 |
+| Store paths scanned | 955,734 |
+| Mach-O slices parsed | 751,890 |
+| Page-hash mismatches (slices) | 155 |
+| Page-hash mismatches (distinct packages) | 74 |
+|   of which linker-signed (flags=0x20002) | 53 |
+|   of which codesign-signed (flags=0x2) | 102 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 7 |
@@ -22,20 +22,20 @@ Generated: 2026-06-01 09:03:59 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 290,003 | 93 | 0 | 264,405 | 25,413 | 92 |
+| `arm64` | 297,148 | 97 | 0 | 271,469 | 25,490 | 92 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 289,208 | 56 | 0 | 19,635 | 269,368 | 149 |
-| `i386` | 812 | 0 | 0 | 279 | 513 | 20 |
-| other/legacy (11 arch codes) | 123,547 | 0 | 0 | 6 | 123 | 123,418 |
+| `x86_64` | 295,596 | 58 | 0 | 19,804 | 275,585 | 149 |
+| `i386` | 814 | 0 | 0 | 281 | 513 | 20 |
+| other/legacy (11 arch codes) | 158,202 | 0 | 0 | 6 | 123 | 158,073 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 560,918 | 65 | 0 | 268,766 | 291,904 |
-| fat | 142,782 | 84 | 0 | 15,609 | 3,513 |
+| thin | 574,235 | 71 | 0 | 275,865 | 298,116 |
+| fat | 177,655 | 84 | 0 | 15,745 | 3,595 |
 
-Unique fat binary files: 132,722 in 2,991 packages. 10 of those packages contain at least one failing fat slice.
+Unique fat binary files: 167,495 in 3,031 packages. 10 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -48,9 +48,12 @@ Sorted alphabetically by package name.
 | ffmpeg-headless-8.0.1-bin | 2 | `/nix/store/lg9r937b4q70s5qqvjhdkf7rnn5x4xvd-ffmpeg-headless-8.0.1-bin` |
 | ffmpeg-headless-8.0.1-lib | 7 | `/nix/store/04iq3b9rv98l2grc82mh53w1br70ms1b-ffmpeg-headless-8.0.1-lib` |
 | filen-cli-0.0.36 | 1 | `/nix/store/5595x11jf389bj955gngxzpx11lara5n-filen-cli-0.0.36` |
+| filen-cli-0.0.36 | 1 | `/nix/store/77yybvq3q7dd38srfj93n84w3wjg3y4r-filen-cli-0.0.36` |
+| filen-cli-0.0.36 | 1 | `/nix/store/dd0g9sxbvs4sc7h6gm92gfqymf9302a1-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/md6winyqwbjwq94fw7zj8jfjz9klxjhf-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/mg7c9jnrr3704l55vjw6y55sgf0imhh1-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/yv5dpd687w0qkkk829861cb3g9diq8zs-filen-cli-0.0.36` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/1b47p45agxp3ybc3r5bm5gqrnfmzni37-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1xakdirg2mk3pk1qpyrk5p1hqs6m7yaq-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/516v4myw7xx03knkf3alcn62j7lcac37-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/6pzd3yz3x8ib4vv4ky9i8v00q8q2nd5w-gitlab-duo-8.89.0` |
@@ -64,6 +67,7 @@ Sorted alphabetically by package name.
 | gitlab-duo-8.89.0 | 1 | `/nix/store/r91sl334r0k4f7f73k0g8r3in62kj212-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/sfw4r997dgdrscywhjyp9lj875vhs8hq-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/vijmlhfcw3n8bil836rwz1k0jnwfqab2-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/vvasv0jkyj78gj2zkgzxf4ayvb686ycj-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/w3jakkvd5dkaycb0b55z4hpgl0cfg8z4-gitlab-duo-8.89.0` |
 | httptoolkit-1.24.4 | 1 | `/nix/store/2s8sjmvjwammxn1kmxh65xz96qdhvzhs-httptoolkit-1.24.4` |
 | httptoolkit-1.24.4 | 1 | `/nix/store/47wl1p5bsk4c54r8vbkyhn3n2nm0588s-httptoolkit-1.24.4` |
@@ -79,6 +83,7 @@ Sorted alphabetically by package name.
 | opencode-1.14.48 | 1 | `/nix/store/js2z13p2d8ym7j3x6dx58vdkk2z36bpa-opencode-1.14.48` |
 | opencode-1.15.10 | 1 | `/nix/store/wlwjm1g4qgqpnxkddzrxkz0wbgwjcj5p-opencode-1.15.10` |
 | opencode-1.15.11 | 1 | `/nix/store/cpc1xsvv08azx11c8y6zp68xv1czdkfr-opencode-1.15.11` |
+| opencode-1.15.13 | 1 | `/nix/store/8ilya8lkzz57a1cpfgfp51qk6h3q5g1f-opencode-1.15.13` |
 | opencode-1.15.5 | 1 | `/nix/store/r0xz5ic3z79r3anfssz60j8bbjls6n4d-opencode-1.15.5` |
 | opencode-1.15.7 | 1 | `/nix/store/swvx6k42qawwj376byi0fxjiy3yf9yb9-opencode-1.15.7` |
 | shogihome-1.27.1 | 1 | `/nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1` |
@@ -104,6 +109,7 @@ Sorted alphabetically by package name.
 | teams-for-linux-2.10.0 | 1 | `/nix/store/4qsz50ns5gj04lvfbfjji53lxbqnw3fp-teams-for-linux-2.10.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/bw8x9wyvi6vbhjwjpjisq982s02217mb-teams-for-linux-2.10.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/q2dbgmblhxcc0dq5a5yv1adyz0i5hfzm-teams-for-linux-2.10.0` |
+| teams-for-linux-2.11.1 | 1 | `/nix/store/ic4227vk2dfpz3x4w43l52cx6s1cnzl3-teams-for-linux-2.11.1` |
 | teams-for-linux-2.8.1 | 1 | `/nix/store/a36aakz4z3ihzamlvkq6384c3vqp8pcb-teams-for-linux-2.8.1` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/f1r0hs7dgi6wfv59ms698gnlv76n09wb-teams-for-linux-2.9.0` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/kdjbkgsi89f7n9ldhfvfficl76593vlg-teams-for-linux-2.9.0` |
@@ -116,11 +122,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 149 |
+| `page_hash_mismatch` | 155 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 284,375 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 295,417 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 123,759 |
+| `clean` (signed, verified) | 291,610 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 301,711 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 158,414 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -154,7 +160,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 2 |
 | Total direct-edge rows (default view) | 2 |
 | Total rows including propagated edges | 5 |
-| Distinct failing seeds | 68 |
+| Distinct failing seeds | 74 |
 
 Edges by kind (default view only):
 
