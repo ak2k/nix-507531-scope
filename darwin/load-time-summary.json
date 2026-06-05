@@ -2,7 +2,7 @@
   "total_rows": 0,
   "distinct_binaries": 0,
   "distinct_dependent_packages": 0,
-  "distinct_seed_dylibs": 43,
+  "distinct_seed_dylibs": 84,
   "by_seed_package": {},
   "dependent_packages": [],
   "dependents_by_package": {}
