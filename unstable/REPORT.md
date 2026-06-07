@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ ffa10e26ae11 (2026-06-06)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ cbb5cf358f50 (2026-06-07)
 
-Generated: 2026-06-06 08:16:53 UTC
+Generated: 2026-06-07 08:51:35 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 969,041 |
-| Mach-O slices parsed | 755,035 |
-| Page-hash mismatches (slices) | 155 |
-| Page-hash mismatches (distinct packages) | 74 |
-|   of which linker-signed (flags=0x20002) | 53 |
-|   of which codesign-signed (flags=0x2) | 102 |
+| Store paths scanned | 1,003,092 |
+| Mach-O slices parsed | 822,515 |
+| Page-hash mismatches (slices) | 163 |
+| Page-hash mismatches (distinct packages) | 77 |
+|   of which linker-signed (flags=0x20002) | 54 |
+|   of which codesign-signed (flags=0x2) | 109 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 7 |
@@ -22,20 +22,20 @@ Generated: 2026-06-06 08:16:53 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 298,719 | 97 | 0 | 272,985 | 25,545 | 92 |
+| `arm64` | 330,338 | 101 | 0 | 302,618 | 27,523 | 96 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 297,160 | 58 | 0 | 19,841 | 277,112 | 149 |
-| `i386` | 814 | 0 | 0 | 281 | 513 | 20 |
-| other/legacy (11 arch codes) | 158,212 | 0 | 0 | 6 | 123 | 158,083 |
+| `x86_64` | 328,255 | 62 | 0 | 20,292 | 307,748 | 153 |
+| `i386` | 827 | 0 | 0 | 281 | 522 | 24 |
+| other/legacy (11 arch codes) | 162,965 | 0 | 0 | 6 | 123 | 162,836 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 577,338 | 71 | 0 | 277,390 | 299,694 |
-| fat | 177,697 | 84 | 0 | 15,773 | 3,599 |
+| thin | 639,374 | 73 | 0 | 307,048 | 332,070 |
+| fat | 183,141 | 90 | 0 | 16,199 | 3,846 |
 
-Unique fat binary files: 167,521 in 3,051 packages. 10 of those packages contain at least one failing fat slice.
+Unique fat binary files: 172,615 in 3,274 packages. 11 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -43,6 +43,7 @@ Sorted alphabetically by package name.
 
 | Package | Failing slices | Store path |
 |---|---:|---|
+| avalonia-ilspy-7.2-rc | 6 | `/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/7mhskg5xn99f3y19qrkc71swg6rm663m-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/lxabgj4a939bv2s4wdxjrgb3yqfq4yjj-avalonia-ilspy-7.2-rc` |
 | ffmpeg-headless-8.0.1-bin | 2 | `/nix/store/lg9r937b4q70s5qqvjhdkf7rnn5x4xvd-ffmpeg-headless-8.0.1-bin` |
@@ -53,6 +54,7 @@ Sorted alphabetically by package name.
 | filen-cli-0.0.36 | 1 | `/nix/store/md6winyqwbjwq94fw7zj8jfjz9klxjhf-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/mg7c9jnrr3704l55vjw6y55sgf0imhh1-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/yv5dpd687w0qkkk829861cb3g9diq8zs-filen-cli-0.0.36` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/086yhdczlpdmrhw7a0xssgxc84p0bjl8-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1b47p45agxp3ybc3r5bm5gqrnfmzni37-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1xakdirg2mk3pk1qpyrk5p1hqs6m7yaq-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/516v4myw7xx03knkf3alcn62j7lcac37-gitlab-duo-8.89.0` |
@@ -61,6 +63,7 @@ Sorted alphabetically by package name.
 | gitlab-duo-8.89.0 | 1 | `/nix/store/73sbgp26iy1v29ygq3yf07x4ckmim21w-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/8acx3f6s0dnwizwbv74f0x5zdvah0dvv-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/aikmh7rgqwnrwawffpbdcvw0akf9nlbw-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/b8czg06qyr00kjmv90vn4k2a0m1ifgsc-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/c8i3ml8rqbrmxpwc1p6cmxpjzllg9gw9-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/jq1vw06zzsy83i1x4f13zf60168psbqb-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/lyxx5v9grgp86pnr5m7wxik8md5frgw7-gitlab-duo-8.89.0` |
@@ -122,11 +125,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 155 |
+| `page_hash_mismatch` | 163 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 293,163 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 303,293 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 158,424 |
+| `clean` (signed, verified) | 323,247 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 335,916 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 163,189 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -137,7 +140,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 7 |
 | Distinct packages containing such binaries | 5 |
-| Failing dylibs that serve as seeds | 88 |
+| Failing dylibs that serve as seeds | 91 |
 | Total (binary, failing-dylib) pairs | 153 |
 
 Top failing dylibs by number of downstream binaries:
@@ -160,7 +163,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 2 |
 | Total direct-edge rows (default view) | 2 |
 | Total rows including propagated edges | 5 |
-| Distinct failing seeds | 74 |
+| Distinct failing seeds | 77 |
 
 Edges by kind (default view only):
 

@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — release-25.11 @ e62c578a0a80 (2026-06-06)
+# NixOS/nixpkgs#507531 cache scan — release-25.11 @ 9a681e663d65 (2026-06-07)
 
-Generated: 2026-06-06 08:16:05 UTC
+Generated: 2026-06-07 08:51:01 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 238,191 |
-| Mach-O slices parsed | 250,346 |
+| Store paths scanned | 238,580 |
+| Mach-O slices parsed | 250,344 |
 | Page-hash mismatches (slices) | 54 |
 | Page-hash mismatches (distinct packages) | 21 |
 |   of which linker-signed (flags=0x20002) | 16 |
@@ -22,7 +22,7 @@ Generated: 2026-06-06 08:16:05 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 234,063 | 54 | 0 | 216,752 | 17,233 | 24 |
+| `arm64` | 234,061 | 54 | 0 | 216,750 | 17,233 | 24 |
 | `arm64e` | 102 | 0 | 0 | 26 | 0 | 76 |
 | `x86_64` | 7,505 | 0 | 0 | 4,840 | 2,581 | 84 |
 | `i386` | 172 | 0 | 0 | 112 | 58 | 2 |
@@ -32,7 +32,7 @@ Generated: 2026-06-06 08:16:05 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 235,113 | 18 | 0 | 215,813 | 19,278 |
+| thin | 235,111 | 18 | 0 | 215,811 | 19,278 |
 | fat | 15,233 | 36 | 0 | 5,925 | 610 |
 
 Unique fat binary files: 11,771 in 648 packages. 4 of those packages contain at least one failing fat slice.
@@ -71,7 +71,7 @@ Sorted alphabetically by package name.
 |---|---:|
 | `page_hash_mismatch` | 54 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 221,738 |
+| `clean` (signed, verified) | 221,736 |
 | `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 19,888 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 8,666 |
 | `scanner_error` | 0 |
