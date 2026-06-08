@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — release-25.11 @ 9a681e663d65 (2026-06-07)
+# NixOS/nixpkgs#507531 cache scan — release-25.11 @ d7fed073bedb (2026-06-08)
 
-Generated: 2026-06-07 08:51:01 UTC
+Generated: 2026-06-08 09:12:37 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 238,580 |
-| Mach-O slices parsed | 250,344 |
+| Store paths scanned | 238,716 |
+| Mach-O slices parsed | 250,551 |
 | Page-hash mismatches (slices) | 54 |
 | Page-hash mismatches (distinct packages) | 21 |
 |   of which linker-signed (flags=0x20002) | 16 |
@@ -22,9 +22,9 @@ Generated: 2026-06-07 08:51:01 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 234,061 | 54 | 0 | 216,750 | 17,233 | 24 |
+| `arm64` | 234,257 | 54 | 0 | 216,946 | 17,233 | 24 |
 | `arm64e` | 102 | 0 | 0 | 26 | 0 | 76 |
-| `x86_64` | 7,505 | 0 | 0 | 4,840 | 2,581 | 84 |
+| `x86_64` | 7,516 | 0 | 0 | 4,849 | 2,583 | 84 |
 | `i386` | 172 | 0 | 0 | 112 | 58 | 2 |
 | other/legacy (10 arch codes) | 8,504 | 0 | 0 | 8 | 16 | 8,480 |
 
@@ -32,10 +32,10 @@ Generated: 2026-06-07 08:51:01 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 235,111 | 18 | 0 | 215,811 | 19,278 |
-| fat | 15,233 | 36 | 0 | 5,925 | 610 |
+| thin | 235,300 | 18 | 0 | 215,998 | 19,280 |
+| fat | 15,251 | 36 | 0 | 5,943 | 610 |
 
-Unique fat binary files: 11,771 in 648 packages. 4 of those packages contain at least one failing fat slice.
+Unique fat binary files: 11,780 in 649 packages. 4 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -71,8 +71,8 @@ Sorted alphabetically by package name.
 |---|---:|
 | `page_hash_mismatch` | 54 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 221,736 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 19,888 |
+| `clean` (signed, verified) | 221,941 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 19,890 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 8,666 |
 | `scanner_error` | 0 |
 
