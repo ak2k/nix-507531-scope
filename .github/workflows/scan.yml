@@ -365,6 +365,9 @@ jobs:
           # shard-<channel>-<N>/full.jsonl. Concatenate them all.
           find "$CHANNEL-shards" -name full.jsonl -print0 | xargs -0 cat > "$CHANNEL/full.jsonl"
           wc -l "$CHANNEL/full.jsonl"
+          # The merged copy is the only one used from here on; the per-shard
+          # downloads double the JSONL's disk footprint (~2 GB on unstable).
+          rm -rf "$CHANNEL-shards"
 
       - name: Aggregate Tier 1 (${{ matrix.channel.label }})
         run: |
@@ -421,12 +424,18 @@ jobs:
             --tier3-summary ${{ matrix.channel.label }}/build-time-summary.json
 
       - name: Verify scanner findings (${{ matrix.channel.label }})
+        id: verify
         run: |
+          # Don't fail here: record the exit code so the channel artifacts
+          # (including verify-summary.md, the evidence of WHAT failed)
+          # upload first; the gate step below interprets.
+          rc=0
           uv run scripts/verify-failures.py \
             --failing-csv ${{ matrix.channel.label }}/direct-failing.csv \
             --jsonl ${{ matrix.channel.label }}/full.jsonl \
             --out ${{ matrix.channel.label }}/verify-results.jsonl \
-            --summary ${{ matrix.channel.label }}/verify-summary.md
+            --summary ${{ matrix.channel.label }}/verify-summary.md || rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
 
       - name: Upload channel outputs (${{ matrix.channel.label }})
         uses: actions/upload-artifact@v7
@@ -437,12 +446,11 @@ jobs:
 
       - name: Fail loudly if scanner ↔ verifier disagree (${{ matrix.channel.label }})
         run: |
-          if grep -q '^No disagreements' ${{ matrix.channel.label }}/verify-summary.md; then
-            echo 'scanner ↔ verifier: 100% agreement'
-          else
-            echo '::error::Scanner-verifier disagreement detected in ${{ matrix.channel.label }}. See verify-summary.md.'
-            exit 1
-          fi
+          case '${{ steps.verify.outputs.rc }}' in
+            0) echo 'scanner ↔ verifier: 100% agreement' ;;
+            1) echo '::error::Scanner-verifier disagreement detected in ${{ matrix.channel.label }}. See verify-summary.md.'; exit 1 ;;
+            *) echo '::error::Verify infrastructure/integrity failure in ${{ matrix.channel.label }} (fetch failed, nix store verify rejected a path, NarHash mismatch, or canary divergence). See verify-summary.md.'; exit 1 ;;
+          esac
 
   combine:
     name: combine + commit
