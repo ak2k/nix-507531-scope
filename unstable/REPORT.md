@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 8c3cede7ddc2 (2026-06-11)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 8c91a71d1345 (2026-06-12)
 
-Generated: 2026-06-11 08:49:38 UTC
+Generated: 2026-06-12 09:08:20 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 1,015,235 |
-| Mach-O slices parsed | 883,854 |
-| Page-hash mismatches (slices) | 164 |
-| Page-hash mismatches (distinct packages) | 78 |
-|   of which linker-signed (flags=0x20002) | 55 |
-|   of which codesign-signed (flags=0x2) | 109 |
+| Store paths scanned | 1,048,219 |
+| Mach-O slices parsed | 956,519 |
+| Page-hash mismatches (slices) | 166 |
+| Page-hash mismatches (distinct packages) | 80 |
+|   of which linker-signed (flags=0x20002) | 56 |
+|   of which codesign-signed (flags=0x2) | 110 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 7 |
@@ -22,20 +22,20 @@ Generated: 2026-06-11 08:49:38 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 361,099 | 102 | 0 | 333,217 | 27,684 | 96 |
+| `arm64` | 396,990 | 103 | 0 | 368,188 | 28,603 | 96 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 358,812 | 62 | 0 | 20,645 | 337,952 | 153 |
-| `i386` | 832 | 0 | 0 | 286 | 522 | 24 |
-| other/legacy (11 arch codes) | 162,981 | 0 | 0 | 6 | 123 | 162,852 |
+| `x86_64` | 394,884 | 63 | 0 | 20,904 | 373,764 | 153 |
+| `i386` | 840 | 0 | 0 | 286 | 530 | 24 |
+| other/legacy (11 arch codes) | 163,675 | 0 | 0 | 8 | 125 | 163,542 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 700,532 | 74 | 0 | 337,872 | 362,403 |
-| fat | 183,322 | 90 | 0 | 16,332 | 3,878 |
+| thin | 772,010 | 76 | 0 | 372,802 | 398,949 |
+| fat | 184,509 | 90 | 0 | 16,634 | 4,073 |
 
-Unique fat binary files: 172,713 in 3,324 packages. 11 of those packages contain at least one failing fat slice.
+Unique fat binary files: 173,646 in 3,491 packages. 11 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -56,6 +56,7 @@ Sorted alphabetically by package name.
 | filen-cli-0.0.36 | 1 | `/nix/store/yv5dpd687w0qkkk829861cb3g9diq8zs-filen-cli-0.0.36` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/086yhdczlpdmrhw7a0xssgxc84p0bjl8-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1b47p45agxp3ybc3r5bm5gqrnfmzni37-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/1b96pi504sfxzvq8wrv13pqkrmgflhfc-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1xakdirg2mk3pk1qpyrk5p1hqs6m7yaq-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/516v4myw7xx03knkf3alcn62j7lcac37-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/6pzd3yz3x8ib4vv4ky9i8v00q8q2nd5w-gitlab-duo-8.89.0` |
@@ -65,6 +66,7 @@ Sorted alphabetically by package name.
 | gitlab-duo-8.89.0 | 1 | `/nix/store/aikmh7rgqwnrwawffpbdcvw0akf9nlbw-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/b8czg06qyr00kjmv90vn4k2a0m1ifgsc-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/c8i3ml8rqbrmxpwc1p6cmxpjzllg9gw9-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/i4k8989arfn79a1b7m9fzqcrb15dafh0-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/jq1vw06zzsy83i1x4f13zf60168psbqb-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/lyxx5v9grgp86pnr5m7wxik8md5frgw7-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/r91sl334r0k4f7f73k0g8r3in62kj212-gitlab-duo-8.89.0` |
@@ -126,11 +128,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 164 |
+| `page_hash_mismatch` | 166 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 354,204 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 366,281 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 163,205 |
+| `clean` (signed, verified) | 389,436 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 403,022 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 163,895 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -164,7 +166,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 2 |
 | Total direct-edge rows (default view) | 2 |
 | Total rows including propagated edges | 5 |
-| Distinct failing seeds | 78 |
+| Distinct failing seeds | 80 |
 
 Edges by kind (default view only):
 
