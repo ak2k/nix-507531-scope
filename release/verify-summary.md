@@ -1,16 +1,30 @@
 # Scanner × codesign -v cross-validation
 
-Generated: 2026-06-12 11:46:30 UTC
+Generated: 2026-06-13 08:54:27 UTC
 
-Verified every slice the scanner flagged as failing against an
-independent signature verifier: `/home/runner/.nix-profile/bin/rcodesign verify`.
+Each flagged package is signature- and content-verified by Nix itself
+(`nix store verify` against the binary cache), restored with Nix's NAR
+codec, NarHash-crosschecked, then every flagged slice is checked with
+an independent signature verifier: `/home/runner/.nix-profile/bin/rcodesign verify`.
 
 | Outcome | Count |
 |---|---:|
 | Scanner failing, verifier fails (agreement) | 53 |
 | Scanner failing, verifier passes (disagreement — possible false positive) | 0 |
-| Realize failed (could not fetch package from cache) | 0 |
+| Fetch/verify failed (could not check against cache) | 0 |
 | **Total slices verified** | **53** |
+
+## Substitution canary
+
+One flagged package per run is pulled through real `nix-store -r` substitution and its flagged files byte-compared against the direct NAR restore, keeping the user-shaped path continuously exercised.
+
+```json
+{
+  "store_path": "/nix/store/gfpx3q94dxsga2z9iakpci2vprbxmrxx-cmdargs-browser-0.1.4",
+  "status": "ok",
+  "files_compared": 1
+}
+```
 
 No disagreements: every scanner-flagged failure was independently confirmed by the verifier.
 
