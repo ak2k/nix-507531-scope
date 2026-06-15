@@ -116,6 +116,13 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/dd0g9sxbvs4sc7h6gm92gfqymf9302a1-filen-cli-0.0.36,bin/.filen-wrapped,x86_64,78892848,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/380vjma5320nknl45fkvyhaiz6gnxgyv-opencode-1.16.2,bin/.opencode-wrapped,arm64,111978658,True,131074,4096,27127,111110480,1,27126,111108096,thin,0,False,False,0,L
 /nix/store/qa5nqwj53a86i4d743750s3ck83vh8iq-teams-for-linux-2.11.1,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38796,158908416,thin,0,False,False,0,L
+/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,x86_64,950432,False,2,4096,107,436128,1,0,0,fat32,8,False,False,0,C2
+/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,arm64,950432,False,2,4096,111,453504,1,0,0,fat32,8,False,False,0,C2
+/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,x86_64,2245648,False,2,4096,277,1133104,1,0,0,fat32,8,False,False,1,C2
+/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,arm64,2245648,False,2,4096,249,1018192,1,0,0,fat32,8,False,False,1,C2
+/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,x86_64,15155072,False,2,4096,2081,8521088,1,0,0,fat32,8,False,False,1,C2
+/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,arm64,15155072,False,2,4096,1560,6388352,1,0,0,fat32,8,False,False,1,C2
+/nix/store/77yybvq3q7dd38srfj93n84w3wjg3y4r-filen-cli-0.0.36,bin/.filen-wrapped,arm64,73769890,True,131074,4096,17871,73197904,1,17870,73195520,thin,0,False,False,0,L
 /nix/store/a36aakz4z3ihzamlvkq6384c3vqp8pcb-teams-for-linux-2.8.1,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179095920,True,131074,4096,43386,177707424,1,38747,158707712,thin,0,False,False,0,L
 /nix/store/npqyfwp0j1172ypv11zmzx0qias179wd-opencode-1.14.35,bin/.opencode-wrapped,arm64,104746402,True,131074,4096,25375,103934288,1,25374,103931904,thin,0,False,False,0,L
 /nix/store/w3jakkvd5dkaycb0b55z4hpgl0cfg8z4-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
@@ -135,15 +142,8 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/c8i3ml8rqbrmxpwc1p6cmxpjzllg9gw9-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
 /nix/store/63fx8404ppm6n773sdkcwvwhfwggai5g-shogihome-1.27.3,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38246,156655616,thin,0,False,False,0,L
 /nix/store/vvasv0jkyj78gj2zkgzxf4ayvb686ycj-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
-/nix/store/77yybvq3q7dd38srfj93n84w3wjg3y4r-filen-cli-0.0.36,bin/.filen-wrapped,arm64,73769890,True,131074,4096,17871,73197904,1,17870,73195520,thin,0,False,False,0,L
 /nix/store/b8czg06qyr00kjmv90vn4k2a0m1ifgsc-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/qj3ifm7z75y5j7mjch9sah0jwabqr35x-shogihome-1.27.3,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38247,156659712,thin,0,False,False,0,L
-/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,x86_64,950432,False,2,4096,107,436128,1,0,0,fat32,8,False,False,0,C2
-/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,arm64,950432,False,2,4096,111,453504,1,0,0,fat32,8,False,False,0,C2
-/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,x86_64,2245648,False,2,4096,277,1133104,1,0,0,fat32,8,False,False,1,C2
-/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,arm64,2245648,False,2,4096,249,1018192,1,0,0,fat32,8,False,False,1,C2
-/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,x86_64,15155072,False,2,4096,2081,8521088,1,0,0,fat32,8,False,False,1,C2
-/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,arm64,15155072,False,2,4096,1560,6388352,1,0,0,fat32,8,False,False,1,C2
 /nix/store/1b96pi504sfxzvq8wrv13pqkrmgflhfc-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
 /nix/store/47wl1p5bsk4c54r8vbkyhn3n2nm0588s-httptoolkit-1.24.4,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,173600400,True,131074,4096,42055,172254496,1,37339,152940544,thin,0,False,False,0,L
 /nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176717744,True,131074,4096,42810,175347680,1,38236,156614656,thin,0,False,False,0,L
@@ -167,7 +167,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/p23042pa3iqf4gaiihdpbvkp9gs5ky4c-opencode-1.17.4,bin/.opencode-wrapped,arm64,118798114,True,131074,4096,28779,117877072,1,28778,117874688,thin,0,False,False,0,L
 /nix/store/lyxx5v9grgp86pnr5m7wxik8md5frgw7-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/nb8nvlirvjhyilzhybcfgxx4qhr8vzhv-httptoolkit-1.26.0,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38796,158908416,thin,0,False,False,0,L
+/nix/store/3z6q05ba0mmv3b3y9jq8vgyb618jny30-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/4qsz50ns5gj04lvfbfjji53lxbqnw3fp-teams-for-linux-2.10.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38794,158900224,thin,0,False,False,0,L
 /nix/store/x5l1x55hk5qvgiwshl5bakr7n2sj4ndr-httptoolkit-1.26.0,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38794,158900224,thin,0,False,False,0,L
-/nix/store/3z6q05ba0mmv3b3y9jq8vgyb618jny30-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/wlwjm1g4qgqpnxkddzrxkz0wbgwjcj5p-opencode-1.15.10,bin/.opencode-wrapped,arm64,106992034,True,131074,4096,25919,106162512,1,25918,106160128,thin,0,False,False,0,L
