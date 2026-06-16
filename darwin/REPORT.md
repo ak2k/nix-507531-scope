@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 0c21b4cd8a6b (2026-06-15)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ d6df3513510a (2026-06-16)
 
-Generated: 2026-06-15 09:33:22 UTC
+Generated: 2026-06-16 09:24:47 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 356,300 |
-| Mach-O slices parsed | 463,377 |
-| Page-hash mismatches (slices) | 112 |
-| Page-hash mismatches (distinct packages) | 32 |
-|   of which linker-signed (flags=0x20002) | 20 |
+| Store paths scanned | 356,958 |
+| Mach-O slices parsed | 465,171 |
+| Page-hash mismatches (slices) | 114 |
+| Page-hash mismatches (distinct packages) | 34 |
+|   of which linker-signed (flags=0x20002) | 22 |
 |   of which codesign-signed (flags=0x2) | 92 |
 | Other signature-invalid (slices) | 2 |
 | Other signature-invalid (distinct packages) | 2 |
@@ -22,20 +22,20 @@ Generated: 2026-06-15 09:33:22 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 220,492 | 67 | 0 | 204,485 | 15,894 | 46 |
+| `arm64` | 221,369 | 69 | 0 | 205,332 | 15,922 | 46 |
 | `arm64e` | 106 | 0 | 0 | 26 | 0 | 80 |
-| `x86_64` | 227,031 | 45 | 2 | 17,001 | 209,876 | 107 |
-| `i386` | 351 | 0 | 0 | 226 | 121 | 4 |
+| `x86_64` | 227,946 | 45 | 2 | 17,057 | 210,735 | 107 |
+| `i386` | 353 | 0 | 0 | 226 | 123 | 4 |
 | other/legacy (10 arch codes) | 15,397 | 0 | 0 | 4 | 16 | 15,377 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 435,560 | 22 | 2 | 210,827 | 224,705 |
-| fat | 27,817 | 90 | 0 | 10,915 | 1,202 |
+| thin | 437,286 | 24 | 2 | 211,678 | 225,578 |
+| fat | 27,885 | 90 | 0 | 10,967 | 1,218 |
 
-Unique fat binary files: 21,413 in 1,166 packages. 11 of those packages contain at least one failing fat slice.
+Unique fat binary files: 21,447 in 1,176 packages. 11 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -61,6 +61,7 @@ Sorted alphabetically by package name.
 | shogihome-1.27.2 | 1 | `/nix/store/d0dk2sq2nanhkikqmdk54zlvv46g6sf6-shogihome-1.27.2` |
 | shogihome-1.27.2 | 1 | `/nix/store/lbvvlkhp8yjbdm2j2nhc5avi2nabvvai-shogihome-1.27.2` |
 | shogihome-1.27.3 | 1 | `/nix/store/461rm6i08wwy251inadwzxfgs21dxwa2-shogihome-1.27.3` |
+| shogihome-1.27.3 | 1 | `/nix/store/hmbsa9pn1cvw3sal3gqxznnc1yykhzdg-shogihome-1.27.3` |
 | shogihome-1.27.3 | 1 | `/nix/store/wqc1661zdi4pg0blsqhycvqpva7nha2a-shogihome-1.27.3` |
 | swift-5.10.1 | 11 | `/nix/store/0dnirq7brbmv2565l96af6rl1s9rhmb1-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1` |
@@ -74,6 +75,7 @@ Sorted alphabetically by package name.
 | tailwindcss_4-4.1.18 | 1 | `/nix/store/p0qpifvs9lpm8797gzby7ip8hmzfdydq-tailwindcss_4-4.1.18` |
 | teams-for-linux-2.8.0 | 1 | `/nix/store/ahd6q635mfpc7zidmisg3hbdncw10qgj-teams-for-linux-2.8.0` |
 | teams-for-linux-2.8.0 | 1 | `/nix/store/iqkd5xy9n5zrcyxfhw5y8zw0zhjjdrgw-teams-for-linux-2.8.0` |
+| teams-for-linux-2.8.0 | 1 | `/nix/store/xgs5g3hdlgsgz85v7l81xiyphh8k4jnj-teams-for-linux-2.8.0` |
 | teams-for-linux-2.8.0 | 1 | `/nix/store/xlpkh45gqki78zq030mw2z450b7pr1m4-teams-for-linux-2.8.0` |
 
 ## Appendix — other signature-invalid binaries
@@ -89,10 +91,10 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 112 |
+| `page_hash_mismatch` | 114 |
 | `other_sig_invalid` | 2 |
-| `clean` (signed, verified) | 221,742 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 225,907 |
+| `clean` (signed, verified) | 222,645 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 226,796 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 15,614 |
 | `scanner_error` | 0 |
 
@@ -119,7 +121,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 32 |
+| Distinct failing seeds | 34 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 

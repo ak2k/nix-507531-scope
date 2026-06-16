@@ -52,3 +52,4 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
 /nix/store/zxrvxn6il658jlsqhfkkmyffb2mgbj2w-agda2hs-1.4,bin/agda2hs,arm64,141390496,True,131074,4096,34252,140294304,1,20928,85721088,thin,0,False,False,0,L
+/nix/store/xgs5g3hdlgsgz85v7l81xiyphh8k4jnj-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38796,158908416,thin,0,False,False,0,L
