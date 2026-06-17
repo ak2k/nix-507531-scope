@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 9eac87a12312 (2026-06-16)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 3e41b24abd26 (2026-06-17)
 
-Generated: 2026-06-16 09:25:27 UTC
+Generated: 2026-06-17 09:13:37 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 1,072,579 |
-| Mach-O slices parsed | 1,027,644 |
-| Page-hash mismatches (slices) | 176 |
-| Page-hash mismatches (distinct packages) | 88 |
-|   of which linker-signed (flags=0x20002) | 61 |
-|   of which codesign-signed (flags=0x2) | 115 |
+| Store paths scanned | 1,091,946 |
+| Mach-O slices parsed | 1,034,504 |
+| Page-hash mismatches (slices) | 186 |
+| Page-hash mismatches (distinct packages) | 92 |
+|   of which linker-signed (flags=0x20002) | 63 |
+|   of which codesign-signed (flags=0x2) | 123 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 7 |
@@ -22,20 +22,20 @@ Generated: 2026-06-16 09:25:27 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 431,492 | 110 | 0 | 401,904 | 29,382 | 96 |
+| `arm64` | 435,326 | 116 | 0 | 405,616 | 29,490 | 104 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 429,351 | 66 | 0 | 21,164 | 407,968 | 153 |
-| `i386` | 850 | 0 | 0 | 286 | 540 | 24 |
-| other/legacy (11 arch codes) | 165,821 | 0 | 0 | 8 | 125 | 165,688 |
+| `x86_64` | 432,307 | 70 | 0 | 21,549 | 410,531 | 157 |
+| `i386` | 860 | 0 | 0 | 287 | 549 | 24 |
+| other/legacy (11 arch codes) | 165,881 | 0 | 0 | 10 | 127 | 165,744 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 840,584 | 82 | 0 | 406,538 | 433,781 |
-| fat | 187,060 | 94 | 0 | 16,874 | 4,234 |
+| thin | 846,864 | 84 | 0 | 410,263 | 436,334 |
+| fat | 187,640 | 102 | 0 | 17,249 | 4,363 |
 
-Unique fat binary files: 175,995 in 3,620 packages. 13 of those packages contain at least one failing fat slice.
+Unique fat binary files: 176,309 in 3,716 packages. 15 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -45,6 +45,7 @@ Sorted alphabetically by package name.
 |---|---:|---|
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/7mhskg5xn99f3y19qrkc71swg6rm663m-avalonia-ilspy-7.2-rc` |
+| avalonia-ilspy-7.2-rc | 6 | `/nix/store/a96fj054573w4a5n2xh4rpfvvfrz87lh-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/lxabgj4a939bv2s4wdxjrgb3yqfq4yjj-avalonia-ilspy-7.2-rc` |
 | ffmpeg-headless-8.0.1-bin | 2 | `/nix/store/lg9r937b4q70s5qqvjhdkf7rnn5x4xvd-ffmpeg-headless-8.0.1-bin` |
 | ffmpeg-headless-8.0.1-lib | 7 | `/nix/store/04iq3b9rv98l2grc82mh53w1br70ms1b-ffmpeg-headless-8.0.1-lib` |
@@ -96,6 +97,7 @@ Sorted alphabetically by package name.
 | opencode-1.15.7 | 1 | `/nix/store/swvx6k42qawwj376byi0fxjiy3yf9yb9-opencode-1.15.7` |
 | opencode-1.16.2 | 1 | `/nix/store/380vjma5320nknl45fkvyhaiz6gnxgyv-opencode-1.16.2` |
 | opencode-1.17.4 | 1 | `/nix/store/p23042pa3iqf4gaiihdpbvkp9gs5ky4c-opencode-1.17.4` |
+| opencode-1.17.7 | 1 | `/nix/store/yxclajlc2f9b6wiwa0hazn1xqy42py5x-opencode-1.17.7` |
 | shogihome-1.27.1 | 1 | `/nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1` |
 | shogihome-1.27.2 | 1 | `/nix/store/1cwb73vi5aa1nlpbr7ychywlbmkpl19l-shogihome-1.27.2` |
 | shogihome-1.27.2 | 1 | `/nix/store/5xvqqb06qb22vz2jfz8mn80w9ma2fzby-shogihome-1.27.2` |
@@ -120,6 +122,7 @@ Sorted alphabetically by package name.
 | teams-for-linux-2.10.0 | 1 | `/nix/store/4qsz50ns5gj04lvfbfjji53lxbqnw3fp-teams-for-linux-2.10.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/bw8x9wyvi6vbhjwjpjisq982s02217mb-teams-for-linux-2.10.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/q2dbgmblhxcc0dq5a5yv1adyz0i5hfzm-teams-for-linux-2.10.0` |
+| teams-for-linux-2.11.1 | 1 | `/nix/store/gbynyrlfxk4yj43brc82vvj7lbsx094k-teams-for-linux-2.11.1` |
 | teams-for-linux-2.11.1 | 1 | `/nix/store/ic4227vk2dfpz3x4w43l52cx6s1cnzl3-teams-for-linux-2.11.1` |
 | teams-for-linux-2.11.1 | 1 | `/nix/store/qa5nqwj53a86i4d743750s3ck83vh8iq-teams-for-linux-2.11.1` |
 | teams-for-linux-2.8.1 | 1 | `/nix/store/a36aakz4z3ihzamlvkq6384c3vqp8pcb-teams-for-linux-2.8.1` |
@@ -131,16 +134,17 @@ Sorted alphabetically by package name.
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/rriv3xrcfw1pw899n7x3q34ijfd5wis3-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 | zotero-9.0.4 | 2 | `/nix/store/6iblj6gh65199c25xqjr4fvc88ihb9qq-zotero-9.0.4` |
 | zotero-9.0.4 | 2 | `/nix/store/8vrnwr7262535s80p6qaabic6rdj2122-zotero-9.0.4` |
+| zotero-9.0.5 | 2 | `/nix/store/dhqh6xagy29z5pfzpmx1klfzbrbxpia5-zotero-9.0.5` |
 
 ## Slice classification
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 176 |
+| `page_hash_mismatch` | 186 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 423,412 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 438,015 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 166,041 |
+| `clean` (signed, verified) | 427,512 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 440,697 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 166,109 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -151,7 +155,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 7 |
 | Distinct packages containing such binaries | 5 |
-| Failing dylibs that serve as seeds | 91 |
+| Failing dylibs that serve as seeds | 94 |
 | Total (binary, failing-dylib) pairs | 153 |
 
 Top failing dylibs by number of downstream binaries:
@@ -174,7 +178,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 2 |
 | Total direct-edge rows (default view) | 2 |
 | Total rows including propagated edges | 5 |
-| Distinct failing seeds | 88 |
+| Distinct failing seeds | 92 |
 
 Edges by kind (default view only):
 

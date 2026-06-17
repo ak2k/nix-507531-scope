@@ -40,6 +40,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/pr81jsxz62946kr72n3m0gxm1nkvwyps-libtorch-2.9.0,lib/libomp.dylib,arm64,754912,False,2,4096,179,730928,1,0,0,thin,8,False,False,0,C2
 /nix/store/xlpkh45gqki78zq030mw2z450b7pr1m4-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38795,158904320,thin,0,False,False,0,L
 /nix/store/wqc1661zdi4pg0blsqhycvqpva7nha2a-shogihome-1.27.3,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38247,156659712,thin,0,False,False,0,L
+/nix/store/hmbsa9pn1cvw3sal3gqxznnc1yykhzdg-shogihome-1.27.3,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38248,156663808,thin,0,False,False,0,L
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,arm64,8349008,False,2,4096,2019,8266752,2,0,0,fat32,8,False,False,0,C2
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,arm64,122192,False,2,4096,26,103712,1,0,0,fat32,8,False,False,0,C2
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2

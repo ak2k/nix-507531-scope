@@ -1,8 +1,8 @@
 {
   "buckets": {
-    "clean": 224334,
+    "clean": 224475,
     "not_real_macho": 8569,
-    "page_hash_mismatch": 54,
+    "page_hash_mismatch": 55,
     "unsigned": 20027
   },
   "buckets_by_arch": {
@@ -12,9 +12,9 @@
       "unsigned": 14
     },
     "arm64": {
-      "clean": 219255,
+      "clean": 219396,
       "not_real_macho": 22,
-      "page_hash_mismatch": 54,
+      "page_hash_mismatch": 55,
       "unsigned": 17263
     },
     "arm64e": {
@@ -59,14 +59,14 @@
       "unsigned": 2689
     }
   },
-  "channel_label": "release-25.11 @ 93e179812642 (2026-06-16)",
+  "channel_label": "release-25.11 @ 07030e105358 (2026-06-17)",
   "coverage": {
     "not_real_macho": 8569,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-06-16 09:24:55 UTC",
+  "generated_at": "2026-06-17 09:12:59 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -74,13 +74,13 @@
   "page_hash_mismatch": {
     "by_signature_class": {
       "C2": 38,
-      "L": 16
+      "L": 17
     },
     "by_signer": {
       "codesign_signed": 38,
-      "linker_signed": 16
+      "linker_signed": 17
     },
-    "packages": 21,
+    "packages": 22,
     "packages_list": [
       "agda2hs-1.4",
       "cmdargs-browser-0.1.4",
@@ -95,18 +95,18 @@
       "tailwindcss_4-4.1.18",
       "teams-for-linux-2.8.0"
     ],
-    "slices": 54
+    "slices": 55
   },
   "paths_by_status": {
     "fetch_error": 7,
-    "no_narinfo": 39570,
-    "ok": 200316,
+    "no_narinfo": 39561,
+    "ok": 200364,
     "parse_error": 33
   },
-  "paths_scanned": 239926,
+  "paths_scanned": 239965,
   "slices_by_arch": {
     "arm": 22,
-    "arm64": 236594,
+    "arm64": 236736,
     "arm64e": 102,
     "cpu_0x00000001/0x00000000": 2,
     "cpu_0x00000002/0x00000000": 2,
@@ -120,5 +120,5 @@
     "unknown": 8264,
     "x86_64": 7705
   },
-  "slices_total": 252984
+  "slices_total": 253126
 }
