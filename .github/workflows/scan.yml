@@ -96,7 +96,7 @@ jobs:
     outputs:
       release_rev: ${{ steps.pin.outputs.rev }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -205,7 +205,7 @@ jobs:
           - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 6, total_shards: 7 }
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -301,7 +301,7 @@ jobs:
           - label: unstable
             url: https://channels.nixos.org/nixpkgs-unstable
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -466,7 +466,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 2
 
