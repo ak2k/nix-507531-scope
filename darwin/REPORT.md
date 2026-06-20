@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ d6df3513510a (2026-06-19)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ eac1fb927046 (2026-06-20)
 
-Generated: 2026-06-19 08:59:36 UTC
+Generated: 2026-06-20 08:25:59 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 356,958 |
-| Mach-O slices parsed | 465,171 |
-| Page-hash mismatches (slices) | 114 |
-| Page-hash mismatches (distinct packages) | 34 |
-|   of which linker-signed (flags=0x20002) | 22 |
+| Store paths scanned | 357,120 |
+| Mach-O slices parsed | 465,405 |
+| Page-hash mismatches (slices) | 115 |
+| Page-hash mismatches (distinct packages) | 35 |
+|   of which linker-signed (flags=0x20002) | 23 |
 |   of which codesign-signed (flags=0x2) | 92 |
 | Other signature-invalid (slices) | 2 |
 | Other signature-invalid (distinct packages) | 2 |
@@ -22,9 +22,9 @@ Generated: 2026-06-19 08:59:36 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 221,369 | 69 | 0 | 205,332 | 15,922 | 46 |
+| `arm64` | 221,425 | 70 | 0 | 205,387 | 15,922 | 46 |
 | `arm64e` | 106 | 0 | 0 | 26 | 0 | 80 |
-| `x86_64` | 227,946 | 45 | 2 | 17,057 | 210,735 | 107 |
+| `x86_64` | 228,124 | 45 | 2 | 17,077 | 210,893 | 107 |
 | `i386` | 353 | 0 | 0 | 226 | 123 | 4 |
 | other/legacy (10 arch codes) | 15,397 | 0 | 0 | 4 | 16 | 15,377 |
 
@@ -32,10 +32,10 @@ Generated: 2026-06-19 08:59:36 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 437,286 | 24 | 2 | 211,678 | 225,578 |
-| fat | 27,885 | 90 | 0 | 10,967 | 1,218 |
+| thin | 437,514 | 25 | 2 | 211,749 | 225,734 |
+| fat | 27,891 | 90 | 0 | 10,971 | 1,220 |
 
-Unique fat binary files: 21,447 in 1,176 packages. 11 of those packages contain at least one failing fat slice.
+Unique fat binary files: 21,450 in 1,178 packages. 11 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -51,6 +51,7 @@ Sorted alphabetically by package name.
 | dhall-docs-1.0.12 | 2 | `/nix/store/a2f2sjj5ck084y8x00mmw50l80d99xv6-dhall-docs-1.0.12` |
 | esy-0.8.0 | 1 | `/nix/store/2lr8bssdw0z5zx18mnbbff45yc6bwrj2-esy-0.8.0` |
 | esy-0.8.0 | 1 | `/nix/store/659rqlpdhbzl7j8jrh15ha2k7z7dyrs6-esy-0.8.0` |
+| esy-0.8.0 | 1 | `/nix/store/8m0hbkpni64zzzf3w3fxcqab492723li-esy-0.8.0` |
 | esy-0.8.0 | 1 | `/nix/store/jzid9i43xxs0lmpay7n5kp0f1a7rspa4-esy-0.8.0` |
 | esy-0.8.0 | 1 | `/nix/store/kjldjpzl966s53wnn4pidry8rzi3ykz7-esy-0.8.0` |
 | httptoolkit-1.24.4 | 1 | `/nix/store/63y47sm78b2fzjzljyd4zckqm9j2ljds-httptoolkit-1.24.4` |
@@ -91,10 +92,10 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 114 |
+| `page_hash_mismatch` | 115 |
 | `other_sig_invalid` | 2 |
-| `clean` (signed, verified) | 222,645 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 226,796 |
+| `clean` (signed, verified) | 222,720 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 226,954 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 15,614 |
 | `scanner_error` | 0 |
 
@@ -121,7 +122,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 34 |
+| Distinct failing seeds | 35 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 
