@@ -79,14 +79,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "nixpkgs-25.11-darwin @ eac1fb927046 (2026-06-23)",
+      "channel_label": "nixpkgs-25.11-darwin @ eac1fb927046 (2026-06-24)",
       "coverage": {
         "not_real_macho": 15614,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-06-23 08:24:59 UTC",
+      "generated_at": "2026-06-24 08:37:18 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -154,7 +154,7 @@
     },
     "release": {
       "buckets": {
-        "clean": 225292,
+        "clean": 225320,
         "not_real_macho": 8591,
         "page_hash_mismatch": 55,
         "unsigned": 20061
@@ -166,7 +166,7 @@
           "unsigned": 14
         },
         "arm64": {
-          "clean": 220203,
+          "clean": 220231,
           "not_real_macho": 22,
           "page_hash_mismatch": 55,
           "unsigned": 17278
@@ -229,14 +229,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "release-25.11 @ f2d6dbfdc1d6 (2026-06-23)",
+      "channel_label": "release-25.11 @ 99904cc77be8 (2026-06-24)",
       "coverage": {
         "not_real_macho": 8591,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-06-23 08:25:09 UTC",
+      "generated_at": "2026-06-24 08:37:21 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -278,14 +278,14 @@
       },
       "paths_by_status": {
         "fetch_error": 7,
-        "no_narinfo": 39816,
-        "ok": 200625,
+        "no_narinfo": 39803,
+        "ok": 200655,
         "parse_error": 34
       },
-      "paths_scanned": 240482,
+      "paths_scanned": 240499,
       "slices_by_arch": {
         "arm": 22,
-        "arm64": 237558,
+        "arm64": 237586,
         "arm64e": 102,
         "cpu_0x00000001/0x00000000": 2,
         "cpu_0x00000002/0x00000000": 2,
@@ -299,25 +299,25 @@
         "unknown": 8284,
         "x86_64": 7731
       },
-      "slices_total": 253999
+      "slices_total": 254027
     },
     "unstable": {
       "buckets": {
-        "clean": 427512,
-        "not_real_macho": 166109,
-        "page_hash_mismatch": 186,
-        "unsigned": 440697
+        "clean": 439540,
+        "not_real_macho": 166481,
+        "page_hash_mismatch": 192,
+        "unsigned": 450992
       },
       "buckets_by_arch": {
         "arm": {
-          "not_real_macho": 24,
-          "unsigned": 117
+          "not_real_macho": 26,
+          "unsigned": 129
         },
         "arm64": {
-          "clean": 405616,
-          "not_real_macho": 104,
-          "page_hash_mismatch": 116,
-          "unsigned": 29490
+          "clean": 417196,
+          "not_real_macho": 108,
+          "page_hash_mismatch": 120,
+          "unsigned": 30693
         },
         "arm64e": {
           "clean": 50,
@@ -352,17 +352,17 @@
         },
         "i386": {
           "clean": 287,
-          "not_real_macho": 24,
-          "unsigned": 549
+          "not_real_macho": 26,
+          "unsigned": 578
         },
         "unknown": {
-          "not_real_macho": 165330
+          "not_real_macho": 165690
         },
         "x86_64": {
-          "clean": 21549,
-          "not_real_macho": 157,
-          "page_hash_mismatch": 70,
-          "unsigned": 410531
+          "clean": 21997,
+          "not_real_macho": 161,
+          "page_hash_mismatch": 72,
+          "unsigned": 419582
         }
       },
       "build_time_dependents": {
@@ -372,7 +372,7 @@
         },
         "by_seed_default_view": {
           "stache-2.3.4": 1,
-          "tailwindcss_4-4.3.0": 1
+          "tailwindcss_4-4.3.1": 1
         },
         "dependent_attrs_default_view": [
           "haskellPackages.mmark-cli",
@@ -383,11 +383,11 @@
             "stache-2.3.4"
           ],
           "rimgo-1.4.2": [
-            "tailwindcss_4-4.3.0"
+            "tailwindcss_4-4.3.1"
           ]
         },
         "distinct_dependent_attrs_default_view": 2,
-        "distinct_seeds": 92,
+        "distinct_seeds": 97,
         "edge_filter_default": [
           "buildInputs",
           "checkInputs",
@@ -397,14 +397,14 @@
         "rows_in_default_view": 2,
         "total_rows": 5
       },
-      "channel_label": "nixpkgs-unstable @ 3e41b24abd26 (2026-06-23)",
+      "channel_label": "nixpkgs-unstable @ b3c092d3c36d (2026-06-24)",
       "coverage": {
-        "not_real_macho": 166109,
+        "not_real_macho": 166481,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-06-23 08:25:42 UTC",
+      "generated_at": "2026-06-24 08:38:04 UTC",
       "load_time_transitive": {
         "by_seed_package": {
           "ffmpeg-headless-8.0.1-lib": 153
@@ -445,15 +445,15 @@
       "page_hash_mismatch": {
         "by_signature_class": {
           "B7-empty": 14,
-          "B7-real": 11,
+          "B7-real": 14,
           "C2": 98,
-          "L": 63
+          "L": 66
         },
         "by_signer": {
-          "codesign_signed": 123,
-          "linker_signed": 63
+          "codesign_signed": 126,
+          "linker_signed": 66
         },
-        "packages": 92,
+        "packages": 97,
         "packages_list": [
           "avalonia-ilspy-7.2-rc",
           "ffmpeg-headless-8.0.1-bin",
@@ -462,6 +462,7 @@
           "gitlab-duo-8.89.0",
           "httptoolkit-1.24.4",
           "httptoolkit-1.26.0",
+          "kilo-7.3.40",
           "libtorch-2.9.0",
           "mmsyn7ukr-array-0.3.0.0",
           "opencode-1.14.35",
@@ -482,6 +483,7 @@
           "swift-5.10.1-lib",
           "tailwindcss_4-4.2.4",
           "tailwindcss_4-4.3.0",
+          "tailwindcss_4-4.3.1",
           "teams-for-linux-2.10.0",
           "teams-for-linux-2.11.1",
           "teams-for-linux-2.8.1",
@@ -490,17 +492,17 @@
           "zotero-9.0.4",
           "zotero-9.0.5"
         ],
-        "slices": 186
+        "slices": 192
       },
       "paths_by_status": {
-        "fetch_error": 136,
-        "ok": 1091615,
-        "parse_error": 195
+        "fetch_error": 157,
+        "ok": 1120535,
+        "parse_error": 218
       },
-      "paths_scanned": 1091946,
+      "paths_scanned": 1120910,
       "slices_by_arch": {
-        "arm": 141,
-        "arm64": 435326,
+        "arm": 155,
+        "arm64": 448117,
         "arm64e": 130,
         "cpu_0x00000001/0x00000000": 10,
         "cpu_0x00000002/0x00000000": 10,
@@ -511,27 +513,27 @@
         "cpu_0x00000012/0x00000064": 4,
         "cpu_0x01000012/0x00000000": 76,
         "cpu_0x01000012/0x80000000": 2,
-        "i386": 860,
-        "unknown": 165330,
-        "x86_64": 432307
+        "i386": 891,
+        "unknown": 165690,
+        "x86_64": 441812
       },
-      "slices_total": 1034504
+      "slices_total": 1057205
     }
   },
-  "generated_at": "2026-06-23 08:55:52 UTC",
+  "generated_at": "2026-06-24 09:04:17 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 14,
-      "B7-real": 11,
+      "B7-real": 14,
       "C2": 228,
-      "L": 103,
+      "L": 106,
       "unknown": 0
     },
-    "packages": 40,
-    "slices": 356
+    "packages": 42,
+    "slices": 362
   },
-  "paths_scanned": 1689548,
-  "slices_total": 1753908,
+  "paths_scanned": 1718529,
+  "slices_total": 1776637,
   "union": {
     "build_time_packages_default_view": [
       "haskellPackages.mmark-cli",
@@ -550,6 +552,7 @@
       "gitlab-duo-8.89.0",
       "httptoolkit-1.24.4",
       "httptoolkit-1.26.0",
+      "kilo-7.3.40",
       "libtorch-2.9.0",
       "mmsyn7ukr-array-0.3.0.0",
       "opencode-1.14.35",
@@ -571,6 +574,7 @@
       "tailwindcss_4-4.1.18",
       "tailwindcss_4-4.2.4",
       "tailwindcss_4-4.3.0",
+      "tailwindcss_4-4.3.1",
       "teams-for-linux-2.10.0",
       "teams-for-linux-2.11.1",
       "teams-for-linux-2.8.0",
@@ -580,7 +584,7 @@
       "zotero-9.0.4",
       "zotero-9.0.5"
     ],
-    "direct_packages_count": 40,
+    "direct_packages_count": 42,
     "load_time_packages": [
       "cliairplay-1.1-unstable-2026-03-16",
       "cyanrip-0.9.3.1",

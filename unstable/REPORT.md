@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 3e41b24abd26 (2026-06-23)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ b3c092d3c36d (2026-06-24)
 
-Generated: 2026-06-23 08:25:42 UTC
+Generated: 2026-06-24 08:38:04 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 1,091,946 |
-| Mach-O slices parsed | 1,034,504 |
-| Page-hash mismatches (slices) | 186 |
-| Page-hash mismatches (distinct packages) | 92 |
-|   of which linker-signed (flags=0x20002) | 63 |
-|   of which codesign-signed (flags=0x2) | 123 |
+| Store paths scanned | 1,120,910 |
+| Mach-O slices parsed | 1,057,205 |
+| Page-hash mismatches (slices) | 192 |
+| Page-hash mismatches (distinct packages) | 97 |
+|   of which linker-signed (flags=0x20002) | 66 |
+|   of which codesign-signed (flags=0x2) | 126 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 7 |
@@ -22,20 +22,20 @@ Generated: 2026-06-23 08:25:42 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 435,326 | 116 | 0 | 405,616 | 29,490 | 104 |
+| `arm64` | 448,117 | 120 | 0 | 417,196 | 30,693 | 108 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 432,307 | 70 | 0 | 21,549 | 410,531 | 157 |
-| `i386` | 860 | 0 | 0 | 287 | 549 | 24 |
-| other/legacy (11 arch codes) | 165,881 | 0 | 0 | 10 | 127 | 165,744 |
+| `x86_64` | 441,812 | 72 | 0 | 21,997 | 419,582 | 161 |
+| `i386` | 891 | 0 | 0 | 287 | 578 | 26 |
+| other/legacy (11 arch codes) | 166,255 | 0 | 0 | 10 | 139 | 166,106 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 846,864 | 84 | 0 | 410,263 | 436,334 |
-| fat | 187,640 | 102 | 0 | 17,249 | 4,363 |
+| thin | 868,507 | 88 | 0 | 421,806 | 446,426 |
+| fat | 188,698 | 104 | 0 | 17,734 | 4,566 |
 
-Unique fat binary files: 176,309 in 3,716 packages. 15 of those packages contain at least one failing fat slice.
+Unique fat binary files: 177,024 in 3,874 packages. 16 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -72,6 +72,7 @@ Sorted alphabetically by package name.
 | gitlab-duo-8.89.0 | 1 | `/nix/store/i4k8989arfn79a1b7m9fzqcrb15dafh0-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/jq1vw06zzsy83i1x4f13zf60168psbqb-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/lyxx5v9grgp86pnr5m7wxik8md5frgw7-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/q1d8fydpzyg5yarlysjqx1px1bg1v4zr-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/r91sl334r0k4f7f73k0g8r3in62kj212-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/sfw4r997dgdrscywhjyp9lj875vhs8hq-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/vijmlhfcw3n8bil836rwz1k0jnwfqab2-gitlab-duo-8.89.0` |
@@ -83,6 +84,7 @@ Sorted alphabetically by package name.
 | httptoolkit-1.26.0 | 1 | `/nix/store/nb8nvlirvjhyilzhybcfgxx4qhr8vzhv-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/rsz3j3r7d0gl5h9d6hv17mqp9xy9vix0-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/x5l1x55hk5qvgiwshl5bakr7n2sj4ndr-httptoolkit-1.26.0` |
+| kilo-7.3.40 | 1 | `/nix/store/bwbxzzpgd3x201a6ikwxsv4pyni2gjx2-kilo-7.3.40` |
 | libtorch-2.9.0 | 1 | `/nix/store/jd0fnglnhz9pf6vyqsdl22z65cidmz21-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/vla1rdlyipmbynck3vq0vr51gij4fryk-libtorch-2.9.0` |
 | mmsyn7ukr-array-0.3.0.0 | 1 | `/nix/store/ffmz0x0yik7jgrw0ljlmg1n6y041fh2x-mmsyn7ukr-array-0.3.0.0` |
@@ -119,6 +121,8 @@ Sorted alphabetically by package name.
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/8mfvp0gg4igjs62dj457rprvx0lnwxv2-tailwindcss_4-4.3.0` |
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/m01q2947z343bhqh59fdc1xzsi9ni8h9-tailwindcss_4-4.3.0` |
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/rcdpbw2hfzljsmvrdcjny1brix3xy1fv-tailwindcss_4-4.3.0` |
+| tailwindcss_4-4.3.1 | 1 | `/nix/store/12pf68d4awjxb9vk6icli7asdqyrcah3-tailwindcss_4-4.3.1` |
+| tailwindcss_4-4.3.1 | 1 | `/nix/store/4cmsm0k1pyl0pl0ph37gizg3ydgqcpym-tailwindcss_4-4.3.1` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/4qsz50ns5gj04lvfbfjji53lxbqnw3fp-teams-for-linux-2.10.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/bw8x9wyvi6vbhjwjpjisq982s02217mb-teams-for-linux-2.10.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/q2dbgmblhxcc0dq5a5yv1adyz0i5hfzm-teams-for-linux-2.10.0` |
@@ -134,17 +138,18 @@ Sorted alphabetically by package name.
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/rriv3xrcfw1pw899n7x3q34ijfd5wis3-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 | zotero-9.0.4 | 2 | `/nix/store/6iblj6gh65199c25xqjr4fvc88ihb9qq-zotero-9.0.4` |
 | zotero-9.0.4 | 2 | `/nix/store/8vrnwr7262535s80p6qaabic6rdj2122-zotero-9.0.4` |
+| zotero-9.0.5 | 2 | `/nix/store/42wp3frqjb4mxr7zi2dgx3sd1q7k7342-zotero-9.0.5` |
 | zotero-9.0.5 | 2 | `/nix/store/dhqh6xagy29z5pfzpmx1klfzbrbxpia5-zotero-9.0.5` |
 
 ## Slice classification
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 186 |
+| `page_hash_mismatch` | 192 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 427,512 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 440,697 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 166,109 |
+| `clean` (signed, verified) | 439,540 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 450,992 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 166,481 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -178,7 +183,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 2 |
 | Total direct-edge rows (default view) | 2 |
 | Total rows including propagated edges | 5 |
-| Distinct failing seeds | 92 |
+| Distinct failing seeds | 97 |
 
 Edges by kind (default view only):
 
@@ -192,7 +197,7 @@ Top seed packages by downstream dependent count:
 | Seed package | Downstream dependents |
 |---|---:|
 | `stache-2.3.4` | 1 |
-| `tailwindcss_4-4.3.0` | 1 |
+| `tailwindcss_4-4.3.1` | 1 |
 
 Dependent packages (2): `haskellPackages.mmark-cli`, `rimgo`
 

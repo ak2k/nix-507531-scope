@@ -2,7 +2,7 @@
   "total_rows": 5,
   "rows_in_default_view": 2,
   "distinct_dependent_attrs_default_view": 2,
-  "distinct_seeds": 92,
+  "distinct_seeds": 97,
   "edge_filter_default": [
     "buildInputs",
     "checkInputs",
@@ -15,7 +15,7 @@
   },
   "by_seed_default_view": {
     "stache-2.3.4": 1,
-    "tailwindcss_4-4.3.0": 1
+    "tailwindcss_4-4.3.1": 1
   },
   "dependent_attrs_default_view": [
     "haskellPackages.mmark-cli",
@@ -26,7 +26,7 @@
       "stache-2.3.4"
     ],
     "rimgo-1.4.2": [
-      "tailwindcss_4-4.3.0"
+      "tailwindcss_4-4.3.1"
     ]
   }
 }

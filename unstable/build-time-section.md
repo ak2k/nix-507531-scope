@@ -9,7 +9,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 2 |
 | Total direct-edge rows (default view) | 2 |
 | Total rows including propagated edges | 5 |
-| Distinct failing seeds | 92 |
+| Distinct failing seeds | 97 |
 
 Edges by kind (default view only):
 
@@ -23,7 +23,7 @@ Top seed packages by downstream dependent count:
 | Seed package | Downstream dependents |
 |---|---:|
 | `stache-2.3.4` | 1 |
-| `tailwindcss_4-4.3.0` | 1 |
+| `tailwindcss_4-4.3.1` | 1 |
 
 Dependent packages (2): `haskellPackages.mmark-cli`, `rimgo`
 
