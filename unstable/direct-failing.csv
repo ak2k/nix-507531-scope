@@ -179,6 +179,8 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/a96fj054573w4a5n2xh4rpfvvfrz87lh-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,arm64,2245648,False,2,4096,249,1018192,1,0,0,fat32,8,False,False,1,C2
 /nix/store/a96fj054573w4a5n2xh4rpfvvfrz87lh-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,x86_64,15155072,False,2,4096,2081,8521088,1,0,0,fat32,8,False,False,1,C2
 /nix/store/a96fj054573w4a5n2xh4rpfvvfrz87lh-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,arm64,15155072,False,2,4096,1560,6388352,1,0,0,fat32,8,False,False,1,C2
+/nix/store/42wp3frqjb4mxr7zi2dgx3sd1q7k7342-zotero-9.0.5,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,x86_64,133840,False,65536,4096,5,16640,1,0,0,fat32,9099,False,False,0,B7-real
+/nix/store/42wp3frqjb4mxr7zi2dgx3sd1q7k7342-zotero-9.0.5,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,arm64,133840,False,65536,4096,13,49440,1,0,0,fat32,9098,False,False,0,B7-real
 /nix/store/lyxx5v9grgp86pnr5m7wxik8md5frgw7-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/8vrnwr7262535s80p6qaabic6rdj2122-zotero-9.0.4,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,x86_64,133840,False,65536,4096,5,16640,1,0,0,fat32,9099,False,False,0,B7-real
 /nix/store/8vrnwr7262535s80p6qaabic6rdj2122-zotero-9.0.4,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,arm64,133840,False,65536,4096,13,49440,1,0,0,fat32,9098,False,False,0,B7-real
@@ -189,5 +191,4 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/6iblj6gh65199c25xqjr4fvc88ihb9qq-zotero-9.0.4,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,arm64,133840,False,65536,4096,13,49440,1,0,0,fat32,9098,False,False,0,B7-real
 /nix/store/gbynyrlfxk4yj43brc82vvj7lbsx094k-teams-for-linux-2.11.1,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38796,158908416,thin,0,False,False,0,L
 /nix/store/wlwjm1g4qgqpnxkddzrxkz0wbgwjcj5p-opencode-1.15.10,bin/.opencode-wrapped,arm64,106992034,True,131074,4096,25919,106162512,1,25918,106160128,thin,0,False,False,0,L
-/nix/store/42wp3frqjb4mxr7zi2dgx3sd1q7k7342-zotero-9.0.5,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,x86_64,133840,False,65536,4096,5,16640,1,0,0,fat32,9099,False,False,0,B7-real
-/nix/store/42wp3frqjb4mxr7zi2dgx3sd1q7k7342-zotero-9.0.5,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,arm64,133840,False,65536,4096,13,49440,1,0,0,fat32,9098,False,False,0,B7-real
+/nix/store/nwzcinamw9gjq82i85qfzdi3lx0wy7pl-teams-for-linux-2.12.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38796,158908416,thin,0,False,False,0,L

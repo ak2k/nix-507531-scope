@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 439540,
-    "not_real_macho": 166481,
-    "page_hash_mismatch": 192,
-    "unsigned": 450992
+    "clean": 441323,
+    "not_real_macho": 194783,
+    "page_hash_mismatch": 193,
+    "unsigned": 452183
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 129
     },
     "arm64": {
-      "clean": 417196,
+      "clean": 418902,
       "not_real_macho": 108,
-      "page_hash_mismatch": 120,
-      "unsigned": 30693
+      "page_hash_mismatch": 121,
+      "unsigned": 31201
     },
     "arm64e": {
       "clean": 50,
@@ -50,26 +50,26 @@
     "i386": {
       "clean": 287,
       "not_real_macho": 26,
-      "unsigned": 578
+      "unsigned": 584
     },
     "unknown": {
-      "not_real_macho": 165690
+      "not_real_macho": 193992
     },
     "x86_64": {
-      "clean": 21997,
+      "clean": 22074,
       "not_real_macho": 161,
       "page_hash_mismatch": 72,
-      "unsigned": 419582
+      "unsigned": 420259
     }
   },
-  "channel_label": "nixpkgs-unstable @ b3c092d3c36d (2026-06-24)",
+  "channel_label": "nixpkgs-unstable @ 89570f24e97e (2026-06-25)",
   "coverage": {
-    "not_real_macho": 166481,
+    "not_real_macho": 194783,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-06-24 08:38:04 UTC",
+  "generated_at": "2026-06-25 08:38:20 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -79,13 +79,13 @@
       "B7-empty": 14,
       "B7-real": 14,
       "C2": 98,
-      "L": 66
+      "L": 67
     },
     "by_signer": {
       "codesign_signed": 126,
-      "linker_signed": 66
+      "linker_signed": 67
     },
-    "packages": 97,
+    "packages": 98,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "ffmpeg-headless-8.0.1-bin",
@@ -118,23 +118,24 @@
       "tailwindcss_4-4.3.1",
       "teams-for-linux-2.10.0",
       "teams-for-linux-2.11.1",
+      "teams-for-linux-2.12.0",
       "teams-for-linux-2.8.1",
       "teams-for-linux-2.9.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20",
       "zotero-9.0.4",
       "zotero-9.0.5"
     ],
-    "slices": 192
+    "slices": 193
   },
   "paths_by_status": {
-    "fetch_error": 157,
-    "ok": 1120535,
-    "parse_error": 218
+    "fetch_error": 148,
+    "ok": 1125763,
+    "parse_error": 208
   },
-  "paths_scanned": 1120910,
+  "paths_scanned": 1126119,
   "slices_by_arch": {
     "arm": 155,
-    "arm64": 448117,
+    "arm64": 450332,
     "arm64e": 130,
     "cpu_0x00000001/0x00000000": 10,
     "cpu_0x00000002/0x00000000": 10,
@@ -145,9 +146,9 @@
     "cpu_0x00000012/0x00000064": 4,
     "cpu_0x01000012/0x00000000": 76,
     "cpu_0x01000012/0x80000000": 2,
-    "i386": 891,
-    "unknown": 165690,
-    "x86_64": 441812
+    "i386": 897,
+    "unknown": 193992,
+    "x86_64": 442566
   },
-  "slices_total": 1057205
+  "slices_total": 1088482
 }

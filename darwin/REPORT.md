@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ eac1fb927046 (2026-06-24)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ f2d6dbfdc1d6 (2026-06-25)
 
-Generated: 2026-06-24 08:37:18 UTC
+Generated: 2026-06-25 08:37:34 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 357,120 |
-| Mach-O slices parsed | 465,405 |
-| Page-hash mismatches (slices) | 115 |
-| Page-hash mismatches (distinct packages) | 35 |
+| Store paths scanned | 357,754 |
+| Mach-O slices parsed | 467,167 |
+| Page-hash mismatches (slices) | 121 |
+| Page-hash mismatches (distinct packages) | 36 |
 |   of which linker-signed (flags=0x20002) | 23 |
-|   of which codesign-signed (flags=0x2) | 92 |
+|   of which codesign-signed (flags=0x2) | 98 |
 | Other signature-invalid (slices) | 2 |
 | Other signature-invalid (distinct packages) | 2 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-06-24 08:37:18 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 221,425 | 70 | 0 | 205,387 | 15,922 | 46 |
+| `arm64` | 222,586 | 73 | 0 | 206,394 | 16,071 | 48 |
 | `arm64e` | 106 | 0 | 0 | 26 | 0 | 80 |
-| `x86_64` | 228,124 | 45 | 2 | 17,077 | 210,893 | 107 |
-| `i386` | 353 | 0 | 0 | 226 | 123 | 4 |
+| `x86_64` | 228,722 | 48 | 2 | 17,329 | 211,235 | 108 |
+| `i386` | 356 | 0 | 0 | 226 | 126 | 4 |
 | other/legacy (10 arch codes) | 15,397 | 0 | 0 | 4 | 16 | 15,377 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 437,514 | 25 | 2 | 211,749 | 225,734 |
-| fat | 27,891 | 90 | 0 | 10,971 | 1,220 |
+| thin | 439,012 | 25 | 2 | 212,809 | 226,172 |
+| fat | 28,155 | 96 | 0 | 11,170 | 1,276 |
 
-Unique fat binary files: 21,450 in 1,178 packages. 11 of those packages contain at least one failing fat slice.
+Unique fat binary files: 21,583 in 1,208 packages. 12 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -44,6 +44,7 @@ Sorted alphabetically by package name.
 | Package | Failing slices | Store path |
 |---|---:|---|
 | agda2hs-1.4 | 1 | `/nix/store/zxrvxn6il658jlsqhfkkmyffb2mgbj2w-agda2hs-1.4` |
+| avalonia-ilspy-7.2-rc | 6 | `/nix/store/10c1g0f6jsws64b8c3rs3kpaj325lw6f-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/cmdaiic6bkvwd274ms7ygy9dwlca8gnj-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/pcji7v3i87393r1hyrmf24m1wjx2jbq7-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/xw5h6kk2aamsl0lqc3srmnbl2a5y8qj6-avalonia-ilspy-7.2-rc` |
@@ -92,11 +93,11 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 115 |
+| `page_hash_mismatch` | 121 |
 | `other_sig_invalid` | 2 |
-| `clean` (signed, verified) | 222,720 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 226,954 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 15,614 |
+| `clean` (signed, verified) | 223,979 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 227,448 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 15,617 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -107,7 +108,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 0 |
 | Distinct packages containing such binaries | 0 |
-| Failing dylibs that serve as seeds | 84 |
+| Failing dylibs that serve as seeds | 87 |
 | Total (binary, failing-dylib) pairs | 0 |
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).
@@ -122,7 +123,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 35 |
+| Distinct failing seeds | 36 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 
