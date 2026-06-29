@@ -1,8 +1,8 @@
 {
-  "total_rows": 5,
-  "rows_in_default_view": 2,
-  "distinct_dependent_attrs_default_view": 2,
-  "distinct_seeds": 98,
+  "total_rows": 1,
+  "rows_in_default_view": 1,
+  "distinct_dependent_attrs_default_view": 1,
+  "distinct_seeds": 118,
   "edge_filter_default": [
     "buildInputs",
     "checkInputs",
@@ -10,21 +10,15 @@
     "nativeCheckInputs"
   ],
   "by_edge_kind_default_view": {
-    "buildInputs": 1,
     "nativeBuildInputs": 1
   },
   "by_seed_default_view": {
-    "stache-2.3.4": 1,
     "tailwindcss_4-4.3.1": 1
   },
   "dependent_attrs_default_view": [
-    "haskellPackages.mmark-cli",
     "rimgo"
   ],
   "dependents_by_pkg_default_view": {
-    "mmark-cli-0.0.5.2": [
-      "stache-2.3.4"
-    ],
     "rimgo-1.4.2": [
       "tailwindcss_4-4.3.1"
     ]

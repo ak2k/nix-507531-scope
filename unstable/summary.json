@@ -1,91 +1,91 @@
 {
   "buckets": {
-    "clean": 441323,
-    "not_real_macho": 194783,
-    "page_hash_mismatch": 193,
-    "unsigned": 452183
+    "clean": 556527,
+    "not_real_macho": 247810,
+    "page_hash_mismatch": 252,
+    "unsigned": 567326
   },
   "buckets_by_arch": {
     "arm": {
-      "not_real_macho": 26,
-      "unsigned": 129
+      "not_real_macho": 29,
+      "unsigned": 183
     },
     "arm64": {
-      "clean": 418902,
-      "not_real_macho": 108,
-      "page_hash_mismatch": 121,
-      "unsigned": 31201
+      "clean": 524958,
+      "not_real_macho": 141,
+      "page_hash_mismatch": 154,
+      "unsigned": 40310
     },
     "arm64e": {
-      "clean": 50,
-      "not_real_macho": 80
+      "clean": 75,
+      "not_real_macho": 120
     },
     "cpu_0x00000001/0x00000000": {
-      "clean": 10
+      "clean": 12
     },
     "cpu_0x00000002/0x00000000": {
-      "not_real_macho": 10
+      "not_real_macho": 12
     },
     "cpu_0x00000004/0x00000000": {
-      "unsigned": 10
+      "unsigned": 12
     },
     "cpu_0x00000005/0x00000000": {
-      "not_real_macho": 10
+      "not_real_macho": 12
     },
     "cpu_0x00000012/0x00000000": {
-      "not_real_macho": 236
+      "not_real_macho": 346
     },
     "cpu_0x00000012/0x0000000a": {
-      "not_real_macho": 52
+      "not_real_macho": 75
     },
     "cpu_0x00000012/0x00000064": {
-      "not_real_macho": 4
+      "not_real_macho": 6
     },
     "cpu_0x01000012/0x00000000": {
-      "not_real_macho": 76
+      "not_real_macho": 108
     },
     "cpu_0x01000012/0x80000000": {
-      "not_real_macho": 2
+      "not_real_macho": 4
     },
     "i386": {
-      "clean": 287,
-      "not_real_macho": 26,
-      "unsigned": 584
+      "clean": 417,
+      "not_real_macho": 29,
+      "unsigned": 769
     },
     "unknown": {
-      "not_real_macho": 193992
+      "not_real_macho": 246703
     },
     "x86_64": {
-      "clean": 22074,
-      "not_real_macho": 161,
-      "page_hash_mismatch": 72,
-      "unsigned": 420259
+      "clean": 31065,
+      "not_real_macho": 225,
+      "page_hash_mismatch": 98,
+      "unsigned": 526052
     }
   },
-  "channel_label": "nixpkgs-unstable @ 89570f24e97e (2026-06-28)",
+  "channel_label": "nixpkgs-unstable @ e1c1b84752fb (2026-06-29)",
   "coverage": {
-    "not_real_macho": 194783,
+    "not_real_macho": 247810,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-06-28 08:21:12 UTC",
+  "generated_at": "2026-06-29 09:29:12 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-empty": 14,
-      "B7-real": 14,
-      "C2": 98,
-      "L": 67
+      "B7-empty": 15,
+      "B7-real": 20,
+      "C2": 141,
+      "L": 76
     },
     "by_signer": {
-      "codesign_signed": 126,
-      "linker_signed": 67
+      "codesign_signed": 176,
+      "linker_signed": 76
     },
-    "packages": 98,
+    "packages": 118,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "ffmpeg-headless-8.0.1-bin",
@@ -107,6 +107,8 @@
       "opencode-1.16.2",
       "opencode-1.17.4",
       "opencode-1.17.7",
+      "opencode-1.17.9",
+      "qtcharts-5.15.19-bin",
       "shogihome-1.27.1",
       "shogihome-1.27.2",
       "shogihome-1.27.3",
@@ -122,33 +124,35 @@
       "teams-for-linux-2.8.1",
       "teams-for-linux-2.9.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20",
+      "vscode-extension-kilocode-Kilo-Code-7.3.53",
       "zotero-9.0.4",
       "zotero-9.0.5"
     ],
-    "slices": 193
+    "slices": 252
   },
   "paths_by_status": {
-    "fetch_error": 148,
-    "ok": 1125763,
-    "parse_error": 208
+    "fetch_error": 339,
+    "no_narinfo": 6,
+    "ok": 1513331,
+    "parse_error": 480
   },
-  "paths_scanned": 1126119,
+  "paths_scanned": 1514156,
   "slices_by_arch": {
-    "arm": 155,
-    "arm64": 450332,
-    "arm64e": 130,
-    "cpu_0x00000001/0x00000000": 10,
-    "cpu_0x00000002/0x00000000": 10,
-    "cpu_0x00000004/0x00000000": 10,
-    "cpu_0x00000005/0x00000000": 10,
-    "cpu_0x00000012/0x00000000": 236,
-    "cpu_0x00000012/0x0000000a": 52,
-    "cpu_0x00000012/0x00000064": 4,
-    "cpu_0x01000012/0x00000000": 76,
-    "cpu_0x01000012/0x80000000": 2,
-    "i386": 897,
-    "unknown": 193992,
-    "x86_64": 442566
+    "arm": 212,
+    "arm64": 565563,
+    "arm64e": 195,
+    "cpu_0x00000001/0x00000000": 12,
+    "cpu_0x00000002/0x00000000": 12,
+    "cpu_0x00000004/0x00000000": 12,
+    "cpu_0x00000005/0x00000000": 12,
+    "cpu_0x00000012/0x00000000": 346,
+    "cpu_0x00000012/0x0000000a": 75,
+    "cpu_0x00000012/0x00000064": 6,
+    "cpu_0x01000012/0x00000000": 108,
+    "cpu_0x01000012/0x80000000": 4,
+    "i386": 1215,
+    "unknown": 246703,
+    "x86_64": 557440
   },
-  "slices_total": 1088482
+  "slices_total": 1371915
 }

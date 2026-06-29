@@ -1,41 +1,41 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 89570f24e97e (2026-06-28)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ e1c1b84752fb (2026-06-29)
 
-Generated: 2026-06-28 08:21:12 UTC
+Generated: 2026-06-29 09:29:12 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 1,126,119 |
-| Mach-O slices parsed | 1,088,482 |
-| Page-hash mismatches (slices) | 193 |
-| Page-hash mismatches (distinct packages) | 98 |
-|   of which linker-signed (flags=0x20002) | 67 |
-|   of which codesign-signed (flags=0x2) | 126 |
+| Store paths scanned | 1,514,156 |
+| Mach-O slices parsed | 1,371,915 |
+| Page-hash mismatches (slices) | 252 |
+| Page-hash mismatches (distinct packages) | 118 |
+|   of which linker-signed (flags=0x20002) | 76 |
+|   of which codesign-signed (flags=0x2) | 176 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 7 |
 | Type 2 — distinct packages | 5 |
-| Type 3 — packages directly declaring a failing build input (default view) | 2 |
+| Type 3 — packages directly declaring a failing build input (default view) | 1 |
 
 ## By architecture
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 450,332 | 121 | 0 | 418,902 | 31,201 | 108 |
-| `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 442,566 | 72 | 0 | 22,074 | 420,259 | 161 |
-| `i386` | 897 | 0 | 0 | 287 | 584 | 26 |
-| other/legacy (11 arch codes) | 194,557 | 0 | 0 | 10 | 139 | 194,408 |
+| `arm64` | 565,563 | 154 | 0 | 524,958 | 40,310 | 141 |
+| `arm64e` | 195 | 0 | 0 | 75 | 0 | 120 |
+| `x86_64` | 557,440 | 98 | 0 | 31,065 | 526,052 | 225 |
+| `i386` | 1,215 | 0 | 0 | 417 | 769 | 29 |
+| other/legacy (11 arch codes) | 247,502 | 0 | 0 | 12 | 195 | 247,295 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 871,235 | 89 | 0 | 423,430 | 447,529 |
-| fat | 217,247 | 104 | 0 | 17,893 | 4,654 |
+| thin | 1,094,396 | 102 | 0 | 532,236 | 561,781 |
+| fat | 277,519 | 150 | 0 | 24,291 | 5,545 |
 
-Unique fat binary files: 205,451 in 3,953 packages. 16 of those packages contain at least one failing fat slice.
+Unique fat binary files: 261,872 in 4,820 packages. 23 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -46,9 +46,12 @@ Sorted alphabetically by package name.
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/3f1d7cjknlb5lmf5fjdffcs334chnzkq-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/7mhskg5xn99f3y19qrkc71swg6rm663m-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/a96fj054573w4a5n2xh4rpfvvfrz87lh-avalonia-ilspy-7.2-rc` |
+| avalonia-ilspy-7.2-rc | 6 | `/nix/store/jqdz7g2x3pr91fv4k1a227vbk2zzwkbc-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/lxabgj4a939bv2s4wdxjrgb3yqfq4yjj-avalonia-ilspy-7.2-rc` |
 | ffmpeg-headless-8.0.1-bin | 2 | `/nix/store/lg9r937b4q70s5qqvjhdkf7rnn5x4xvd-ffmpeg-headless-8.0.1-bin` |
 | ffmpeg-headless-8.0.1-lib | 7 | `/nix/store/04iq3b9rv98l2grc82mh53w1br70ms1b-ffmpeg-headless-8.0.1-lib` |
+| filen-cli-0.0.36 | 1 | `/nix/store/1c8addf04ahbkl17xp49csnm2v6s87f2-filen-cli-0.0.36` |
+| filen-cli-0.0.36 | 1 | `/nix/store/4iz6w1byhh65qgas9dg2cywvy36lnssn-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/5595x11jf389bj955gngxzpx11lara5n-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/77yybvq3q7dd38srfj93n84w3wjg3y4r-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/dd0g9sxbvs4sc7h6gm92gfqymf9302a1-filen-cli-0.0.36` |
@@ -61,6 +64,7 @@ Sorted alphabetically by package name.
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1xakdirg2mk3pk1qpyrk5p1hqs6m7yaq-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/3z6q05ba0mmv3b3y9jq8vgyb618jny30-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/516v4myw7xx03knkf3alcn62j7lcac37-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/5cr4w7yvdi5rnbj2lk2d12rjv10ijl3d-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/6pzd3yz3x8ib4vv4ky9i8v00q8q2nd5w-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/6v6qv6c6ix4pdshb00i4w476b9svaffi-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/73sbgp26iy1v29ygq3yf07x4ckmim21w-gitlab-duo-8.89.0` |
@@ -84,8 +88,10 @@ Sorted alphabetically by package name.
 | httptoolkit-1.26.0 | 1 | `/nix/store/nb8nvlirvjhyilzhybcfgxx4qhr8vzhv-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/rsz3j3r7d0gl5h9d6hv17mqp9xy9vix0-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/x5l1x55hk5qvgiwshl5bakr7n2sj4ndr-httptoolkit-1.26.0` |
+| httptoolkit-1.26.0 | 1 | `/nix/store/zy16z8a20myjnz1v3hk5b36y4i4csh05-httptoolkit-1.26.0` |
 | kilo-7.3.40 | 1 | `/nix/store/bwbxzzpgd3x201a6ikwxsv4pyni2gjx2-kilo-7.3.40` |
 | libtorch-2.9.0 | 1 | `/nix/store/jd0fnglnhz9pf6vyqsdl22z65cidmz21-libtorch-2.9.0` |
+| libtorch-2.9.0 | 1 | `/nix/store/n4hxxplikjy50p40fzxghi07a6qzzk4v-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/vla1rdlyipmbynck3vq0vr51gij4fryk-libtorch-2.9.0` |
 | mmsyn7ukr-array-0.3.0.0 | 1 | `/nix/store/ffmz0x0yik7jgrw0ljlmg1n6y041fh2x-mmsyn7ukr-array-0.3.0.0` |
 | opencode-1.14.35 | 1 | `/nix/store/g1r8yb5n0k1kpy13k16a3vw8w6admpyi-opencode-1.14.35` |
@@ -100,21 +106,28 @@ Sorted alphabetically by package name.
 | opencode-1.16.2 | 1 | `/nix/store/380vjma5320nknl45fkvyhaiz6gnxgyv-opencode-1.16.2` |
 | opencode-1.17.4 | 1 | `/nix/store/p23042pa3iqf4gaiihdpbvkp9gs5ky4c-opencode-1.17.4` |
 | opencode-1.17.7 | 1 | `/nix/store/yxclajlc2f9b6wiwa0hazn1xqy42py5x-opencode-1.17.7` |
+| opencode-1.17.9 | 1 | `/nix/store/4jp729qvs98la97zvnsrwfkm4flzcb5g-opencode-1.17.9` |
+| qtcharts-5.15.19-bin | 1 | `/nix/store/dvdsnrnf7mipl6y1ab6psv3wkkj7815x-qtcharts-5.15.19-bin` |
 | shogihome-1.27.1 | 1 | `/nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1` |
 | shogihome-1.27.2 | 1 | `/nix/store/1cwb73vi5aa1nlpbr7ychywlbmkpl19l-shogihome-1.27.2` |
 | shogihome-1.27.2 | 1 | `/nix/store/5xvqqb06qb22vz2jfz8mn80w9ma2fzby-shogihome-1.27.2` |
+| shogihome-1.27.3 | 1 | `/nix/store/26lk67lykhcrnlrshv2gigpl8v3jlkkj-shogihome-1.27.3` |
 | shogihome-1.27.3 | 1 | `/nix/store/63fx8404ppm6n773sdkcwvwhfwggai5g-shogihome-1.27.3` |
 | shogihome-1.27.3 | 1 | `/nix/store/qj3ifm7z75y5j7mjch9sah0jwabqr35x-shogihome-1.27.3` |
 | shogihome-1.27.3 | 1 | `/nix/store/srly270piz0pjdd6rsvjx1lr51ijf3wc-shogihome-1.27.3` |
 | stache-2.3.4 | 1 | `/nix/store/19vf8xbrlh0i4qqvqvvqpc1jxy1klvz8-stache-2.3.4` |
+| swift-5.10.1 | 11 | `/nix/store/8dv7sip8h5w8xjkpkh4ynijd00klhqx5-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/f7d3lcdzanmqw5icnxkgcx6kqha1ibif-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/g8ifnf6b7v65bp2hl78i5mrjc8kbblaw-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/p1fpxz9l7rc91fzp0ckwrsxmizqmbvc1-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/qg9vqxfpaqq8cra97dpxk7l2ry1bsrax-swift-5.10.1` |
+| swift-5.10.1 | 11 | `/nix/store/wr4k2mpjkgkmh39xy4gcrmhcc07wrvbd-swift-5.10.1` |
 | swift-5.10.1-lib | 7 | `/nix/store/1vpqmjivp6j62rcpkrr86pirpn12fzaq-swift-5.10.1-lib` |
 | swift-5.10.1-lib | 7 | `/nix/store/85sw2bgkpnqnsrj324cz61hxf7r57v5i-swift-5.10.1-lib` |
+| swift-5.10.1-lib | 7 | `/nix/store/9hxyg2mlvpmwdk7v027p9kchdysjcwfm-swift-5.10.1-lib` |
 | swift-5.10.1-lib | 7 | `/nix/store/h2zz94xy40rnil834vjvikkvrxcsc96n-swift-5.10.1-lib` |
 | swift-5.10.1-lib | 7 | `/nix/store/i7j1sls91fmn5vynqryfwhn463mv3jn0-swift-5.10.1-lib` |
+| swift-5.10.1-lib | 7 | `/nix/store/ihs1bjs31gl8kcxdwp896jnbawg73jwf-swift-5.10.1-lib` |
 | tailwindcss_4-4.2.4 | 1 | `/nix/store/36fkkxav9kvwn0g3571gf3cay92vwyix-tailwindcss_4-4.2.4` |
 | tailwindcss_4-4.2.4 | 1 | `/nix/store/fpcmaqm4a8df6c38wzh5lz7s7d12178q-tailwindcss_4-4.2.4` |
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/1ir3rnq4a4z963c81sz3mcab35jflm43-tailwindcss_4-4.3.0` |
@@ -123,6 +136,8 @@ Sorted alphabetically by package name.
 | tailwindcss_4-4.3.0 | 1 | `/nix/store/rcdpbw2hfzljsmvrdcjny1brix3xy1fv-tailwindcss_4-4.3.0` |
 | tailwindcss_4-4.3.1 | 1 | `/nix/store/12pf68d4awjxb9vk6icli7asdqyrcah3-tailwindcss_4-4.3.1` |
 | tailwindcss_4-4.3.1 | 1 | `/nix/store/4cmsm0k1pyl0pl0ph37gizg3ydgqcpym-tailwindcss_4-4.3.1` |
+| tailwindcss_4-4.3.1 | 1 | `/nix/store/96qqbp9z1lsq9bwxw2fbxmjnyqclb86q-tailwindcss_4-4.3.1` |
+| tailwindcss_4-4.3.1 | 1 | `/nix/store/hgw2ymc5nan6xmil94m6akz27r858fr6-tailwindcss_4-4.3.1` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/4qsz50ns5gj04lvfbfjji53lxbqnw3fp-teams-for-linux-2.10.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/bw8x9wyvi6vbhjwjpjisq982s02217mb-teams-for-linux-2.10.0` |
 | teams-for-linux-2.10.0 | 1 | `/nix/store/q2dbgmblhxcc0dq5a5yv1adyz0i5hfzm-teams-for-linux-2.10.0` |
@@ -130,6 +145,7 @@ Sorted alphabetically by package name.
 | teams-for-linux-2.11.1 | 1 | `/nix/store/ic4227vk2dfpz3x4w43l52cx6s1cnzl3-teams-for-linux-2.11.1` |
 | teams-for-linux-2.11.1 | 1 | `/nix/store/qa5nqwj53a86i4d743750s3ck83vh8iq-teams-for-linux-2.11.1` |
 | teams-for-linux-2.12.0 | 1 | `/nix/store/nwzcinamw9gjq82i85qfzdi3lx0wy7pl-teams-for-linux-2.12.0` |
+| teams-for-linux-2.12.0 | 1 | `/nix/store/xmmnpmdm1ddkwmrk6wagha09jb3i84lk-teams-for-linux-2.12.0` |
 | teams-for-linux-2.8.1 | 1 | `/nix/store/a36aakz4z3ihzamlvkq6384c3vqp8pcb-teams-for-linux-2.8.1` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/f1r0hs7dgi6wfv59ms698gnlv76n09wb-teams-for-linux-2.9.0` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/kdjbkgsi89f7n9ldhfvfficl76593vlg-teams-for-linux-2.9.0` |
@@ -137,20 +153,24 @@ Sorted alphabetically by package name.
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/pdf6h2gw3a1m466w03j4ibxrfbd289ms-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/pgpzrqgvw4h1285bhmvsxy7kcl7ivb74-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/rriv3xrcfw1pw899n7x3q34ijfd5wis3-vscode-extension-kilocode-Kilo-Code-7.2.20` |
+| vscode-extension-kilocode-Kilo-Code-7.3.53 | 1 | `/nix/store/83fagcxfn9xbrc7fc0hvl829kmz1mn9j-vscode-extension-kilocode-Kilo-Code-7.3.53` |
+| vscode-extension-kilocode-Kilo-Code-7.3.53 | 1 | `/nix/store/hx2mmww8s5rpqcgbx16n6l687qnxp8v3-vscode-extension-kilocode-Kilo-Code-7.3.53` |
 | zotero-9.0.4 | 2 | `/nix/store/6iblj6gh65199c25xqjr4fvc88ihb9qq-zotero-9.0.4` |
 | zotero-9.0.4 | 2 | `/nix/store/8vrnwr7262535s80p6qaabic6rdj2122-zotero-9.0.4` |
+| zotero-9.0.5 | 2 | `/nix/store/0z1h0cmxzvg0r6prghf40n6x75c4rgr1-zotero-9.0.5` |
 | zotero-9.0.5 | 2 | `/nix/store/42wp3frqjb4mxr7zi2dgx3sd1q7k7342-zotero-9.0.5` |
 | zotero-9.0.5 | 2 | `/nix/store/dhqh6xagy29z5pfzpmx1klfzbrbxpia5-zotero-9.0.5` |
+| zotero-9.0.5 | 2 | `/nix/store/lnzd55wxk4c66h29m3p4358ciq1kqjpz-zotero-9.0.5` |
 
 ## Slice classification
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 193 |
+| `page_hash_mismatch` | 252 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 441,323 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 452,183 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 194,783 |
+| `clean` (signed, verified) | 556,527 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 567,326 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 247,810 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -161,7 +181,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 7 |
 | Distinct packages containing such binaries | 5 |
-| Failing dylibs that serve as seeds | 94 |
+| Failing dylibs that serve as seeds | 135 |
 | Total (binary, failing-dylib) pairs | 153 |
 
 Top failing dylibs by number of downstream binaries:
@@ -181,26 +201,24 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 
 | Metric | Count |
 |---|---:|
-| Packages with failing seeds in declared build/check inputs (default view) | 2 |
-| Total direct-edge rows (default view) | 2 |
-| Total rows including propagated edges | 5 |
-| Distinct failing seeds | 98 |
+| Packages with failing seeds in declared build/check inputs (default view) | 1 |
+| Total direct-edge rows (default view) | 1 |
+| Total rows including propagated edges | 1 |
+| Distinct failing seeds | 118 |
 
 Edges by kind (default view only):
 
 | Edge kind | Count |
 |---|---:|
-| `buildInputs` | 1 |
 | `nativeBuildInputs` | 1 |
 
 Top seed packages by downstream dependent count:
 
 | Seed package | Downstream dependents |
 |---|---:|
-| `stache-2.3.4` | 1 |
 | `tailwindcss_4-4.3.1` | 1 |
 
-Dependent packages (2): `haskellPackages.mmark-cli`, `rimgo`
+Dependent packages (1): `rimgo`
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 

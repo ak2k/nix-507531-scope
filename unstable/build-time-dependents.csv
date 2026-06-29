@@ -1,6 +1,2 @@
 dependent_attr,dependent_drv,dependent_pkg,seed_store_path,seed_attr,seed_pkg,edge_kind,in_default_view
-haskellPackages.clash-shake,/nix/store/9n41p6w2idp7dp93cbrjlsqc4cvn13l2-clash-shake-0.4.0.drv,clash-shake-0.4.0,/nix/store/19vf8xbrlh0i4qqvqvvqpc1jxy1klvz8-stache-2.3.4,haskellPackages.stache,stache-2.3.4,propagatedBuildInputs,False
-haskellPackages.mmark-cli,/nix/store/2nll4knbwp915ndhrdfnjqyiwn4pmxh3-mmark-cli-0.0.5.2.drv,mmark-cli-0.0.5.2,/nix/store/19vf8xbrlh0i4qqvqvvqpc1jxy1klvz8-stache-2.3.4,haskellPackages.stache,stache-2.3.4,buildInputs,True
-haskellPackages.specup,/nix/store/c3qp49q6m2frk2mxvs7a4svwsi75cqny-specup-0.2.0.6.drv,specup-0.2.0.6,/nix/store/19vf8xbrlh0i4qqvqvvqpc1jxy1klvz8-stache-2.3.4,haskellPackages.stache,stache-2.3.4,propagatedBuildInputs,False
-rimgo,/nix/store/if53mrf013815m1mjw0mzdi62lyg2h64-rimgo-1.4.2.drv,rimgo-1.4.2,/nix/store/12pf68d4awjxb9vk6icli7asdqyrcah3-tailwindcss_4-4.3.1,tailwindcss_4,tailwindcss_4-4.3.1,nativeBuildInputs,True
-specup,/nix/store/c3qp49q6m2frk2mxvs7a4svwsi75cqny-specup-0.2.0.6.drv,specup-0.2.0.6,/nix/store/19vf8xbrlh0i4qqvqvvqpc1jxy1klvz8-stache-2.3.4,haskellPackages.stache,stache-2.3.4,propagatedBuildInputs,False
+rimgo,/nix/store/016711v8h1k75wdcjqvrbz005ca9d1qc-rimgo-1.4.2.drv,rimgo-1.4.2,/nix/store/96qqbp9z1lsq9bwxw2fbxmjnyqclb86q-tailwindcss_4-4.3.1,tailwindcss_4,tailwindcss_4-4.3.1,nativeBuildInputs,True

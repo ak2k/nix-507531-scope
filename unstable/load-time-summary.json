@@ -2,7 +2,7 @@
   "total_rows": 153,
   "distinct_binaries": 7,
   "distinct_dependent_packages": 5,
-  "distinct_seed_dylibs": 94,
+  "distinct_seed_dylibs": 135,
   "by_seed_package": {
     "ffmpeg-headless-8.0.1-lib": 153
   },

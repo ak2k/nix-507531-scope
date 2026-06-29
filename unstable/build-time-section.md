@@ -6,25 +6,23 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 
 | Metric | Count |
 |---|---:|
-| Packages with failing seeds in declared build/check inputs (default view) | 2 |
-| Total direct-edge rows (default view) | 2 |
-| Total rows including propagated edges | 5 |
-| Distinct failing seeds | 98 |
+| Packages with failing seeds in declared build/check inputs (default view) | 1 |
+| Total direct-edge rows (default view) | 1 |
+| Total rows including propagated edges | 1 |
+| Distinct failing seeds | 118 |
 
 Edges by kind (default view only):
 
 | Edge kind | Count |
 |---|---:|
-| `buildInputs` | 1 |
 | `nativeBuildInputs` | 1 |
 
 Top seed packages by downstream dependent count:
 
 | Seed package | Downstream dependents |
 |---|---:|
-| `stache-2.3.4` | 1 |
 | `tailwindcss_4-4.3.1` | 1 |
 
-Dependent packages (2): `haskellPackages.mmark-cli`, `rimgo`
+Dependent packages (1): `rimgo`
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
