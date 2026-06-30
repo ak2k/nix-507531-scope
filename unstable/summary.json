@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 556527,
-    "not_real_macho": 247810,
+    "clean": 558307,
+    "not_real_macho": 248345,
     "page_hash_mismatch": 252,
-    "unsigned": 567326
+    "unsigned": 568550
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 183
     },
     "arm64": {
-      "clean": 524958,
+      "clean": 526491,
       "not_real_macho": 141,
       "page_hash_mismatch": 154,
-      "unsigned": 40310
+      "unsigned": 40324
     },
     "arm64e": {
       "clean": 75,
@@ -53,23 +53,23 @@
       "unsigned": 769
     },
     "unknown": {
-      "not_real_macho": 246703
+      "not_real_macho": 247238
     },
     "x86_64": {
-      "clean": 31065,
+      "clean": 31312,
       "not_real_macho": 225,
       "page_hash_mismatch": 98,
-      "unsigned": 526052
+      "unsigned": 527262
     }
   },
-  "channel_label": "nixpkgs-unstable @ e1c1b84752fb (2026-06-29)",
+  "channel_label": "nixpkgs-unstable @ 7a1a64774a5f (2026-06-30)",
   "coverage": {
-    "not_real_macho": 247810,
+    "not_real_macho": 248345,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-06-29 09:29:12 UTC",
+  "generated_at": "2026-06-30 09:02:05 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -131,15 +131,15 @@
     "slices": 252
   },
   "paths_by_status": {
-    "fetch_error": 339,
+    "fetch_error": 249,
     "no_narinfo": 6,
-    "ok": 1513331,
-    "parse_error": 480
+    "ok": 1518255,
+    "parse_error": 381
   },
-  "paths_scanned": 1514156,
+  "paths_scanned": 1518891,
   "slices_by_arch": {
     "arm": 212,
-    "arm64": 565563,
+    "arm64": 567110,
     "arm64e": 195,
     "cpu_0x00000001/0x00000000": 12,
     "cpu_0x00000002/0x00000000": 12,
@@ -151,8 +151,8 @@
     "cpu_0x01000012/0x00000000": 108,
     "cpu_0x01000012/0x80000000": 4,
     "i386": 1215,
-    "unknown": 246703,
-    "x86_64": 557440
+    "unknown": 247238,
+    "x86_64": 558897
   },
-  "slices_total": 1371915
+  "slices_total": 1375454
 }

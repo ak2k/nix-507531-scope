@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ e1c1b84752fb (2026-06-29)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 7a1a64774a5f (2026-06-30)
 
-Generated: 2026-06-29 09:29:12 UTC
+Generated: 2026-06-30 09:02:05 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 1,514,156 |
-| Mach-O slices parsed | 1,371,915 |
+| Store paths scanned | 1,518,891 |
+| Mach-O slices parsed | 1,375,454 |
 | Page-hash mismatches (slices) | 252 |
 | Page-hash mismatches (distinct packages) | 118 |
 |   of which linker-signed (flags=0x20002) | 76 |
@@ -22,20 +22,20 @@ Generated: 2026-06-29 09:29:12 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 565,563 | 154 | 0 | 524,958 | 40,310 | 141 |
+| `arm64` | 567,110 | 154 | 0 | 526,491 | 40,324 | 141 |
 | `arm64e` | 195 | 0 | 0 | 75 | 0 | 120 |
-| `x86_64` | 557,440 | 98 | 0 | 31,065 | 526,052 | 225 |
+| `x86_64` | 558,897 | 98 | 0 | 31,312 | 527,262 | 225 |
 | `i386` | 1,215 | 0 | 0 | 417 | 769 | 29 |
-| other/legacy (11 arch codes) | 247,502 | 0 | 0 | 12 | 195 | 247,295 |
+| other/legacy (11 arch codes) | 248,037 | 0 | 0 | 12 | 195 | 247,830 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,094,396 | 102 | 0 | 532,236 | 561,781 |
-| fat | 277,519 | 150 | 0 | 24,291 | 5,545 |
+| thin | 1,097,324 | 102 | 0 | 533,958 | 562,987 |
+| fat | 278,130 | 150 | 0 | 24,349 | 5,563 |
 
-Unique fat binary files: 261,872 in 4,820 packages. 23 of those packages contain at least one failing fat slice.
+Unique fat binary files: 262,445 in 4,840 packages. 23 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -168,9 +168,9 @@ Sorted alphabetically by package name.
 |---|---:|
 | `page_hash_mismatch` | 252 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 556,527 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 567,326 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 247,810 |
+| `clean` (signed, verified) | 558,307 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 568,550 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 248,345 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
