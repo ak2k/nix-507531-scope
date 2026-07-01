@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 7a1a64774a5f (2026-06-30)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 7a1a64774a5f (2026-07-01)
 
-Generated: 2026-06-30 09:02:05 UTC
+Generated: 2026-07-01 09:11:28 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 1,518,891 |
-| Mach-O slices parsed | 1,375,454 |
-| Page-hash mismatches (slices) | 252 |
-| Page-hash mismatches (distinct packages) | 118 |
-|   of which linker-signed (flags=0x20002) | 76 |
+| Store paths scanned | 1,525,079 |
+| Mach-O slices parsed | 1,378,049 |
+| Page-hash mismatches (slices) | 253 |
+| Page-hash mismatches (distinct packages) | 119 |
+|   of which linker-signed (flags=0x20002) | 77 |
 |   of which codesign-signed (flags=0x2) | 176 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-06-30 09:02:05 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 567,110 | 154 | 0 | 526,491 | 40,324 | 141 |
+| `arm64` | 568,545 | 155 | 0 | 527,920 | 40,329 | 141 |
 | `arm64e` | 195 | 0 | 0 | 75 | 0 | 120 |
-| `x86_64` | 558,897 | 98 | 0 | 31,312 | 527,262 | 225 |
+| `x86_64` | 559,945 | 98 | 0 | 31,360 | 528,262 | 225 |
 | `i386` | 1,215 | 0 | 0 | 417 | 769 | 29 |
-| other/legacy (11 arch codes) | 248,037 | 0 | 0 | 12 | 195 | 247,830 |
+| other/legacy (11 arch codes) | 248,149 | 0 | 0 | 12 | 195 | 247,942 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,097,324 | 102 | 0 | 533,958 | 562,987 |
-| fat | 278,130 | 150 | 0 | 24,349 | 5,563 |
+| thin | 1,099,723 | 103 | 0 | 535,367 | 563,976 |
+| fat | 278,326 | 150 | 0 | 24,417 | 5,579 |
 
-Unique fat binary files: 262,445 in 4,840 packages. 23 of those packages contain at least one failing fat slice.
+Unique fat binary files: 262,599 in 4,858 packages. 23 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -146,6 +146,7 @@ Sorted alphabetically by package name.
 | teams-for-linux-2.11.1 | 1 | `/nix/store/qa5nqwj53a86i4d743750s3ck83vh8iq-teams-for-linux-2.11.1` |
 | teams-for-linux-2.12.0 | 1 | `/nix/store/nwzcinamw9gjq82i85qfzdi3lx0wy7pl-teams-for-linux-2.12.0` |
 | teams-for-linux-2.12.0 | 1 | `/nix/store/xmmnpmdm1ddkwmrk6wagha09jb3i84lk-teams-for-linux-2.12.0` |
+| teams-for-linux-2.13.0 | 1 | `/nix/store/zsmpnhbmprfqppvmjlnkqnbdgp50n1rz-teams-for-linux-2.13.0` |
 | teams-for-linux-2.8.1 | 1 | `/nix/store/a36aakz4z3ihzamlvkq6384c3vqp8pcb-teams-for-linux-2.8.1` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/f1r0hs7dgi6wfv59ms698gnlv76n09wb-teams-for-linux-2.9.0` |
 | teams-for-linux-2.9.0 | 1 | `/nix/store/kdjbkgsi89f7n9ldhfvfficl76593vlg-teams-for-linux-2.9.0` |
@@ -166,11 +167,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 252 |
+| `page_hash_mismatch` | 253 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 558,307 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 568,550 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 248,345 |
+| `clean` (signed, verified) | 559,784 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 569,555 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 248,457 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -204,7 +205,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 118 |
+| Distinct failing seeds | 119 |
 
 Edges by kind (default view only):
 

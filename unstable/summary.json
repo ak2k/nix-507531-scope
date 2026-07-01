@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 558307,
-    "not_real_macho": 248345,
-    "page_hash_mismatch": 252,
-    "unsigned": 568550
+    "clean": 559784,
+    "not_real_macho": 248457,
+    "page_hash_mismatch": 253,
+    "unsigned": 569555
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 183
     },
     "arm64": {
-      "clean": 526491,
+      "clean": 527920,
       "not_real_macho": 141,
-      "page_hash_mismatch": 154,
-      "unsigned": 40324
+      "page_hash_mismatch": 155,
+      "unsigned": 40329
     },
     "arm64e": {
       "clean": 75,
@@ -53,23 +53,23 @@
       "unsigned": 769
     },
     "unknown": {
-      "not_real_macho": 247238
+      "not_real_macho": 247350
     },
     "x86_64": {
-      "clean": 31312,
+      "clean": 31360,
       "not_real_macho": 225,
       "page_hash_mismatch": 98,
-      "unsigned": 527262
+      "unsigned": 528262
     }
   },
-  "channel_label": "nixpkgs-unstable @ 7a1a64774a5f (2026-06-30)",
+  "channel_label": "nixpkgs-unstable @ 7a1a64774a5f (2026-07-01)",
   "coverage": {
-    "not_real_macho": 248345,
+    "not_real_macho": 248457,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-06-30 09:02:05 UTC",
+  "generated_at": "2026-07-01 09:11:28 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -79,13 +79,13 @@
       "B7-empty": 15,
       "B7-real": 20,
       "C2": 141,
-      "L": 76
+      "L": 77
     },
     "by_signer": {
       "codesign_signed": 176,
-      "linker_signed": 76
+      "linker_signed": 77
     },
-    "packages": 118,
+    "packages": 119,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "ffmpeg-headless-8.0.1-bin",
@@ -121,6 +121,7 @@
       "teams-for-linux-2.10.0",
       "teams-for-linux-2.11.1",
       "teams-for-linux-2.12.0",
+      "teams-for-linux-2.13.0",
       "teams-for-linux-2.8.1",
       "teams-for-linux-2.9.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20",
@@ -128,18 +129,18 @@
       "zotero-9.0.4",
       "zotero-9.0.5"
     ],
-    "slices": 252
+    "slices": 253
   },
   "paths_by_status": {
-    "fetch_error": 249,
+    "fetch_error": 224,
     "no_narinfo": 6,
-    "ok": 1518255,
-    "parse_error": 381
+    "ok": 1524496,
+    "parse_error": 353
   },
-  "paths_scanned": 1518891,
+  "paths_scanned": 1525079,
   "slices_by_arch": {
     "arm": 212,
-    "arm64": 567110,
+    "arm64": 568545,
     "arm64e": 195,
     "cpu_0x00000001/0x00000000": 12,
     "cpu_0x00000002/0x00000000": 12,
@@ -151,8 +152,8 @@
     "cpu_0x01000012/0x00000000": 108,
     "cpu_0x01000012/0x80000000": 4,
     "i386": 1215,
-    "unknown": 247238,
-    "x86_64": 558897
+    "unknown": 247350,
+    "x86_64": 559945
   },
-  "slices_total": 1375454
+  "slices_total": 1378049
 }
