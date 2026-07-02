@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 1d4e0f865d68 (2026-07-01)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 966064cdb41f (2026-07-02)
 
-Generated: 2026-07-01 09:10:25 UTC
+Generated: 2026-07-02 08:44:51 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 358,347 |
-| Mach-O slices parsed | 495,642 |
+| Store paths scanned | 358,359 |
+| Mach-O slices parsed | 495,726 |
 | Page-hash mismatches (slices) | 121 |
 | Page-hash mismatches (distinct packages) | 36 |
 |   of which linker-signed (flags=0x20002) | 23 |
@@ -22,9 +22,9 @@ Generated: 2026-07-01 09:10:25 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 235,219 | 73 | 0 | 219,025 | 16,073 | 48 |
+| `arm64` | 235,261 | 73 | 0 | 219,067 | 16,073 | 48 |
 | `arm64e` | 106 | 0 | 0 | 26 | 0 | 80 |
-| `x86_64` | 244,564 | 48 | 2 | 17,357 | 227,049 | 108 |
+| `x86_64` | 244,606 | 48 | 2 | 17,357 | 227,091 | 108 |
 | `i386` | 356 | 0 | 0 | 226 | 126 | 4 |
 | other/legacy (10 arch codes) | 15,397 | 0 | 0 | 4 | 16 | 15,377 |
 
@@ -32,7 +32,7 @@ Generated: 2026-07-01 09:10:25 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 467,451 | 25 | 2 | 225,432 | 241,988 |
+| thin | 467,535 | 25 | 2 | 225,474 | 242,030 |
 | fat | 28,191 | 96 | 0 | 11,206 | 1,276 |
 
 Unique fat binary files: 21,601 in 1,210 packages. 12 of those packages contain at least one failing fat slice.
@@ -95,8 +95,8 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 |---|---:|
 | `page_hash_mismatch` | 121 |
 | `other_sig_invalid` | 2 |
-| `clean` (signed, verified) | 236,638 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 243,264 |
+| `clean` (signed, verified) | 236,680 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 243,306 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 15,617 |
 | `scanner_error` | 0 |
 
