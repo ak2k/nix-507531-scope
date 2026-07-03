@@ -61,14 +61,14 @@
       "unsigned": 227091
     }
   },
-  "channel_label": "nixpkgs-25.11-darwin @ 966064cdb41f (2026-07-02)",
+  "channel_label": "nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-07-03)",
   "coverage": {
     "not_real_macho": 15617,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-07-02 08:44:51 UTC",
+  "generated_at": "2026-07-03 08:15:36 UTC",
   "other_sig_invalid": {
     "packages": 2,
     "slices": 2
@@ -103,10 +103,10 @@
   },
   "paths_by_status": {
     "fetch_error": 2,
-    "ok": 358288,
+    "ok": 358290,
     "parse_error": 69
   },
-  "paths_scanned": 358359,
+  "paths_scanned": 358361,
   "slices_by_arch": {
     "arm": 16,
     "arm64": 235261,

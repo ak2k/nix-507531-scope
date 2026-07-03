@@ -1,12 +1,12 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 966064cdb41f (2026-07-02)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-07-03)
 
-Generated: 2026-07-02 08:44:51 UTC
+Generated: 2026-07-03 08:15:36 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 358,359 |
+| Store paths scanned | 358,361 |
 | Mach-O slices parsed | 495,726 |
 | Page-hash mismatches (slices) | 121 |
 | Page-hash mismatches (distinct packages) | 36 |
