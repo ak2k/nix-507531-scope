@@ -1,12 +1,12 @@
-# NixOS/nixpkgs#507531 cache scan — release-25.11 @ 0921fdb3e13e (2026-07-06)
+# NixOS/nixpkgs#507531 cache scan — release-25.11 @ cd648d6ea62b (2026-07-07)
 
-Generated: 2026-07-06 09:02:42 UTC
+Generated: 2026-07-07 08:16:23 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 241,013 |
+| Store paths scanned | 241,014 |
 | Mach-O slices parsed | 269,986 |
 | Page-hash mismatches (slices) | 55 |
 | Page-hash mismatches (distinct packages) | 22 |

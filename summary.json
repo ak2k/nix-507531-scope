@@ -79,14 +79,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-07-06)",
+      "channel_label": "nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-07-07)",
       "coverage": {
         "not_real_macho": 15617,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-07-06 09:02:31 UTC",
+      "generated_at": "2026-07-07 08:16:15 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -229,14 +229,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "release-25.11 @ 0921fdb3e13e (2026-07-06)",
+      "channel_label": "release-25.11 @ cd648d6ea62b (2026-07-07)",
       "coverage": {
         "not_real_macho": 8591,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-07-06 09:02:42 UTC",
+      "generated_at": "2026-07-07 08:16:23 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -278,11 +278,11 @@
       },
       "paths_by_status": {
         "fetch_error": 9,
-        "no_narinfo": 40020,
+        "no_narinfo": 40021,
         "ok": 200922,
         "parse_error": 62
       },
-      "paths_scanned": 241013,
+      "paths_scanned": 241014,
       "slices_by_arch": {
         "arm": 22,
         "arm64": 253497,
@@ -391,14 +391,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-unstable @ f205b5574fd0 (2026-07-06)",
+      "channel_label": "nixpkgs-unstable @ f205b5574fd0 (2026-07-07)",
       "coverage": {
         "not_real_macho": 253625,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-07-06 09:03:40 UTC",
+      "generated_at": "2026-07-07 08:17:16 UTC",
       "load_time_transitive": {
         "by_seed_package": {
           "ffmpeg-headless-8.0.1-lib": 153
@@ -521,7 +521,7 @@
       "slices_total": 1450421
     }
   },
-  "generated_at": "2026-07-06 09:42:45 UTC",
+  "generated_at": "2026-07-07 08:43:46 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 15,
@@ -533,7 +533,7 @@
     "packages": 48,
     "slices": 437
   },
-  "paths_scanned": 2169766,
+  "paths_scanned": 2169767,
   "slices_total": 2216133,
   "union": {
     "build_time_packages_default_view": [

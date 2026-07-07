@@ -59,14 +59,14 @@
       "unsigned": 2738
     }
   },
-  "channel_label": "release-25.11 @ 0921fdb3e13e (2026-07-06)",
+  "channel_label": "release-25.11 @ cd648d6ea62b (2026-07-07)",
   "coverage": {
     "not_real_macho": 8591,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-07-06 09:02:42 UTC",
+  "generated_at": "2026-07-07 08:16:23 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -99,11 +99,11 @@
   },
   "paths_by_status": {
     "fetch_error": 9,
-    "no_narinfo": 40020,
+    "no_narinfo": 40021,
     "ok": 200922,
     "parse_error": 62
   },
-  "paths_scanned": 241013,
+  "paths_scanned": 241014,
   "slices_by_arch": {
     "arm": 22,
     "arm64": 253497,
