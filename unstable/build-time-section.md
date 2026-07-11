@@ -6,23 +6,9 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 
 | Metric | Count |
 |---|---:|
-| Packages with failing seeds in declared build/check inputs (default view) | 1 |
-| Total direct-edge rows (default view) | 1 |
-| Total rows including propagated edges | 1 |
-| Distinct failing seeds | 125 |
-
-Edges by kind (default view only):
-
-| Edge kind | Count |
-|---|---:|
-| `nativeBuildInputs` | 1 |
-
-Top seed packages by downstream dependent count:
-
-| Seed package | Downstream dependents |
-|---|---:|
-| `tailwindcss_4-4.3.1` | 1 |
-
-Dependent packages (1): `rimgo`
+| Packages with failing seeds in declared build/check inputs (default view) | 0 |
+| Total direct-edge rows (default view) | 0 |
+| Total rows including propagated edges | 0 |
+| Distinct failing seeds | 132 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).

@@ -165,6 +165,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/jqdz7g2x3pr91fv4k1a227vbk2zzwkbc-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,x86_64,15155072,False,2,4096,2081,8521088,1,0,0,fat32,8,False,False,1,C2
 /nix/store/jqdz7g2x3pr91fv4k1a227vbk2zzwkbc-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,arm64,15155072,False,2,4096,1560,6388352,1,0,0,fat32,8,False,False,1,C2
 /nix/store/l7nklpmmz4a8ff3a54scx1siwzwzwnnh-teams-for-linux-2.13.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179856640,True,131074,4096,43570,178462256,1,38930,159457280,thin,0,False,False,0,L
+/nix/store/r85kcr5lmws3kd02xzhz1585apc9mlfk-httptoolkit-1.26.0,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,179856640,True,131074,4096,43570,178462256,1,38930,159457280,thin,0,False,False,0,L
 /nix/store/a36aakz4z3ihzamlvkq6384c3vqp8pcb-teams-for-linux-2.8.1,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179095920,True,131074,4096,43386,177707424,1,38747,158707712,thin,0,False,False,0,L
 /nix/store/npqyfwp0j1172ypv11zmzx0qias179wd-opencode-1.14.35,bin/.opencode-wrapped,arm64,104746402,True,131074,4096,25375,103934288,1,25374,103931904,thin,0,False,False,0,L
 /nix/store/w3jakkvd5dkaycb0b55z4hpgl0cfg8z4-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
@@ -216,6 +217,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/ihs1bjs31gl8kcxdwp896jnbawg73jwf-swift-5.10.1-lib,lib/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
 /nix/store/ihs1bjs31gl8kcxdwp896jnbawg73jwf-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/ihs1bjs31gl8kcxdwp896jnbawg73jwf-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/ar1vm01pf61ras376h4lvlii1pzdj39q-shogihome-1.28.0,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,189241520,True,131074,4096,45844,187774368,1,36129,147984384,thin,0,False,False,0,L
 /nix/store/47wl1p5bsk4c54r8vbkyhn3n2nm0588s-httptoolkit-1.24.4,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,173600400,True,131074,4096,42055,172254496,1,37339,152940544,thin,0,False,False,0,L
 /nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176717744,True,131074,4096,42810,175347680,1,38236,156614656,thin,0,False,False,0,L
 /nix/store/6v6qv6c6ix4pdshb00i4w476b9svaffi-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
@@ -246,6 +248,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/42wp3frqjb4mxr7zi2dgx3sd1q7k7342-zotero-9.0.5,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,x86_64,133840,False,65536,4096,5,16640,1,0,0,fat32,9099,False,False,0,B7-real
 /nix/store/42wp3frqjb4mxr7zi2dgx3sd1q7k7342-zotero-9.0.5,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,arm64,133840,False,65536,4096,13,49440,1,0,0,fat32,9098,False,False,0,B7-real
 /nix/store/dvdsnrnf7mipl6y1ab6psv3wkkj7815x-qtcharts-5.15.19-bin,lib/qt-5.15.19/qml/QtCharts/libqtchartsqml2.dylib,arm64,697040,True,131074,4096,169,691488,1,0,0,thin,0,False,False,0,L
+/nix/store/q8r9hlkzlc0q9iip2258syj64y7fcv70-filen-cli-0.0.36,bin/.filen-wrapped,arm64,73769890,True,131074,4096,17871,73197904,1,17870,73195520,thin,0,False,False,0,L
 /nix/store/lyxx5v9grgp86pnr5m7wxik8md5frgw7-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/8vrnwr7262535s80p6qaabic6rdj2122-zotero-9.0.4,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,x86_64,133840,False,65536,4096,5,16640,1,0,0,fat32,9099,False,False,0,B7-real
 /nix/store/8vrnwr7262535s80p6qaabic6rdj2122-zotero-9.0.4,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,arm64,133840,False,65536,4096,13,49440,1,0,0,fat32,9098,False,False,0,B7-real
@@ -257,6 +260,10 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/6iblj6gh65199c25xqjr4fvc88ihb9qq-zotero-9.0.4,Applications/Zotero.app/Contents/Frameworks/ChannelPrefs.framework/ChannelPrefs,arm64,133840,False,65536,4096,13,49440,1,0,0,fat32,9098,False,False,0,B7-real
 /nix/store/gbynyrlfxk4yj43brc82vvj7lbsx094k-teams-for-linux-2.11.1,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38796,158908416,thin,0,False,False,0,L
 /nix/store/zdl6c1ajlpv6aawc8zg9hfadx84164pz-shogihome-1.28.0,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,189241520,True,131074,4096,45844,187774368,1,36129,147984384,thin,0,False,False,0,L
+/nix/store/n2rfdgl7sdq3gd7s0y84anvs0dkmxm1b-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
+/nix/store/y529h7db6gfdwgcwnxc6dfvqwhxxy8jh-teams-for-linux-2.13.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179856640,True,131074,4096,43570,178462256,1,38930,159457280,thin,0,False,False,0,L
 /nix/store/wlwjm1g4qgqpnxkddzrxkz0wbgwjcj5p-opencode-1.15.10,bin/.opencode-wrapped,arm64,106992034,True,131074,4096,25919,106162512,1,25918,106160128,thin,0,False,False,0,L
 /nix/store/nwzcinamw9gjq82i85qfzdi3lx0wy7pl-teams-for-linux-2.12.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38796,158908416,thin,0,False,False,0,L
 /nix/store/0fs5gp49028zmf208lfrha0hhvsj2bxm-shogihome-1.27.3,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38249,156667904,thin,0,False,False,0,L
+/nix/store/zvflvy5rsh8wvq5rjm1qz1893n41pi1z-libtorch-2.9.0,lib/libomp.dylib,arm64,754912,False,2,4096,179,730928,1,0,0,thin,8,False,False,0,C2
+/nix/store/z4w98bdd5cnx11icxgp5mb16lrv9ka28-vscode-extension-kilocode-Kilo-Code-7.3.53,share/vscode/extensions/kilocode.Kilo-Code/bin/kilo,arm64,110323682,True,131074,4096,26726,109468336,1,26725,109465600,thin,0,False,False,0,L

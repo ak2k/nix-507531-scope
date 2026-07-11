@@ -1,75 +1,75 @@
 {
   "buckets": {
-    "clean": 591425,
-    "not_real_macho": 253625,
-    "page_hash_mismatch": 261,
-    "unsigned": 605110
+    "clean": 705161,
+    "not_real_macho": 304434,
+    "page_hash_mismatch": 268,
+    "unsigned": 617322
   },
   "buckets_by_arch": {
     "arm": {
-      "not_real_macho": 33,
-      "unsigned": 183
+      "not_real_macho": 36,
+      "unsigned": 234
     },
     "arm64": {
-      "clean": 558835,
-      "not_real_macho": 145,
-      "page_hash_mismatch": 161,
-      "unsigned": 40648
+      "clean": 669801,
+      "not_real_macho": 166,
+      "page_hash_mismatch": 168,
+      "unsigned": 49737
     },
     "arm64e": {
-      "clean": 75,
-      "not_real_macho": 120
+      "clean": 88,
+      "not_real_macho": 140
     },
     "cpu_0x00000001/0x00000000": {
-      "clean": 12
+      "clean": 13
     },
     "cpu_0x00000002/0x00000000": {
-      "not_real_macho": 12
+      "not_real_macho": 13
     },
     "cpu_0x00000004/0x00000000": {
-      "unsigned": 12
+      "unsigned": 13
     },
     "cpu_0x00000005/0x00000000": {
-      "not_real_macho": 12
+      "not_real_macho": 13
     },
     "cpu_0x00000012/0x00000000": {
-      "not_real_macho": 346
+      "not_real_macho": 412
     },
     "cpu_0x00000012/0x0000000a": {
-      "not_real_macho": 75
+      "not_real_macho": 92
     },
     "cpu_0x00000012/0x00000064": {
-      "not_real_macho": 6
+      "not_real_macho": 7
     },
     "cpu_0x01000012/0x00000000": {
-      "not_real_macho": 108
+      "not_real_macho": 132
     },
     "cpu_0x01000012/0x80000000": {
-      "not_real_macho": 4
+      "not_real_macho": 5
     },
     "i386": {
-      "clean": 417,
-      "not_real_macho": 33,
-      "unsigned": 773
+      "clean": 490,
+      "not_real_macho": 36,
+      "unsigned": 923
     },
     "unknown": {
-      "not_real_macho": 252502
+      "not_real_macho": 303118
     },
     "x86_64": {
-      "clean": 32086,
-      "not_real_macho": 229,
+      "clean": 34769,
+      "not_real_macho": 264,
       "page_hash_mismatch": 100,
-      "unsigned": 563494
+      "unsigned": 566415
     }
   },
-  "channel_label": "nixpkgs-unstable @ f205b5574fd0 (2026-07-10)",
+  "channel_label": "nixpkgs-unstable @ 767b0d3ec98a (2026-07-11)",
   "coverage": {
-    "not_real_macho": 253625,
+    "not_real_macho": 304434,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-07-10 08:20:36 UTC",
+  "generated_at": "2026-07-11 08:20:11 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -78,14 +78,14 @@
     "by_signature_class": {
       "B7-empty": 15,
       "B7-real": 24,
-      "C2": 141,
-      "L": 81
+      "C2": 142,
+      "L": 87
     },
     "by_signer": {
-      "codesign_signed": 180,
-      "linker_signed": 81
+      "codesign_signed": 181,
+      "linker_signed": 87
     },
-    "packages": 125,
+    "packages": 132,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "ffmpeg-headless-8.0.1-bin",
@@ -130,31 +130,31 @@
       "zotero-9.0.4",
       "zotero-9.0.5"
     ],
-    "slices": 261
+    "slices": 268
   },
   "paths_by_status": {
     "fetch_error": 282,
     "no_narinfo": 6,
-    "ok": 1569716,
+    "ok": 1876646,
     "parse_error": 388
   },
-  "paths_scanned": 1570392,
+  "paths_scanned": 1877322,
   "slices_by_arch": {
-    "arm": 216,
-    "arm64": 599789,
-    "arm64e": 195,
-    "cpu_0x00000001/0x00000000": 12,
-    "cpu_0x00000002/0x00000000": 12,
-    "cpu_0x00000004/0x00000000": 12,
-    "cpu_0x00000005/0x00000000": 12,
-    "cpu_0x00000012/0x00000000": 346,
-    "cpu_0x00000012/0x0000000a": 75,
-    "cpu_0x00000012/0x00000064": 6,
-    "cpu_0x01000012/0x00000000": 108,
-    "cpu_0x01000012/0x80000000": 4,
-    "i386": 1223,
-    "unknown": 252502,
-    "x86_64": 595909
+    "arm": 270,
+    "arm64": 719872,
+    "arm64e": 228,
+    "cpu_0x00000001/0x00000000": 13,
+    "cpu_0x00000002/0x00000000": 13,
+    "cpu_0x00000004/0x00000000": 13,
+    "cpu_0x00000005/0x00000000": 13,
+    "cpu_0x00000012/0x00000000": 412,
+    "cpu_0x00000012/0x0000000a": 92,
+    "cpu_0x00000012/0x00000064": 7,
+    "cpu_0x01000012/0x00000000": 132,
+    "cpu_0x01000012/0x80000000": 5,
+    "i386": 1449,
+    "unknown": 303118,
+    "x86_64": 601548
   },
-  "slices_total": 1450421
+  "slices_total": 1627185
 }
