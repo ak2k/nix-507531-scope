@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-07-11 09:03:29 UTC
+Generated: 2026-07-12 08:50:52 UTC
 
 Daily scan across three darwin caches of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -22,8 +22,8 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| darwin | release | unstable | Union |
 |---|---:|---:|---:|---:|
-| **1. Direct failure** (slices) | 121 | 55 | 268 | 444 |
-| &emsp;↳ distinct packages | 36 | 22 | 132 | 48 |
+| **1. Direct failure** (slices) | 121 | 55 | 269 | 445 |
+| &emsp;↳ distinct packages | 36 | 22 | 133 | 49 |
 | **2. Load-time transitive** (binaries) | 0 | 0 | 7 | 7 |
 | &emsp;↳ distinct packages | 0 | 0 | 5 | 5 |
 
@@ -37,9 +37,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | darwin | release | unstable |
 |---|---:|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-07-11) | release-25.11 @ cd648d6ea62b (2026-07-11) | nixpkgs-unstable @ 767b0d3ec98a (2026-07-11) |
-| Paths scanned | 358,361 | 241,014 | 1,877,322 |
-| Mach-O slices | 495,726 | 269,986 | 1,627,185 |
+| Channel label | nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-07-12) | release-25.11 @ cd648d6ea62b (2026-07-12) | nixpkgs-unstable @ 716c7a2664ca (2026-07-12) |
+| Paths scanned | 358,361 | 241,014 | 1,889,949 |
+| Mach-O slices | 495,726 | 269,986 | 1,635,483 |
 
 ## Direct-failure slices by signature shape
 
@@ -47,11 +47,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | darwin | release | unstable | Total |
 |---|---:|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 23 | 17 | 87 | 127 |
+| linker-signed ad-hoc, no CMS slot | 23 | 17 | 88 | 128 |
 | codesign ad-hoc, empty 8 B CMS wrapper | 98 | 38 | 142 | 278 |
 | ad-hoc with Entitlements + empty CMS wrapper | 0 | 0 | 15 | 15 |
 | Developer-ID-signed (non-empty CMS payload) | 0 | 0 | 24 | 24 |
-| **Total** | **121** | **55** | **268** | **444** |
+| **Total** | **121** | **55** | **269** | **445** |
 
 ## Affected packages
 
@@ -86,6 +86,7 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 | `opencode-1.15.5` | direct | unstable | — |
 | `opencode-1.15.7` | direct | unstable | — |
 | `opencode-1.16.2` | direct | unstable | — |
+| `opencode-1.17.18` | direct | unstable | — |
 | `opencode-1.17.4` | direct | unstable | — |
 | `opencode-1.17.7` | direct | unstable | — |
 | `opencode-1.17.9` | direct | unstable | — |
@@ -115,9 +116,9 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 
 ## Drill-downs
 
-- [darwin channel report](darwin/REPORT.md) — `nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-07-11)`
-- [release channel report](release/REPORT.md) — `release-25.11 @ cd648d6ea62b (2026-07-11)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 767b0d3ec98a (2026-07-11)`
+- [darwin channel report](darwin/REPORT.md) — `nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-07-12)`
+- [release channel report](release/REPORT.md) — `release-25.11 @ cd648d6ea62b (2026-07-12)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 716c7a2664ca (2026-07-12)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)

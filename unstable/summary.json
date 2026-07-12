@@ -1,20 +1,20 @@
 {
   "buckets": {
-    "clean": 705161,
-    "not_real_macho": 304434,
-    "page_hash_mismatch": 268,
-    "unsigned": 617322
+    "clean": 707996,
+    "not_real_macho": 309219,
+    "page_hash_mismatch": 269,
+    "unsigned": 617999
   },
   "buckets_by_arch": {
     "arm": {
-      "not_real_macho": 36,
+      "not_real_macho": 39,
       "unsigned": 234
     },
     "arm64": {
-      "clean": 669801,
-      "not_real_macho": 166,
-      "page_hash_mismatch": 168,
-      "unsigned": 49737
+      "clean": 672581,
+      "not_real_macho": 173,
+      "page_hash_mismatch": 169,
+      "unsigned": 50061
     },
     "arm64e": {
       "clean": 88,
@@ -49,27 +49,27 @@
     },
     "i386": {
       "clean": 490,
-      "not_real_macho": 36,
-      "unsigned": 923
+      "not_real_macho": 39,
+      "unsigned": 924
     },
     "unknown": {
-      "not_real_macho": 303118
+      "not_real_macho": 307883
     },
     "x86_64": {
-      "clean": 34769,
-      "not_real_macho": 264,
+      "clean": 34824,
+      "not_real_macho": 271,
       "page_hash_mismatch": 100,
-      "unsigned": 566415
+      "unsigned": 566767
     }
   },
-  "channel_label": "nixpkgs-unstable @ 767b0d3ec98a (2026-07-11)",
+  "channel_label": "nixpkgs-unstable @ 716c7a2664ca (2026-07-12)",
   "coverage": {
-    "not_real_macho": 304434,
+    "not_real_macho": 309219,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-07-11 08:20:11 UTC",
+  "generated_at": "2026-07-12 08:23:40 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -79,13 +79,13 @@
       "B7-empty": 15,
       "B7-real": 24,
       "C2": 142,
-      "L": 87
+      "L": 88
     },
     "by_signer": {
       "codesign_signed": 181,
-      "linker_signed": 87
+      "linker_signed": 88
     },
-    "packages": 132,
+    "packages": 133,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "ffmpeg-headless-8.0.1-bin",
@@ -105,6 +105,7 @@
       "opencode-1.15.5",
       "opencode-1.15.7",
       "opencode-1.16.2",
+      "opencode-1.17.18",
       "opencode-1.17.4",
       "opencode-1.17.7",
       "opencode-1.17.9",
@@ -130,18 +131,18 @@
       "zotero-9.0.4",
       "zotero-9.0.5"
     ],
-    "slices": 268
+    "slices": 269
   },
   "paths_by_status": {
     "fetch_error": 282,
     "no_narinfo": 6,
-    "ok": 1876646,
-    "parse_error": 388
+    "ok": 1889272,
+    "parse_error": 389
   },
-  "paths_scanned": 1877322,
+  "paths_scanned": 1889949,
   "slices_by_arch": {
-    "arm": 270,
-    "arm64": 719872,
+    "arm": 273,
+    "arm64": 722984,
     "arm64e": 228,
     "cpu_0x00000001/0x00000000": 13,
     "cpu_0x00000002/0x00000000": 13,
@@ -152,9 +153,9 @@
     "cpu_0x00000012/0x00000064": 7,
     "cpu_0x01000012/0x00000000": 132,
     "cpu_0x01000012/0x80000000": 5,
-    "i386": 1449,
-    "unknown": 303118,
-    "x86_64": 601548
+    "i386": 1453,
+    "unknown": 307883,
+    "x86_64": 601962
   },
-  "slices_total": 1627185
+  "slices_total": 1635483
 }
