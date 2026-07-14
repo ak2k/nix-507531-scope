@@ -1,6 +1,6 @@
-# NixOS/nixpkgs#507531 cache scan — release-25.11 @ cd648d6ea62b (2026-07-13)
+# NixOS/nixpkgs#507531 cache scan — release-25.11 @ cd648d6ea62b (2026-07-14)
 
-Generated: 2026-07-13 08:38:30 UTC
+Generated: 2026-07-14 08:05:59 UTC
 
 ## Summary
 

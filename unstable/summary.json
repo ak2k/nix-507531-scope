@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 708393,
-    "not_real_macho": 309219,
+    "clean": 709751,
+    "not_real_macho": 309864,
     "page_hash_mismatch": 269,
-    "unsigned": 618224
+    "unsigned": 618718
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,13 +11,13 @@
       "unsigned": 234
     },
     "arm64": {
-      "clean": 672956,
+      "clean": 674238,
       "not_real_macho": 173,
       "page_hash_mismatch": 169,
-      "unsigned": 50196
+      "unsigned": 50311
     },
     "arm64e": {
-      "clean": 88,
+      "clean": 89,
       "not_real_macho": 140
     },
     "cpu_0x00000001/0x00000000": {
@@ -53,23 +53,23 @@
       "unsigned": 924
     },
     "unknown": {
-      "not_real_macho": 307883
+      "not_real_macho": 308528
     },
     "x86_64": {
-      "clean": 34846,
+      "clean": 34921,
       "not_real_macho": 271,
       "page_hash_mismatch": 100,
-      "unsigned": 566857
+      "unsigned": 567236
     }
   },
-  "channel_label": "nixpkgs-unstable @ 3b32825de172 (2026-07-13)",
+  "channel_label": "nixpkgs-unstable @ 6cdc7fc76e8b (2026-07-14)",
   "coverage": {
-    "not_real_macho": 309219,
+    "not_real_macho": 309864,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-07-13 08:39:36 UTC",
+  "generated_at": "2026-07-14 08:07:51 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -136,14 +136,14 @@
   "paths_by_status": {
     "fetch_error": 282,
     "no_narinfo": 6,
-    "ok": 1893674,
+    "ok": 1896637,
     "parse_error": 388
   },
-  "paths_scanned": 1894350,
+  "paths_scanned": 1897313,
   "slices_by_arch": {
     "arm": 273,
-    "arm64": 723494,
-    "arm64e": 228,
+    "arm64": 724891,
+    "arm64e": 229,
     "cpu_0x00000001/0x00000000": 13,
     "cpu_0x00000002/0x00000000": 13,
     "cpu_0x00000004/0x00000000": 13,
@@ -154,8 +154,8 @@
     "cpu_0x01000012/0x00000000": 132,
     "cpu_0x01000012/0x80000000": 5,
     "i386": 1453,
-    "unknown": 307883,
-    "x86_64": 602074
+    "unknown": 308528,
+    "x86_64": 602528
   },
-  "slices_total": 1636105
+  "slices_total": 1638602
 }
