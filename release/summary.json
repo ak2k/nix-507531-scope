@@ -59,14 +59,14 @@
       "unsigned": 2738
     }
   },
-  "channel_label": "release-25.11 @ cd648d6ea62b (2026-07-15)",
+  "channel_label": "release-25.11 @ cd648d6ea62b (2026-07-16)",
   "coverage": {
     "not_real_macho": 8591,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-07-15 07:47:19 UTC",
+  "generated_at": "2026-07-16 08:06:21 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
