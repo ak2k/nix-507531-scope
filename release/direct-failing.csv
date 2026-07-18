@@ -1,16 +1,4 @@
 store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_limit,n_mismatches,first_bad_page,first_bad_offset,fat_variant,cms_blob_length,has_entitlements,has_entitlements_der,n_alternate_cds,signature_class
-/nix/store/63y47sm78b2fzjzljyd4zckqm9j2ljds-httptoolkit-1.24.4,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,173600400,True,131074,4096,42055,172254496,1,37339,152940544,thin,0,False,False,0,L
-/nix/store/jfcf9833px3lhy28lw8qys66gdgsm3np-libtorch-2.9.0,lib/libomp.dylib,arm64,754912,False,2,4096,179,730928,1,0,0,thin,8,False,False,0,C2
-/nix/store/gsb5xp7asp9z88la7kwm6mgij6aygb43-shogihome-1.27.1,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176717744,True,131074,4096,42810,175347680,1,38236,156614656,thin,0,False,False,0,L
-/nix/store/iqkd5xy9n5zrcyxfhw5y8zw0zhjjdrgw-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179095920,True,131074,4096,43386,177707424,1,38747,158707712,thin,0,False,False,0,L
-/nix/store/gfpx3q94dxsga2z9iakpci2vprbxmrxx-cmdargs-browser-0.1.4,bin/cmdargs-browser,arm64,41966160,True,131074,4096,10167,41640688,1,5453,22335488,thin,0,False,False,0,L
-/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
-/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
-/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
-/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswift_Backtracing.dylib,arm64,664704,False,2,4096,157,642032,1,0,0,fat32,8,False,False,0,C2
-/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
-/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
-/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
 /nix/store/cmlwmnf60kjj6j8l5k05z7761xjynp6r-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,arm64,8349008,False,2,4096,2019,8266752,2,0,0,fat32,8,False,False,0,C2
 /nix/store/cmlwmnf60kjj6j8l5k05z7761xjynp6r-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,arm64,122192,False,2,4096,26,103712,1,0,0,fat32,8,False,False,0,C2
 /nix/store/cmlwmnf60kjj6j8l5k05z7761xjynp6r-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
@@ -22,11 +10,22 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/cmlwmnf60kjj6j8l5k05z7761xjynp6r-swift-5.10.1,lib/lldb/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
 /nix/store/cmlwmnf60kjj6j8l5k05z7761xjynp6r-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/cmlwmnf60kjj6j8l5k05z7761xjynp6r-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/iqkd5xy9n5zrcyxfhw5y8zw0zhjjdrgw-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179095920,True,131074,4096,43386,177707424,1,38747,158707712,thin,0,False,False,0,L
+/nix/store/63y47sm78b2fzjzljyd4zckqm9j2ljds-httptoolkit-1.24.4,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,173600400,True,131074,4096,42055,172254496,1,37339,152940544,thin,0,False,False,0,L
+/nix/store/jfcf9833px3lhy28lw8qys66gdgsm3np-libtorch-2.9.0,lib/libomp.dylib,arm64,754912,False,2,4096,179,730928,1,0,0,thin,8,False,False,0,C2
+/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
+/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
+/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
+/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswift_Backtracing.dylib,arm64,664704,False,2,4096,157,642032,1,0,0,fat32,8,False,False,0,C2
+/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
+/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
+/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/gfpx3q94dxsga2z9iakpci2vprbxmrxx-cmdargs-browser-0.1.4,bin/cmdargs-browser,arm64,41966160,True,131074,4096,10167,41640688,1,5453,22335488,thin,0,False,False,0,L
 /nix/store/lbvvlkhp8yjbdm2j2nhc5avi2nabvvai-shogihome-1.27.2,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176717744,True,131074,4096,42810,175347680,1,38236,156614656,thin,0,False,False,0,L
 /nix/store/p0qpifvs9lpm8797gzby7ip8hmzfdydq-tailwindcss_4-4.1.18,bin/.tailwindcss-wrapped,arm64,75389328,True,131074,4096,18259,74785600,1,18258,74784768,thin,0,False,False,0,L
 /nix/store/d0dk2sq2nanhkikqmdk54zlvv46g6sf6-shogihome-1.27.2,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38246,156655616,thin,0,False,False,0,L
+/nix/store/461rm6i08wwy251inadwzxfgs21dxwa2-shogihome-1.27.3,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38246,156655616,thin,0,False,False,0,L
 /nix/store/hkfbkgns19ci16wjnizssn1m7idpb765-httptoolkit-1.24.4,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,173616912,True,131074,4096,42059,172270880,1,37340,152944640,thin,0,False,False,0,L
-/nix/store/ahd6q635mfpc7zidmisg3hbdncw10qgj-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38794,158900224,thin,0,False,False,0,L
 /nix/store/bdf7cvmgbyb5ism3a7p7v7arjr8m8alq-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
 /nix/store/bdf7cvmgbyb5ism3a7p7v7arjr8m8alq-swift-5.10.1-lib,lib/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
 /nix/store/bdf7cvmgbyb5ism3a7p7v7arjr8m8alq-swift-5.10.1-lib,lib/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
@@ -34,15 +33,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/bdf7cvmgbyb5ism3a7p7v7arjr8m8alq-swift-5.10.1-lib,lib/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
 /nix/store/bdf7cvmgbyb5ism3a7p7v7arjr8m8alq-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/bdf7cvmgbyb5ism3a7p7v7arjr8m8alq-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
-/nix/store/ngh0kymzj2iis7qbv49rnavq4sz2zw5b-tailwindcss_4-4.1.18,bin/.tailwindcss-wrapped,arm64,75389328,True,131074,4096,18259,74785600,1,18258,74784768,thin,0,False,False,0,L
-/nix/store/a2f2sjj5ck084y8x00mmw50l80d99xv6-dhall-docs-1.0.12,bin/dhall-docs,arm64,64891136,True,131074,4096,15720,64387968,2,9746,39919616,thin,0,False,False,0,L
-/nix/store/a2f2sjj5ck084y8x00mmw50l80d99xv6-dhall-docs-1.0.12,lib/ghc-9.10.3/lib/aarch64-osx-ghc-9.10.3-7ab4/libHSdhall-docs-1.0.12-J5aQBtTtCTQGIqKSyo0h5M-ghc9.10.3.dylib,arm64,817168,True,131074,4096,198,810656,1,91,372736,thin,0,False,False,0,L
-/nix/store/pr81jsxz62946kr72n3m0gxm1nkvwyps-libtorch-2.9.0,lib/libomp.dylib,arm64,754912,False,2,4096,179,730928,1,0,0,thin,8,False,False,0,C2
-/nix/store/xlpkh45gqki78zq030mw2z450b7pr1m4-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38795,158904320,thin,0,False,False,0,L
 /nix/store/wqc1661zdi4pg0blsqhycvqpva7nha2a-shogihome-1.27.3,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38247,156659712,thin,0,False,False,0,L
-/nix/store/hmbsa9pn1cvw3sal3gqxznnc1yykhzdg-shogihome-1.27.3,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38248,156663808,thin,0,False,False,0,L
-/nix/store/xgs5g3hdlgsgz85v7l81xiyphh8k4jnj-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38796,158908416,thin,0,False,False,0,L
-/nix/store/zxrvxn6il658jlsqhfkkmyffb2mgbj2w-agda2hs-1.4,bin/agda2hs,arm64,141390496,True,131074,4096,34252,140294304,1,20928,85721088,thin,0,False,False,0,L
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,arm64,8349008,False,2,4096,2019,8266752,2,0,0,fat32,8,False,False,0,C2
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,arm64,122192,False,2,4096,26,103712,1,0,0,fat32,8,False,False,0,C2
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
@@ -54,3 +45,13 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/a2f2sjj5ck084y8x00mmw50l80d99xv6-dhall-docs-1.0.12,bin/dhall-docs,arm64,64891136,True,131074,4096,15720,64387968,2,9746,39919616,thin,0,False,False,0,L
+/nix/store/a2f2sjj5ck084y8x00mmw50l80d99xv6-dhall-docs-1.0.12,lib/ghc-9.10.3/lib/aarch64-osx-ghc-9.10.3-7ab4/libHSdhall-docs-1.0.12-J5aQBtTtCTQGIqKSyo0h5M-ghc9.10.3.dylib,arm64,817168,True,131074,4096,198,810656,1,91,372736,thin,0,False,False,0,L
+/nix/store/ngh0kymzj2iis7qbv49rnavq4sz2zw5b-tailwindcss_4-4.1.18,bin/.tailwindcss-wrapped,arm64,75389328,True,131074,4096,18259,74785600,1,18258,74784768,thin,0,False,False,0,L
+/nix/store/zxrvxn6il658jlsqhfkkmyffb2mgbj2w-agda2hs-1.4,bin/agda2hs,arm64,141390496,True,131074,4096,34252,140294304,1,20928,85721088,thin,0,False,False,0,L
+/nix/store/pr81jsxz62946kr72n3m0gxm1nkvwyps-libtorch-2.9.0,lib/libomp.dylib,arm64,754912,False,2,4096,179,730928,1,0,0,thin,8,False,False,0,C2
+/nix/store/xlpkh45gqki78zq030mw2z450b7pr1m4-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38795,158904320,thin,0,False,False,0,L
+/nix/store/hmbsa9pn1cvw3sal3gqxznnc1yykhzdg-shogihome-1.27.3,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176807680,True,131074,4096,42832,175436912,1,38248,156663808,thin,0,False,False,0,L
+/nix/store/xgs5g3hdlgsgz85v7l81xiyphh8k4jnj-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38796,158908416,thin,0,False,False,0,L
+/nix/store/ahd6q635mfpc7zidmisg3hbdncw10qgj-teams-for-linux-2.8.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,179277552,True,131074,4096,43430,177887648,1,38794,158900224,thin,0,False,False,0,L
+/nix/store/gsb5xp7asp9z88la7kwm6mgij6aygb43-shogihome-1.27.1,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,176717744,True,131074,4096,42810,175347680,1,38236,156614656,thin,0,False,False,0,L

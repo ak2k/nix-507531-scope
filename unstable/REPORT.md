@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 35d3407a3816 (2026-07-16)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ a47c123a6092 (2026-07-18)
 
-Generated: 2026-07-16 08:07:34 UTC
+Generated: 2026-07-18 07:58:33 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 1,909,951 |
-| Mach-O slices parsed | 1,643,241 |
-| Page-hash mismatches (slices) | 270 |
-| Page-hash mismatches (distinct packages) | 134 |
-|   of which linker-signed (flags=0x20002) | 89 |
+| Store paths scanned | 1,923,236 |
+| Mach-O slices parsed | 1,649,039 |
+| Page-hash mismatches (slices) | 274 |
+| Page-hash mismatches (distinct packages) | 138 |
+|   of which linker-signed (flags=0x20002) | 93 |
 |   of which codesign-signed (flags=0x2) | 181 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-07-16 08:07:34 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 728,589 | 170 | 0 | 677,530 | 50,712 | 177 |
+| `arm64` | 733,764 | 174 | 0 | 682,268 | 51,139 | 183 |
 | `arm64e` | 229 | 0 | 0 | 89 | 0 | 140 |
-| `x86_64` | 602,990 | 100 | 0 | 35,157 | 567,458 | 275 |
-| `i386` | 1,455 | 0 | 0 | 490 | 926 | 39 |
+| `x86_64` | 603,608 | 100 | 0 | 35,189 | 568,041 | 278 |
+| `i386` | 1,460 | 0 | 0 | 492 | 929 | 39 |
 | other/legacy (11 arch codes) | 309,978 | 0 | 0 | 14 | 248 | 309,716 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,296,674 | 116 | 0 | 683,567 | 612,625 |
-| fat | 346,567 | 154 | 0 | 29,713 | 6,719 |
+| thin | 1,302,053 | 120 | 0 | 688,036 | 613,531 |
+| fat | 346,986 | 154 | 0 | 30,016 | 6,826 |
 
-Unique fat binary files: 327,480 in 5,847 packages. 25 of those packages contain at least one failing fat slice.
+Unique fat binary files: 327,690 in 5,917 packages. 25 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -63,6 +63,7 @@ Sorted alphabetically by package name.
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1b47p45agxp3ybc3r5bm5gqrnfmzni37-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1b96pi504sfxzvq8wrv13pqkrmgflhfc-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1xakdirg2mk3pk1qpyrk5p1hqs6m7yaq-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/2aal6j8lz6n2cz585jrfmg8mfldlr9r3-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/3z6q05ba0mmv3b3y9jq8vgyb618jny30-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/516v4myw7xx03knkf3alcn62j7lcac37-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/5cr4w7yvdi5rnbj2lk2d12rjv10ijl3d-gitlab-duo-8.89.0` |
@@ -94,6 +95,7 @@ Sorted alphabetically by package name.
 | httptoolkit-1.26.0 | 1 | `/nix/store/xhn6q730vd1y8a9k0wd9lw48qg8sikim-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/zy16z8a20myjnz1v3hk5b36y4i4csh05-httptoolkit-1.26.0` |
 | kilo-7.3.40 | 1 | `/nix/store/bwbxzzpgd3x201a6ikwxsv4pyni2gjx2-kilo-7.3.40` |
+| kilo-7.3.40 | 1 | `/nix/store/vw5xm6vf4bs1g1rl2j7cbpw222zc4pgj-kilo-7.3.40` |
 | libtorch-2.9.0 | 1 | `/nix/store/jd0fnglnhz9pf6vyqsdl22z65cidmz21-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/n4hxxplikjy50p40fzxghi07a6qzzk4v-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/vla1rdlyipmbynck3vq0vr51gij4fryk-libtorch-2.9.0` |
@@ -111,9 +113,11 @@ Sorted alphabetically by package name.
 | opencode-1.16.2 | 1 | `/nix/store/380vjma5320nknl45fkvyhaiz6gnxgyv-opencode-1.16.2` |
 | opencode-1.17.18 | 1 | `/nix/store/48nsg3qq5rrzj2a54y05miz02hn0jr2p-opencode-1.17.18` |
 | opencode-1.17.20 | 1 | `/nix/store/aid0cvplsifb414j8fysm0ynlbxpzi99-opencode-1.17.20` |
+| opencode-1.17.20 | 1 | `/nix/store/jx6aw73vl0qbm3f7nsxdymkf2iqi9gic-opencode-1.17.20` |
 | opencode-1.17.4 | 1 | `/nix/store/p23042pa3iqf4gaiihdpbvkp9gs5ky4c-opencode-1.17.4` |
 | opencode-1.17.7 | 1 | `/nix/store/yxclajlc2f9b6wiwa0hazn1xqy42py5x-opencode-1.17.7` |
 | opencode-1.17.9 | 1 | `/nix/store/4jp729qvs98la97zvnsrwfkm4flzcb5g-opencode-1.17.9` |
+| opencode-1.18.3 | 1 | `/nix/store/xvr3gf59cvfbpgggz0bcx7l1rdyxqvai-opencode-1.18.3` |
 | qtcharts-5.15.19-bin | 1 | `/nix/store/dvdsnrnf7mipl6y1ab6psv3wkkj7815x-qtcharts-5.15.19-bin` |
 | shogihome-1.27.1 | 1 | `/nix/store/rhagbi0fyfqfnizrdhag5j6cmyqym4jx-shogihome-1.27.1` |
 | shogihome-1.27.2 | 1 | `/nix/store/1cwb73vi5aa1nlpbr7ychywlbmkpl19l-shogihome-1.27.2` |
@@ -182,11 +186,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 270 |
+| `page_hash_mismatch` | 274 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 713,280 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 619,344 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 310,347 |
+| `clean` (signed, verified) | 718,052 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 620,357 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 310,356 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -220,7 +224,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 134 |
+| Distinct failing seeds | 138 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 

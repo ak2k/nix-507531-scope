@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 713280,
-    "not_real_macho": 310347,
-    "page_hash_mismatch": 270,
-    "unsigned": 619344
+    "clean": 718052,
+    "not_real_macho": 310356,
+    "page_hash_mismatch": 274,
+    "unsigned": 620357
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 234
     },
     "arm64": {
-      "clean": 677530,
-      "not_real_macho": 177,
-      "page_hash_mismatch": 170,
-      "unsigned": 50712
+      "clean": 682268,
+      "not_real_macho": 183,
+      "page_hash_mismatch": 174,
+      "unsigned": 51139
     },
     "arm64e": {
       "clean": 89,
@@ -48,28 +48,28 @@
       "not_real_macho": 5
     },
     "i386": {
-      "clean": 490,
+      "clean": 492,
       "not_real_macho": 39,
-      "unsigned": 926
+      "unsigned": 929
     },
     "unknown": {
       "not_real_macho": 309001
     },
     "x86_64": {
-      "clean": 35157,
-      "not_real_macho": 275,
+      "clean": 35189,
+      "not_real_macho": 278,
       "page_hash_mismatch": 100,
-      "unsigned": 567458
+      "unsigned": 568041
     }
   },
-  "channel_label": "nixpkgs-unstable @ 35d3407a3816 (2026-07-16)",
+  "channel_label": "nixpkgs-unstable @ a47c123a6092 (2026-07-18)",
   "coverage": {
-    "not_real_macho": 310347,
+    "not_real_macho": 310356,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-07-16 08:07:34 UTC",
+  "generated_at": "2026-07-18 07:58:33 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -79,13 +79,13 @@
       "B7-empty": 15,
       "B7-real": 24,
       "C2": 142,
-      "L": 89
+      "L": 93
     },
     "by_signer": {
       "codesign_signed": 181,
-      "linker_signed": 89
+      "linker_signed": 93
     },
-    "packages": 134,
+    "packages": 138,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "ffmpeg-headless-8.0.1-bin",
@@ -110,6 +110,7 @@
       "opencode-1.17.4",
       "opencode-1.17.7",
       "opencode-1.17.9",
+      "opencode-1.18.3",
       "qtcharts-5.15.19-bin",
       "shogihome-1.27.1",
       "shogihome-1.27.2",
@@ -132,18 +133,18 @@
       "zotero-9.0.4",
       "zotero-9.0.5"
     ],
-    "slices": 270
+    "slices": 274
   },
   "paths_by_status": {
-    "fetch_error": 282,
+    "fetch_error": 319,
     "no_narinfo": 6,
-    "ok": 1909275,
-    "parse_error": 388
+    "ok": 1922432,
+    "parse_error": 479
   },
-  "paths_scanned": 1909951,
+  "paths_scanned": 1923236,
   "slices_by_arch": {
     "arm": 273,
-    "arm64": 728589,
+    "arm64": 733764,
     "arm64e": 229,
     "cpu_0x00000001/0x00000000": 14,
     "cpu_0x00000002/0x00000000": 14,
@@ -154,9 +155,9 @@
     "cpu_0x00000012/0x00000064": 7,
     "cpu_0x01000012/0x00000000": 132,
     "cpu_0x01000012/0x80000000": 5,
-    "i386": 1455,
+    "i386": 1460,
     "unknown": 309001,
-    "x86_64": 602990
+    "x86_64": 603608
   },
-  "slices_total": 1643241
+  "slices_total": 1649039
 }
