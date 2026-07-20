@@ -9,6 +9,6 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 138 |
+| Distinct failing seeds | 139 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
