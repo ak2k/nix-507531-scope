@@ -1,16 +1,26 @@
 {
-  "total_rows": 0,
-  "rows_in_default_view": 0,
-  "distinct_dependent_attrs_default_view": 0,
-  "distinct_seeds": 139,
+  "total_rows": 1,
+  "rows_in_default_view": 1,
+  "distinct_dependent_attrs_default_view": 1,
+  "distinct_seeds": 150,
   "edge_filter_default": [
     "buildInputs",
     "checkInputs",
     "nativeBuildInputs",
     "nativeCheckInputs"
   ],
-  "by_edge_kind_default_view": {},
-  "by_seed_default_view": {},
-  "dependent_attrs_default_view": [],
-  "dependents_by_pkg_default_view": {}
+  "by_edge_kind_default_view": {
+    "nativeBuildInputs": 1
+  },
+  "by_seed_default_view": {
+    "tailwindcss_4-4.3.3": 1
+  },
+  "dependent_attrs_default_view": [
+    "rimgo"
+  ],
+  "dependents_by_pkg_default_view": {
+    "rimgo-1.4.2": [
+      "tailwindcss_4-4.3.3"
+    ]
+  }
 }
