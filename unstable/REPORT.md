@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 9bc02893134c (2026-07-31)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 59ea0b1c043c (2026-08-01)
 
-Generated: 2026-07-31 08:12:26 UTC
+Generated: 2026-08-01 08:11:53 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 2,272,865 |
-| Mach-O slices parsed | 1,904,424 |
-| Page-hash mismatches (slices) | 303 |
-| Page-hash mismatches (distinct packages) | 151 |
-|   of which linker-signed (flags=0x20002) | 103 |
+| Store paths scanned | 2,283,008 |
+| Mach-O slices parsed | 1,909,383 |
+| Page-hash mismatches (slices) | 307 |
+| Page-hash mismatches (distinct packages) | 155 |
+|   of which linker-signed (flags=0x20002) | 107 |
 |   of which codesign-signed (flags=0x2) | 200 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-07-31 08:12:26 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 892,368 | 203 | 0 | 829,701 | 62,253 | 211 |
+| `arm64` | 895,886 | 207 | 0 | 832,856 | 62,609 | 214 |
 | `arm64e` | 263 | 0 | 0 | 103 | 0 | 160 |
-| `x86_64` | 611,204 | 100 | 0 | 38,769 | 572,016 | 319 |
-| `i386` | 1,733 | 0 | 0 | 570 | 1,118 | 45 |
-| other/legacy (11 arch codes) | 398,856 | 0 | 0 | 15 | 309 | 398,532 |
+| `x86_64` | 612,032 | 100 | 0 | 38,913 | 572,697 | 322 |
+| `i386` | 1,753 | 0 | 0 | 570 | 1,135 | 48 |
+| other/legacy (11 arch codes) | 399,449 | 0 | 0 | 15 | 318 | 399,116 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,462,661 | 131 | 0 | 834,098 | 627,972 |
-| fat | 441,763 | 172 | 0 | 35,060 | 7,724 |
+| thin | 1,466,703 | 135 | 0 | 837,194 | 628,909 |
+| fat | 442,680 | 172 | 0 | 35,263 | 7,850 |
 
-Unique fat binary files: 419,349 in 6,772 packages. 27 of those packages contain at least one failing fat slice.
+Unique fat binary files: 420,091 in 6,873 packages. 27 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -96,6 +96,7 @@ Sorted alphabetically by package name.
 | httptoolkit-1.26.0 | 1 | `/nix/store/rsz3j3r7d0gl5h9d6hv17mqp9xy9vix0-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/x5l1x55hk5qvgiwshl5bakr7n2sj4ndr-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/xhn6q730vd1y8a9k0wd9lw48qg8sikim-httptoolkit-1.26.0` |
+| httptoolkit-1.26.0 | 1 | `/nix/store/y8681s5wjjbi4a566qxvmzj0x1dspyff-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/zy16z8a20myjnz1v3hk5b36y4i4csh05-httptoolkit-1.26.0` |
 | kilo-7.3.40 | 1 | `/nix/store/bwbxzzpgd3x201a6ikwxsv4pyni2gjx2-kilo-7.3.40` |
 | kilo-7.3.40 | 1 | `/nix/store/gjk23mn40nlyjc6ibw7y7lcyc50m9x3h-kilo-7.3.40` |
@@ -134,6 +135,7 @@ Sorted alphabetically by package name.
 | shogihome-1.27.3 | 1 | `/nix/store/63fx8404ppm6n773sdkcwvwhfwggai5g-shogihome-1.27.3` |
 | shogihome-1.27.3 | 1 | `/nix/store/qj3ifm7z75y5j7mjch9sah0jwabqr35x-shogihome-1.27.3` |
 | shogihome-1.27.3 | 1 | `/nix/store/srly270piz0pjdd6rsvjx1lr51ijf3wc-shogihome-1.27.3` |
+| shogihome-1.28.0 | 1 | `/nix/store/39bih2z2p9wnbx0qjjxznm08qjd30whi-shogihome-1.28.0` |
 | shogihome-1.28.0 | 1 | `/nix/store/ar1vm01pf61ras376h4lvlii1pzdj39q-shogihome-1.28.0` |
 | shogihome-1.28.0 | 1 | `/nix/store/x334k8p6mxjcak07684a2rpbjircargn-shogihome-1.28.0` |
 | shogihome-1.28.0 | 1 | `/nix/store/zdl6c1ajlpv6aawc8zg9hfadx84164pz-shogihome-1.28.0` |
@@ -172,6 +174,7 @@ Sorted alphabetically by package name.
 | teams-for-linux-2.12.0 | 1 | `/nix/store/nwzcinamw9gjq82i85qfzdi3lx0wy7pl-teams-for-linux-2.12.0` |
 | teams-for-linux-2.12.0 | 1 | `/nix/store/xmmnpmdm1ddkwmrk6wagha09jb3i84lk-teams-for-linux-2.12.0` |
 | teams-for-linux-2.13.0 | 1 | `/nix/store/0k6r43mkqpx21x9ciifhygnlv3y7d82x-teams-for-linux-2.13.0` |
+| teams-for-linux-2.13.0 | 1 | `/nix/store/2cz21xaj49gd3qcqmjpw91483hv0cipx-teams-for-linux-2.13.0` |
 | teams-for-linux-2.13.0 | 1 | `/nix/store/l7nklpmmz4a8ff3a54scx1siwzwzwnnh-teams-for-linux-2.13.0` |
 | teams-for-linux-2.13.0 | 1 | `/nix/store/y529h7db6gfdwgcwnxc6dfvqwhxxy8jh-teams-for-linux-2.13.0` |
 | teams-for-linux-2.13.0 | 1 | `/nix/store/zsmpnhbmprfqppvmjlnkqnbdgp50n1rz-teams-for-linux-2.13.0` |
@@ -186,6 +189,7 @@ Sorted alphabetically by package name.
 | vscode-extension-kilocode-Kilo-Code-7.3.53 | 1 | `/nix/store/8wbmiy4w9hdyfqa4dq6vx3zr6fjqvf6j-vscode-extension-kilocode-Kilo-Code-7.3.53` |
 | vscode-extension-kilocode-Kilo-Code-7.3.53 | 1 | `/nix/store/hx2mmww8s5rpqcgbx16n6l687qnxp8v3-vscode-extension-kilocode-Kilo-Code-7.3.53` |
 | vscode-extension-kilocode-Kilo-Code-7.3.53 | 1 | `/nix/store/z4w98bdd5cnx11icxgp5mb16lrv9ka28-vscode-extension-kilocode-Kilo-Code-7.3.53` |
+| vscode-extension-kilocode-Kilo-Code-7.4.16 | 1 | `/nix/store/c4qgmmgjy7kf4wzi0l34cax7y2nxxbsm-vscode-extension-kilocode-Kilo-Code-7.4.16` |
 | zotero-9.0.4 | 2 | `/nix/store/6iblj6gh65199c25xqjr4fvc88ihb9qq-zotero-9.0.4` |
 | zotero-9.0.4 | 2 | `/nix/store/8vrnwr7262535s80p6qaabic6rdj2122-zotero-9.0.4` |
 | zotero-9.0.5 | 2 | `/nix/store/0z1h0cmxzvg0r6prghf40n6x75c4rgr1-zotero-9.0.5` |
@@ -199,11 +203,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 303 |
+| `page_hash_mismatch` | 307 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 869,158 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 635,696 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 399,267 |
+| `clean` (signed, verified) | 872,457 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 636,759 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 399,860 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -237,7 +241,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 151 |
+| Distinct failing seeds | 155 |
 
 Edges by kind (default view only):
 
