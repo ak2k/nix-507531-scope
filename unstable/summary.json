@@ -1,20 +1,20 @@
 {
   "buckets": {
-    "clean": 965144,
-    "not_real_macho": 451309,
-    "page_hash_mismatch": 335,
-    "unsigned": 648993
+    "clean": 986445,
+    "not_real_macho": 451564,
+    "page_hash_mismatch": 336,
+    "unsigned": 649306
   },
   "buckets_by_arch": {
     "arm": {
       "not_real_macho": 51,
-      "unsigned": 354
+      "unsigned": 363
     },
     "arm64": {
-      "clean": 922616,
+      "clean": 943849,
       "not_real_macho": 237,
-      "page_hash_mismatch": 235,
-      "unsigned": 71781
+      "page_hash_mismatch": 236,
+      "unsigned": 71902
     },
     "arm64e": {
       "clean": 117,
@@ -50,26 +50,26 @@
     "i386": {
       "clean": 642,
       "not_real_macho": 51,
-      "unsigned": 1270
+      "unsigned": 1282
     },
     "unknown": {
-      "not_real_macho": 449522
+      "not_real_macho": 449777
     },
     "x86_64": {
-      "clean": 41753,
+      "clean": 41821,
       "not_real_macho": 359,
       "page_hash_mismatch": 100,
-      "unsigned": 575572
+      "unsigned": 575743
     }
   },
-  "channel_label": "nixpkgs-unstable @ a5cbcfe95479 (2026-08-03)",
+  "channel_label": "nixpkgs-unstable @ 104240a77242 (2026-08-04)",
   "coverage": {
-    "not_real_macho": 451309,
+    "not_real_macho": 451564,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-08-03 08:22:02 UTC",
+  "generated_at": "2026-08-04 08:32:58 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -79,13 +79,13 @@
       "B7-empty": 15,
       "B7-real": 24,
       "C2": 180,
-      "L": 116
+      "L": 117
     },
     "by_signer": {
       "codesign_signed": 219,
-      "linker_signed": 116
+      "linker_signed": 117
     },
-    "packages": 167,
+    "packages": 168,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "ffmpeg-headless-8.0.1-bin",
@@ -112,6 +112,7 @@
       "opencode-1.17.4",
       "opencode-1.17.7",
       "opencode-1.17.9",
+      "opencode-1.18.11",
       "opencode-1.18.3",
       "opencode-1.18.9",
       "qtcharts-5.15.19-bin",
@@ -139,18 +140,18 @@
       "zotero-9.0.4",
       "zotero-9.0.5"
     ],
-    "slices": 335
+    "slices": 336
   },
   "paths_by_status": {
-    "fetch_error": 323,
+    "fetch_error": 325,
     "no_narinfo": 6,
-    "ok": 2579014,
-    "parse_error": 434
+    "ok": 2595119,
+    "parse_error": 448
   },
-  "paths_scanned": 2579777,
+  "paths_scanned": 2595898,
   "slices_by_arch": {
-    "arm": 405,
-    "arm64": 994869,
+    "arm": 414,
+    "arm64": 1016224,
     "arm64e": 297,
     "cpu_0x00000001/0x00000000": 16,
     "cpu_0x00000002/0x00000000": 16,
@@ -161,9 +162,9 @@
     "cpu_0x00000012/0x00000064": 9,
     "cpu_0x01000012/0x00000000": 185,
     "cpu_0x01000012/0x80000000": 7,
-    "i386": 1963,
-    "unknown": 449522,
-    "x86_64": 617784
+    "i386": 1975,
+    "unknown": 449777,
+    "x86_64": 618023
   },
-  "slices_total": 2065781
+  "slices_total": 2087651
 }
