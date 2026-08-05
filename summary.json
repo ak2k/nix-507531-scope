@@ -79,14 +79,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-08-04)",
+      "channel_label": "nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-08-05)",
       "coverage": {
         "not_real_macho": 15617,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-08-04 08:31:02 UTC",
+      "generated_at": "2026-08-05 08:02:06 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -229,14 +229,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "release-25.11 @ cd648d6ea62b (2026-08-04)",
+      "channel_label": "release-25.11 @ cd648d6ea62b (2026-08-05)",
       "coverage": {
         "not_real_macho": 8685,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-08-04 08:31:16 UTC",
+      "generated_at": "2026-08-05 08:02:16 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -391,14 +391,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-unstable @ 104240a77242 (2026-08-04)",
+      "channel_label": "nixpkgs-unstable @ 104240a77242 (2026-08-05)",
       "coverage": {
         "not_real_macho": 451564,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-08-04 08:32:58 UTC",
+      "generated_at": "2026-08-05 08:04:12 UTC",
       "load_time_transitive": {
         "by_seed_package": {
           "ffmpeg-headless-8.0.1-lib": 153
@@ -531,7 +531,7 @@
       "slices_total": 2087651
     }
   },
-  "generated_at": "2026-08-04 09:10:15 UTC",
+  "generated_at": "2026-08-05 09:02:33 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 15,
