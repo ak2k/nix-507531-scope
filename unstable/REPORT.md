@@ -1,6 +1,6 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 104240a77242 (2026-08-05)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 104240a77242 (2026-08-06)
 
-Generated: 2026-08-05 08:04:12 UTC
+Generated: 2026-08-06 09:49:13 UTC
 
 ## Summary
 
