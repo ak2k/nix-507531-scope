@@ -1,6 +1,6 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-08-06)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-08-07)
 
-Generated: 2026-08-06 09:47:09 UTC
+Generated: 2026-08-07 08:18:00 UTC
 
 ## Summary
 
