@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-08-07 09:07:55 UTC
+Generated: 2026-08-08 08:49:43 UTC
 
 Daily scan across three darwin caches of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -22,8 +22,8 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| darwin | release | unstable | Union |
 |---|---:|---:|---:|---:|
-| **1. Direct failure** (slices) | 121 | 55 | 336 | 512 |
-| &emsp;↳ distinct packages | 36 | 22 | 168 | 58 |
+| **1. Direct failure** (slices) | 121 | 55 | 340 | 516 |
+| &emsp;↳ distinct packages | 36 | 22 | 172 | 60 |
 | **2. Load-time transitive** (binaries) | 0 | 0 | 7 | 7 |
 | &emsp;↳ distinct packages | 0 | 0 | 5 | 5 |
 | **3. Build-time dependent** (packages, default view) | 0 | 0 | 1 | 1 |
@@ -38,9 +38,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | darwin | release | unstable |
 |---|---:|---:|---:|
-| Channel label | nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-08-07) | release-25.11 @ cd648d6ea62b (2026-08-07) | nixpkgs-unstable @ 104240a77242 (2026-08-07) |
-| Paths scanned | 358,361 | 241,014 | 2,595,898 |
-| Mach-O slices | 495,737 | 269,658 | 2,087,651 |
+| Channel label | nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-08-08) | release-25.11 @ cd648d6ea62b (2026-08-08) | nixpkgs-unstable @ 70ce23431213 (2026-08-08) |
+| Paths scanned | 358,361 | 241,014 | 2,612,371 |
+| Mach-O slices | 495,737 | 269,658 | 2,093,731 |
 
 ## Direct-failure slices by signature shape
 
@@ -48,11 +48,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | darwin | release | unstable | Total |
 |---|---:|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 23 | 17 | 117 | 157 |
+| linker-signed ad-hoc, no CMS slot | 23 | 17 | 121 | 161 |
 | codesign ad-hoc, empty 8 B CMS wrapper | 98 | 38 | 180 | 316 |
 | ad-hoc with Entitlements + empty CMS wrapper | 0 | 0 | 15 | 15 |
 | Developer-ID-signed (non-empty CMS payload) | 0 | 0 | 24 | 24 |
-| **Total** | **121** | **55** | **336** | **512** |
+| **Total** | **121** | **55** | **340** | **516** |
 
 ## Affected packages
 
@@ -104,6 +104,7 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 | `shogihome-1.27.3` | direct | darwin, release, unstable | — |
 | `shogihome-1.28.0` | direct | unstable | — |
 | `shogihome-1.28.1` | direct | unstable | — |
+| `shogihome-1.29.0` | direct | unstable | — |
 | `stache-2.3.4` | direct | unstable | — |
 | `swift-5.10.1` | direct | darwin, release, unstable | — |
 | `swift-5.10.1-lib` | direct | darwin, release, unstable | — |
@@ -116,6 +117,7 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 | `teams-for-linux-2.11.1` | direct | unstable | — |
 | `teams-for-linux-2.12.0` | direct | unstable | — |
 | `teams-for-linux-2.13.0` | direct | unstable | — |
+| `teams-for-linux-2.14.1` | direct | unstable | — |
 | `teams-for-linux-2.8.0` | direct | darwin, release | — |
 | `teams-for-linux-2.8.1` | direct | unstable | — |
 | `teams-for-linux-2.9.0` | direct | unstable | — |
@@ -127,9 +129,9 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 
 ## Drill-downs
 
-- [darwin channel report](darwin/REPORT.md) — `nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-08-07)`
-- [release channel report](release/REPORT.md) — `release-25.11 @ cd648d6ea62b (2026-08-07)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 104240a77242 (2026-08-07)`
+- [darwin channel report](darwin/REPORT.md) — `nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-08-08)`
+- [release channel report](release/REPORT.md) — `release-25.11 @ cd648d6ea62b (2026-08-08)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ 70ce23431213 (2026-08-08)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)
