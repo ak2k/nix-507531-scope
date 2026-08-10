@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 990626,
-    "not_real_macho": 452452,
-    "page_hash_mismatch": 340,
-    "unsigned": 650313
+    "clean": 993099,
+    "not_real_macho": 452453,
+    "page_hash_mismatch": 341,
+    "unsigned": 650818
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 363
     },
     "arm64": {
-      "clean": 947913,
+      "clean": 950349,
       "not_real_macho": 237,
-      "page_hash_mismatch": 240,
-      "unsigned": 72566
+      "page_hash_mismatch": 241,
+      "unsigned": 72782
     },
     "arm64e": {
       "clean": 117,
@@ -53,23 +53,23 @@
       "unsigned": 1282
     },
     "unknown": {
-      "not_real_macho": 450665
+      "not_real_macho": 450666
     },
     "x86_64": {
-      "clean": 41938,
+      "clean": 41975,
       "not_real_macho": 359,
       "page_hash_mismatch": 100,
-      "unsigned": 576086
+      "unsigned": 576375
     }
   },
-  "channel_label": "nixpkgs-unstable @ 70ce23431213 (2026-08-08)",
+  "channel_label": "nixpkgs-unstable @ afb4584a80bb (2026-08-10)",
   "coverage": {
-    "not_real_macho": 452452,
+    "not_real_macho": 452453,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-08-08 08:18:27 UTC",
+  "generated_at": "2026-08-10 09:00:59 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -77,15 +77,15 @@
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 15,
-      "B7-real": 24,
+      "B7-real": 25,
       "C2": 180,
       "L": 121
     },
     "by_signer": {
-      "codesign_signed": 219,
+      "codesign_signed": 220,
       "linker_signed": 121
     },
-    "packages": 172,
+    "packages": 173,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "ffmpeg-headless-8.0.1-bin",
@@ -116,6 +116,7 @@
       "opencode-1.18.3",
       "opencode-1.18.9",
       "qtcharts-5.15.19-bin",
+      "renovate-44.13.1",
       "shogihome-1.27.1",
       "shogihome-1.27.2",
       "shogihome-1.27.3",
@@ -142,18 +143,18 @@
       "zotero-9.0.4",
       "zotero-9.0.5"
     ],
-    "slices": 340
+    "slices": 341
   },
   "paths_by_status": {
     "fetch_error": 323,
     "no_narinfo": 6,
-    "ok": 2611598,
-    "parse_error": 444
+    "ok": 2621929,
+    "parse_error": 439
   },
-  "paths_scanned": 2612371,
+  "paths_scanned": 2622697,
   "slices_by_arch": {
     "arm": 414,
-    "arm64": 1020956,
+    "arm64": 1023609,
     "arm64e": 297,
     "cpu_0x00000001/0x00000000": 16,
     "cpu_0x00000002/0x00000000": 16,
@@ -165,8 +166,8 @@
     "cpu_0x01000012/0x00000000": 185,
     "cpu_0x01000012/0x80000000": 7,
     "i386": 1975,
-    "unknown": 450665,
-    "x86_64": 618483
+    "unknown": 450666,
+    "x86_64": 618809
   },
-  "slices_total": 2093731
+  "slices_total": 2096711
 }
