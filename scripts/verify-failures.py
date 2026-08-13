@@ -79,30 +79,33 @@ def load_other_sig_from_jsonl(path: Path) -> list[dict]:
     if not path.exists():
         return []
     out: list[dict] = []
-    for line in path.read_text().splitlines():
-        if not line.strip():
-            continue
-        r = json.loads(line)
-        sp = r.get("store_path", "")
-        for s in r.get("slices", []):
-            if s.get("status") != "ok":
+    # Stream: unstable/full.jsonl is ~9.5 GB, and slurping it peaks at ~20 GB
+    # RSS — past the 16 GB runner, which the kernel answers by killing the job.
+    with path.open() as f:
+        for line in f:
+            if not line.strip():
                 continue
-            if not s.get("has_code_signature"):
-                continue
-            if (s.get("n_mismatches") or 0) > 0:
-                continue  # that's in direct-failing.csv
-            if s.get("error"):
-                out.append(
-                    {
-                        "store_path": sp,
-                        "path": s.get("path"),
-                        "arch": s.get("arch"),
-                        "error": s.get("error"),
-                        "is_fat": s.get("is_fat"),
-                        "linker_signed": s.get("linker_signed"),
-                        "scanner_category": "other_sig_invalid",
-                    }
-                )
+            r = json.loads(line)
+            sp = r.get("store_path", "")
+            for s in r.get("slices", []):
+                if s.get("status") != "ok":
+                    continue
+                if not s.get("has_code_signature"):
+                    continue
+                if (s.get("n_mismatches") or 0) > 0:
+                    continue  # that's in direct-failing.csv
+                if s.get("error"):
+                    out.append(
+                        {
+                            "store_path": sp,
+                            "path": s.get("path"),
+                            "arch": s.get("arch"),
+                            "error": s.get("error"),
+                            "is_fat": s.get("is_fat"),
+                            "linker_signed": s.get("linker_signed"),
+                            "scanner_category": "other_sig_invalid",
+                        }
+                    )
     return out
 
 
