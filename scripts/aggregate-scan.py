@@ -42,7 +42,7 @@ Classification scheme (per scanned Mach-O slice):
 Usage:
   aggregate-scan.py <input.jsonl> [--out REPORT.md] [--summary-json summary.json]
                                    [--failing-csv direct-failing.csv]
-                                   [--channel-label 'nixpkgs-25.11-darwin @ <rev>']
+                                   [--channel-label 'nixpkgs-26.05-darwin @ <rev>']
 """
 
 from __future__ import annotations
@@ -654,7 +654,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     )
     p.add_argument(
         "--channel-label",
-        default="nixpkgs-25.11-darwin",
+        default="nixpkgs-26.05-darwin",
         help="Human label for the scanned channel (used in report header)",
     )
     return p.parse_args(argv)

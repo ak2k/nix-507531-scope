@@ -165,13 +165,13 @@ def render_markdown(channels: list[dict]) -> str:
     )
     lines.append("")
     lines.append(
-        "- `darwin` — `nixpkgs-25.11-darwin` channel "
+        "- `darwin` — `nixpkgs-26.05-darwin` channel "
         "(`store-paths.xz` published by Hydra's darwin-curated jobset; "
         "advances only when its darwin test-gate passes, so its rev can "
-        "lag `release-25.11` tip)."
+        "lag `release-26.05` tip)."
     )
     lines.append(
-        "- `release` — synthesised from `release-25.11` branch tip via "
+        "- `release` — synthesised from `release-26.05` branch tip via "
         "`nix-eval-jobs --flake github:NixOS/nixpkgs/<tip>#legacyPackages.aarch64-darwin`, "
         "expanded to runtime closure via `cache.nixos.org` `narinfo.References` BFS. "
         "Captures cached darwin paths at the release-branch tip even when "
@@ -188,7 +188,7 @@ def render_markdown(channels: list[dict]) -> str:
         "drv hashes (driven by transitive stdenv churn), can yield "
         "opposite outcomes. The poisoned `fish-4.2.1` aarch64-darwin "
         "build at outpath `gngn7y9mn510m…` was the visible breakage that "
-        "stuck the `nixpkgs-25.11-darwin` channel for ~7 days "
+        "stuck the then-current `nixpkgs-25.11-darwin` channel for ~7 days "
         "(2026-04-28 → 2026-05-05); the channel ratcheted past it after "
         "[`0c88e1f2bdb9`](https://github.com/NixOS/nixpkgs/commit/0c88e1f2bdb9) "
         "(staging-next-25.11 iteration 6, #513189) flipped fish's drv "
@@ -311,9 +311,10 @@ def render_markdown(channels: list[dict]) -> str:
         "`gngn7y9mn510m…` SIGKILLs on launch on Apple Silicon — the bug's "
         "highest-profile case. End-user reports in "
         "[nixpkgs#208951](https://github.com/NixOS/nixpkgs/issues/208951). "
-        "This particular cached binary is no longer referenced by the "
-        "current `nixpkgs-25.11-darwin` channel pointer (rev advanced "
-        "past it on 2026-05-05), but it remains in `cache.nixos.org` and "
+        "This particular cached binary is referenced by neither stable "
+        "pointer: `nixpkgs-25.11-darwin` advanced past it on 2026-05-05, "
+        "and the `darwin` lane now tracks `nixpkgs-26.05-darwin`. It "
+        "remains in `cache.nixos.org` and "
         "still SIGKILLs for anyone pinned to a pre-pivot rev — illustrating "
         "the bistability point: a clean post-pivot fish build at "
         "`s87z9chym2j5…` happens to coexist in cache, same source, opposite "
