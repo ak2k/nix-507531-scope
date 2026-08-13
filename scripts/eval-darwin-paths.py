@@ -14,14 +14,14 @@ Paired with scan-darwin-cache.py's `--paths-file` flag: the resulting
 text file substitutes for the `store-paths.xz` that channels.nixos.org
 publishes for the existing `darwin` and `unstable` channels.
 
-Why this script exists: `release-25.11` is a branch ref, not a Hydra-
+Why this script exists: `release-26.05` is a branch ref, not a Hydra-
 published channel slug. cache.nixos.org does hold the binaries Hydra
 built for that branch (they're how `nh switch -u` works for users who
-follow `release-25.11` directly), but no `store-paths.xz` enumerates
+follow `release-26.05` directly), but no `store-paths.xz` enumerates
 them. Evaluating the rev's `legacyPackages.aarch64-darwin` package set
-gives the same enumeration that `nixpkgs-25.11-darwin/store-paths.xz`
+gives the same enumeration that `nixpkgs-26.05-darwin/store-paths.xz`
 would have given if Hydra published a darwin-flavoured channel for
-release-25.11 tip.
+release-26.05 tip.
 
 Parallelism mirrors compute-build-time-dependents.py: `--workers` /
 `--max-memory-size` are the same nix-eval-jobs knobs the Tier 3 step
