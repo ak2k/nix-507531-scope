@@ -46,7 +46,7 @@
 #
 #   analyze (matrix, 1 job per channel):
 #     * downloads all shard artifacts for one channel
-#     * concatenates JSONLs into the per-channel full.jsonl
+#     * concatenates shard JSONLs into the per-channel full.jsonl.gz
 #     * runs Tier 1 / Tier 2 / Tier 3 / render / verify in sequence
 #     * Tier 3 evaluates against the channel's pinned rev (release uses
 #       the rev from eval-release-paths' artifact; the other two pull
@@ -400,16 +400,28 @@ jobs:
           CHANNEL=${{ matrix.channel.label }}
           mkdir -p "$CHANNEL"
           # Each downloaded artifact lands in its own subdir named
-          # shard-<channel>-<N>/full.jsonl. Concatenate them all.
-          find "$CHANNEL-shards" -name full.jsonl -print0 | xargs -0 cat > "$CHANNEL/full.jsonl"
-          wc -l "$CHANNEL/full.jsonl"
+          # shard-<channel>-<N>/full.jsonl. Concatenate them all, gzipped:
+          # unstable merges to ~9.5 GB plain but ~800 MB at -1, and every
+          # consumer reads it as a stream, so nothing pays to decompress
+          # more than once per pass. -1 rather than -6 because this is a
+          # single-run temp file: 138 MB vs 115 MB is not worth the minutes.
+          set -o pipefail
+          find "$CHANNEL-shards" -name full.jsonl -print0 \
+            | xargs -0 cat \
+            | gzip -1 > "$CHANNEL/full.jsonl.gz"
+          # Assignment, not echo "$(...)": errexit/pipefail do not propagate
+          # out of a command substitution used as an argument, so a truncated
+          # merge would print "0 records" and sail on.
+          records=$(gzip -dc "$CHANNEL/full.jsonl.gz" | wc -l)
+          [ "$records" -gt 0 ] || { echo "::error::merged $CHANNEL log is empty"; exit 1; }
+          echo "$records records, $(du -h "$CHANNEL/full.jsonl.gz" | cut -f1) gzipped"
           # The merged copy is the only one used from here on; the per-shard
-          # downloads double the JSONL's disk footprint (~2 GB on unstable).
+          # downloads are the uncompressed bulk (~9.5 GB on unstable).
           rm -rf "$CHANNEL-shards"
 
       - name: Aggregate Tier 1 (${{ matrix.channel.label }})
         run: |
-          uv run scripts/aggregate-scan.py ${{ matrix.channel.label }}/full.jsonl \
+          uv run scripts/aggregate-scan.py ${{ matrix.channel.label }}/full.jsonl.gz \
             --out ${{ matrix.channel.label }}/REPORT.md \
             --summary-json ${{ matrix.channel.label }}/summary.json \
             --direct-failing-csv ${{ matrix.channel.label }}/direct-failing.csv \
@@ -418,7 +430,7 @@ jobs:
       - name: Compute Tier 2 load-time dependents (${{ matrix.channel.label }})
         run: |
           uv run scripts/compute-load-time-dependents.py \
-            ${{ matrix.channel.label }}/full.jsonl \
+            ${{ matrix.channel.label }}/full.jsonl.gz \
             ${{ matrix.channel.label }}/direct-failing.csv \
             --out-csv ${{ matrix.channel.label }}/load-time-dependents.csv \
             --out-summary ${{ matrix.channel.label }}/load-time-summary.json \
@@ -470,7 +482,7 @@ jobs:
           rc=0
           uv run scripts/verify-failures.py \
             --failing-csv ${{ matrix.channel.label }}/direct-failing.csv \
-            --jsonl ${{ matrix.channel.label }}/full.jsonl \
+            --jsonl ${{ matrix.channel.label }}/full.jsonl.gz \
             --out ${{ matrix.channel.label }}/verify-results.jsonl \
             --summary ${{ matrix.channel.label }}/verify-summary.md || rc=$?
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
@@ -479,7 +491,12 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: channel-${{ matrix.channel.label }}
-          path: ${{ matrix.channel.label }}/
+          # Everything except the merged scan log: combine reads only the
+          # summary JSONs and the rendered sections, and the log is ~765 MB
+          # per lane per run at 30-day retention.
+          path: |
+            ${{ matrix.channel.label }}/
+            !${{ matrix.channel.label }}/full.jsonl.gz
           retention-days: 30
 
       - name: Fail loudly if scanner ↔ verifier disagree (${{ matrix.channel.label }})

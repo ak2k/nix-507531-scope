@@ -3,7 +3,10 @@
 full.db
 full.db-shm
 full.db-wal
-full.jsonl
+# Glob, not the bare name: the merged per-channel log is gzipped, and a
+# literal `full.jsonl` silently stops matching the moment the extension
+# changes. The analyze job writes it inside the published channel dir.
+full.jsonl*
 
 # Python
 __pycache__/
