@@ -1,41 +1,41 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-25.11-darwin @ 0921fdb3e13e (2026-08-10)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ e0c84f9d0ad1 (2026-08-13)
 
-Generated: 2026-08-10 08:59:04 UTC
+Generated: 2026-08-13 12:36:54 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 358,361 |
-| Mach-O slices parsed | 495,737 |
-| Page-hash mismatches (slices) | 121 |
-| Page-hash mismatches (distinct packages) | 36 |
-|   of which linker-signed (flags=0x20002) | 23 |
-|   of which codesign-signed (flags=0x2) | 98 |
-| Other signature-invalid (slices) | 2 |
-| Other signature-invalid (distinct packages) | 2 |
+| Store paths scanned | 165,786 |
+| Mach-O slices parsed | 229,604 |
+| Page-hash mismatches (slices) | 54 |
+| Page-hash mismatches (distinct packages) | 17 |
+|   of which linker-signed (flags=0x20002) | 7 |
+|   of which codesign-signed (flags=0x2) | 47 |
+| Other signature-invalid (slices) | 0 |
+| Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 0 |
 | Type 2 — distinct packages | 0 |
-| Type 3 — packages directly declaring a failing build input (default view) | 0 |
+| Type 3 — packages directly declaring a failing build input (default view) | 1 |
 
 ## By architecture
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 235,274 | 73 | 0 | 219,080 | 16,073 | 48 |
-| `arm64e` | 106 | 0 | 0 | 26 | 0 | 80 |
-| `x86_64` | 244,604 | 48 | 2 | 17,357 | 227,089 | 108 |
-| `i386` | 356 | 0 | 0 | 226 | 126 | 4 |
-| other/legacy (10 arch codes) | 15,397 | 0 | 0 | 4 | 16 | 15,377 |
+| `arm64` | 109,488 | 29 | 0 | 100,361 | 9,076 | 22 |
+| `arm64e` | 65 | 0 | 0 | 25 | 0 | 40 |
+| `x86_64` | 112,270 | 25 | 0 | 8,196 | 103,995 | 54 |
+| `i386` | 189 | 0 | 0 | 113 | 74 | 2 |
+| other/legacy (11 arch codes) | 7,592 | 0 | 0 | 2 | 8 | 7,582 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 467,546 | 25 | 2 | 225,487 | 242,028 |
-| fat | 28,191 | 96 | 0 | 11,206 | 1,276 |
+| thin | 215,740 | 12 | 0 | 103,146 | 112,580 |
+| fat | 13,864 | 42 | 0 | 5,551 | 573 |
 
-Unique fat binary files: 21,601 in 1,210 packages. 12 of those packages contain at least one failing fat slice.
+Unique fat binary files: 10,620 in 605 packages. 5 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -43,61 +43,33 @@ Sorted alphabetically by package name.
 
 | Package | Failing slices | Store path |
 |---|---:|---|
-| agda2hs-1.4 | 1 | `/nix/store/zxrvxn6il658jlsqhfkkmyffb2mgbj2w-agda2hs-1.4` |
-| avalonia-ilspy-7.2-rc | 6 | `/nix/store/10c1g0f6jsws64b8c3rs3kpaj325lw6f-avalonia-ilspy-7.2-rc` |
-| avalonia-ilspy-7.2-rc | 6 | `/nix/store/cmdaiic6bkvwd274ms7ygy9dwlca8gnj-avalonia-ilspy-7.2-rc` |
-| avalonia-ilspy-7.2-rc | 6 | `/nix/store/pcji7v3i87393r1hyrmf24m1wjx2jbq7-avalonia-ilspy-7.2-rc` |
-| avalonia-ilspy-7.2-rc | 6 | `/nix/store/xw5h6kk2aamsl0lqc3srmnbl2a5y8qj6-avalonia-ilspy-7.2-rc` |
-| cmdargs-browser-0.1.4 | 1 | `/nix/store/gfpx3q94dxsga2z9iakpci2vprbxmrxx-cmdargs-browser-0.1.4` |
-| dhall-docs-1.0.12 | 2 | `/nix/store/a2f2sjj5ck084y8x00mmw50l80d99xv6-dhall-docs-1.0.12` |
-| esy-0.8.0 | 1 | `/nix/store/2lr8bssdw0z5zx18mnbbff45yc6bwrj2-esy-0.8.0` |
-| esy-0.8.0 | 1 | `/nix/store/659rqlpdhbzl7j8jrh15ha2k7z7dyrs6-esy-0.8.0` |
-| esy-0.8.0 | 1 | `/nix/store/8m0hbkpni64zzzf3w3fxcqab492723li-esy-0.8.0` |
-| esy-0.8.0 | 1 | `/nix/store/jzid9i43xxs0lmpay7n5kp0f1a7rspa4-esy-0.8.0` |
-| esy-0.8.0 | 1 | `/nix/store/kjldjpzl966s53wnn4pidry8rzi3ykz7-esy-0.8.0` |
-| httptoolkit-1.24.4 | 1 | `/nix/store/63y47sm78b2fzjzljyd4zckqm9j2ljds-httptoolkit-1.24.4` |
-| httptoolkit-1.24.4 | 1 | `/nix/store/hkfbkgns19ci16wjnizssn1m7idpb765-httptoolkit-1.24.4` |
-| libtorch-2.9.0 | 1 | `/nix/store/jfcf9833px3lhy28lw8qys66gdgsm3np-libtorch-2.9.0` |
-| libtorch-2.9.0 | 1 | `/nix/store/pr81jsxz62946kr72n3m0gxm1nkvwyps-libtorch-2.9.0` |
-| shogihome-1.27.1 | 1 | `/nix/store/gsb5xp7asp9z88la7kwm6mgij6aygb43-shogihome-1.27.1` |
-| shogihome-1.27.2 | 1 | `/nix/store/d0dk2sq2nanhkikqmdk54zlvv46g6sf6-shogihome-1.27.2` |
-| shogihome-1.27.2 | 1 | `/nix/store/lbvvlkhp8yjbdm2j2nhc5avi2nabvvai-shogihome-1.27.2` |
-| shogihome-1.27.3 | 1 | `/nix/store/461rm6i08wwy251inadwzxfgs21dxwa2-shogihome-1.27.3` |
-| shogihome-1.27.3 | 1 | `/nix/store/hmbsa9pn1cvw3sal3gqxznnc1yykhzdg-shogihome-1.27.3` |
-| shogihome-1.27.3 | 1 | `/nix/store/wqc1661zdi4pg0blsqhycvqpva7nha2a-shogihome-1.27.3` |
-| swift-5.10.1 | 11 | `/nix/store/0dnirq7brbmv2565l96af6rl1s9rhmb1-swift-5.10.1` |
-| swift-5.10.1 | 11 | `/nix/store/25dxglbbwfh2gkrlfnrssa3nzvn8vbcv-swift-5.10.1` |
-| swift-5.10.1 | 11 | `/nix/store/cmlwmnf60kjj6j8l5k05z7761xjynp6r-swift-5.10.1` |
-| swift-5.10.1 | 11 | `/nix/store/jb8pabcbxalxif948gwadnryjarixkym-swift-5.10.1` |
-| swift-5.10.1-lib | 7 | `/nix/store/1fr07icxrb1xmnwc93v61508y3f3slzh-swift-5.10.1-lib` |
-| swift-5.10.1-lib | 7 | `/nix/store/bdf7cvmgbyb5ism3a7p7v7arjr8m8alq-swift-5.10.1-lib` |
-| swift-5.10.1-lib | 7 | `/nix/store/h181ma4f2kl95w6lzcw36x50raa3hczn-swift-5.10.1-lib` |
-| swift-5.10.1-lib | 7 | `/nix/store/kiakz33bkfmg8gfs96j99agrp3s4dyib-swift-5.10.1-lib` |
-| tailwindcss_4-4.1.18 | 1 | `/nix/store/ngh0kymzj2iis7qbv49rnavq4sz2zw5b-tailwindcss_4-4.1.18` |
-| tailwindcss_4-4.1.18 | 1 | `/nix/store/p0qpifvs9lpm8797gzby7ip8hmzfdydq-tailwindcss_4-4.1.18` |
-| teams-for-linux-2.8.0 | 1 | `/nix/store/ahd6q635mfpc7zidmisg3hbdncw10qgj-teams-for-linux-2.8.0` |
-| teams-for-linux-2.8.0 | 1 | `/nix/store/iqkd5xy9n5zrcyxfhw5y8zw0zhjjdrgw-teams-for-linux-2.8.0` |
-| teams-for-linux-2.8.0 | 1 | `/nix/store/xgs5g3hdlgsgz85v7l81xiyphh8k4jnj-teams-for-linux-2.8.0` |
-| teams-for-linux-2.8.0 | 1 | `/nix/store/xlpkh45gqki78zq030mw2z450b7pr1m4-teams-for-linux-2.8.0` |
-
-## Appendix — other signature-invalid binaries
-
-Slices where the scanner found a structural signature problem (not a page-hash mismatch). These also fail `codesign -v`. Mechanism may or may not be the same as NixOS/nixpkgs#507531.
-
-| Package | Slices | Error kind | Store path |
-|---|---:|---|---|
-| tailwindcss_4-4.1.18 | 1 | LC_CODE_SIGNATURE payload OOB | `/nix/store/2n5msbsar1i2jlpmyl089dksczz6r8pn-tailwindcss_4-4.1.18` |
-| tailwindcss_4-4.1.18 | 1 | LC_CODE_SIGNATURE payload OOB | `/nix/store/p3fvfcjyz1w77fb6kn4572bxfizl57q5-tailwindcss_4-4.1.18` |
+| avalonia-ilspy-7.2-rc | 6 | `/nix/store/3y4p51ky7ybivbj9pq0mp7n573mqlfr0-avalonia-ilspy-7.2-rc` |
+| filen-cli-0.0.36 | 1 | `/nix/store/0r8fwgnqldbpzd65fayyaa1d7ik2z3lc-filen-cli-0.0.36` |
+| filen-cli-0.0.36 | 1 | `/nix/store/w8g0rcna42xlvbsn5jlqhsgc7hilqlbv-filen-cli-0.0.36` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/iz59kqpk17w1dag1c2knnv8902wsd25h-gitlab-duo-8.89.0` |
+| httptoolkit-1.26.0 | 1 | `/nix/store/f8916ng5b41vy8zipihapni7ggjkmskj-httptoolkit-1.26.0` |
+| libtorch-2.9.0 | 1 | `/nix/store/lh7hw0zhm2fxhwpqbv3qqyzh4qqac1p8-libtorch-2.9.0` |
+| opencode-1.15.10 | 1 | `/nix/store/18jmwdml857xgwsnalfpy4922av79fzf-opencode-1.15.10` |
+| shogihome-1.29.0 | 1 | `/nix/store/2hsj528qqf0qndxfmlqhwv989w6b4n7s-shogihome-1.29.0` |
+| swift-5.10.1 | 11 | `/nix/store/58bsbdami1xih25pjrhvhqz9h03xyb1v-swift-5.10.1` |
+| swift-5.10.1 | 11 | `/nix/store/5caplwxxb1qnjscim7cks1isnyklwaf5-swift-5.10.1` |
+| swift-5.10.1-lib | 7 | `/nix/store/irc9hd7qxzygqdq5aqn351m8q1mn884p-swift-5.10.1-lib` |
+| swift-5.10.1-lib | 7 | `/nix/store/wz5br160dmx8af0jp5y9vgkbyy9khnbh-swift-5.10.1-lib` |
+| tailwindcss_4-4.3.1 | 1 | `/nix/store/27zcmbnd1ajsyagz46pm35z0hvl80bdz-tailwindcss_4-4.3.1` |
+| tailwindcss_4-4.3.1 | 1 | `/nix/store/i196v0y1ikg78c782qi9qbjmr2pzia2l-tailwindcss_4-4.3.1` |
+| teams-for-linux-2.11.1 | 1 | `/nix/store/l2738npx9g9wsb587qqkyaxgdal928k6-teams-for-linux-2.11.1` |
+| vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/4j2sgj1x9vc40x61iz99lriyzbz9lldn-vscode-extension-kilocode-Kilo-Code-7.2.20` |
+| vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/z2xfrhnasqckxhaq3vpnnq4k9gd9jbcg-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 
 ## Slice classification
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 121 |
-| `other_sig_invalid` | 2 |
-| `clean` (signed, verified) | 236,693 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 243,304 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 15,617 |
+| `page_hash_mismatch` | 54 |
+| `other_sig_invalid` | 0 |
+| `clean` (signed, verified) | 108,697 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 113,153 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 7,700 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -108,7 +80,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 0 |
 | Distinct packages containing such binaries | 0 |
-| Failing dylibs that serve as seeds | 87 |
+| Failing dylibs that serve as seeds | 40 |
 | Total (binary, failing-dylib) pairs | 0 |
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).
@@ -120,10 +92,24 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 
 | Metric | Count |
 |---|---:|
-| Packages with failing seeds in declared build/check inputs (default view) | 0 |
-| Total direct-edge rows (default view) | 0 |
-| Total rows including propagated edges | 0 |
-| Distinct failing seeds | 36 |
+| Packages with failing seeds in declared build/check inputs (default view) | 1 |
+| Total direct-edge rows (default view) | 1 |
+| Total rows including propagated edges | 1 |
+| Distinct failing seeds | 17 |
+
+Edges by kind (default view only):
+
+| Edge kind | Count |
+|---|---:|
+| `nativeBuildInputs` | 1 |
+
+Top seed packages by downstream dependent count:
+
+| Seed package | Downstream dependents |
+|---|---:|
+| `tailwindcss_4-4.3.1` | 1 |
+
+Dependent packages (1): `rimgo`
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 

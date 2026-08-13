@@ -4,17 +4,9 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 
 | Metric | Count |
 |---|---:|
-| Binaries that link at least one failing dylib | 7 |
-| Distinct packages containing such binaries | 5 |
-| Failing dylibs that serve as seeds | 174 |
-| Total (binary, failing-dylib) pairs | 153 |
-
-Top failing dylibs by number of downstream binaries:
-
-| Seed package | Downstream binaries |
-|---|---:|
-| `ffmpeg-headless-8.0.1-lib` | 153 |
-
-Dependent packages (5): `cliairplay-1.1-unstable-2026-03-16`, `cyanrip-0.9.3.1`, `ffmpegthumbnailer-2.3.0`, `gst-libav-1.26.11`, `musikcube-3.0.5`
+| Binaries that link at least one failing dylib | 0 |
+| Distinct packages containing such binaries | 0 |
+| Failing dylibs that serve as seeds | 19 |
+| Total (binary, failing-dylib) pairs | 0 |
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).

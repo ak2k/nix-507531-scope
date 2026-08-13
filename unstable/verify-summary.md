@@ -1,6 +1,6 @@
 # Scanner × codesign -v cross-validation
 
-Generated: 2026-08-10 09:45:31 UTC
+Generated: 2026-08-13 12:50:52 UTC
 
 Each flagged package is signature- and content-verified by Nix itself
 (`nix store verify` against the binary cache), restored with Nix's NAR
@@ -9,10 +9,10 @@ an independent signature verifier: `/home/runner/.nix-profile/bin/rcodesign veri
 
 | Outcome | Count |
 |---|---:|
-| Scanner failing, verifier fails (agreement) | 341 |
+| Scanner failing, verifier fails (agreement) | 29 |
 | Scanner failing, verifier passes (disagreement — possible false positive) | 0 |
 | Fetch/verify failed (could not check against cache) | 0 |
-| **Total slices verified** | **341** |
+| **Total slices verified** | **29** |
 
 ## Substitution canary
 
@@ -20,9 +20,9 @@ One flagged package per run is pulled through real `nix-store -r` substitution a
 
 ```json
 {
-  "store_path": "/nix/store/lg9r937b4q70s5qqvjhdkf7rnn5x4xvd-ffmpeg-headless-8.0.1-bin",
+  "store_path": "/nix/store/h3hiral71d200cywyklf3w2672q7fkfc-filen-cli-0.0.36",
   "status": "ok",
-  "files_compared": 2
+  "files_compared": 1
 }
 ```
 

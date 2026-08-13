@@ -1,6 +1,6 @@
 # Scanner × codesign -v cross-validation
 
-Generated: 2026-08-10 09:16:12 UTC
+Generated: 2026-08-13 12:52:03 UTC
 
 Each flagged package is signature- and content-verified by Nix itself
 (`nix store verify` against the binary cache), restored with Nix's NAR
@@ -9,10 +9,10 @@ an independent signature verifier: `/home/runner/.nix-profile/bin/rcodesign veri
 
 | Outcome | Count |
 |---|---:|
-| Scanner failing, verifier fails (agreement) | 127 |
+| Scanner failing, verifier fails (agreement) | 54 |
 | Scanner failing, verifier passes (disagreement — possible false positive) | 0 |
 | Fetch/verify failed (could not check against cache) | 0 |
-| **Total slices verified** | **127** |
+| **Total slices verified** | **54** |
 
 ## Substitution canary
 
@@ -20,9 +20,9 @@ One flagged package per run is pulled through real `nix-store -r` substitution a
 
 ```json
 {
-  "store_path": "/nix/store/gfpx3q94dxsga2z9iakpci2vprbxmrxx-cmdargs-browser-0.1.4",
+  "store_path": "/nix/store/3y4p51ky7ybivbj9pq0mp7n573mqlfr0-avalonia-ilspy-7.2-rc",
   "status": "ok",
-  "files_compared": 1
+  "files_compared": 6
 }
 ```
 
