@@ -87,6 +87,25 @@ def channel_last_modified(channel: str) -> datetime:
     return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
 
 
+def channel_published(channel: str) -> bool:
+    """Has Hydra published this channel yet?
+
+    A `release-YY.MM` branch appears at branch-off, weeks before the matching
+    darwin channel exists. Bumping the pin in that window points the darwin
+    lane at a 404, so check 1 must know the difference between "you are behind"
+    and "the successor is not ready yet".
+    """
+    url = f"{CHANNELS}/{channel}/store-paths.xz"
+    req = urllib.request.Request(url, method="HEAD")
+    try:
+        with urllib.request.urlopen(req, timeout=120):
+            return True
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return False
+        raise
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__.strip().splitlines()[0])
     p.add_argument("--config", type=Path, default=Path("channels.json"))
@@ -136,10 +155,19 @@ def main() -> int:
 
     stale: list[str] = []
     if newest_key > pinned_key:
-        stale.append(
-            f"nixpkgs has {newest} but channels.json pins {pin}. "
-            f"Bump `stable` in channels.json."
-        )
+        successor = f"nixpkgs-{newest.removeprefix('release-')}-darwin"
+        if channel_published(successor):
+            stale.append(
+                f"nixpkgs has {newest} but channels.json pins {pin}. "
+                f"Bump `stable` in channels.json."
+            )
+        else:
+            # Branched but not published: bumping now would point the darwin
+            # lane at a 404. Visible, but not yet actionable.
+            print(
+                f"::warning::{newest} exists but {successor} is not published "
+                f"yet — not bumping. Check 2 stays the EOL backstop."
+            )
     if age_days > grace:
         stale.append(
             f"{channel} has not been republished in {age_days} days "

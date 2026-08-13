@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Export the stable-release pin from channels.json into $GITHUB_ENV, so every
 # job derives the darwin channel URL and the release branch from one place.
-# `26.05` must not appear anywhere else in the workflow.
+# No job may hardcode the version. (Some CLI defaults and docstrings under
+# scripts/ still name a release; none of them are on a workflow code path.)
 #
 # Exports: STABLE, DARWIN_URL, RELEASE_BRANCH.
 set -euo pipefail

@@ -32,7 +32,7 @@ Which stable release the `darwin` and `release` lanes track lives in one file, [
 { "stable": "26.05", "stale_after_days": 30 }
 ```
 
-`scripts/resolve-pin.sh` exports `STABLE`, `DARWIN_URL` and `RELEASE_BRANCH` from it into every job that needs them, so the version string appears nowhere else in the workflow. To move to the next release, edit `stable` and nothing else.
+`scripts/resolve-pin.sh` exports `STABLE`, `DARWIN_URL` and `RELEASE_BRANCH` from it into every job that needs them, so no job hardcodes the version. To move to the next release, edit `stable` and nothing else — the remaining `26.05` strings in `scripts/` are CLI defaults and docstrings that no workflow path reads (`scan-darwin-cache.py`'s `DEFAULT_CHANNEL` is deliberately left alone: it is hashed into the shard-state cache key, so editing it forces a cold rescan of all 17 shards).
 
 The `pin-check` job runs `scripts/check-channel-pin.py`, which fails the run when either:
 
@@ -203,6 +203,7 @@ done
 
 # Merge all three lanes' summaries into the top-level combined view.
 uv run scripts/combine-reports.py \
+  --stable "$STABLE" \
   --channel darwin:darwin/summary.json \
   --channel release:release/summary.json \
   --channel unstable:unstable/summary.json \
@@ -216,6 +217,7 @@ uv run scripts/combine-reports.py \
 
 # Quick smoke test against the first 100 paths of the darwin lane (~15 s).
 uv run scripts/scan-darwin-cache.py --limit 100 \
+  --channel "https://channels.nixos.org/nixpkgs-$STABLE-darwin" \
   --state smoke.db --out smoke.jsonl
 ```
 
