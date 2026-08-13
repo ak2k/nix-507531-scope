@@ -372,7 +372,12 @@ jobs:
           find "$CHANNEL-shards" -name full.jsonl -print0 \
             | xargs -0 cat \
             | gzip -1 > "$CHANNEL/full.jsonl.gz"
-          echo "$(gzip -dc "$CHANNEL/full.jsonl.gz" | wc -l) records, $(du -h "$CHANNEL/full.jsonl.gz" | cut -f1) gzipped"
+          # Assignment, not echo "$(...)": errexit/pipefail do not propagate
+          # out of a command substitution used as an argument, so a truncated
+          # merge would print "0 records" and sail on.
+          records=$(gzip -dc "$CHANNEL/full.jsonl.gz" | wc -l)
+          [ "$records" -gt 0 ] || { echo "::error::merged $CHANNEL log is empty"; exit 1; }
+          echo "$records records, $(du -h "$CHANNEL/full.jsonl.gz" | cut -f1) gzipped"
           # The merged copy is the only one used from here on; the per-shard
           # downloads are the uncompressed bulk (~9.5 GB on unstable).
           rm -rf "$CHANNEL-shards"
@@ -449,7 +454,12 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: channel-${{ matrix.channel.label }}
-          path: ${{ matrix.channel.label }}/
+          # Everything except the merged scan log: combine reads only the
+          # summary JSONs and the rendered sections, and the log is ~765 MB
+          # per lane per run at 30-day retention.
+          path: |
+            ${{ matrix.channel.label }}/
+            !${{ matrix.channel.label }}/full.jsonl.gz
           retention-days: 30
 
       - name: Fail loudly if scanner ↔ verifier disagree (${{ matrix.channel.label }})
