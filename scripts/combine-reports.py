@@ -145,7 +145,7 @@ def render_affected_packages_rows(channels: list[dict]) -> list[dict]:
     return out
 
 
-def render_markdown(channels: list[dict]) -> str:
+def render_markdown(channels: list[dict], stable: str) -> str:
     lines: list[str] = []
     lines.append("# NixOS/nixpkgs#507531 darwin Mach-O page-hash scope")
     lines.append("")
@@ -165,13 +165,13 @@ def render_markdown(channels: list[dict]) -> str:
     )
     lines.append("")
     lines.append(
-        "- `darwin` — `nixpkgs-26.05-darwin` channel "
+        f"- `darwin` — `nixpkgs-{stable}-darwin` channel "
         "(`store-paths.xz` published by Hydra's darwin-curated jobset; "
         "advances only when its darwin test-gate passes, so its rev can "
-        "lag `release-26.05` tip)."
+        f"lag `release-{stable}` tip)."
     )
     lines.append(
-        "- `release` — synthesised from `release-26.05` branch tip via "
+        f"- `release` — synthesised from `release-{stable}` branch tip via "
         "`nix-eval-jobs --flake github:NixOS/nixpkgs/<tip>#legacyPackages.aarch64-darwin`, "
         "expanded to runtime closure via `cache.nixos.org` `narinfo.References` BFS. "
         "Captures cached darwin paths at the release-branch tip even when "
@@ -313,7 +313,7 @@ def render_markdown(channels: list[dict]) -> str:
         "[nixpkgs#208951](https://github.com/NixOS/nixpkgs/issues/208951). "
         "This particular cached binary is referenced by neither stable "
         "pointer: `nixpkgs-25.11-darwin` advanced past it on 2026-05-05, "
-        "and the `darwin` lane now tracks `nixpkgs-26.05-darwin`. It "
+        f"and the `darwin` lane now tracks `nixpkgs-{stable}-darwin`. It "
         "remains in `cache.nixos.org` and "
         "still SIGKILLs for anyone pinned to a pre-pivot rev — illustrating "
         "the bistability point: a clean post-pivot fish build at "
@@ -529,6 +529,13 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         metavar="LABEL:PATH",
         help="Per-channel Tier-3 (build-time) summary JSON path. Repeatable.",
     )
+    p.add_argument(
+        "--stable",
+        required=True,
+        metavar="YY.MM",
+        help="Stable release the darwin/release lanes track. Comes from "
+        "channels.json via scripts/resolve-pin.sh; never hardcode it here.",
+    )
     p.add_argument("--out", default="REPORT.md", help="Combined markdown report path")
     p.add_argument(
         "--summary-json",
@@ -562,7 +569,7 @@ def main() -> int:
         ch["tier3_summary"] = load_tier_summary(t3_map.get(label))
         channels.append(ch)
 
-    md = render_markdown(channels)
+    md = render_markdown(channels, args.stable)
     Path(args.out).write_text(md)
 
     summary = build_combined_summary(channels)
