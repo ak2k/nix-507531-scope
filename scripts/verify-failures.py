@@ -54,6 +54,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import hashlib
 import json
 import os
@@ -75,13 +76,26 @@ def load_failing_csv(path: Path) -> list[dict]:
         return list(csv.DictReader(f))
 
 
+def open_jsonl(path: Path):
+    """Open a scan JSONL for reading, transparently handling `.gz`.
+
+    The merged per-channel log is gzipped (9.5 GB -> ~800 MB on unstable);
+    per-shard logs on the scan runners stay plain, since the scanner appends
+    to them line-buffered as crash-resilient state.
+    """
+    if path.suffix == ".gz":
+        return gzip.open(path, "rt")
+    return path.open()
+
+
 def load_other_sig_from_jsonl(path: Path) -> list[dict]:
     if not path.exists():
         return []
     out: list[dict] = []
-    # Stream: unstable/full.jsonl is ~9.5 GB, and slurping it peaks at ~20 GB
-    # RSS — past the 16 GB runner, which the kernel answers by killing the job.
-    with path.open() as f:
+    # Stream: unstable/full.jsonl is ~9.5 GB uncompressed, and slurping it
+    # peaks at ~20 GB RSS — past the 16 GB runner, which the kernel answers
+    # by killing the job.
+    with open_jsonl(path) as f:
         for line in f:
             if not line.strip():
                 continue

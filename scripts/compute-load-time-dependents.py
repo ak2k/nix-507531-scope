@@ -38,6 +38,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import json
 import os
 import posixpath
@@ -153,9 +154,21 @@ def load_failing_dylib_seeds(csv_path: Path) -> dict[tuple[str, str, str], dict]
 # ---------------------------------------------------------------------------
 
 
+def open_jsonl(path: Path):
+    """Open a scan JSONL for reading, transparently handling `.gz`.
+
+    The merged per-channel log is gzipped (9.5 GB -> ~800 MB on unstable);
+    per-shard logs on the scan runners stay plain, since the scanner appends
+    to them line-buffered as crash-resilient state.
+    """
+    if path.suffix == ".gz":
+        return gzip.open(path, "rt")
+    return path.open()
+
+
 def iter_slices(jsonl_path: Path):
     """Yield (store_path, slice_dict) for every Mach-O slice in the scan."""
-    with jsonl_path.open() as f:
+    with open_jsonl(jsonl_path) as f:
         for line in f:
             line = line.strip()
             if not line:

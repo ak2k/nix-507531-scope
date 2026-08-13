@@ -50,6 +50,7 @@ from __future__ import annotations
 import argparse
 import collections
 import csv
+import gzip
 import json
 import sys
 import time
@@ -135,8 +136,20 @@ def classify_slice(s: dict) -> str:
 # ---------------------------------------------------------------------------
 
 
+def open_jsonl(path: Path):
+    """Open a scan JSONL for reading, transparently handling `.gz`.
+
+    The merged per-channel log is gzipped (9.5 GB -> ~800 MB on unstable);
+    per-shard logs on the scan runners stay plain, since the scanner appends
+    to them line-buffered as crash-resilient state.
+    """
+    if path.suffix == ".gz":
+        return gzip.open(path, "rt")
+    return path.open()
+
+
 def load(path: Path):
-    with path.open() as f:
+    with open_jsonl(path) as f:
         for line in f:
             line = line.strip()
             if not line:
