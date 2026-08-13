@@ -18,11 +18,28 @@ Full technical detail: [issue](https://github.com/NixOS/nixpkgs/issues/507531), 
 
 A daily GitHub Actions workflow walks **three** darwin path-lists in parallel and reports three types of failure, each with a distinct certainty level. The three path-lists capture distinct user-visible lanes — same `cache.nixos.org`, different cached bytes per lane:
 
-- **`darwin`** — `https://channels.nixos.org/nixpkgs-26.05-darwin`. Hydra's darwin-curated stable channel; advances only when its darwin test-gate passes, so its rev can lag `release-26.05` tip. This is the lane where the breakage first surfaced, on the 25.11-darwin pointer; whether it persists on 26.05-darwin is what the daily scan reports.
-- **`release`** — synthetic. `release-26.05` branch tip is not a published channel slug, so we evaluate `github:NixOS/nixpkgs/<release-26.05-tip>#legacyPackages.aarch64-darwin` via `nix-eval-jobs` once per run and feed the resulting `/nix/store` path list into the same Tier 1 scanner that the other two channels use.
+- **`darwin`** — `https://channels.nixos.org/nixpkgs-<stable>-darwin` (currently 26.05; see [Channel pin](#channel-pin)). Hydra's darwin-curated stable channel; advances only when its darwin test-gate passes, so its rev can lag the `release-<stable>` tip. This is the lane where the breakage first surfaced, on the 25.11-darwin pointer; whether it persists on the current stable is what the daily scan reports.
+- **`release`** — synthetic. The `release-<stable>` branch tip is not a published channel slug, so we evaluate `github:NixOS/nixpkgs/<release-<stable>-tip>#legacyPackages.aarch64-darwin` via `nix-eval-jobs` once per run and feed the resulting `/nix/store` path list into the same Tier 1 scanner that the other two channels use.
 - **`unstable`** — `https://channels.nixos.org/nixpkgs-unstable`. Trunk-combined unstable, all platforms; the aarch64-darwin slice of `fish` here is on 4.6.0.
 
 The three lanes show how the bug is partly state-dependent: the same package source can produce a poisoned NAR on one lane's Hydra worker run and a clean NAR on another's, because the trigger condition (`scratchPath != finalPath` + `__TEXT,__cstring` references that get rewritten) depends on the worker's store state at build time. Scanning all three surfaces the divergence directly — e.g. `aarch64-darwin.fish-4.2.1` is poisoned at `gngn7y9mn…` (darwin lane) and clean at `s87z9chym2j5…` (release lane), with both NARs simultaneously cached.
+
+### Channel pin
+
+Which stable release the `darwin` and `release` lanes track lives in one file, [`channels.json`](channels.json):
+
+```json
+{ "stable": "26.05", "stale_after_days": 30 }
+```
+
+`scripts/resolve-pin.sh` exports `STABLE`, `DARWIN_URL` and `RELEASE_BRANCH` from it into every job that needs them, so the version string appears nowhere else in the workflow. To move to the next release, edit `stable` and nothing else.
+
+The `pin-check` job runs `scripts/check-channel-pin.py`, which fails the run when either:
+
+- **a newer `release-YY.MM` branch exists on nixpkgs** — the early warning, firing at branch-off while the pinned channel is still healthy and bumping is cheap; or
+- **the pinned darwin channel has stopped being republished** for longer than `stale_after_days` — the backstop, using the `Last-Modified` of its `store-paths.xz`.
+
+Nothing depends on `pin-check`, so a stale pin turns the run red without stopping the three lanes from scanning and publishing. This exists because it was missing: `nixpkgs-25.11-darwin` froze on 2026-07-02 and the scan re-read `0921fdb3e13e` for 33 consecutive green runs before anyone noticed.
 
 Three failure types per lane:
 
@@ -38,8 +55,8 @@ Outputs (all auto-committed by the workflow):
 |---|---|
 | [`REPORT.md`](REPORT.md) | Combined cross-channel summary: three-type headline, classification cross-tab, canonical examples, drill-down links |
 | [`summary.json`](summary.json) | Combined machine-readable counts (badges, dashboards); back-compat shortcut fields at `$.page_hash_mismatch.slices` etc. sum across channels |
-| [`darwin/`](darwin/) | Per-channel detail for `nixpkgs-26.05-darwin`: `REPORT.md`, `summary.json`, `direct-failing.csv` (Type 1), `load-time-dependents.csv` (Type 2), `build-time-dependents.csv` (Type 3), `verify-summary.md`, `verify-results.jsonl` |
-| [`release/`](release/) | Per-channel detail for the synthetic `release-26.05` lane (path list derived from `nix-eval-jobs`): same files as above |
+| [`darwin/`](darwin/) | Per-channel detail for `nixpkgs-<stable>-darwin`: `REPORT.md`, `summary.json`, `direct-failing.csv` (Type 1), `load-time-dependents.csv` (Type 2), `build-time-dependents.csv` (Type 3), `verify-summary.md`, `verify-results.jsonl` |
+| [`release/`](release/) | Per-channel detail for the synthetic `release-<stable>` lane (path list derived from `nix-eval-jobs`): same files as above |
 | [`unstable/`](unstable/) | Per-channel detail for `nixpkgs-unstable`: same files as above |
 
 ## Current status
@@ -47,17 +64,17 @@ Outputs (all auto-committed by the workflow):
 The workflow commits fresh outputs on every run. For the latest numbers:
 
 - [**REPORT.md**](REPORT.md) — combined cross-channel view
-- [`darwin/REPORT.md`](darwin/REPORT.md) — `nixpkgs-26.05-darwin` channel drill-down (tables: signer split, arch breakdown, fat vs thin, failing packages)
-- [`release/REPORT.md`](release/REPORT.md) — synthetic `release-26.05` lane drill-down
+- [`darwin/REPORT.md`](darwin/REPORT.md) — `nixpkgs-<stable>-darwin` channel drill-down (tables: signer split, arch breakdown, fat vs thin, failing packages)
+- [`release/REPORT.md`](release/REPORT.md) — synthetic `release-<stable>` lane drill-down
 - [`unstable/REPORT.md`](unstable/REPORT.md) — `nixpkgs-unstable` channel drill-down
 - `*/verify-summary.md` — scanner × `rcodesign` agreement matrix per channel (should always be 100%)
 
 ## How it works
 
 ```
-darwin lane:    channels.nixos.org/nixpkgs-26.05-darwin/store-paths.xz
+darwin lane:    channels.nixos.org/nixpkgs-<stable>-darwin/store-paths.xz
 unstable lane:  channels.nixos.org/nixpkgs-unstable/store-paths.xz
-release lane:   scripts/eval-darwin-paths.py --flake github:NixOS/nixpkgs/<release-26.05-tip>
+release lane:   scripts/eval-darwin-paths.py --flake github:NixOS/nixpkgs/<release-<stable>-tip>
                   · runs nix-eval-jobs --workers 2 --max-memory-size 3072
                   · emits one /nix/store path per outputs.* across the
                     aarch64-darwin package set (~107K paths)
@@ -107,8 +124,11 @@ scripts/combine-reports.py             ← top-level REPORT.md + summary.json
 Any darwin or Linux machine with Nix + `uv` + `rcodesign` (Linux) or `/usr/bin/codesign` (darwin). Type 3 additionally requires `nix-eval-jobs`.
 
 ```bash
-# Pre-step: synthesise the release lane's path list from release-26.05 tip.
-RELEASE_REV=$(git ls-remote https://github.com/NixOS/nixpkgs release-26.05 | awk '{print $1}')
+# Which stable release the darwin/release lanes track. Single source of truth.
+STABLE=$(jq -r .stable channels.json)
+
+# Pre-step: synthesise the release lane's path list from release-$STABLE tip.
+RELEASE_REV=$(git ls-remote https://github.com/NixOS/nixpkgs "release-$STABLE" | awk '{print $1}')
 mkdir -p release-input
 uv run scripts/eval-darwin-paths.py \
   --flake "github:NixOS/nixpkgs/$RELEASE_REV" \
@@ -126,12 +146,12 @@ for ch_label in darwin release unstable; do
   mkdir -p "$ch_label"
   case "$ch_label" in
     darwin)
-      URL=https://channels.nixos.org/nixpkgs-26.05-darwin
+      URL=https://channels.nixos.org/nixpkgs-$STABLE-darwin
       REV=$(curl -sL "$URL/git-revision")
       SOURCE_FLAG=( --channel "$URL" )
       ;;
     release)
-      URL=github:NixOS/nixpkgs/release-26.05
+      URL=github:NixOS/nixpkgs/release-$STABLE
       REV=$(cat release-input/release-rev.txt)
       SOURCE_FLAG=( --paths-file release-input/release-paths.txt )
       ;;
@@ -201,7 +221,7 @@ uv run scripts/scan-darwin-cache.py --limit 100 \
 
 ## Scope — what each type claims, by evidence level
 
-- **Channels scanned**: `nixpkgs-26.05-darwin` (`darwin` lane), the synthesised `release-26.05` lane, and `nixpkgs-unstable` (`unstable` lane), in parallel every night.
+- **Channels scanned**: `nixpkgs-<stable>-darwin` (`darwin` lane), the synthesised `release-<stable>` lane, and `nixpkgs-unstable` (`unstable` lane), in parallel every night.
 - **Type 1 — direct** (certain per binary). Per-page hash mismatches in the primary CodeDirectory, SHA-256 or SHA-1 as carried by the CD. Detection is agnostic to the `linker-signed` flag — both `ld -adhoc_codesign` (linker-signed shape) and `codesign -f -s -` (codesign-adhoc shape) surface. Structural signature errors (`LC_CODE_SIGNATURE` payload OOB, bad SuperBlob magic, unsupported hash types, etc.) land in a separate `other_sig_invalid` bucket, not the headline.
 - **Type 2 — load-time transitive** (certain per binary). Mach-O parse extracts `LC_LOAD_DYLIB` / `LC_LOAD_WEAK_DYLIB` / `LC_REEXPORT_DYLIB` install-names per slice; any slice that is itself clean but references a Type-1 dylib is marked broken. dyld maps every `LC_LOAD_DYLIB` target at process start and the kernel validates the mapped pages, so the failure is deterministic before `main()` runs. `LC_LOAD_UPWARD_DYLIB` is excluded (rare, lazy, ambiguous — would overstate).
 - **Type 3 — build-time dependent** (graph-level only). `nix-eval-jobs` enumerates the channel's aarch64-darwin package set; we inspect each drv's env for direct-failing store paths in `buildInputs` / `nativeBuildInputs` / `checkInputs` / `nativeCheckInputs`. The default view is 1-hop and excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` (propagation threads the input forward; the listed package itself doesn't invoke it). **Membership does not guarantee build failure** — the graph shows the failing binary is on PATH during build, but whether a build phase actually invokes it is not statically determinable. The confirmed case is direnv, whose `nativeCheckInputs = [ fish ]` with a `checkPhase` running `fish ./test/direnv-test.fish` produces the exact failure in nixpkgs#507531's bug report. CSV includes all edge kinds (`in_default_view=true` for tight-filter rows) so readers can inspect propagated edges if they want.

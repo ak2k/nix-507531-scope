@@ -2,13 +2,13 @@
 #
 # Three channels, each emits its own per-channel report:
 #
-#   `darwin`   — `https://channels.nixos.org/nixpkgs-26.05-darwin`. Hydra's
-#                darwin-curated stable channel; lags release-26.05 tip on
+#   `darwin`   — `https://channels.nixos.org/nixpkgs-<stable>-darwin`. Hydra's
+#                darwin-curated stable channel; lags release-<stable> tip on
 #                darwin test-gate failures. The lane where the breakage
 #                first surfaced, on the 25.11-darwin pointer.
-#   `release`  — synthetic. `release-26.05` branch tip is not a published
+#   `release`  — synthetic. `release-<stable>` branch tip is not a published
 #                channel slug, so we evaluate
-#                  github:NixOS/nixpkgs/<release-26.05-tip>#legacyPackages.aarch64-darwin
+#                  github:NixOS/nixpkgs/<release-<stable>-tip>#legacyPackages.aarch64-darwin
 #                via nix-eval-jobs in a pre-job and feed the resulting
 #                /nix/store path list to scan-darwin-cache.py via
 #                --paths-file. Same Tier 1 pipeline as the other channels.
@@ -19,7 +19,7 @@
 # Architecture: four jobs in sequence.
 #
 #   eval-release-paths (1 job, ~10-15 min):
-#     * `git ls-remote release-26.05` → release_rev
+#     * `git ls-remote release-<stable>` → release_rev
 #     * `nix-eval-jobs --workers 2 --max-memory-size 3072 ...` → direct
 #       outputs.* per attr (~107K /nix/store paths, ~5-8 min).
 #       Parallelism mirrors compute-build-time-dependents.py's existing
@@ -85,8 +85,32 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  pin-check:
+    # Is channels.json's `stable` still the release we should be scanning?
+    # Deliberately depended on by nothing: a stale pin turns the run red so
+    # it gets noticed, but the three lanes still scan and still publish. The
+    # failure mode this guards against is silence, not bad data.
+    name: pin-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v8.2.0
+        with:
+          version: latest
+          cache-dependency-glob: 'scripts/*.py'
+
+      - name: Check stable-release pin
+        run: uv run scripts/check-channel-pin.py --config channels.json
+
   eval-release-paths:
-    # Pin release-26.05 tip rev once, then synthesise its
+    # Pin release-<stable> tip rev once, then synthesise its
     # legacyPackages.aarch64-darwin path list via nix-eval-jobs. Single
     # run shared by all 7 release-channel scan shards.
     name: eval-release-paths
@@ -112,17 +136,20 @@ jobs:
       - name: Install nix-eval-jobs
         run: nix profile install nixpkgs#nix-eval-jobs
 
-      - name: Pin release-26.05 tip
+      - name: Resolve stable pin
+        run: scripts/resolve-pin.sh
+
+      - name: Pin release branch tip
         id: pin
         run: |
-          REV=$(git ls-remote https://github.com/NixOS/nixpkgs release-26.05 | awk '{print $1}')
+          REV=$(git ls-remote https://github.com/NixOS/nixpkgs "$RELEASE_BRANCH" | awk '{print $1}')
           if [ -z "$REV" ]; then
-            echo "::error::failed to resolve release-26.05"
+            echo "::error::failed to resolve $RELEASE_BRANCH"
             exit 1
           fi
           echo "rev=$REV" >> "$GITHUB_OUTPUT"
           echo "$REV" > release-rev.txt
-          echo "release-26.05 pinned at $REV"
+          echo "$RELEASE_BRANCH pinned at $REV"
 
       - name: Evaluate aarch64-darwin package set
         env:
@@ -183,27 +210,27 @@ jobs:
         # expansion; include + a separate job per channel was the next-
         # cleanest alternative). When changing shard counts, update BOTH
         # the include list and the `total_shards` field on every entry of
-        # that channel. `release` entries have an empty `url` — they read
-        # paths from the eval-release-paths artifact instead of fetching
-        # store-paths.xz from channels.nixos.org.
+        # that channel. No `url` here on purpose: matrix context cannot
+        # read channels.json, so lane URLs are resolved in the scan step
+        # from the pin (see scripts/resolve-pin.sh).
         include:
-          - { channel: darwin, url: 'https://channels.nixos.org/nixpkgs-26.05-darwin', shard: 0, total_shards: 3 }
-          - { channel: darwin, url: 'https://channels.nixos.org/nixpkgs-26.05-darwin', shard: 1, total_shards: 3 }
-          - { channel: darwin, url: 'https://channels.nixos.org/nixpkgs-26.05-darwin', shard: 2, total_shards: 3 }
-          - { channel: release, url: '', shard: 0, total_shards: 7 }
-          - { channel: release, url: '', shard: 1, total_shards: 7 }
-          - { channel: release, url: '', shard: 2, total_shards: 7 }
-          - { channel: release, url: '', shard: 3, total_shards: 7 }
-          - { channel: release, url: '', shard: 4, total_shards: 7 }
-          - { channel: release, url: '', shard: 5, total_shards: 7 }
-          - { channel: release, url: '', shard: 6, total_shards: 7 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 0, total_shards: 7 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 1, total_shards: 7 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 2, total_shards: 7 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 3, total_shards: 7 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 4, total_shards: 7 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 5, total_shards: 7 }
-          - { channel: unstable, url: 'https://channels.nixos.org/nixpkgs-unstable', shard: 6, total_shards: 7 }
+          - { channel: darwin, shard: 0, total_shards: 3 }
+          - { channel: darwin, shard: 1, total_shards: 3 }
+          - { channel: darwin, shard: 2, total_shards: 3 }
+          - { channel: release, shard: 0, total_shards: 7 }
+          - { channel: release, shard: 1, total_shards: 7 }
+          - { channel: release, shard: 2, total_shards: 7 }
+          - { channel: release, shard: 3, total_shards: 7 }
+          - { channel: release, shard: 4, total_shards: 7 }
+          - { channel: release, shard: 5, total_shards: 7 }
+          - { channel: release, shard: 6, total_shards: 7 }
+          - { channel: unstable, shard: 0, total_shards: 7 }
+          - { channel: unstable, shard: 1, total_shards: 7 }
+          - { channel: unstable, shard: 2, total_shards: 7 }
+          - { channel: unstable, shard: 3, total_shards: 7 }
+          - { channel: unstable, shard: 4, total_shards: 7 }
+          - { channel: unstable, shard: 5, total_shards: 7 }
+          - { channel: unstable, shard: 6, total_shards: 7 }
 
     steps:
       - uses: actions/checkout@v6
@@ -242,17 +269,21 @@ jobs:
           restore-keys: |
             scan-state-${{ matrix.channel }}-shard${{ matrix.shard }}of${{ matrix.total_shards }}-${{ hashFiles('scripts/scan-darwin-cache.py') }}-
 
+      - name: Resolve stable pin
+        run: scripts/resolve-pin.sh
+
       - name: Scan shard
         run: |
           DIR=${{ matrix.channel }}-shard${{ matrix.shard }}
           mkdir -p "$DIR"
           # `release` reads its path list from the eval-release-paths
           # artifact; the other channels fetch <url>/store-paths.xz.
-          if [ '${{ matrix.channel }}' = 'release' ]; then
-            SOURCE='--paths-file release-input/release-paths.txt'
-          else
-            SOURCE='--channel ${{ matrix.url }}'
-          fi
+          case '${{ matrix.channel }}' in
+            release)  SOURCE='--paths-file release-input/release-paths.txt' ;;
+            darwin)   SOURCE="--channel $DARWIN_URL" ;;
+            unstable) SOURCE='--channel https://channels.nixos.org/nixpkgs-unstable' ;;
+            *) echo "::error::unknown channel ${{ matrix.channel }}"; exit 1 ;;
+          esac
           uv run scripts/scan-darwin-cache.py \
             $SOURCE \
             --shard ${{ matrix.shard }} \
@@ -294,13 +325,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # URLs are resolved in the "Channel metadata" step rather than
+        # listed here: matrix context cannot read channels.json.
         channel:
           - label: darwin
-            url: https://channels.nixos.org/nixpkgs-26.05-darwin
           - label: release
-            url: ''  # synthetic; rev comes from eval-release-paths artifact
           - label: unstable
-            url: https://channels.nixos.org/nixpkgs-unstable
     steps:
       - uses: actions/checkout@v6
         with:
@@ -333,6 +363,9 @@ jobs:
           name: release-paths
           path: release-input/
 
+      - name: Resolve stable pin
+        run: scripts/resolve-pin.sh
+
       - name: Channel metadata
         id: channel
         run: |
@@ -341,10 +374,14 @@ jobs:
             # at the start of the run. Reuse it so Tier 3 evaluates
             # against the same rev whose path list we already scanned.
             REV=$(cat release-input/release-rev.txt)
-            URL="github:NixOS/nixpkgs/release-26.05"
-            DISPLAY="release-26.05 @ ${REV:0:12} ($(date -u +%Y-%m-%d))"
+            URL="github:NixOS/nixpkgs/$RELEASE_BRANCH"
+            DISPLAY="$RELEASE_BRANCH @ ${REV:0:12} ($(date -u +%Y-%m-%d))"
           else
-            URL="${{ matrix.channel.url }}"
+            case '${{ matrix.channel.label }}' in
+              darwin)   URL="$DARWIN_URL" ;;
+              unstable) URL='https://channels.nixos.org/nixpkgs-unstable' ;;
+              *) echo "::error::unknown lane ${{ matrix.channel.label }}"; exit 1 ;;
+            esac
             REV=$(curl -sL "$URL/git-revision")
             DISPLAY="${URL##*/} @ ${REV:0:12} ($(date -u +%Y-%m-%d))"
           fi
@@ -494,9 +531,13 @@ jobs:
           name: channel-unstable
           path: unstable/
 
+      - name: Resolve stable pin
+        run: scripts/resolve-pin.sh
+
       - name: Combine
         run: |
           uv run scripts/combine-reports.py \
+            --stable "$STABLE" \
             --channel darwin:darwin/summary.json \
             --channel release:release/summary.json \
             --channel unstable:unstable/summary.json \

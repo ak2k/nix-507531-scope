@@ -1,0 +1,14 @@
+{
+  "_comment": [
+    "Single source of truth for which nixpkgs stable release the darwin and",
+    "release lanes track. scan.yml derives the channel URL and the branch ref",
+    "from `stable`; scripts/check-channel-pin.py fails the daily run when this",
+    "pin falls behind nixpkgs. Bump `stable` here and nowhere else.",
+    "",
+    "`stale_after_days` is the age at which a pinned channel that has stopped",
+    "advancing is treated as EOL. nixpkgs-<stable>-darwin normally republishes",
+    "every few days; 25.11-darwin froze on 2026-07-02 and went unnoticed for 42."
+  ],
+  "stable": "26.05",
+  "stale_after_days": 30
+}
