@@ -90,14 +90,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-26.05-darwin @ e0c84f9d0ad1 (2026-08-13)",
+      "channel_label": "nixpkgs-26.05-darwin @ e0c84f9d0ad1 (2026-08-14)",
       "coverage": {
         "not_real_macho": 7700,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-08-13 13:54:57 UTC",
+      "generated_at": "2026-08-14 08:34:40 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -252,14 +252,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "release-26.05 @ ef9b72860391 (2026-08-13)",
+      "channel_label": "release-26.05 @ 101d8332047c (2026-08-14)",
       "coverage": {
         "not_real_macho": 4291,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-08-13 13:55:04 UTC",
+      "generated_at": "2026-08-14 08:34:45 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -298,10 +298,10 @@
         "slices": 26
       },
       "paths_by_status": {
-        "no_narinfo": 27111,
+        "no_narinfo": 27682,
         "ok": 96814
       },
-      "paths_scanned": 123925,
+      "paths_scanned": 124496,
       "slices_by_arch": {
         "arm": 11,
         "arm64": 117726,
@@ -422,14 +422,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-unstable @ 044bfe75bfe4 (2026-08-13)",
+      "channel_label": "nixpkgs-unstable @ 044bfe75bfe4 (2026-08-14)",
       "coverage": {
         "not_real_macho": 51486,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-08-13 13:55:01 UTC",
+      "generated_at": "2026-08-14 08:34:41 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -495,7 +495,7 @@
       "slices_total": 183817
     }
   },
-  "generated_at": "2026-08-13 14:08:23 UTC",
+  "generated_at": "2026-08-14 08:50:28 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 2,
@@ -507,7 +507,7 @@
     "packages": 16,
     "slices": 106
   },
-  "paths_scanned": 591889,
+  "paths_scanned": 592460,
   "slices_total": 539355,
   "union": {
     "build_time_packages_default_view": [
