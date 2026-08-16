@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 6b5e5b7a6631 (2026-08-15)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 8be7bd0c83f1 (2026-08-16)
 
-Generated: 2026-08-15 08:00:09 UTC
+Generated: 2026-08-16 07:58:19 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 306,037 |
-| Mach-O slices parsed | 190,456 |
-| Page-hash mismatches (slices) | 27 |
-| Page-hash mismatches (distinct packages) | 11 |
+| Store paths scanned | 315,231 |
+| Mach-O slices parsed | 196,539 |
+| Page-hash mismatches (slices) | 46 |
+| Page-hash mismatches (distinct packages) | 14 |
 |   of which linker-signed (flags=0x20002) | 7 |
-|   of which codesign-signed (flags=0x2) | 20 |
+|   of which codesign-signed (flags=0x2) | 39 |
 | Other signature-invalid (slices) | 3 |
 | Other signature-invalid (distinct packages) | 1 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-08-15 08:00:09 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 131,748 | 27 | 0 | 122,125 | 9,565 | 31 |
+| `arm64` | 137,485 | 46 | 0 | 127,068 | 10,338 | 33 |
 | `arm64e` | 34 | 0 | 0 | 14 | 0 | 20 |
-| `x86_64` | 6,305 | 0 | 2 | 2,979 | 3,272 | 52 |
-| `i386` | 398 | 0 | 1 | 73 | 307 | 17 |
-| other/legacy (14 arch codes) | 51,971 | 0 | 0 | 1 | 127 | 51,843 |
+| `x86_64` | 6,648 | 0 | 2 | 3,032 | 3,561 | 53 |
+| `i386` | 400 | 0 | 1 | 73 | 309 | 17 |
+| other/legacy (14 arch codes) | 51,972 | 0 | 0 | 1 | 127 | 51,844 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 133,723 | 9 | 3 | 121,077 | 12,455 |
-| fat | 56,733 | 18 | 0 | 4,115 | 816 |
+| thin | 139,538 | 10 | 3 | 125,906 | 13,440 |
+| fat | 57,001 | 36 | 0 | 4,282 | 895 |
 
-Unique fat binary files: 54,165 in 683 packages. 2 of those packages contain at least one failing fat slice.
+Unique fat binary files: 54,317 in 727 packages. 4 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -48,9 +48,12 @@ Sorted alphabetically by package name.
 | hunk-0.18.0 | 1 | `/nix/store/jkfdgl7bdd0dn5bcf2bqfzr37ymc05jd-hunk-0.18.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/l91spz32g5a5dzdcz18kb11a5b7xi9ks-libtorch-2.9.0` |
 | renovate-44.24.3 | 1 | `/nix/store/hj4hv32i4w8f2h6pr4cswhlbrlq3ny7p-renovate-44.24.3` |
+| renovate-44.24.3 | 1 | `/nix/store/vk7chz9c70a60rdbjgk11fbg2231fi8i-renovate-44.24.3` |
 | shogihome-1.29.0 | 1 | `/nix/store/z1nv52627m8d3m7pz3lb9sbhcjys79ff-shogihome-1.29.0` |
 | swift-5.10.1 | 11 | `/nix/store/76a3zzly7172nxr5ap5sij6rgwh65hqd-swift-5.10.1` |
+| swift-5.10.1 | 11 | `/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1` |
 | swift-5.10.1-lib | 7 | `/nix/store/44h8zl9mm7vzq205n0fh9lwgs3gdsk5n-swift-5.10.1-lib` |
+| swift-5.10.1-lib | 7 | `/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib` |
 | tailwindcss_4-4.3.3 | 1 | `/nix/store/6x7ip1f8fzy0asljzdkvppa6427spp0h-tailwindcss_4-4.3.3` |
 | teams-for-linux-2.14.1 | 1 | `/nix/store/v7bib0qncfr3p0vgwbgh785rgl5k19p5-teams-for-linux-2.14.1` |
 | vscode-extension-kilocode-Kilo-Code-7.4.16 | 1 | `/nix/store/smhfspqikyayf45jpz86rj9lbi6lmyc7-vscode-extension-kilocode-Kilo-Code-7.4.16` |
@@ -67,11 +70,11 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 27 |
+| `page_hash_mismatch` | 46 |
 | `other_sig_invalid` | 3 |
-| `clean` (signed, verified) | 125,192 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 13,271 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 51,963 |
+| `clean` (signed, verified) | 130,188 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 14,335 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 51,967 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -82,7 +85,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 0 |
 | Distinct packages containing such binaries | 0 |
-| Failing dylibs that serve as seeds | 19 |
+| Failing dylibs that serve as seeds | 37 |
 | Total (binary, failing-dylib) pairs | 0 |
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).
@@ -97,7 +100,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 11 |
+| Distinct failing seeds | 14 |
 
 Edges by kind (default view only):
 

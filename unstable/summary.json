@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 125192,
-    "not_real_macho": 51963,
+    "clean": 130188,
+    "not_real_macho": 51967,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 27,
-    "unsigned": 13271
+    "page_hash_mismatch": 46,
+    "unsigned": 14335
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 111
     },
     "arm64": {
-      "clean": 122125,
-      "not_real_macho": 31,
-      "page_hash_mismatch": 27,
-      "unsigned": 9565
+      "clean": 127068,
+      "not_real_macho": 33,
+      "page_hash_mismatch": 46,
+      "unsigned": 10338
     },
     "arm64e": {
       "clean": 14,
@@ -61,41 +61,41 @@
       "clean": 73,
       "not_real_macho": 17,
       "other_sig_invalid": 1,
-      "unsigned": 307
+      "unsigned": 309
     },
     "unknown": {
-      "not_real_macho": 51740
+      "not_real_macho": 51741
     },
     "x86_64": {
-      "clean": 2979,
-      "not_real_macho": 52,
+      "clean": 3032,
+      "not_real_macho": 53,
       "other_sig_invalid": 2,
-      "unsigned": 3272
+      "unsigned": 3561
     }
   },
-  "channel_label": "nixpkgs-unstable @ 6b5e5b7a6631 (2026-08-15)",
+  "channel_label": "nixpkgs-unstable @ 8be7bd0c83f1 (2026-08-16)",
   "coverage": {
-    "not_real_macho": 51963,
+    "not_real_macho": 51967,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-08-15 08:00:09 UTC",
+  "generated_at": "2026-08-16 07:58:19 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-real": 1,
-      "C2": 19,
+      "B7-real": 2,
+      "C2": 37,
       "L": 7
     },
     "by_signer": {
-      "codesign_signed": 20,
+      "codesign_signed": 39,
       "linker_signed": 7
     },
-    "packages": 11,
+    "packages": 14,
     "packages_list": [
       "filen-cli-0.0.36",
       "httptoolkit-1.26.0",
@@ -109,15 +109,15 @@
       "teams-for-linux-2.14.1",
       "vscode-extension-kilocode-Kilo-Code-7.4.16"
     ],
-    "slices": 27
+    "slices": 46
   },
   "paths_by_status": {
-    "ok": 306037
+    "ok": 315231
   },
-  "paths_scanned": 306037,
+  "paths_scanned": 315231,
   "slices_by_arch": {
     "arm": 115,
-    "arm64": 131748,
+    "arm64": 137485,
     "arm64e": 34,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 1,
@@ -131,9 +131,9 @@
     "cpu_0x01000012/0x00000000": 24,
     "cpu_0x01000012/0x80000000": 1,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 398,
-    "unknown": 51740,
-    "x86_64": 6305
+    "i386": 400,
+    "unknown": 51741,
+    "x86_64": 6648
   },
-  "slices_total": 190456
+  "slices_total": 196539
 }
