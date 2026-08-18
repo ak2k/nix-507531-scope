@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 8be7bd0c83f1 (2026-08-17)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ f4b6996c4e8b (2026-08-18)
 
-Generated: 2026-08-17 08:09:17 UTC
+Generated: 2026-08-18 08:11:28 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 315,231 |
-| Mach-O slices parsed | 196,539 |
-| Page-hash mismatches (slices) | 46 |
-| Page-hash mismatches (distinct packages) | 14 |
-|   of which linker-signed (flags=0x20002) | 7 |
+| Store paths scanned | 339,163 |
+| Mach-O slices parsed | 202,995 |
+| Page-hash mismatches (slices) | 47 |
+| Page-hash mismatches (distinct packages) | 15 |
+|   of which linker-signed (flags=0x20002) | 8 |
 |   of which codesign-signed (flags=0x2) | 39 |
 | Other signature-invalid (slices) | 3 |
 | Other signature-invalid (distinct packages) | 1 |
@@ -22,20 +22,20 @@ Generated: 2026-08-17 08:09:17 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 137,485 | 46 | 0 | 127,068 | 10,338 | 33 |
+| `arm64` | 143,339 | 47 | 0 | 132,590 | 10,666 | 36 |
 | `arm64e` | 34 | 0 | 0 | 14 | 0 | 20 |
-| `x86_64` | 6,648 | 0 | 2 | 3,032 | 3,561 | 53 |
-| `i386` | 400 | 0 | 1 | 73 | 309 | 17 |
-| other/legacy (14 arch codes) | 51,972 | 0 | 0 | 1 | 127 | 51,844 |
+| `x86_64` | 7,228 | 0 | 2 | 3,171 | 3,999 | 56 |
+| `i386` | 405 | 0 | 1 | 73 | 311 | 20 |
+| other/legacy (14 arch codes) | 51,989 | 0 | 0 | 1 | 127 | 51,861 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 139,538 | 10 | 3 | 125,906 | 13,440 |
-| fat | 57,001 | 36 | 0 | 4,282 | 895 |
+| thin | 145,641 | 11 | 3 | 131,331 | 14,117 |
+| fat | 57,354 | 36 | 0 | 4,518 | 986 |
 
-Unique fat binary files: 54,317 in 727 packages. 4 of those packages contain at least one failing fat slice.
+Unique fat binary files: 54,497 in 803 packages. 4 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -56,6 +56,7 @@ Sorted alphabetically by package name.
 | swift-5.10.1-lib | 7 | `/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib` |
 | tailwindcss_4-4.3.3 | 1 | `/nix/store/6x7ip1f8fzy0asljzdkvppa6427spp0h-tailwindcss_4-4.3.3` |
 | teams-for-linux-2.14.1 | 1 | `/nix/store/v7bib0qncfr3p0vgwbgh785rgl5k19p5-teams-for-linux-2.14.1` |
+| teams-for-linux-2.15.0 | 1 | `/nix/store/wi3q2584mcl1ppbnlggz6y75d7gf14d2-teams-for-linux-2.15.0` |
 | vscode-extension-kilocode-Kilo-Code-7.4.16 | 1 | `/nix/store/smhfspqikyayf45jpz86rj9lbi6lmyc7-vscode-extension-kilocode-Kilo-Code-7.4.16` |
 
 ## Appendix — other signature-invalid binaries
@@ -70,11 +71,11 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 46 |
+| `page_hash_mismatch` | 47 |
 | `other_sig_invalid` | 3 |
-| `clean` (signed, verified) | 130,188 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 14,335 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 51,967 |
+| `clean` (signed, verified) | 135,849 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 15,103 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 51,993 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -100,7 +101,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 14 |
+| Distinct failing seeds | 15 |
 
 Edges by kind (default view only):
 
