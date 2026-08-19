@@ -4,6 +4,24 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/h3hiral71d200cywyklf3w2672q7fkfc-filen-cli-0.0.36,bin/.filen-wrapped,arm64,73769890,True,131074,4096,17871,73197904,1,17870,73195520,thin,0,False,False,0,L
 /nix/store/jkfdgl7bdd0dn5bcf2bqfzr37ymc05jd-hunk-0.18.0,bin/hunk,arm64,85064098,True,131074,4096,20607,84404560,1,20606,84402176,thin,0,False,False,0,L
 /nix/store/smhfspqikyayf45jpz86rj9lbi6lmyc7-vscode-extension-kilocode-Kilo-Code-7.4.16,share/vscode/extensions/kilocode.Kilo-Code/bin/kilo,arm64,124705634,True,131074,4096,30210,123738800,1,30209,123736064,thin,0,False,False,0,L
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,arm64,8349008,False,2,4096,2019,8266752,2,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,arm64,122192,False,2,4096,26,103712,1,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftSwiftOnoneSupport.dylib,arm64,439152,False,2,4096,103,418208,1,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_Backtracing.dylib,arm64,664704,False,2,4096,157,642032,1,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_Concurrency.dylib,arm64,778752,False,2,4096,185,755184,1,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
+/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
+/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
+/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
+/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswift_Backtracing.dylib,arm64,664704,False,2,4096,157,642032,1,0,0,fat32,8,False,False,0,C2
+/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
+/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
+/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
 /nix/store/76a3zzly7172nxr5ap5sij6rgwh65hqd-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,arm64,8349008,False,2,4096,2019,8266752,2,0,0,fat32,8,False,False,0,C2
 /nix/store/76a3zzly7172nxr5ap5sij6rgwh65hqd-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,arm64,122192,False,2,4096,26,103712,1,0,0,fat32,8,False,False,0,C2
 /nix/store/76a3zzly7172nxr5ap5sij6rgwh65hqd-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
@@ -16,17 +34,6 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/76a3zzly7172nxr5ap5sij6rgwh65hqd-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/76a3zzly7172nxr5ap5sij6rgwh65hqd-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
 /nix/store/z1nv52627m8d3m7pz3lb9sbhcjys79ff-shogihome-1.29.0,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,190076720,True,131074,4096,46046,188603104,1,36277,148590592,thin,0,False,False,0,L
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,arm64,8349008,False,2,4096,2019,8266752,2,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,arm64,122192,False,2,4096,26,103712,1,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftSwiftOnoneSupport.dylib,arm64,439152,False,2,4096,103,418208,1,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_Backtracing.dylib,arm64,664704,False,2,4096,157,642032,1,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_Concurrency.dylib,arm64,778752,False,2,4096,185,755184,1,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
-/nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
 /nix/store/l91spz32g5a5dzdcz18kb11a5b7xi9ks-libtorch-2.9.0,lib/libomp.dylib,arm64,754912,False,2,4096,179,730928,1,0,0,thin,8,False,False,0,C2
 /nix/store/hj4hv32i4w8f2h6pr4cswhlbrlq3ny7p-renovate-44.24.3,lib/node_modules/renovate/node_modules/.pnpm/@typescript+typescript-darwin-arm64@7.0.2/node_modules/@typescript/typescript-darwin-arm64/lib/tsc,arm64,23653664,False,65536,4096,5723,23437328,5,0,0,thin,9021,False,False,0,B7-real
 /nix/store/44h8zl9mm7vzq205n0fh9lwgs3gdsk5n-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
@@ -37,12 +44,5 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/44h8zl9mm7vzq205n0fh9lwgs3gdsk5n-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/44h8zl9mm7vzq205n0fh9lwgs3gdsk5n-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
 /nix/store/v7bib0qncfr3p0vgwbgh785rgl5k19p5-teams-for-linux-2.14.1,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,180012352,True,131074,4096,43608,178616752,1,38956,159563776,thin,0,False,False,0,L
-/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
-/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
-/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
-/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswift_Backtracing.dylib,arm64,664704,False,2,4096,157,642032,1,0,0,fat32,8,False,False,0,C2
-/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
-/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
-/nix/store/yn710d5q59c2j8y77w1cwbdvkh7x6jvq-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
 /nix/store/vk7chz9c70a60rdbjgk11fbg2231fi8i-renovate-44.24.3,lib/node_modules/renovate/node_modules/.pnpm/@typescript+typescript-darwin-arm64@7.0.2/node_modules/@typescript/typescript-darwin-arm64/lib/tsc,arm64,23653664,False,65536,4096,5723,23437328,5,0,0,thin,9021,False,False,0,B7-real
 /nix/store/wi3q2584mcl1ppbnlggz6y75d7gf14d2-teams-for-linux-2.15.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,180012352,True,131074,4096,43608,178616752,1,38956,159563776,thin,0,False,False,0,L
