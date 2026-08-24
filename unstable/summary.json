@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 156057,
-    "not_real_macho": 60557,
+    "clean": 160337,
+    "not_real_macho": 60919,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 47,
-    "unsigned": 16263
+    "page_hash_mismatch": 51,
+    "unsigned": 17129
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 111
     },
     "arm64": {
-      "clean": 152610,
-      "not_real_macho": 36,
-      "page_hash_mismatch": 47,
-      "unsigned": 11429
+      "clean": 156685,
+      "not_real_macho": 42,
+      "page_hash_mismatch": 51,
+      "unsigned": 11707
     },
     "arm64e": {
       "clean": 14,
@@ -58,67 +58,69 @@
       "unsigned": 5
     },
     "i386": {
-      "clean": 73,
+      "clean": 75,
       "not_real_macho": 20,
       "other_sig_invalid": 1,
-      "unsigned": 332
+      "unsigned": 340
     },
     "unknown": {
-      "not_real_macho": 60312
+      "not_real_macho": 60665
     },
     "x86_64": {
-      "clean": 3359,
-      "not_real_macho": 56,
+      "clean": 3562,
+      "not_real_macho": 59,
       "other_sig_invalid": 2,
-      "unsigned": 4375
+      "unsigned": 4955
     }
   },
-  "channel_label": "nixpkgs-unstable @ 391b592eb448 (2026-08-23)",
+  "channel_label": "nixpkgs-unstable @ c8f90650c152 (2026-08-24)",
   "coverage": {
-    "not_real_macho": 60557,
+    "not_real_macho": 60919,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-08-23 08:08:27 UTC",
+  "generated_at": "2026-08-24 08:19:43 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-real": 2,
+      "B7-real": 3,
       "C2": 37,
-      "L": 8
+      "L": 11
     },
     "by_signer": {
-      "codesign_signed": 39,
-      "linker_signed": 8
+      "codesign_signed": 40,
+      "linker_signed": 11
     },
-    "packages": 15,
+    "packages": 19,
     "packages_list": [
       "filen-cli-0.0.36",
       "httptoolkit-1.26.0",
       "hunk-0.18.0",
       "libtorch-2.9.0",
       "renovate-44.24.3",
+      "renovate-44.37.1",
       "shogihome-1.29.0",
       "swift-5.10.1",
       "swift-5.10.1-lib",
       "tailwindcss_4-4.3.3",
       "teams-for-linux-2.14.1",
       "teams-for-linux-2.15.0",
+      "teams-for-linux-2.17.1",
       "vscode-extension-kilocode-Kilo-Code-7.4.16"
     ],
-    "slices": 47
+    "slices": 51
   },
   "paths_by_status": {
-    "ok": 372202
+    "ok": 388440
   },
-  "paths_scanned": 372202,
+  "paths_scanned": 388440,
   "slices_by_arch": {
     "arm": 118,
-    "arm64": 164122,
+    "arm64": 168485,
     "arm64e": 34,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 1,
@@ -132,9 +134,9 @@
     "cpu_0x01000012/0x00000000": 27,
     "cpu_0x01000012/0x80000000": 1,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 426,
-    "unknown": 60312,
-    "x86_64": 7792
+    "i386": 436,
+    "unknown": 60665,
+    "x86_64": 8578
   },
-  "slices_total": 232927
+  "slices_total": 238439
 }
