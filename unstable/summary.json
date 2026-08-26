@@ -1,21 +1,21 @@
 {
   "buckets": {
-    "clean": 160406,
-    "not_real_macho": 60919,
+    "clean": 163848,
+    "not_real_macho": 61512,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 51,
-    "unsigned": 17254
+    "page_hash_mismatch": 52,
+    "unsigned": 18087
   },
   "buckets_by_arch": {
     "arm": {
-      "not_real_macho": 7,
+      "not_real_macho": 10,
       "unsigned": 111
     },
     "arm64": {
-      "clean": 156754,
-      "not_real_macho": 42,
-      "page_hash_mismatch": 51,
-      "unsigned": 11822
+      "clean": 160091,
+      "not_real_macho": 45,
+      "page_hash_mismatch": 52,
+      "unsigned": 12145
     },
     "arm64e": {
       "clean": 14,
@@ -59,43 +59,43 @@
     },
     "i386": {
       "clean": 75,
-      "not_real_macho": 20,
+      "not_real_macho": 23,
       "other_sig_invalid": 1,
-      "unsigned": 340
+      "unsigned": 341
     },
     "unknown": {
-      "not_real_macho": 60665
+      "not_real_macho": 61246
     },
     "x86_64": {
-      "clean": 3562,
-      "not_real_macho": 59,
+      "clean": 3667,
+      "not_real_macho": 62,
       "other_sig_invalid": 2,
-      "unsigned": 4965
+      "unsigned": 5474
     }
   },
-  "channel_label": "nixpkgs-unstable @ 174eb786fb68 (2026-08-25)",
+  "channel_label": "nixpkgs-unstable @ ac6b2166e7a9 (2026-08-26)",
   "coverage": {
-    "not_real_macho": 60919,
+    "not_real_macho": 61512,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-08-25 08:05:41 UTC",
+  "generated_at": "2026-08-26 08:18:41 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-real": 3,
+      "B7-real": 4,
       "C2": 37,
       "L": 11
     },
     "by_signer": {
-      "codesign_signed": 40,
+      "codesign_signed": 41,
       "linker_signed": 11
     },
-    "packages": 19,
+    "packages": 20,
     "packages_list": [
       "filen-cli-0.0.36",
       "httptoolkit-1.26.0",
@@ -112,15 +112,15 @@
       "teams-for-linux-2.17.1",
       "vscode-extension-kilocode-Kilo-Code-7.4.16"
     ],
-    "slices": 51
+    "slices": 52
   },
   "paths_by_status": {
-    "ok": 391736
+    "ok": 411432
   },
-  "paths_scanned": 391736,
+  "paths_scanned": 411432,
   "slices_by_arch": {
-    "arm": 118,
-    "arm64": 168669,
+    "arm": 121,
+    "arm64": 172333,
     "arm64e": 34,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 1,
@@ -134,9 +134,9 @@
     "cpu_0x01000012/0x00000000": 27,
     "cpu_0x01000012/0x80000000": 1,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 436,
-    "unknown": 60665,
-    "x86_64": 8588
+    "i386": 440,
+    "unknown": 61246,
+    "x86_64": 9205
   },
-  "slices_total": 238633
+  "slices_total": 243502
 }
