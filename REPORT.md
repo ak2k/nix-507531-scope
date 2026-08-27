@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-08-26 08:34:57 UTC
+Generated: 2026-08-27 18:50:11 UTC
 
 Daily scan across three darwin caches of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -36,9 +36,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | darwin | release | unstable |
 |---|---:|---:|---:|
-| Channel label | nixpkgs-26.05-darwin @ 3dff45fe84c7 (2026-08-26) | release-26.05 @ 30c9b66d114e (2026-08-26) | nixpkgs-unstable @ ac6b2166e7a9 (2026-08-26) |
-| Paths scanned | 334,719 | 247,797 | 411,432 |
-| Mach-O slices | 466,983 | 253,798 | 243,502 |
+| Channel label | nixpkgs-26.05-darwin @ fcaf4be0e0e4 (2026-08-27) | release-26.05 @ deceb5821061 (2026-08-27) | nixpkgs-unstable @ ac6b2166e7a9 (2026-08-27) |
+| Paths scanned | 334,839 | 248,236 | 411,432 |
+| Mach-O slices | 469,112 | 254,254 | 243,502 |
 
 ## Direct-failure slices by signature shape
 
@@ -82,9 +82,9 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 
 ## Drill-downs
 
-- [darwin channel report](darwin/REPORT.md) — `nixpkgs-26.05-darwin @ 3dff45fe84c7 (2026-08-26)`
-- [release channel report](release/REPORT.md) — `release-26.05 @ 30c9b66d114e (2026-08-26)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ ac6b2166e7a9 (2026-08-26)`
+- [darwin channel report](darwin/REPORT.md) — `nixpkgs-26.05-darwin @ fcaf4be0e0e4 (2026-08-27)`
+- [release channel report](release/REPORT.md) — `release-26.05 @ deceb5821061 (2026-08-27)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ ac6b2166e7a9 (2026-08-27)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)
