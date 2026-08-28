@@ -57,6 +57,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/ji5n2hj8x48dv1hxmx5mjwhvgd4zi4rs-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,arm64,2245648,False,2,4096,249,1018192,1,0,0,fat32,8,False,False,1,C2
 /nix/store/ji5n2hj8x48dv1hxmx5mjwhvgd4zi4rs-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,x86_64,15155072,False,2,4096,2081,8521088,1,0,0,fat32,8,False,False,1,C2
 /nix/store/ji5n2hj8x48dv1hxmx5mjwhvgd4zi4rs-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,arm64,15155072,False,2,4096,1560,6388352,1,0,0,fat32,8,False,False,1,C2
+/nix/store/9wrrk545kn212663a3f5h5qvd6icf3yd-opencode-1.15.10,bin/.opencode-wrapped,arm64,106992034,True,131074,4096,25919,106162512,1,25918,106160128,thin,0,False,False,0,L
 /nix/store/18jmwdml857xgwsnalfpy4922av79fzf-opencode-1.15.10,bin/.opencode-wrapped,arm64,106992034,True,131074,4096,25919,106162512,1,25918,106160128,thin,0,False,False,0,L
 /nix/store/58bsbdami1xih25pjrhvhqz9h03xyb1v-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,x86_64,8278560,False,2,4096,2005,8209040,2,0,0,fat32,8,False,False,0,C2
 /nix/store/58bsbdami1xih25pjrhvhqz9h03xyb1v-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,x86_64,86512,False,2,4096,20,80512,1,0,0,fat32,8,False,False,0,C2
@@ -100,7 +101,6 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/gmrwrh1vjx65c9l0cqlc3lzm06ir1cj5-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,x86_64,1393632,False,2,4096,337,1377488,1,0,0,fat32,8,False,False,0,C2
 /nix/store/gmrwrh1vjx65c9l0cqlc3lzm06ir1cj5-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,x86_64,1149632,False,2,4096,278,1135376,1,0,0,fat32,8,False,False,0,C2
 /nix/store/f8916ng5b41vy8zipihapni7ggjkmskj-httptoolkit-1.26.0,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,179856640,True,131074,4096,43570,178462256,1,38930,159457280,thin,0,False,False,0,L
-/nix/store/9wrrk545kn212663a3f5h5qvd6icf3yd-opencode-1.15.10,bin/.opencode-wrapped,arm64,106992034,True,131074,4096,25919,106162512,1,25918,106160128,thin,0,False,False,0,L
 /nix/store/slwncp9gqbshba7r059j7ac0z4cm10a6-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
 /nix/store/slwncp9gqbshba7r059j7ac0z4cm10a6-swift-5.10.1-lib,lib/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
 /nix/store/slwncp9gqbshba7r059j7ac0z4cm10a6-swift-5.10.1-lib,lib/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
