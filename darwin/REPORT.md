@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ df024a6a9638 (2026-08-28)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ f6107e546a50 (2026-08-29)
 
-Generated: 2026-08-28 11:13:51 UTC
+Generated: 2026-08-29 07:23:51 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 335,577 |
-| Mach-O slices parsed | 470,133 |
+| Store paths scanned | 335,757 |
+| Mach-O slices parsed | 501,231 |
 | Page-hash mismatches (slices) | 130 |
 | Page-hash mismatches (distinct packages) | 35 |
 |   of which linker-signed (flags=0x20002) | 13 |
@@ -22,9 +22,9 @@ Generated: 2026-08-28 11:13:51 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 225,134 | 60 | 0 | 206,542 | 18,486 | 46 |
+| `arm64` | 240,683 | 60 | 0 | 222,089 | 18,488 | 46 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 229,295 | 70 | 0 | 17,028 | 212,088 | 109 |
+| `x86_64` | 244,844 | 70 | 0 | 17,028 | 227,637 | 109 |
 | `i386` | 390 | 0 | 0 | 226 | 160 | 4 |
 | other/legacy (11 arch codes) | 15,184 | 0 | 0 | 4 | 16 | 15,164 |
 
@@ -32,7 +32,7 @@ Generated: 2026-08-28 11:13:51 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 441,815 | 22 | 0 | 212,297 | 229,492 |
+| thin | 472,913 | 22 | 0 | 227,844 | 245,043 |
 | fat | 28,318 | 108 | 0 | 11,553 | 1,258 |
 
 Unique fat binary files: 21,557 in 1,276 packages. 13 of those packages contain at least one failing fat slice.
@@ -85,8 +85,8 @@ Sorted alphabetically by package name.
 |---|---:|
 | `page_hash_mismatch` | 130 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 223,850 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 230,750 |
+| `clean` (signed, verified) | 239,397 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 246,301 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 15,403 |
 | `scanner_error` | 0 |
 

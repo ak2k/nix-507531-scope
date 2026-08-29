@@ -2,10 +2,10 @@
   "channels": {
     "darwin": {
       "buckets": {
-        "clean": 223850,
+        "clean": 239397,
         "not_real_macho": 15403,
         "page_hash_mismatch": 130,
-        "unsigned": 230750
+        "unsigned": 246301
       },
       "buckets_by_arch": {
         "arm": {
@@ -13,10 +13,10 @@
           "unsigned": 12
         },
         "arm64": {
-          "clean": 206542,
+          "clean": 222089,
           "not_real_macho": 46,
           "page_hash_mismatch": 60,
-          "unsigned": 18486
+          "unsigned": 18488
         },
         "arm64e": {
           "clean": 50,
@@ -61,7 +61,7 @@
           "clean": 17028,
           "not_real_macho": 109,
           "page_hash_mismatch": 70,
-          "unsigned": 212088
+          "unsigned": 227637
         }
       },
       "build_time_dependents": {
@@ -80,14 +80,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "nixpkgs-26.05-darwin @ df024a6a9638 (2026-08-28)",
+      "channel_label": "nixpkgs-26.05-darwin @ f6107e546a50 (2026-08-29)",
       "coverage": {
         "not_real_macho": 15403,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-08-28 11:13:51 UTC",
+      "generated_at": "2026-08-29 07:23:51 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -131,12 +131,12 @@
         "slices": 130
       },
       "paths_by_status": {
-        "ok": 335577
+        "ok": 335757
       },
-      "paths_scanned": 335577,
+      "paths_scanned": 335757,
       "slices_by_arch": {
         "arm": 16,
-        "arm64": 225134,
+        "arm64": 240683,
         "arm64e": 130,
         "cpu_0x00000001/0x00000000": 4,
         "cpu_0x00000002/0x00000000": 4,
@@ -149,16 +149,16 @@
         "cpu_0x01000012/0x80000000": 4,
         "i386": 390,
         "unknown": 14912,
-        "x86_64": 229295
+        "x86_64": 244844
       },
-      "slices_total": 470133
+      "slices_total": 501231
     },
     "release": {
       "buckets": {
-        "clean": 223955,
+        "clean": 227482,
         "not_real_macho": 8546,
         "page_hash_mismatch": 51,
-        "unsigned": 22378
+        "unsigned": 22424
       },
       "buckets_by_arch": {
         "arm": {
@@ -167,10 +167,10 @@
           "unsigned": 14
         },
         "arm64": {
-          "clean": 219134,
+          "clean": 222661,
           "not_real_macho": 22,
           "page_hash_mismatch": 51,
-          "unsigned": 19690
+          "unsigned": 19731
         },
         "arm64e": {
           "clean": 39,
@@ -214,7 +214,7 @@
         "x86_64": {
           "clean": 4696,
           "not_real_macho": 84,
-          "unsigned": 2598
+          "unsigned": 2603
         }
       },
       "build_time_dependents": {
@@ -233,14 +233,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "release-26.05 @ 931d6696a4fe (2026-08-28)",
+      "channel_label": "release-26.05 @ c5c4a43b0e80 (2026-08-29)",
       "coverage": {
         "not_real_macho": 8546,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-08-28 11:14:01 UTC",
+      "generated_at": "2026-08-29 07:24:07 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -280,13 +280,13 @@
         "slices": 51
       },
       "paths_by_status": {
-        "no_narinfo": 57102,
-        "ok": 191329
+        "no_narinfo": 56924,
+        "ok": 191678
       },
-      "paths_scanned": 248431,
+      "paths_scanned": 248602,
       "slices_by_arch": {
         "arm": 22,
-        "arm64": 238897,
+        "arm64": 242465,
         "arm64e": 115,
         "cpu_0x00000001/0x00000000": 2,
         "cpu_0x00000002/0x00000000": 2,
@@ -299,9 +299,9 @@
         "cpu_0x01000012/0x80000000": 2,
         "i386": 154,
         "unknown": 8273,
-        "x86_64": 7378
+        "x86_64": 7383
       },
-      "slices_total": 254930
+      "slices_total": 258503
     },
     "unstable": {
       "buckets": {
@@ -404,14 +404,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-unstable @ c27cdad491a9 (2026-08-28)",
+      "channel_label": "nixpkgs-unstable @ c27cdad491a9 (2026-08-29)",
       "coverage": {
         "not_real_macho": 113202,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-08-28 11:14:03 UTC",
+      "generated_at": "2026-08-29 07:23:58 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -484,7 +484,7 @@
       "slices_total": 431518
     }
   },
-  "generated_at": "2026-08-28 11:30:15 UTC",
+  "generated_at": "2026-08-29 07:41:11 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 4,
@@ -496,8 +496,8 @@
     "packages": 23,
     "slices": 262
   },
-  "paths_scanned": 1301033,
-  "slices_total": 1156581,
+  "paths_scanned": 1301384,
+  "slices_total": 1191252,
   "union": {
     "build_time_packages_default_view": [
       "rimgo"
