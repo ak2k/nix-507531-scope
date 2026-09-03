@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ f6107e546a50 (2026-09-02)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ c19db427a1fd (2026-09-03)
 
-Generated: 2026-09-02 07:25:57 UTC
+Generated: 2026-09-03 07:47:39 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 335,757 |
-| Mach-O slices parsed | 501,231 |
-| Page-hash mismatches (slices) | 130 |
-| Page-hash mismatches (distinct packages) | 35 |
-|   of which linker-signed (flags=0x20002) | 13 |
-|   of which codesign-signed (flags=0x2) | 117 |
+| Store paths scanned | 337,257 |
+| Mach-O slices parsed | 504,841 |
+| Page-hash mismatches (slices) | 134 |
+| Page-hash mismatches (distinct packages) | 39 |
+|   of which linker-signed (flags=0x20002) | 16 |
+|   of which codesign-signed (flags=0x2) | 118 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,9 +22,9 @@ Generated: 2026-09-02 07:25:57 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 240,683 | 60 | 0 | 222,089 | 18,488 | 46 |
+| `arm64` | 242,505 | 63 | 0 | 223,901 | 18,495 | 46 |
 | `arm64e` | 130 | 0 | 0 | 50 | 0 | 80 |
-| `x86_64` | 244,844 | 70 | 0 | 17,028 | 227,637 | 109 |
+| `x86_64` | 246,632 | 71 | 0 | 17,122 | 229,330 | 109 |
 | `i386` | 390 | 0 | 0 | 226 | 160 | 4 |
 | other/legacy (11 arch codes) | 15,184 | 0 | 0 | 4 | 16 | 15,164 |
 
@@ -32,10 +32,10 @@ Generated: 2026-09-02 07:25:57 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 472,913 | 22 | 0 | 227,844 | 245,043 |
-| fat | 28,318 | 108 | 0 | 11,553 | 1,258 |
+| thin | 476,453 | 26 | 0 | 229,694 | 246,729 |
+| fat | 28,388 | 108 | 0 | 11,609 | 1,272 |
 
-Unique fat binary files: 21,557 in 1,276 packages. 13 of those packages contain at least one failing fat slice.
+Unique fat binary files: 21,592 in 1,283 packages. 13 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -47,7 +47,10 @@ Sorted alphabetically by package name.
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/3y4p51ky7ybivbj9pq0mp7n573mqlfr0-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/ji5n2hj8x48dv1hxmx5mjwhvgd4zi4rs-avalonia-ilspy-7.2-rc` |
 | filen-cli-0.0.36 | 1 | `/nix/store/0r8fwgnqldbpzd65fayyaa1d7ik2z3lc-filen-cli-0.0.36` |
+| filen-cli-0.0.36 | 1 | `/nix/store/9v55fbprhg44fv9k4si4qbg6xaw7pjaa-filen-cli-0.0.36` |
+| filen-cli-0.0.36 | 1 | `/nix/store/bafdp93s5pn591gxh96dynw54akmg0b7-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/w8g0rcna42xlvbsn5jlqhsgc7hilqlbv-filen-cli-0.0.36` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/45sv48r91qgzi3fjsgwaa4h8714j769z-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/iz59kqpk17w1dag1c2knnv8902wsd25h-gitlab-duo-8.89.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/f8916ng5b41vy8zipihapni7ggjkmskj-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/in4scnwyz4hn7xalw4jjcwqmpf6vrk9r-httptoolkit-1.26.0` |
@@ -56,6 +59,7 @@ Sorted alphabetically by package name.
 | opencode-1.15.10 | 1 | `/nix/store/18jmwdml857xgwsnalfpy4922av79fzf-opencode-1.15.10` |
 | opencode-1.15.10 | 1 | `/nix/store/9wrrk545kn212663a3f5h5qvd6icf3yd-opencode-1.15.10` |
 | opencode-1.15.10 | 1 | `/nix/store/dfhfyi27m503mc3rlgvvf739pdd8lhba-opencode-1.15.10` |
+| opencode-1.15.10 | 1 | `/nix/store/p5x7c6fdibscb7d55bzlm39sb4x6zxnl-opencode-1.15.10` |
 | opencode-1.15.10 | 1 | `/nix/store/rnv5l1lm92bw9y76ac70i0iqs1y38yvd-opencode-1.15.10` |
 | shogihome-1.29.0 | 1 | `/nix/store/2hsj528qqf0qndxfmlqhwv989w6b4n7s-shogihome-1.29.0` |
 | shogihome-1.29.0 | 1 | `/nix/store/mssk554g3siy8nkidw8pjzrkr107xkjn-shogihome-1.29.0` |
@@ -83,10 +87,10 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 130 |
+| `page_hash_mismatch` | 134 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 239,397 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 246,301 |
+| `clean` (signed, verified) | 241,303 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 248,001 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 15,403 |
 | `scanner_error` | 0 |
 
@@ -113,7 +117,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 35 |
+| Distinct failing seeds | 39 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 
