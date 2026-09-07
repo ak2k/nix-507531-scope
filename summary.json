@@ -80,14 +80,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "nixpkgs-26.05-darwin @ c19db427a1fd (2026-09-06)",
+      "channel_label": "nixpkgs-26.05-darwin @ c19db427a1fd (2026-09-07)",
       "coverage": {
         "not_real_macho": 15403,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-09-06 07:35:24 UTC",
+      "generated_at": "2026-09-07 07:36:22 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -155,10 +155,10 @@
     },
     "release": {
       "buckets": {
-        "clean": 331100,
-        "not_real_macho": 12592,
+        "clean": 332213,
+        "not_real_macho": 12685,
         "page_hash_mismatch": 74,
-        "unsigned": 32221
+        "unsigned": 32773
       },
       "buckets_by_arch": {
         "arm": {
@@ -167,10 +167,10 @@
           "unsigned": 21
         },
         "arm64": {
-          "clean": 323904,
+          "clean": 324984,
           "not_real_macho": 33,
           "page_hash_mismatch": 74,
-          "unsigned": 28556
+          "unsigned": 28937
         },
         "arm64e": {
           "clean": 52,
@@ -206,15 +206,15 @@
         "i386": {
           "clean": 120,
           "not_real_macho": 3,
-          "unsigned": 104
+          "unsigned": 106
         },
         "unknown": {
-          "not_real_macho": 12173
+          "not_real_macho": 12266
         },
         "x86_64": {
-          "clean": 7013,
+          "clean": 7046,
           "not_real_macho": 126,
-          "unsigned": 3538
+          "unsigned": 3707
         }
       },
       "build_time_dependents": {
@@ -243,14 +243,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "release-26.05 @ 56629939fc18 (2026-09-06)",
+      "channel_label": "release-26.05 @ 563d9782dc5b (2026-09-07)",
       "coverage": {
-        "not_real_macho": 12592,
+        "not_real_macho": 12685,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-09-06 07:35:27 UTC",
+      "generated_at": "2026-09-07 07:36:54 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -290,13 +290,13 @@
         "slices": 74
       },
       "paths_by_status": {
-        "no_narinfo": 88608,
-        "ok": 276430
+        "no_narinfo": 87009,
+        "ok": 278215
       },
-      "paths_scanned": 365038,
+      "paths_scanned": 365224,
       "slices_by_arch": {
         "arm": 33,
-        "arm64": 352567,
+        "arm64": 354028,
         "arm64e": 166,
         "cpu_0x00000001/0x00000000": 2,
         "cpu_0x00000002/0x00000000": 2,
@@ -307,11 +307,11 @@
         "cpu_0x00000012/0x00000064": 2,
         "cpu_0x01000012/0x00000000": 22,
         "cpu_0x01000012/0x80000000": 3,
-        "i386": 227,
-        "unknown": 12173,
-        "x86_64": 10677
+        "i386": 229,
+        "unknown": 12266,
+        "x86_64": 10879
       },
-      "slices_total": 375987
+      "slices_total": 377745
     },
     "unstable": {
       "buckets": {
@@ -414,14 +414,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-unstable @ 17de0b976395 (2026-09-06)",
+      "channel_label": "nixpkgs-unstable @ 17de0b976395 (2026-09-07)",
       "coverage": {
         "not_real_macho": 136806,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-09-06 07:35:49 UTC",
+      "generated_at": "2026-09-07 07:36:37 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -496,7 +496,7 @@
       "slices_total": 485511
     }
   },
-  "generated_at": "2026-09-06 08:00:23 UTC",
+  "generated_at": "2026-09-07 07:57:14 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 5,
@@ -508,8 +508,8 @@
     "packages": 25,
     "slices": 293
   },
-  "paths_scanned": 1480924,
-  "slices_total": 1366339,
+  "paths_scanned": 1481110,
+  "slices_total": 1368097,
   "union": {
     "build_time_packages_default_view": [
       "rimgo"
