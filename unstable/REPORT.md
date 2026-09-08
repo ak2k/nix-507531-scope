@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 17de0b976395 (2026-09-07)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 42f17a57f4f6 (2026-09-08)
 
-Generated: 2026-09-07 07:36:37 UTC
+Generated: 2026-09-08 07:40:57 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 778,629 |
-| Mach-O slices parsed | 485,511 |
-| Page-hash mismatches (slices) | 85 |
-| Page-hash mismatches (distinct packages) | 37 |
-|   of which linker-signed (flags=0x20002) | 23 |
-|   of which codesign-signed (flags=0x2) | 62 |
+| Store paths scanned | 796,876 |
+| Mach-O slices parsed | 506,500 |
+| Page-hash mismatches (slices) | 88 |
+| Page-hash mismatches (distinct packages) | 40 |
+|   of which linker-signed (flags=0x20002) | 25 |
+|   of which codesign-signed (flags=0x2) | 63 |
 | Other signature-invalid (slices) | 3 |
 | Other signature-invalid (distinct packages) | 1 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-09-07 07:36:37 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 331,734 | 85 | 0 | 309,279 | 22,297 | 73 |
+| `arm64` | 349,975 | 88 | 0 | 327,148 | 22,666 | 73 |
 | `arm64e` | 69 | 0 | 0 | 29 | 0 | 40 |
-| `x86_64` | 16,312 | 0 | 2 | 6,710 | 9,496 | 104 |
-| `i386` | 655 | 0 | 1 | 150 | 475 | 29 |
-| other/legacy (14 arch codes) | 136,741 | 0 | 0 | 2 | 179 | 136,560 |
+| `x86_64` | 16,554 | 0 | 2 | 6,799 | 9,649 | 104 |
+| `i386` | 673 | 0 | 1 | 150 | 493 | 29 |
+| other/legacy (14 arch codes) | 139,229 | 0 | 0 | 2 | 188 | 139,039 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 336,567 | 31 | 3 | 306,209 | 30,054 |
-| fat | 148,944 | 54 | 0 | 9,961 | 2,393 |
+| thin | 354,892 | 34 | 3 | 324,024 | 30,558 |
+| fat | 151,608 | 54 | 0 | 10,104 | 2,438 |
 
-Unique fat binary files: 142,527 in 1,929 packages. 6 of those packages contain at least one failing fat slice.
+Unique fat binary files: 145,098 in 1,966 packages. 6 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -50,6 +50,7 @@ Sorted alphabetically by package name.
 | httptoolkit-1.26.0 | 1 | `/nix/store/0dgwk9vdd4g1x8p4snq5zm68yl1lj7dj-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/qpzcwid5hr9s91azg6fmwwwyqxfc25dq-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/xi594ayfmlvbippjm2c8yd9xlyg0k548-httptoolkit-1.26.0` |
+| httptoolkit-1.27.1 | 1 | `/nix/store/6hp6j1pbjvbxpwlia9x2sdjn1wgkg63h-httptoolkit-1.27.1` |
 | hunk-0.18.0 | 1 | `/nix/store/jkfdgl7bdd0dn5bcf2bqfzr37ymc05jd-hunk-0.18.0` |
 | hunk-0.19.0 | 1 | `/nix/store/93zjdjlgzrynci7yqa6xnmbmdas1zn60-hunk-0.19.0` |
 | hunk-0.20.1 | 1 | `/nix/store/sl1xbk7k4zswddrw8yak7wyc1dkg5z9m-hunk-0.20.1` |
@@ -62,6 +63,7 @@ Sorted alphabetically by package name.
 | renovate-44.37.1 | 1 | `/nix/store/gbyl4z0pasqy2c4lrgghdyx4jayb1cqi-renovate-44.37.1` |
 | renovate-44.37.1 | 1 | `/nix/store/gqfmfrh2clzjgc705ync1c6jvrscgjm0-renovate-44.37.1` |
 | renovate-44.37.1 | 1 | `/nix/store/wlmcdc16gkl1m59s0fcgvwkwhb0mgp06-renovate-44.37.1` |
+| renovate-44.52.0 | 1 | `/nix/store/ndryz6vdpz3if51vbs5nlqk9pg15mmpa-renovate-44.52.0` |
 | shogihome-1.29.0 | 1 | `/nix/store/5m2az6j0p8v55iy2mwpx8lqn1b7sfs76-shogihome-1.29.0` |
 | shogihome-1.29.0 | 1 | `/nix/store/hhpgi8gmzrc2hbk2636pyhwaqw8f4zwp-shogihome-1.29.0` |
 | shogihome-1.29.0 | 1 | `/nix/store/z1nv52627m8d3m7pz3lb9sbhcjys79ff-shogihome-1.29.0` |
@@ -80,6 +82,7 @@ Sorted alphabetically by package name.
 | teams-for-linux-2.18.1 | 1 | `/nix/store/5nf3qbb0qsd1f0yid237gfhp2awgmr0l-teams-for-linux-2.18.1` |
 | vscode-extension-kilocode-Kilo-Code-7.4.16 | 1 | `/nix/store/f2r9lh1sch92zfl1dd41b6cvp6hzj4v7-vscode-extension-kilocode-Kilo-Code-7.4.16` |
 | vscode-extension-kilocode-Kilo-Code-7.4.16 | 1 | `/nix/store/smhfspqikyayf45jpz86rj9lbi6lmyc7-vscode-extension-kilocode-Kilo-Code-7.4.16` |
+| vscode-extension-kilocode-Kilo-Code-7.5.9 | 1 | `/nix/store/p870rfga3rj44l6xwlpkrrcsbnfykkga-vscode-extension-kilocode-Kilo-Code-7.5.9` |
 
 ## Appendix — other signature-invalid binaries
 
@@ -93,11 +96,11 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 85 |
+| `page_hash_mismatch` | 88 |
 | `other_sig_invalid` | 3 |
-| `clean` (signed, verified) | 316,170 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 32,447 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 136,806 |
+| `clean` (signed, verified) | 334,128 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 32,996 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 139,285 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -123,7 +126,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 37 |
+| Distinct failing seeds | 40 |
 
 Edges by kind (default view only):
 
