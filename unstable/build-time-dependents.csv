@@ -1,2 +1,2 @@
 dependent_attr,dependent_drv,dependent_pkg,seed_store_path,seed_attr,seed_pkg,edge_kind,in_default_view
-rimgo,/nix/store/b7hvkr3lb9fasfyhlr5vqqk9bcv2qfpg-rimgo-1.4.2.drv,rimgo-1.4.2,/nix/store/9g5rzbap9317df9vmzmlwgbmpqjc6i8i-tailwindcss_4-4.3.3,tailwindcss_4,tailwindcss_4-4.3.3,nativeBuildInputs,True
+rimgo,/nix/store/1552rf1bky3j0akg1jw8dnafmi2dnf3g-rimgo-1.4.2.drv,rimgo-1.4.2,/nix/store/9g5rzbap9317df9vmzmlwgbmpqjc6i8i-tailwindcss_4-4.3.3,tailwindcss_4,tailwindcss_4-4.3.3,nativeBuildInputs,True
