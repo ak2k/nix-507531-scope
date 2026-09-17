@@ -90,14 +90,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-26.05-darwin @ 8029b6c36941 (2026-09-16)",
+      "channel_label": "nixpkgs-26.05-darwin @ 8029b6c36941 (2026-09-17)",
       "coverage": {
         "not_real_macho": 23327,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-09-16 07:24:54 UTC",
+      "generated_at": "2026-09-17 07:22:45 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -166,10 +166,10 @@
     },
     "release": {
       "buckets": {
-        "clean": 345355,
+        "clean": 345424,
         "not_real_macho": 12905,
-        "page_hash_mismatch": 77,
-        "unsigned": 33251
+        "page_hash_mismatch": 78,
+        "unsigned": 33254
       },
       "buckets_by_arch": {
         "arm": {
@@ -178,10 +178,10 @@
           "unsigned": 21
         },
         "arm64": {
-          "clean": 337638,
+          "clean": 337707,
           "not_real_macho": 33,
-          "page_hash_mismatch": 77,
-          "unsigned": 29324
+          "page_hash_mismatch": 78,
+          "unsigned": 29327
         },
         "arm64e": {
           "clean": 58,
@@ -244,7 +244,7 @@
           ]
         },
         "distinct_dependent_attrs_default_view": 1,
-        "distinct_seeds": 29,
+        "distinct_seeds": 30,
         "edge_filter_default": [
           "buildInputs",
           "checkInputs",
@@ -254,14 +254,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "release-26.05 @ 870f5590096a (2026-09-16)",
+      "channel_label": "release-26.05 @ 0cf260908aba (2026-09-17)",
       "coverage": {
         "not_real_macho": 12905,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-09-16 07:25:05 UTC",
+      "generated_at": "2026-09-17 07:23:01 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -278,13 +278,13 @@
       "page_hash_mismatch": {
         "by_signature_class": {
           "C2": 57,
-          "L": 20
+          "L": 21
         },
         "by_signer": {
           "codesign_signed": 57,
-          "linker_signed": 20
+          "linker_signed": 21
         },
-        "packages": 29,
+        "packages": 30,
         "packages_list": [
           "filen-cli-0.0.36",
           "httptoolkit-1.26.0",
@@ -299,17 +299,17 @@
           "teams-for-linux-2.17.1",
           "vscode-extension-kilocode-Kilo-Code-7.2.20"
         ],
-        "slices": 77
+        "slices": 78
       },
       "paths_by_status": {
         "fetch_error": 1,
-        "no_narinfo": 84544,
-        "ok": 283049
+        "no_narinfo": 84993,
+        "ok": 283122
       },
-      "paths_scanned": 367594,
+      "paths_scanned": 368116,
       "slices_by_arch": {
         "arm": 33,
-        "arm64": 367072,
+        "arm64": 367145,
         "arm64e": 172,
         "cpu_0x00000001/0x00000000": 3,
         "cpu_0x00000002/0x00000000": 3,
@@ -324,7 +324,7 @@
         "unknown": 12444,
         "x86_64": 11397
       },
-      "slices_total": 391588
+      "slices_total": 391661
     },
     "unstable": {
       "buckets": {
@@ -427,14 +427,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-unstable @ c7def046b9a8 (2026-09-16)",
+      "channel_label": "nixpkgs-unstable @ c7def046b9a8 (2026-09-17)",
       "coverage": {
         "not_real_macho": 192111,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-09-16 07:25:30 UTC",
+      "generated_at": "2026-09-17 07:23:11 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -515,20 +515,20 @@
       "slices_total": 703838
     }
   },
-  "generated_at": "2026-09-16 07:48:23 UTC",
+  "generated_at": "2026-09-17 07:46:52 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 5,
       "B7-real": 14,
       "C2": 285,
-      "L": 78,
+      "L": 79,
       "unknown": 0
     },
     "packages": 29,
-    "slices": 382
+    "slices": 383
   },
-  "paths_scanned": 2022216,
-  "slices_total": 1831853,
+  "paths_scanned": 2022738,
+  "slices_total": 1831926,
   "union": {
     "build_time_packages_default_view": [
       "rimgo"

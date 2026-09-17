@@ -1,6 +1,6 @@
 # Scanner × codesign -v cross-validation
 
-Generated: 2026-09-16 07:39:43 UTC
+Generated: 2026-09-17 07:46:35 UTC
 
 Each flagged package is signature- and content-verified by Nix itself
 (`nix store verify` against the binary cache), restored with Nix's NAR
@@ -9,10 +9,10 @@ an independent signature verifier: `/home/runner/.nix-profile/bin/rcodesign veri
 
 | Outcome | Count |
 |---|---:|
-| Scanner failing, verifier fails (agreement) | 77 |
+| Scanner failing, verifier fails (agreement) | 78 |
 | Scanner failing, verifier passes (disagreement — possible false positive) | 0 |
 | Fetch/verify failed (could not check against cache) | 0 |
-| **Total slices verified** | **77** |
+| **Total slices verified** | **78** |
 
 ## Substitution canary
 

@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — release-26.05 @ 870f5590096a (2026-09-16)
+# NixOS/nixpkgs#507531 cache scan — release-26.05 @ 0cf260908aba (2026-09-17)
 
-Generated: 2026-09-16 07:25:05 UTC
+Generated: 2026-09-17 07:23:01 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 367,594 |
-| Mach-O slices parsed | 391,588 |
-| Page-hash mismatches (slices) | 77 |
-| Page-hash mismatches (distinct packages) | 29 |
-|   of which linker-signed (flags=0x20002) | 20 |
+| Store paths scanned | 368,116 |
+| Mach-O slices parsed | 391,661 |
+| Page-hash mismatches (slices) | 78 |
+| Page-hash mismatches (distinct packages) | 30 |
+|   of which linker-signed (flags=0x20002) | 21 |
 |   of which codesign-signed (flags=0x2) | 57 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,7 +22,7 @@ Generated: 2026-09-16 07:25:05 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 367,072 | 77 | 0 | 337,638 | 29,324 | 33 |
+| `arm64` | 367,145 | 78 | 0 | 337,707 | 29,327 | 33 |
 | `arm64e` | 172 | 0 | 0 | 58 | 0 | 114 |
 | `x86_64` | 11,397 | 0 | 0 | 7,481 | 3,790 | 126 |
 | `i386` | 282 | 0 | 0 | 166 | 113 | 3 |
@@ -32,7 +32,7 @@ Generated: 2026-09-16 07:25:05 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 368,505 | 23 | 0 | 336,113 | 32,363 |
+| thin | 368,578 | 24 | 0 | 336,182 | 32,366 |
 | fat | 23,083 | 54 | 0 | 9,242 | 888 |
 
 Unique fat binary files: 17,706 in 1,013 packages. 6 of those packages contain at least one failing fat slice.
@@ -56,6 +56,7 @@ Sorted alphabetically by package name.
 | opencode-1.15.10 | 1 | `/nix/store/9wrrk545kn212663a3f5h5qvd6icf3yd-opencode-1.15.10` |
 | opencode-1.15.10 | 1 | `/nix/store/p5x7c6fdibscb7d55bzlm39sb4x6zxnl-opencode-1.15.10` |
 | shogihome-1.29.0 | 1 | `/nix/store/2hsj528qqf0qndxfmlqhwv989w6b4n7s-shogihome-1.29.0` |
+| shogihome-1.29.0 | 1 | `/nix/store/6019hnqs6wxxhjnyxgq5cyy0v8a9jhm6-shogihome-1.29.0` |
 | shogihome-1.29.0 | 1 | `/nix/store/mssk554g3siy8nkidw8pjzrkr107xkjn-shogihome-1.29.0` |
 | swift-5.10.1 | 11 | `/nix/store/5caplwxxb1qnjscim7cks1isnyklwaf5-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/b6j0s3xi3ynmfpblp7yfc988gfvc10im-swift-5.10.1` |
@@ -77,10 +78,10 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 77 |
+| `page_hash_mismatch` | 78 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 345,355 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 33,251 |
+| `clean` (signed, verified) | 345,424 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 33,254 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 12,905 |
 | `scanner_error` | 0 |
 
@@ -107,7 +108,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 29 |
+| Distinct failing seeds | 30 |
 
 Edges by kind (default view only):
 
