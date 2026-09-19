@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 353032,
+    "clean": 353619,
     "not_real_macho": 23327,
-    "page_hash_mismatch": 186,
-    "unsigned": 362699
+    "page_hash_mismatch": 188,
+    "unsigned": 363229
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 18
     },
     "arm64": {
-      "clean": 327121,
+      "clean": 327651,
       "not_real_macho": 68,
-      "page_hash_mismatch": 92,
-      "unsigned": 28055
+      "page_hash_mismatch": 93,
+      "unsigned": 28066
     },
     "arm64e": {
       "clean": 75,
@@ -56,20 +56,20 @@
       "not_real_macho": 22592
     },
     "x86_64": {
-      "clean": 25491,
+      "clean": 25548,
       "not_real_macho": 163,
-      "page_hash_mismatch": 94,
-      "unsigned": 334382
+      "page_hash_mismatch": 95,
+      "unsigned": 334901
     }
   },
-  "channel_label": "nixpkgs-26.05-darwin @ c9fe437beb79 (2026-09-18)",
+  "channel_label": "nixpkgs-26.05-darwin @ 0c32f40fe3e2 (2026-09-19)",
   "coverage": {
     "not_real_macho": 23327,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-09-18 07:49:15 UTC",
+  "generated_at": "2026-09-19 07:21:04 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -77,15 +77,15 @@
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 5,
-      "B7-real": 5,
+      "B7-real": 7,
       "C2": 153,
       "L": 23
     },
     "by_signer": {
-      "codesign_signed": 163,
+      "codesign_signed": 165,
       "linker_signed": 23
     },
-    "packages": 54,
+    "packages": 56,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "filen-cli-0.0.36",
@@ -94,6 +94,7 @@
       "httptoolkit-1.27.1",
       "libtorch-2.9.0",
       "opencode-1.15.10",
+      "renovate-44.79.2",
       "shogihome-1.29.0",
       "swift-5.10.1",
       "swift-5.10.1-lib",
@@ -102,15 +103,15 @@
       "teams-for-linux-2.17.1",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 186
+    "slices": 188
   },
   "paths_by_status": {
-    "ok": 505709
+    "ok": 506043
   },
-  "paths_scanned": 505709,
+  "paths_scanned": 506043,
   "slices_by_arch": {
     "arm": 24,
-    "arm64": 355336,
+    "arm64": 355878,
     "arm64e": 195,
     "cpu_0x00000001/0x00000000": 6,
     "cpu_0x00000002/0x00000000": 6,
@@ -123,7 +124,7 @@
     "cpu_0x01000012/0x80000000": 6,
     "i386": 583,
     "unknown": 22592,
-    "x86_64": 360130
+    "x86_64": 360707
   },
-  "slices_total": 739244
+  "slices_total": 740363
 }
