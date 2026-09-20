@@ -1,21 +1,21 @@
 {
   "buckets": {
-    "clean": 384719,
-    "not_real_macho": 13783,
+    "clean": 385283,
+    "not_real_macho": 13787,
     "page_hash_mismatch": 98,
-    "unsigned": 36212
+    "unsigned": 36216
   },
   "buckets_by_arch": {
     "arm": {
       "clean": 12,
-      "not_real_macho": 3,
+      "not_real_macho": 4,
       "unsigned": 28
     },
     "arm64": {
-      "clean": 376968,
-      "not_real_macho": 37,
+      "clean": 377532,
+      "not_real_macho": 38,
       "page_hash_mismatch": 98,
-      "unsigned": 32163
+      "unsigned": 32165
     },
     "arm64e": {
       "clean": 67,
@@ -50,7 +50,7 @@
     },
     "i386": {
       "clean": 166,
-      "not_real_macho": 3,
+      "not_real_macho": 4,
       "unsigned": 121
     },
     "unknown": {
@@ -58,18 +58,18 @@
     },
     "x86_64": {
       "clean": 7503,
-      "not_real_macho": 152,
-      "unsigned": 3897
+      "not_real_macho": 153,
+      "unsigned": 3899
     }
   },
-  "channel_label": "release-26.05 @ 08a8cda3b58f (2026-09-19)",
+  "channel_label": "release-26.05 @ 6d663c0533ff (2026-09-20)",
   "coverage": {
-    "not_real_macho": 13783,
+    "not_real_macho": 13787,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-09-19 07:21:19 UTC",
+  "generated_at": "2026-09-20 07:42:33 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -102,13 +102,13 @@
   },
   "paths_by_status": {
     "fetch_error": 1,
-    "no_narinfo": 163441,
-    "ok": 316693
+    "no_narinfo": 162249,
+    "ok": 318001
   },
-  "paths_scanned": 480135,
+  "paths_scanned": 480251,
   "slices_by_arch": {
-    "arm": 43,
-    "arm64": 409266,
+    "arm": 44,
+    "arm64": 409833,
     "arm64e": 207,
     "cpu_0x00000001/0x00000000": 3,
     "cpu_0x00000002/0x00000000": 3,
@@ -119,9 +119,9 @@
     "cpu_0x00000012/0x00000064": 3,
     "cpu_0x01000012/0x00000000": 22,
     "cpu_0x01000012/0x80000000": 3,
-    "i386": 290,
+    "i386": 291,
     "unknown": 13266,
-    "x86_64": 11552
+    "x86_64": 11555
   },
-  "slices_total": 434812
+  "slices_total": 435384
 }
