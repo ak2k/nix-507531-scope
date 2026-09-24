@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 487826,
-    "not_real_macho": 192588,
+    "clean": 498070,
+    "not_real_macho": 194226,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 122,
-    "unsigned": 51502
+    "page_hash_mismatch": 125,
+    "unsigned": 52525
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,13 +12,13 @@
       "unsigned": 222
     },
     "arm64": {
-      "clean": 477052,
-      "not_real_macho": 104,
-      "page_hash_mismatch": 122,
-      "unsigned": 36175
+      "clean": 487040,
+      "not_real_macho": 114,
+      "page_hash_mismatch": 125,
+      "unsigned": 36646
     },
     "arm64e": {
-      "clean": 44,
+      "clean": 45,
       "not_real_macho": 60
     },
     "cpu_0x00000000/0x00000000": {
@@ -58,44 +58,44 @@
       "unsigned": 5
     },
     "i386": {
-      "clean": 227,
+      "clean": 229,
       "not_real_macho": 32,
       "other_sig_invalid": 1,
-      "unsigned": 652
+      "unsigned": 653
     },
     "unknown": {
-      "not_real_macho": 191923
+      "not_real_macho": 193543
     },
     "x86_64": {
-      "clean": 10500,
-      "not_real_macho": 146,
+      "clean": 10753,
+      "not_real_macho": 154,
       "other_sig_invalid": 2,
-      "unsigned": 14435
+      "unsigned": 14986
     }
   },
-  "channel_label": "nixpkgs-unstable @ 0a3468a402c4 (2026-09-21)",
+  "channel_label": "nixpkgs-unstable @ 00455b0a3690 (2026-09-24)",
   "coverage": {
-    "not_real_macho": 192588,
+    "not_real_macho": 194226,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-09-21 07:39:18 UTC",
+  "generated_at": "2026-09-24 07:43:01 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-real": 10,
+      "B7-real": 11,
       "C2": 75,
-      "L": 37
+      "L": 39
     },
     "by_signer": {
-      "codesign_signed": 85,
-      "linker_signed": 37
+      "codesign_signed": 86,
+      "linker_signed": 39
     },
-    "packages": 58,
+    "packages": 61,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-9.6.0",
@@ -106,6 +106,7 @@
       "hunk-0.20.1",
       "kilo-7.3.40",
       "libtorch-2.9.0",
+      "renovate-44.104.0",
       "renovate-44.24.3",
       "renovate-44.37.1",
       "renovate-44.52.0",
@@ -118,21 +119,24 @@
       "teams-for-linux-2.15.0",
       "teams-for-linux-2.17.1",
       "teams-for-linux-2.18.1",
+      "teams-for-linux-2.20.0",
+      "teams-for-linux-2.22.0",
       "vscode-extension-kilocode-Kilo-Code-7.4.16",
       "vscode-extension-kilocode-Kilo-Code-7.5.9",
       "vscode-extension-kilocode-Kilo-Code-7.6.2"
     ],
-    "slices": 122
+    "slices": 125
   },
   "paths_by_status": {
-    "ok": 1182343,
-    "parse_error": 16
+    "fetch_error": 1,
+    "ok": 1212615,
+    "parse_error": 12
   },
-  "paths_scanned": 1182359,
+  "paths_scanned": 1212628,
   "slices_by_arch": {
     "arm": 241,
-    "arm64": 513453,
-    "arm64e": 104,
+    "arm64": 523925,
+    "arm64e": 105,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 3,
     "cpu_0x00000002/0x00000000": 3,
@@ -145,9 +149,9 @@
     "cpu_0x01000012/0x00000000": 75,
     "cpu_0x01000012/0x80000000": 3,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 912,
-    "unknown": 191923,
-    "x86_64": 25083
+    "i386": 915,
+    "unknown": 193543,
+    "x86_64": 25895
   },
-  "slices_total": 732041
+  "slices_total": 744949
 }

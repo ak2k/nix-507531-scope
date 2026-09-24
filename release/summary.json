@@ -1,25 +1,25 @@
 {
   "buckets": {
-    "clean": 395320,
-    "not_real_macho": 14491,
-    "page_hash_mismatch": 98,
-    "unsigned": 37743
+    "clean": 417988,
+    "not_real_macho": 15009,
+    "page_hash_mismatch": 97,
+    "unsigned": 39636
   },
   "buckets_by_arch": {
     "arm": {
       "clean": 12,
-      "not_real_macho": 4,
+      "not_real_macho": 3,
       "unsigned": 28
     },
     "arm64": {
-      "clean": 387334,
-      "not_real_macho": 38,
-      "page_hash_mismatch": 98,
-      "unsigned": 33613
+      "clean": 409568,
+      "not_real_macho": 39,
+      "page_hash_mismatch": 97,
+      "unsigned": 35257
     },
     "arm64e": {
-      "clean": 67,
-      "not_real_macho": 140
+      "clean": 77,
+      "not_real_macho": 152
     },
     "cpu_0x00000001/0x00000000": {
       "clean": 3
@@ -34,7 +34,7 @@
       "not_real_macho": 3
     },
     "cpu_0x00000012/0x00000000": {
-      "not_real_macho": 130
+      "not_real_macho": 138
     },
     "cpu_0x00000012/0x0000000a": {
       "not_real_macho": 19
@@ -43,33 +43,33 @@
       "not_real_macho": 3
     },
     "cpu_0x01000012/0x00000000": {
-      "not_real_macho": 22
+      "not_real_macho": 29
     },
     "cpu_0x01000012/0x80000000": {
-      "not_real_macho": 4
+      "not_real_macho": 3
     },
     "i386": {
-      "clean": 166,
-      "not_real_macho": 4,
-      "unsigned": 124
+      "clean": 174,
+      "not_real_macho": 3,
+      "unsigned": 135
     },
     "unknown": {
-      "not_real_macho": 13968
+      "not_real_macho": 14450
     },
     "x86_64": {
-      "clean": 7738,
-      "not_real_macho": 153,
-      "unsigned": 3975
+      "clean": 8154,
+      "not_real_macho": 164,
+      "unsigned": 4213
     }
   },
-  "channel_label": "release-26.05 @ 395c3e15446a (2026-09-21)",
+  "channel_label": "release-26.05 @ c508844df6c2 (2026-09-24)",
   "coverage": {
-    "not_real_macho": 14491,
+    "not_real_macho": 15009,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-09-21 07:39:05 UTC",
+  "generated_at": "2026-09-24 07:42:48 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -77,15 +77,16 @@
   "page_hash_mismatch": {
     "by_signature_class": {
       "C2": 76,
-      "L": 22
+      "L": 21
     },
     "by_signer": {
       "codesign_signed": 76,
-      "linker_signed": 22
+      "linker_signed": 21
     },
-    "packages": 34,
+    "packages": 33,
     "packages_list": [
       "filen-cli-0.0.36",
+      "gitlab-duo-8.89.0",
       "httptoolkit-1.26.0",
       "httptoolkit-1.27.1",
       "libtorch-2.9.0",
@@ -98,30 +99,29 @@
       "teams-for-linux-2.17.1",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 98
+    "slices": 97
   },
   "paths_by_status": {
-    "fetch_error": 1,
-    "no_narinfo": 157156,
-    "ok": 325264
+    "no_narinfo": 139405,
+    "ok": 345931
   },
-  "paths_scanned": 482421,
+  "paths_scanned": 485336,
   "slices_by_arch": {
-    "arm": 44,
-    "arm64": 421083,
-    "arm64e": 207,
+    "arm": 43,
+    "arm64": 444961,
+    "arm64e": 229,
     "cpu_0x00000001/0x00000000": 3,
     "cpu_0x00000002/0x00000000": 3,
     "cpu_0x00000004/0x00000000": 3,
     "cpu_0x00000005/0x00000000": 3,
-    "cpu_0x00000012/0x00000000": 130,
+    "cpu_0x00000012/0x00000000": 138,
     "cpu_0x00000012/0x0000000a": 19,
     "cpu_0x00000012/0x00000064": 3,
-    "cpu_0x01000012/0x00000000": 22,
-    "cpu_0x01000012/0x80000000": 4,
-    "i386": 294,
-    "unknown": 13968,
-    "x86_64": 11866
+    "cpu_0x01000012/0x00000000": 29,
+    "cpu_0x01000012/0x80000000": 3,
+    "i386": 312,
+    "unknown": 14450,
+    "x86_64": 12531
   },
-  "slices_total": 447652
+  "slices_total": 472730
 }
