@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ bd495b825e5c (2026-09-24)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ c508844df6c2 (2026-09-25)
 
-Generated: 2026-09-24 07:42:37 UTC
+Generated: 2026-09-25 07:40:12 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 673,167 |
-| Mach-O slices parsed | 970,868 |
-| Page-hash mismatches (slices) | 243 |
-| Page-hash mismatches (distinct packages) | 74 |
+| Store paths scanned | 673,307 |
+| Mach-O slices parsed | 973,143 |
+| Page-hash mismatches (slices) | 244 |
+| Page-hash mismatches (distinct packages) | 75 |
 |   of which linker-signed (flags=0x20002) | 30 |
-|   of which codesign-signed (flags=0x2) | 213 |
+|   of which codesign-signed (flags=0x2) | 214 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-09-24 07:42:37 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 466,588 | 123 | 0 | 429,222 | 37,153 | 90 |
+| `arm64` | 467,717 | 123 | 0 | 429,741 | 37,763 | 90 |
 | `arm64e` | 260 | 0 | 0 | 100 | 0 | 160 |
-| `x86_64` | 472,655 | 120 | 0 | 33,746 | 438,572 | 217 |
-| `i386` | 773 | 0 | 0 | 452 | 313 | 8 |
+| `x86_64` | 473,797 | 121 | 0 | 33,795 | 439,664 | 217 |
+| `i386` | 777 | 0 | 0 | 452 | 317 | 8 |
 | other/legacy (11 arch codes) | 30,592 | 0 | 0 | 8 | 32 | 30,552 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 914,252 | 51 | 0 | 440,657 | 473,536 |
-| fat | 56,616 | 192 | 0 | 22,871 | 2,534 |
+| thin | 916,399 | 52 | 0 | 441,150 | 475,189 |
+| fat | 56,744 | 192 | 0 | 22,946 | 2,587 |
 
-Unique fat binary files: 43,194 in 2,586 packages. 23 of those packages contain at least one failing fat slice.
+Unique fat binary files: 43,258 in 2,622 packages. 23 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -54,6 +54,7 @@ Sorted alphabetically by package name.
 | filen-cli-0.0.36 | 1 | `/nix/store/vrfabd48b3h6wi2dw16k21jzrqvr124a-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/w8g0rcna42xlvbsn5jlqhsgc7hilqlbv-filen-cli-0.0.36` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/45sv48r91qgzi3fjsgwaa4h8714j769z-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/4ib2g566mvdk2d21099f6bhyqxyghis5-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/iz59kqpk17w1dag1c2knnv8902wsd25h-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/mpv2h988nygbjdadrfi667rw87r0qf5y-gitlab-duo-8.89.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/f8916ng5b41vy8zipihapni7ggjkmskj-httptoolkit-1.26.0` |
@@ -122,10 +123,10 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 243 |
+| `page_hash_mismatch` | 244 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 463,528 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 476,070 |
+| `clean` (signed, verified) | 464,096 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 477,776 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 31,027 |
 | `scanner_error` | 0 |
 
@@ -152,7 +153,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 74 |
+| Distinct failing seeds | 75 |
 
 Edges by kind (default view only):
 

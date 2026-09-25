@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 463528,
+    "clean": 464096,
     "not_real_macho": 31027,
-    "page_hash_mismatch": 243,
-    "unsigned": 476070
+    "page_hash_mismatch": 244,
+    "unsigned": 477776
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 24
     },
     "arm64": {
-      "clean": 429222,
+      "clean": 429741,
       "not_real_macho": 90,
       "page_hash_mismatch": 123,
-      "unsigned": 37153
+      "unsigned": 37763
     },
     "arm64e": {
       "clean": 100,
@@ -50,42 +50,42 @@
     "i386": {
       "clean": 452,
       "not_real_macho": 8,
-      "unsigned": 313
+      "unsigned": 317
     },
     "unknown": {
       "not_real_macho": 30048
     },
     "x86_64": {
-      "clean": 33746,
+      "clean": 33795,
       "not_real_macho": 217,
-      "page_hash_mismatch": 120,
-      "unsigned": 438572
+      "page_hash_mismatch": 121,
+      "unsigned": 439664
     }
   },
-  "channel_label": "nixpkgs-26.05-darwin @ bd495b825e5c (2026-09-24)",
+  "channel_label": "nixpkgs-26.05-darwin @ c508844df6c2 (2026-09-25)",
   "coverage": {
     "not_real_macho": 31027,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-09-24 07:42:37 UTC",
+  "generated_at": "2026-09-25 07:40:12 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-empty": 6,
+      "B7-empty": 7,
       "B7-real": 11,
       "C2": 196,
       "L": 30
     },
     "by_signer": {
-      "codesign_signed": 213,
+      "codesign_signed": 214,
       "linker_signed": 30
     },
-    "packages": 74,
+    "packages": 75,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "filen-cli-0.0.36",
@@ -104,15 +104,17 @@
       "teams-for-linux-2.22.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 243
+    "slices": 244
   },
   "paths_by_status": {
-    "ok": 673167
+    "fetch_error": 1,
+    "ok": 673305,
+    "parse_error": 1
   },
-  "paths_scanned": 673167,
+  "paths_scanned": 673307,
   "slices_by_arch": {
     "arm": 32,
-    "arm64": 466588,
+    "arm64": 467717,
     "arm64e": 260,
     "cpu_0x00000001/0x00000000": 8,
     "cpu_0x00000002/0x00000000": 8,
@@ -123,9 +125,9 @@
     "cpu_0x00000012/0x00000064": 8,
     "cpu_0x01000012/0x00000000": 64,
     "cpu_0x01000012/0x80000000": 8,
-    "i386": 773,
+    "i386": 777,
     "unknown": 30048,
-    "x86_64": 472655
+    "x86_64": 473797
   },
-  "slices_total": 970868
+  "slices_total": 973143
 }

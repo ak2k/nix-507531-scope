@@ -53,6 +53,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/y8nwl67lfi039720jxqy9yl89h775yxs-swift-5.10.1-lib,lib/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
 /nix/store/y8nwl67lfi039720jxqy9yl89h775yxs-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/y8nwl67lfi039720jxqy9yl89h775yxs-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/19j1vnlwm6w9csv4ra3mys4p2yx5nh9w-shogihome-1.29.0,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,192153728,True,131074,4096,46549,190664016,1,36722,150413312,thin,0,False,False,0,L
 /nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,arm64,8349008,False,2,4096,2019,8266752,2,0,0,fat32,8,False,False,0,C2
 /nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,arm64,122192,False,2,4096,26,103712,1,0,0,fat32,8,False,False,0,C2
 /nix/store/hzx2wsx2jrakws0zh8zrb6hn6i379fl9-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
@@ -85,7 +86,6 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/kizr84lcbyp2wpa4sxg8v0f3fzr3b2j1-swift-5.10.1,lib/lldb/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
 /nix/store/kizr84lcbyp2wpa4sxg8v0f3fzr3b2j1-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/kizr84lcbyp2wpa4sxg8v0f3fzr3b2j1-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
-/nix/store/19j1vnlwm6w9csv4ra3mys4p2yx5nh9w-shogihome-1.29.0,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,192153728,True,131074,4096,46549,190664016,1,36722,150413312,thin,0,False,False,0,L
 /nix/store/dg6fm7ba120j9z83nmy3iz2qaxy52dzs-teams-for-linux-2.20.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,192153728,True,131074,4096,46549,190664016,1,36722,150413312,thin,0,False,False,0,L
 /nix/store/i5jz403qbcz2v4hngx58vggxlsjnknhm-vscode-extension-kilocode-Kilo-Code-7.6.2,share/vscode/extensions/kilocode.Kilo-Code/bin/kilo,arm64,137188706,True,131074,4096,33234,136125104,1,33233,136122368,thin,0,False,False,0,L
 /nix/store/4nik2aw4a45h5xss1snsciwj4kmij48y-renovate-44.104.0,lib/node_modules/renovate/node_modules/.pnpm/@typescript+typescript-darwin-arm64@7.0.2/node_modules/@typescript/typescript-darwin-arm64/lib/tsc,arm64,23653664,False,65536,4096,5723,23437328,5,0,0,thin,9021,False,False,0,B7-real

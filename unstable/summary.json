@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 498070,
-    "not_real_macho": 194226,
+    "clean": 498066,
+    "not_real_macho": 194228,
     "other_sig_invalid": 3,
     "page_hash_mismatch": 125,
-    "unsigned": 52525
+    "unsigned": 52900
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 222
     },
     "arm64": {
-      "clean": 487040,
+      "clean": 486871,
       "not_real_macho": 114,
       "page_hash_mismatch": 125,
-      "unsigned": 36646
+      "unsigned": 36840
     },
     "arm64e": {
       "clean": 45,
@@ -64,23 +64,23 @@
       "unsigned": 653
     },
     "unknown": {
-      "not_real_macho": 193543
+      "not_real_macho": 193545
     },
     "x86_64": {
-      "clean": 10753,
+      "clean": 10918,
       "not_real_macho": 154,
       "other_sig_invalid": 2,
-      "unsigned": 14986
+      "unsigned": 15167
     }
   },
-  "channel_label": "nixpkgs-unstable @ 00455b0a3690 (2026-09-24)",
+  "channel_label": "nixpkgs-unstable @ 34ca302a9572 (2026-09-25)",
   "coverage": {
-    "not_real_macho": 194226,
+    "not_real_macho": 194228,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-09-24 07:43:01 UTC",
+  "generated_at": "2026-09-25 07:40:49 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
@@ -128,14 +128,14 @@
     "slices": 125
   },
   "paths_by_status": {
-    "fetch_error": 1,
-    "ok": 1212615,
-    "parse_error": 12
+    "fetch_error": 3,
+    "ok": 1217250,
+    "parse_error": 23
   },
-  "paths_scanned": 1212628,
+  "paths_scanned": 1217276,
   "slices_by_arch": {
     "arm": 241,
-    "arm64": 523925,
+    "arm64": 523950,
     "arm64e": 105,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 3,
@@ -150,8 +150,8 @@
     "cpu_0x01000012/0x80000000": 3,
     "cpu_0x81000007/0x00000003": 5,
     "i386": 915,
-    "unknown": 193543,
-    "x86_64": 25895
+    "unknown": 193545,
+    "x86_64": 26241
   },
-  "slices_total": 744949
+  "slices_total": 745322
 }
