@@ -149,6 +149,15 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/hq5lf91v8z5pp61gnwsmcq70k247qc31-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,x86_64,1149632,False,2,4096,278,1135376,1,0,0,fat32,8,False,False,0,C2
 /nix/store/4ib2g566mvdk2d21099f6bhyqxyghis5-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/z68c59jkjhkg7c2dxaqxpryyfkksl5vx-vscode-extension-kilocode-Kilo-Code-7.2.20,share/vscode/extensions/kilocode.Kilo-Code/bin/kilo,arm64,102332704,True,131074,4096,24786,101520112,1,24785,101519360,thin,0,False,False,0,L
+/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,x86_64,950432,False,2,4096,107,436128,1,0,0,fat32,8,False,False,0,C2
+/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,arm64,950432,False,2,4096,111,453504,1,0,0,fat32,8,False,False,0,C2
+/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,x86_64,2245648,False,2,4096,277,1133104,1,0,0,fat32,8,False,False,1,C2
+/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,arm64,2245648,False,2,4096,249,1018192,1,0,0,fat32,8,False,False,1,C2
+/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,x86_64,15155072,False,2,4096,2081,8521088,1,0,0,fat32,8,False,False,1,C2
+/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,arm64,15155072,False,2,4096,1560,6388352,1,0,0,fat32,8,False,False,1,C2
+/nix/store/4jzqm158wh2dd2abcsckkw48hf1n5x3c-teams-for-linux-2.22.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,195854608,True,131074,4096,47446,194336192,1,37249,152571904,thin,0,False,False,0,L
+/nix/store/jk1zlqaq7gdq7q6ppli8am75r524r2wl-renovate-44.79.2,lib/node_modules/renovate/node_modules/.pnpm/@typescript+typescript-darwin-x64@7.0.2/node_modules/@typescript/typescript-darwin-x64/lib/tsc,x86_64,24971232,False,65536,4096,6042,24744688,3,0,0,thin,9021,False,False,0,B7-real
+/nix/store/vkw7fd6j20w8ngkwi0mkfi0nn9prlapr-opencode-1.15.10,bin/.opencode-wrapped,x86_64,111873840,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/0r8fwgnqldbpzd65fayyaa1d7ik2z3lc-filen-cli-0.0.36,bin/.filen-wrapped,arm64,73769890,True,131074,4096,17871,73197904,1,17870,73195520,thin,0,False,False,0,L
 /nix/store/iz59kqpk17w1dag1c2knnv8902wsd25h-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/0idly66qjy09bncs64gl28xphwbg3nqf-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,x86_64,950432,False,2,4096,107,436128,1,0,0,fat32,8,False,False,0,C2
@@ -184,7 +193,6 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/d9zbhg9ziyhhx3fpqkra7bizx9vsmjk8-swift-5.10.1,lib/lldb/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
 /nix/store/d9zbhg9ziyhhx3fpqkra7bizx9vsmjk8-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/d9zbhg9ziyhhx3fpqkra7bizx9vsmjk8-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
-/nix/store/vkw7fd6j20w8ngkwi0mkfi0nn9prlapr-opencode-1.15.10,bin/.opencode-wrapped,x86_64,111873840,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/vrfabd48b3h6wi2dw16k21jzrqvr124a-filen-cli-0.0.36,bin/.filen-wrapped,arm64,73769890,True,131074,4096,17871,73197904,1,17870,73195520,thin,0,False,False,0,L
 /nix/store/wwz8xckkf5pxhjp605q2w9976wh77p5w-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
 /nix/store/wwz8xckkf5pxhjp605q2w9976wh77p5w-swift-5.10.1-lib,lib/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
@@ -193,6 +201,7 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/wwz8xckkf5pxhjp605q2w9976wh77p5w-swift-5.10.1-lib,lib/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
 /nix/store/wwz8xckkf5pxhjp605q2w9976wh77p5w-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
 /nix/store/wwz8xckkf5pxhjp605q2w9976wh77p5w-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/23zjab0n5m33qfd1rqd99pfb0vngzm3z-httptoolkit-1.27.1,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,192153728,True,131074,4096,46549,190664016,1,36722,150413312,thin,0,False,False,0,L
 /nix/store/58bsbdami1xih25pjrhvhqz9h03xyb1v-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,x86_64,8278560,False,2,4096,2005,8209040,2,0,0,fat32,8,False,False,0,C2
 /nix/store/58bsbdami1xih25pjrhvhqz9h03xyb1v-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,x86_64,86512,False,2,4096,20,80512,1,0,0,fat32,8,False,False,0,C2
 /nix/store/58bsbdami1xih25pjrhvhqz9h03xyb1v-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,x86_64,156640,False,2,4096,37,150096,1,0,0,fat32,8,False,False,0,C2
@@ -236,10 +245,4 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/mpv2h988nygbjdadrfi667rw87r0qf5y-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
 /nix/store/hmsgv9dcwymj9k72rvlg3c31xwc8350h-renovate-44.79.2,lib/node_modules/renovate/node_modules/.pnpm/@typescript+typescript-darwin-arm64@7.0.2/node_modules/@typescript/typescript-darwin-arm64/lib/tsc,arm64,23653664,False,65536,4096,5723,23437328,5,0,0,thin,9021,False,False,0,B7-real
 /nix/store/2p6dqa178vs4dxiamkb3fsfbxv5jvl6b-shogihome-1.29.0,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,189241520,True,131074,4096,45844,187774368,1,36129,147984384,thin,0,False,False,0,L
-/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,x86_64,950432,False,2,4096,107,436128,1,0,0,fat32,8,False,False,0,C2
-/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,arm64,950432,False,2,4096,111,453504,1,0,0,fat32,8,False,False,0,C2
-/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,x86_64,2245648,False,2,4096,277,1133104,1,0,0,fat32,8,False,False,1,C2
-/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,arm64,2245648,False,2,4096,249,1018192,1,0,0,fat32,8,False,False,1,C2
-/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,x86_64,15155072,False,2,4096,2081,8521088,1,0,0,fat32,8,False,False,1,C2
-/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,arm64,15155072,False,2,4096,1560,6388352,1,0,0,fat32,8,False,False,1,C2
-/nix/store/jk1zlqaq7gdq7q6ppli8am75r524r2wl-renovate-44.79.2,lib/node_modules/renovate/node_modules/.pnpm/@typescript+typescript-darwin-x64@7.0.2/node_modules/@typescript/typescript-darwin-x64/lib/tsc,x86_64,24971232,False,65536,4096,6042,24744688,3,0,0,thin,9021,False,False,0,B7-real
+/nix/store/95wlkqxq6wxslrhzqjdidj42cfz83l8m-shogihome-1.29.0,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,192153728,True,131074,4096,46549,190664016,1,36722,150413312,thin,0,False,False,0,L
