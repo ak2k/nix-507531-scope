@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 501360,
+    "clean": 502964,
     "not_real_macho": 197896,
     "other_sig_invalid": 3,
     "page_hash_mismatch": 125,
-    "unsigned": 53483
+    "unsigned": 54056
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 222
     },
     "arm64": {
-      "clean": 489949,
+      "clean": 491533,
       "not_real_macho": 114,
       "page_hash_mismatch": 125,
-      "unsigned": 37124
+      "unsigned": 37647
     },
     "arm64e": {
       "clean": 45,
@@ -58,7 +58,7 @@
       "unsigned": 5
     },
     "i386": {
-      "clean": 229,
+      "clean": 232,
       "not_real_macho": 32,
       "other_sig_invalid": 1,
       "unsigned": 653
@@ -67,20 +67,20 @@
       "not_real_macho": 197213
     },
     "x86_64": {
-      "clean": 11134,
+      "clean": 11151,
       "not_real_macho": 154,
       "other_sig_invalid": 2,
-      "unsigned": 15466
+      "unsigned": 15516
     }
   },
-  "channel_label": "nixpkgs-unstable @ 8d5d270900d3 (2026-09-27)",
+  "channel_label": "nixpkgs-unstable @ 3181085bfd08 (2026-09-28)",
   "coverage": {
     "not_real_macho": 197896,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-09-27 07:29:32 UTC",
+  "generated_at": "2026-09-28 07:46:22 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
@@ -129,13 +129,13 @@
   },
   "paths_by_status": {
     "fetch_error": 2,
-    "ok": 1230404,
-    "parse_error": 21
+    "ok": 1233218,
+    "parse_error": 20
   },
-  "paths_scanned": 1230427,
+  "paths_scanned": 1233240,
   "slices_by_arch": {
     "arm": 241,
-    "arm64": 527312,
+    "arm64": 529419,
     "arm64e": 105,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 3,
@@ -149,9 +149,9 @@
     "cpu_0x01000012/0x00000000": 75,
     "cpu_0x01000012/0x80000000": 3,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 915,
+    "i386": 918,
     "unknown": 197213,
-    "x86_64": 26756
+    "x86_64": 26823
   },
-  "slices_total": 752867
+  "slices_total": 755044
 }
