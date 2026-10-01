@@ -1,101 +1,107 @@
 {
   "buckets": {
-    "clean": 510506,
-    "not_real_macho": 202578,
+    "clean": 622893,
+    "not_real_macho": 254416,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 125,
-    "unsigned": 54126
+    "page_hash_mismatch": 132,
+    "unsigned": 67400
   },
   "buckets_by_arch": {
     "arm": {
-      "not_real_macho": 19,
-      "unsigned": 222
+      "not_real_macho": 22,
+      "unsigned": 245
     },
     "arm64": {
-      "clean": 498933,
-      "not_real_macho": 114,
-      "page_hash_mismatch": 125,
-      "unsigned": 37656
+      "clean": 608783,
+      "not_real_macho": 143,
+      "page_hash_mismatch": 132,
+      "unsigned": 48070
     },
     "arm64e": {
-      "clean": 45,
-      "not_real_macho": 60
+      "clean": 63,
+      "not_real_macho": 86
     },
     "cpu_0x00000000/0x00000000": {
       "unsigned": 9
     },
     "cpu_0x00000001/0x00000000": {
-      "clean": 3
+      "clean": 4
     },
     "cpu_0x00000002/0x00000000": {
-      "not_real_macho": 3
+      "not_real_macho": 4
     },
     "cpu_0x00000004/0x00000000": {
-      "unsigned": 3
+      "unsigned": 4
     },
     "cpu_0x00000005/0x00000000": {
-      "not_real_macho": 3
+      "not_real_macho": 4
     },
     "cpu_0x00000012/0x00000000": {
-      "not_real_macho": 189
+      "not_real_macho": 251
     },
     "cpu_0x00000012/0x0000000a": {
-      "not_real_macho": 28
+      "not_real_macho": 37
     },
     "cpu_0x00000012/0x00000064": {
-      "not_real_macho": 3
+      "not_real_macho": 4
     },
     "cpu_0x00000148/0x00000003": {
       "unsigned": 1
     },
     "cpu_0x01000012/0x00000000": {
-      "not_real_macho": 75
+      "not_real_macho": 99
     },
     "cpu_0x01000012/0x80000000": {
-      "not_real_macho": 3
+      "not_real_macho": 4
+    },
+    "cpu_0x01000017/0x00000008": {
+      "not_real_macho": 1
+    },
+    "cpu_0x01000017/0x0000000d": {
+      "not_real_macho": 1
     },
     "cpu_0x81000007/0x00000003": {
       "unsigned": 5
     },
     "i386": {
-      "clean": 232,
-      "not_real_macho": 32,
+      "clean": 305,
+      "not_real_macho": 35,
       "other_sig_invalid": 1,
-      "unsigned": 653
+      "unsigned": 761
     },
     "unknown": {
-      "not_real_macho": 201895
+      "not_real_macho": 253526
     },
     "x86_64": {
-      "clean": 11293,
-      "not_real_macho": 154,
+      "clean": 13738,
+      "not_real_macho": 199,
       "other_sig_invalid": 2,
-      "unsigned": 15577
+      "unsigned": 18305
     }
   },
-  "channel_label": "nixpkgs-unstable @ f45c6f04c2f0 (2026-09-30)",
+  "channel_label": "nixpkgs-unstable @ b6c8664de9b6 (2026-10-01)",
   "coverage": {
-    "not_real_macho": 202578,
+    "not_real_macho": 254416,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-09-30 07:38:20 UTC",
+  "generated_at": "2026-10-01 07:59:37 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-real": 11,
-      "C2": 75,
-      "L": 39
+      "B7-real": 12,
+      "C2": 76,
+      "L": 44
     },
     "by_signer": {
-      "codesign_signed": 86,
-      "linker_signed": 39
+      "codesign_signed": 88,
+      "linker_signed": 44
     },
-    "packages": 61,
+    "packages": 68,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-9.6.0",
@@ -125,33 +131,35 @@
       "vscode-extension-kilocode-Kilo-Code-7.5.9",
       "vscode-extension-kilocode-Kilo-Code-7.6.2"
     ],
-    "slices": 125
+    "slices": 132
   },
   "paths_by_status": {
     "fetch_error": 2,
-    "ok": 1242135,
+    "ok": 1547483,
     "parse_error": 17
   },
-  "paths_scanned": 1242154,
+  "paths_scanned": 1547502,
   "slices_by_arch": {
-    "arm": 241,
-    "arm64": 536828,
-    "arm64e": 105,
+    "arm": 267,
+    "arm64": 657128,
+    "arm64e": 149,
     "cpu_0x00000000/0x00000000": 9,
-    "cpu_0x00000001/0x00000000": 3,
-    "cpu_0x00000002/0x00000000": 3,
-    "cpu_0x00000004/0x00000000": 3,
-    "cpu_0x00000005/0x00000000": 3,
-    "cpu_0x00000012/0x00000000": 189,
-    "cpu_0x00000012/0x0000000a": 28,
-    "cpu_0x00000012/0x00000064": 3,
+    "cpu_0x00000001/0x00000000": 4,
+    "cpu_0x00000002/0x00000000": 4,
+    "cpu_0x00000004/0x00000000": 4,
+    "cpu_0x00000005/0x00000000": 4,
+    "cpu_0x00000012/0x00000000": 251,
+    "cpu_0x00000012/0x0000000a": 37,
+    "cpu_0x00000012/0x00000064": 4,
     "cpu_0x00000148/0x00000003": 1,
-    "cpu_0x01000012/0x00000000": 75,
-    "cpu_0x01000012/0x80000000": 3,
+    "cpu_0x01000012/0x00000000": 99,
+    "cpu_0x01000012/0x80000000": 4,
+    "cpu_0x01000017/0x00000008": 1,
+    "cpu_0x01000017/0x0000000d": 1,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 918,
-    "unknown": 201895,
-    "x86_64": 27026
+    "i386": 1102,
+    "unknown": 253526,
+    "x86_64": 32244
   },
-  "slices_total": 767338
+  "slices_total": 944844
 }
