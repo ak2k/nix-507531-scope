@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ dc8993a5c130 (2026-10-01)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ 68e5b9f7e82a (2026-10-02)
 
-Generated: 2026-10-01 07:59:35 UTC
+Generated: 2026-10-02 07:26:34 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 677,681 |
-| Mach-O slices parsed | 984,012 |
-| Page-hash mismatches (slices) | 247 |
-| Page-hash mismatches (distinct packages) | 78 |
-|   of which linker-signed (flags=0x20002) | 33 |
-|   of which codesign-signed (flags=0x2) | 214 |
+| Store paths scanned | 677,809 |
+| Mach-O slices parsed | 984,169 |
+| Page-hash mismatches (slices) | 249 |
+| Page-hash mismatches (distinct packages) | 80 |
+|   of which linker-signed (flags=0x20002) | 34 |
+|   of which codesign-signed (flags=0x2) | 215 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,9 +22,9 @@ Generated: 2026-10-01 07:59:35 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 472,998 | 126 | 0 | 434,495 | 38,287 | 90 |
+| `arm64` | 473,078 | 127 | 0 | 434,569 | 38,292 | 90 |
 | `arm64e` | 260 | 0 | 0 | 100 | 0 | 160 |
-| `x86_64` | 479,379 | 121 | 0 | 34,038 | 445,003 | 217 |
+| `x86_64` | 479,456 | 122 | 0 | 34,054 | 445,063 | 217 |
 | `i386` | 783 | 0 | 0 | 452 | 323 | 8 |
 | other/legacy (11 arch codes) | 30,592 | 0 | 0 | 8 | 32 | 30,552 |
 
@@ -32,10 +32,10 @@ Generated: 2026-10-01 07:59:35 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 927,108 | 55 | 0 | 446,041 | 481,004 |
-| fat | 56,904 | 192 | 0 | 23,052 | 2,641 |
+| thin | 927,259 | 57 | 0 | 446,125 | 481,069 |
+| fat | 56,910 | 192 | 0 | 23,058 | 2,641 |
 
-Unique fat binary files: 43,338 in 2,654 packages. 23 of those packages contain at least one failing fat slice.
+Unique fat binary files: 43,341 in 2,655 packages. 23 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -51,10 +51,12 @@ Sorted alphabetically by package name.
 | filen-cli-0.0.36 | 1 | `/nix/store/0r8fwgnqldbpzd65fayyaa1d7ik2z3lc-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/9v55fbprhg44fv9k4si4qbg6xaw7pjaa-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/bafdp93s5pn591gxh96dynw54akmg0b7-filen-cli-0.0.36` |
+| filen-cli-0.0.36 | 1 | `/nix/store/dp5px90fijxzsgqsd811vkz3wli56as0-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/vrfabd48b3h6wi2dw16k21jzrqvr124a-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/w8g0rcna42xlvbsn5jlqhsgc7hilqlbv-filen-cli-0.0.36` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/45sv48r91qgzi3fjsgwaa4h8714j769z-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/4ib2g566mvdk2d21099f6bhyqxyghis5-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/hkxwa89zsjaprxfqgfihmyip1n1avsrl-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/iz59kqpk17w1dag1c2knnv8902wsd25h-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/mpv2h988nygbjdadrfi667rw87r0qf5y-gitlab-duo-8.89.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/f8916ng5b41vy8zipihapni7ggjkmskj-httptoolkit-1.26.0` |
@@ -126,10 +128,10 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 247 |
+| `page_hash_mismatch` | 249 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 469,093 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 483,645 |
+| `clean` (signed, verified) | 469,183 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 483,710 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 31,027 |
 | `scanner_error` | 0 |
 
@@ -156,7 +158,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 78 |
+| Distinct failing seeds | 80 |
 
 Edges by kind (default view only):
 
