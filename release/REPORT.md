@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — release-26.05 @ 2a1dec22e88a (2026-10-06)
+# NixOS/nixpkgs#507531 cache scan — release-26.05 @ 2efa67fd26b6 (2026-10-07)
 
-Generated: 2026-10-06 07:52:01 UTC
+Generated: 2026-10-07 07:47:59 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 488,845 |
-| Mach-O slices parsed | 496,322 |
-| Page-hash mismatches (slices) | 102 |
-| Page-hash mismatches (distinct packages) | 38 |
-|   of which linker-signed (flags=0x20002) | 25 |
-|   of which codesign-signed (flags=0x2) | 77 |
+| Store paths scanned | 601,178 |
+| Mach-O slices parsed | 576,169 |
+| Page-hash mismatches (slices) | 123 |
+| Page-hash mismatches (distinct packages) | 43 |
+|   of which linker-signed (flags=0x20002) | 27 |
+|   of which codesign-signed (flags=0x2) | 96 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-10-06 07:52:01 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 465,745 | 102 | 0 | 427,790 | 37,813 | 40 |
-| `arm64e` | 229 | 0 | 0 | 77 | 0 | 152 |
-| `x86_64` | 14,275 | 0 | 0 | 9,226 | 4,884 | 165 |
-| `i386` | 363 | 0 | 0 | 213 | 146 | 4 |
-| other/legacy (11 arch codes) | 15,710 | 0 | 0 | 16 | 32 | 15,662 |
+| `arm64` | 541,833 | 123 | 0 | 496,646 | 45,018 | 46 |
+| `arm64e` | 272 | 0 | 0 | 88 | 0 | 184 |
+| `x86_64` | 15,707 | 0 | 0 | 10,186 | 5,323 | 198 |
+| `i386` | 378 | 0 | 0 | 220 | 153 | 5 |
+| other/legacy (11 arch codes) | 17,979 | 0 | 0 | 16 | 32 | 17,931 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 468,175 | 30 | 0 | 426,380 | 41,757 |
-| fat | 28,147 | 72 | 0 | 10,942 | 1,118 |
+| thin | 544,803 | 33 | 0 | 495,440 | 49,322 |
+| fat | 31,366 | 90 | 0 | 11,716 | 1,204 |
 
-Unique fat binary files: 21,707 in 1,290 packages. 8 of those packages contain at least one failing fat slice.
+Unique fat binary files: 24,461 in 1,421 packages. 10 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -44,6 +44,7 @@ Sorted alphabetically by package name.
 | Package | Failing slices | Store path |
 |---|---:|---|
 | filen-cli-0.0.36 | 1 | `/nix/store/0r8fwgnqldbpzd65fayyaa1d7ik2z3lc-filen-cli-0.0.36` |
+| filen-cli-0.0.36 | 1 | `/nix/store/n830q9qdkqd8wb50r5i5gc6vhfi35447-filen-cli-0.0.36` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/45sv48r91qgzi3fjsgwaa4h8714j769z-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/hkxwa89zsjaprxfqgfihmyip1n1avsrl-gitlab-duo-8.89.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/f8916ng5b41vy8zipihapni7ggjkmskj-httptoolkit-1.26.0` |
@@ -51,6 +52,7 @@ Sorted alphabetically by package name.
 | httptoolkit-1.26.0 | 1 | `/nix/store/kglqi3s566b97y0mp4jamgp153v710fi-httptoolkit-1.26.0` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/23zjab0n5m33qfd1rqd99pfb0vngzm3z-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/bl45i4hnmy4xg7vcg9y4lf1gnqsi2cmw-httptoolkit-1.27.1` |
+| libtorch-2.9.0 | 1 | `/nix/store/hclj167mjxz756a4irwl7w3ln0m996l5-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/jxm3srv0dnhc20grghh56hycifsbvjaf-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/lh7hw0zhm2fxhwpqbv3qqyzh4qqac1p8-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/q130ghhjjwi675kjf7i8p2mwpylcwkpw-libtorch-2.9.0` |
@@ -68,6 +70,8 @@ Sorted alphabetically by package name.
 | swift-5.10.1 | 11 | `/nix/store/b6j0s3xi3ynmfpblp7yfc988gfvc10im-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/d9zbhg9ziyhhx3fpqkra7bizx9vsmjk8-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/m8sgnwz34mh7kwjxrzrpq1vzkd006ipg-swift-5.10.1` |
+| swift-5.10.1 | 11 | `/nix/store/znyjxshv5i2xhyi19ja3i2zwsqxl323r-swift-5.10.1` |
+| swift-5.10.1-lib | 7 | `/nix/store/1n6bby8i1dlwdrsyhcrykyldy2y7xqps-swift-5.10.1-lib` |
 | swift-5.10.1-lib | 7 | `/nix/store/ckspnycl8vzy37q525lr010ir9s4pqv9-swift-5.10.1-lib` |
 | swift-5.10.1-lib | 7 | `/nix/store/slwncp9gqbshba7r059j7ac0z4cm10a6-swift-5.10.1-lib` |
 | swift-5.10.1-lib | 7 | `/nix/store/wwz8xckkf5pxhjp605q2w9976wh77p5w-swift-5.10.1-lib` |
@@ -75,6 +79,7 @@ Sorted alphabetically by package name.
 | tailwindcss_4-4.3.1 | 1 | `/nix/store/7j0iikv0gkh61bcqx1lzbpsbl08mwm4s-tailwindcss_4-4.3.1` |
 | tailwindcss_4-4.3.1 | 1 | `/nix/store/d2kd5x80sgs8k4xw6yysd7qvhszagl59-tailwindcss_4-4.3.1` |
 | tailwindcss_4-4.3.1 | 1 | `/nix/store/i196v0y1ikg78c782qi9qbjmr2pzia2l-tailwindcss_4-4.3.1` |
+| tailwindcss_4-4.3.1 | 1 | `/nix/store/lcc2bchg50si03g3djl4wqd5lzrf1hdh-tailwindcss_4-4.3.1` |
 | teams-for-linux-2.11.1 | 1 | `/nix/store/gls3gcn5fia3l0157pkd0lvp3dbl3amm-teams-for-linux-2.11.1` |
 | teams-for-linux-2.11.1 | 1 | `/nix/store/l2738npx9g9wsb587qqkyaxgdal928k6-teams-for-linux-2.11.1` |
 | teams-for-linux-2.17.1 | 1 | `/nix/store/4wqycxqf6r2mgjdx4p0arzax6s02sxfl-teams-for-linux-2.17.1` |
@@ -86,11 +91,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 102 |
+| `page_hash_mismatch` | 123 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 437,322 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 42,875 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 16,023 |
+| `clean` (signed, verified) | 507,156 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 50,526 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 18,364 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -101,7 +106,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 0 |
 | Distinct packages containing such binaries | 0 |
-| Failing dylibs that serve as seeds | 76 |
+| Failing dylibs that serve as seeds | 95 |
 | Total (binary, failing-dylib) pairs | 0 |
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).
@@ -116,7 +121,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 38 |
+| Distinct failing seeds | 43 |
 
 Edges by kind (default view only):
 
