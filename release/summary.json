@@ -1,21 +1,21 @@
 {
   "buckets": {
-    "clean": 507156,
-    "not_real_macho": 18364,
-    "page_hash_mismatch": 123,
-    "unsigned": 50526
+    "clean": 521364,
+    "not_real_macho": 19179,
+    "page_hash_mismatch": 125,
+    "unsigned": 51409
   },
   "buckets_by_arch": {
     "arm": {
-      "clean": 12,
+      "clean": 15,
       "not_real_macho": 5,
-      "unsigned": 28
+      "unsigned": 32
     },
     "arm64": {
-      "clean": 496646,
+      "clean": 510595,
       "not_real_macho": 46,
-      "page_hash_mismatch": 123,
-      "unsigned": 45018
+      "page_hash_mismatch": 125,
+      "unsigned": 45808
     },
     "arm64e": {
       "clean": 88,
@@ -49,42 +49,42 @@
       "not_real_macho": 4
     },
     "i386": {
-      "clean": 220,
+      "clean": 222,
       "not_real_macho": 5,
-      "unsigned": 153
+      "unsigned": 156
     },
     "unknown": {
-      "not_real_macho": 17675
+      "not_real_macho": 18490
     },
     "x86_64": {
-      "clean": 10186,
+      "clean": 10440,
       "not_real_macho": 198,
-      "unsigned": 5323
+      "unsigned": 5409
     }
   },
-  "channel_label": "release-26.05 @ 2efa67fd26b6 (2026-10-07)",
+  "channel_label": "release-26.05 @ 7c8764b7c7b0 (2026-10-08)",
   "coverage": {
-    "not_real_macho": 18364,
+    "not_real_macho": 19179,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-07 07:47:59 UTC",
+  "generated_at": "2026-10-08 07:54:40 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-real": 1,
+      "B7-real": 2,
       "C2": 95,
-      "L": 27
+      "L": 28
     },
     "by_signer": {
-      "codesign_signed": 96,
-      "linker_signed": 27
+      "codesign_signed": 97,
+      "linker_signed": 28
     },
-    "packages": 43,
+    "packages": 45,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-8.89.0",
@@ -102,16 +102,17 @@
       "teams-for-linux-2.22.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 123
+    "slices": 125
   },
   "paths_by_status": {
-    "no_narinfo": 199720,
-    "ok": 401458
+    "no_narinfo": 184081,
+    "ok": 419191,
+    "parse_error": 1
   },
-  "paths_scanned": 601178,
+  "paths_scanned": 603273,
   "slices_by_arch": {
-    "arm": 45,
-    "arm64": 541833,
+    "arm": 52,
+    "arm64": 556574,
     "arm64e": 272,
     "cpu_0x00000001/0x00000000": 4,
     "cpu_0x00000002/0x00000000": 4,
@@ -122,9 +123,9 @@
     "cpu_0x00000012/0x00000064": 4,
     "cpu_0x01000012/0x00000000": 35,
     "cpu_0x01000012/0x80000000": 4,
-    "i386": 378,
-    "unknown": 17675,
-    "x86_64": 15707
+    "i386": 383,
+    "unknown": 18490,
+    "x86_64": 16047
   },
-  "slices_total": 576169
+  "slices_total": 592077
 }
