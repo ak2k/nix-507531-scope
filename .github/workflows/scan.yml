@@ -96,12 +96,12 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v8.2.0
+        uses: astral-sh/setup-uv@v10.0.1
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
@@ -121,11 +121,11 @@ jobs:
     outputs:
       release_rev: ${{ steps.pin.outputs.rev }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
-      - uses: astral-sh/setup-uv@v8.2.0
+      - uses: astral-sh/setup-uv@v10.0.1
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
@@ -233,12 +233,12 @@ jobs:
           - { channel: unstable, shard: 6, total_shards: 7 }
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v8.2.0
+        uses: astral-sh/setup-uv@v10.0.1
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
@@ -252,7 +252,7 @@ jobs:
 
       - name: Restore scanner shard state
         if: ${{ !inputs.force_full_rescan }}
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: |
             ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db
@@ -298,7 +298,7 @@ jobs:
       # Save shard state right after scan so a failure in any subsequent
       # step still preserves the scan work for the next run.
       - name: Save scanner shard state
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: |
             ${{ matrix.channel }}-shard${{ matrix.shard }}/full.db
@@ -332,7 +332,7 @@ jobs:
           - label: release
           - label: unstable
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -348,7 +348,7 @@ jobs:
       # scan-state caches.
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v8.2.0
+        uses: astral-sh/setup-uv@v10.0.1
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
@@ -521,11 +521,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 2
 
-      - uses: astral-sh/setup-uv@v8.2.0
+      - uses: astral-sh/setup-uv@v10.0.1
         with:
           version: latest
           cache-dependency-glob: 'scripts/*.py'
