@@ -90,14 +90,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-26.05-darwin @ 240fddad86d7 (2026-10-12)",
+      "channel_label": "nixpkgs-26.05-darwin @ 240fddad86d7 (2026-10-13)",
       "coverage": {
         "not_real_macho": 38083,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-10-12 08:03:06 UTC",
+      "generated_at": "2026-10-13 07:38:20 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -169,10 +169,10 @@
     },
     "release": {
       "buckets": {
-        "clean": 537769,
+        "clean": 538617,
         "not_real_macho": 19341,
-        "page_hash_mismatch": 127,
-        "unsigned": 53062
+        "page_hash_mismatch": 128,
+        "unsigned": 53105
       },
       "buckets_by_arch": {
         "arm": {
@@ -181,10 +181,10 @@
           "unsigned": 32
         },
         "arm64": {
-          "clean": 526442,
+          "clean": 527277,
           "not_real_macho": 49,
-          "page_hash_mismatch": 127,
-          "unsigned": 47026
+          "page_hash_mismatch": 128,
+          "unsigned": 47047
         },
         "arm64e": {
           "clean": 90,
@@ -226,9 +226,9 @@
           "not_real_macho": 18592
         },
         "x86_64": {
-          "clean": 10949,
+          "clean": 10962,
           "not_real_macho": 205,
-          "unsigned": 5839
+          "unsigned": 5861
         }
       },
       "build_time_dependents": {
@@ -247,7 +247,7 @@
           ]
         },
         "distinct_dependent_attrs_default_view": 1,
-        "distinct_seeds": 47,
+        "distinct_seeds": 48,
         "edge_filter_default": [
           "buildInputs",
           "checkInputs",
@@ -257,14 +257,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "release-26.05 @ ce2507538874 (2026-10-12)",
+      "channel_label": "release-26.05 @ 53fd9a099f4c (2026-10-13)",
       "coverage": {
         "not_real_macho": 19341,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-10-12 08:03:21 UTC",
+      "generated_at": "2026-10-13 07:39:04 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -282,13 +282,13 @@
         "by_signature_class": {
           "B7-real": 2,
           "C2": 95,
-          "L": 30
+          "L": 31
         },
         "by_signer": {
           "codesign_signed": 97,
-          "linker_signed": 30
+          "linker_signed": 31
         },
-        "packages": 47,
+        "packages": 48,
         "packages_list": [
           "filen-cli-0.0.36",
           "gitlab-duo-8.89.0",
@@ -304,18 +304,19 @@
           "teams-for-linux-2.11.1",
           "teams-for-linux-2.17.1",
           "teams-for-linux-2.22.0",
+          "teams-for-linux-2.25.0",
           "vscode-extension-kilocode-Kilo-Code-7.2.20"
         ],
-        "slices": 127
+        "slices": 128
       },
       "paths_by_status": {
-        "no_narinfo": 168037,
-        "ok": 438987
+        "no_narinfo": 166858,
+        "ok": 440252
       },
-      "paths_scanned": 607024,
+      "paths_scanned": 607110,
       "slices_by_arch": {
         "arm": 52,
-        "arm64": 573644,
+        "arm64": 574501,
         "arm64e": 280,
         "cpu_0x00000001/0x00000000": 4,
         "cpu_0x00000002/0x00000000": 4,
@@ -328,9 +329,9 @@
         "cpu_0x01000012/0x80000000": 4,
         "i386": 435,
         "unknown": 18592,
-        "x86_64": 16993
+        "x86_64": 17028
       },
-      "slices_total": 610299
+      "slices_total": 611191
     },
     "unstable": {
       "buckets": {
@@ -439,14 +440,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-unstable @ 8edc0c72e3a3 (2026-10-12)",
+      "channel_label": "nixpkgs-unstable @ 8edc0c72e3a3 (2026-10-13)",
       "coverage": {
         "not_real_macho": 259947,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-10-12 08:03:47 UTC",
+      "generated_at": "2026-10-13 07:39:25 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -536,20 +537,20 @@
       "slices_total": 972580
     }
   },
-  "generated_at": "2026-10-12 08:40:49 UTC",
+  "generated_at": "2026-10-13 08:22:53 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 12,
       "B7-real": 30,
       "C2": 410,
-      "L": 121,
+      "L": 122,
       "unknown": 0
     },
-    "packages": 36,
-    "slices": 573
+    "packages": 37,
+    "slices": 574
   },
-  "paths_scanned": 3056650,
-  "slices_total": 2804390,
+  "paths_scanned": 3056736,
+  "slices_total": 2805282,
   "union": {
     "build_time_packages_default_view": [
       "rimgo"
@@ -587,13 +588,14 @@
       "teams-for-linux-2.20.0",
       "teams-for-linux-2.22.0",
       "teams-for-linux-2.23.0",
+      "teams-for-linux-2.25.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20",
       "vscode-extension-kilocode-Kilo-Code-7.4.16",
       "vscode-extension-kilocode-Kilo-Code-7.5.9",
       "vscode-extension-kilocode-Kilo-Code-7.6.2",
       "vscode-extension-kilocode-Kilo-Code-7.7.9"
     ],
-    "direct_packages_count": 36,
+    "direct_packages_count": 37,
     "load_time_packages": [],
     "load_time_packages_count": 0
   }
