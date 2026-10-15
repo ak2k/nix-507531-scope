@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ 240fddad86d7 (2026-10-14)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ 5b00df4a0973 (2026-10-15)
 
-Generated: 2026-10-14 07:33:17 UTC
+Generated: 2026-10-15 07:42:31 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 846,461 |
-| Mach-O slices parsed | 1,221,511 |
-| Page-hash mismatches (slices) | 309 |
-| Page-hash mismatches (distinct packages) | 103 |
-|   of which linker-signed (flags=0x20002) | 43 |
+| Store paths scanned | 847,929 |
+| Mach-O slices parsed | 1,249,653 |
+| Page-hash mismatches (slices) | 310 |
+| Page-hash mismatches (distinct packages) | 104 |
+|   of which linker-signed (flags=0x20002) | 44 |
 |   of which codesign-signed (flags=0x2) | 266 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-10-14 07:33:17 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 587,318 | 159 | 0 | 538,879 | 48,168 | 112 |
+| `arm64` | 601,230 | 160 | 0 | 552,762 | 48,196 | 112 |
 | `arm64e` | 325 | 0 | 0 | 125 | 0 | 200 |
-| `x86_64` | 595,353 | 150 | 0 | 42,440 | 552,492 | 271 |
-| `i386` | 975 | 0 | 0 | 565 | 400 | 10 |
-| other/legacy (11 arch codes) | 37,540 | 0 | 0 | 10 | 40 | 37,490 |
+| `x86_64` | 608,937 | 150 | 0 | 42,461 | 566,055 | 271 |
+| `i386` | 977 | 0 | 0 | 565 | 402 | 10 |
+| other/legacy (11 arch codes) | 38,184 | 0 | 0 | 10 | 40 | 38,134 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,151,138 | 75 | 0 | 553,259 | 597,794 |
-| fat | 70,373 | 234 | 0 | 28,760 | 3,306 |
+| thin | 1,178,590 | 76 | 0 | 567,123 | 611,381 |
+| fat | 71,063 | 234 | 0 | 28,800 | 3,312 |
 
-Unique fat binary files: 53,439 in 3,330 packages. 28 of those packages contain at least one failing fat slice.
+Unique fat binary files: 54,106 in 3,338 packages. 28 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -136,6 +136,7 @@ Sorted alphabetically by package name.
 | teams-for-linux-2.22.0 | 1 | `/nix/store/4jzqm158wh2dd2abcsckkw48hf1n5x3c-teams-for-linux-2.22.0` |
 | teams-for-linux-2.23.0 | 1 | `/nix/store/ffv518y5nq73qpjic4wxskp78zp00dnl-teams-for-linux-2.23.0` |
 | teams-for-linux-2.23.0 | 1 | `/nix/store/g51mdmhzazp10dp309f2accbwxh7w5fk-teams-for-linux-2.23.0` |
+| teams-for-linux-2.25.0 | 1 | `/nix/store/4kwfkpfkvbaxmxsha6nal27r8723fx6p-teams-for-linux-2.25.0` |
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/4j2sgj1x9vc40x61iz99lriyzbz9lldn-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/8dl3r94rxjcjc3igap902ghjxh301wbc-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/g1xpic0i2kymmviqv5n5wb91mvzpi2rm-vscode-extension-kilocode-Kilo-Code-7.2.20` |
@@ -151,11 +152,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 309 |
+| `page_hash_mismatch` | 310 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 582,019 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 601,100 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 38,083 |
+| `clean` (signed, verified) | 595,923 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 614,693 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 38,727 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -181,7 +182,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 103 |
+| Distinct failing seeds | 104 |
 
 Edges by kind (default view only):
 

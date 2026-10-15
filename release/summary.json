@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 539860,
+    "clean": 546617,
     "not_real_macho": 19341,
-    "page_hash_mismatch": 128,
-    "unsigned": 53106
+    "page_hash_mismatch": 129,
+    "unsigned": 53121
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 32
     },
     "arm64": {
-      "clean": 528490,
+      "clean": 535241,
       "not_real_macho": 49,
-      "page_hash_mismatch": 128,
-      "unsigned": 47047
+      "page_hash_mismatch": 129,
+      "unsigned": 47053
     },
     "arm64e": {
       "clean": 90,
@@ -57,19 +57,19 @@
       "not_real_macho": 18592
     },
     "x86_64": {
-      "clean": 10992,
+      "clean": 10998,
       "not_real_macho": 205,
-      "unsigned": 5862
+      "unsigned": 5871
     }
   },
-  "channel_label": "release-26.05 @ 952dd4355e19 (2026-10-14)",
+  "channel_label": "release-26.05 @ f71d5cc4bdb4 (2026-10-15)",
   "coverage": {
     "not_real_macho": 19341,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-14 07:33:38 UTC",
+  "generated_at": "2026-10-15 07:42:48 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -78,13 +78,13 @@
     "by_signature_class": {
       "B7-real": 2,
       "C2": 95,
-      "L": 31
+      "L": 32
     },
     "by_signer": {
       "codesign_signed": 97,
-      "linker_signed": 31
+      "linker_signed": 32
     },
-    "packages": 48,
+    "packages": 49,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-8.89.0",
@@ -103,16 +103,16 @@
       "teams-for-linux-2.25.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 128
+    "slices": 129
   },
   "paths_by_status": {
-    "no_narinfo": 166516,
-    "ok": 441158
+    "no_narinfo": 165944,
+    "ok": 442097
   },
-  "paths_scanned": 607674,
+  "paths_scanned": 608041,
   "slices_by_arch": {
     "arm": 52,
-    "arm64": 575714,
+    "arm64": 582472,
     "arm64e": 280,
     "cpu_0x00000001/0x00000000": 4,
     "cpu_0x00000002/0x00000000": 4,
@@ -125,7 +125,7 @@
     "cpu_0x01000012/0x80000000": 4,
     "i386": 435,
     "unknown": 18592,
-    "x86_64": 17059
+    "x86_64": 17074
   },
-  "slices_total": 612435
+  "slices_total": 619208
 }
