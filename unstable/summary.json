@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 671461,
-    "not_real_macho": 261143,
+    "clean": 679018,
+    "not_real_macho": 261144,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 140,
-    "unsigned": 73064
+    "page_hash_mismatch": 143,
+    "unsigned": 73863
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,13 +12,13 @@
       "unsigned": 296
     },
     "arm64": {
-      "clean": 656128,
+      "clean": 663382,
       "not_real_macho": 177,
-      "page_hash_mismatch": 140,
-      "unsigned": 51009
+      "page_hash_mismatch": 143,
+      "unsigned": 51461
     },
     "arm64e": {
-      "clean": 64,
+      "clean": 65,
       "not_real_macho": 86
     },
     "cpu_0x00000000/0x00000000": {
@@ -67,26 +67,26 @@
       "clean": 315,
       "not_real_macho": 38,
       "other_sig_invalid": 1,
-      "unsigned": 831
+      "unsigned": 838
     },
     "unknown": {
-      "not_real_macho": 260170
+      "not_real_macho": 260171
     },
     "x86_64": {
-      "clean": 14950,
+      "clean": 15252,
       "not_real_macho": 230,
       "other_sig_invalid": 2,
-      "unsigned": 20909
+      "unsigned": 21249
     }
   },
-  "channel_label": "nixpkgs-unstable @ 319e4cebef10 (2026-10-16)",
+  "channel_label": "nixpkgs-unstable @ f20cd90e28fe (2026-10-17)",
   "coverage": {
-    "not_real_macho": 261143,
+    "not_real_macho": 261144,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-16 07:43:25 UTC",
+  "generated_at": "2026-10-17 07:31:49 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
@@ -95,13 +95,13 @@
     "by_signature_class": {
       "B7-real": 14,
       "C2": 76,
-      "L": 50
+      "L": 53
     },
     "by_signer": {
       "codesign_signed": 90,
-      "linker_signed": 50
+      "linker_signed": 53
     },
-    "packages": 76,
+    "packages": 79,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-9.6.0",
@@ -120,6 +120,7 @@
       "renovate-44.52.0",
       "renovate-44.79.2",
       "shogihome-1.29.0",
+      "shogihome-1.29.1",
       "swift-5.10.1",
       "swift-5.10.1-lib",
       "tailwindcss_4-4.3.3",
@@ -137,18 +138,18 @@
       "vscode-extension-kilocode-Kilo-Code-7.7.9",
       "vscode-extension-kilocode-Kilo-Code-7.8.3"
     ],
-    "slices": 140
+    "slices": 143
   },
   "paths_by_status": {
-    "fetch_error": 2,
-    "ok": 1640162,
-    "parse_error": 18
+    "fetch_error": 17,
+    "ok": 1655877,
+    "parse_error": 23
   },
-  "paths_scanned": 1640182,
+  "paths_scanned": 1655917,
   "slices_by_arch": {
     "arm": 321,
-    "arm64": 707454,
-    "arm64e": 150,
+    "arm64": 715163,
+    "arm64e": 151,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 4,
     "cpu_0x00000002/0x00000000": 4,
@@ -163,9 +164,9 @@
     "cpu_0x01000017/0x00000008": 1,
     "cpu_0x01000017/0x0000000d": 1,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 1185,
-    "unknown": 260170,
-    "x86_64": 36091
+    "i386": 1192,
+    "unknown": 260171,
+    "x86_64": 36733
   },
-  "slices_total": 1005811
+  "slices_total": 1014171
 }
