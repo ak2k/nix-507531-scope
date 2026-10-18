@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — release-26.05 @ b2a9a48d3e0b (2026-10-17)
+# NixOS/nixpkgs#507531 cache scan — release-26.05 @ 8ce73368d1ef (2026-10-18)
 
-Generated: 2026-10-17 07:31:26 UTC
+Generated: 2026-10-18 07:18:06 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 608,306 |
-| Mach-O slices parsed | 625,148 |
-| Page-hash mismatches (slices) | 131 |
-| Page-hash mismatches (distinct packages) | 51 |
-|   of which linker-signed (flags=0x20002) | 34 |
+| Store paths scanned | 608,408 |
+| Mach-O slices parsed | 641,685 |
+| Page-hash mismatches (slices) | 132 |
+| Page-hash mismatches (distinct packages) | 52 |
+|   of which linker-signed (flags=0x20002) | 35 |
 |   of which codesign-signed (flags=0x2) | 97 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-10-17 07:31:26 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 588,136 | 131 | 0 | 540,427 | 47,529 | 49 |
+| `arm64` | 604,016 | 132 | 0 | 556,301 | 47,534 | 49 |
 | `arm64e` | 280 | 0 | 0 | 90 | 0 | 190 |
-| `x86_64` | 17,252 | 0 | 0 | 11,113 | 5,934 | 205 |
+| `x86_64` | 17,265 | 0 | 0 | 11,123 | 5,937 | 205 |
 | `i386` | 440 | 0 | 0 | 269 | 166 | 5 |
-| other/legacy (11 arch codes) | 19,040 | 0 | 0 | 19 | 36 | 18,985 |
+| other/legacy (11 arch codes) | 19,684 | 0 | 0 | 19 | 36 | 19,629 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 591,399 | 41 | 0 | 539,033 | 52,316 |
-| fat | 33,749 | 90 | 0 | 12,885 | 1,349 |
+| thin | 607,270 | 42 | 0 | 554,897 | 52,322 |
+| fat | 34,415 | 90 | 0 | 12,905 | 1,351 |
 
-Unique fat binary files: 26,127 in 1,585 packages. 10 of those packages contain at least one failing fat slice.
+Unique fat binary files: 26,782 in 1,589 packages. 10 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -71,6 +71,7 @@ Sorted alphabetically by package name.
 | shogihome-1.29.0 | 1 | `/nix/store/6019hnqs6wxxhjnyxgq5cyy0v8a9jhm6-shogihome-1.29.0` |
 | shogihome-1.29.0 | 1 | `/nix/store/95wlkqxq6wxslrhzqjdidj42cfz83l8m-shogihome-1.29.0` |
 | shogihome-1.29.0 | 1 | `/nix/store/mssk554g3siy8nkidw8pjzrkr107xkjn-shogihome-1.29.0` |
+| shogihome-1.29.1 | 1 | `/nix/store/yzm9xhns7w7av03avd71hcwb3wjznv4b-shogihome-1.29.1` |
 | swift-5.10.1 | 11 | `/nix/store/5caplwxxb1qnjscim7cks1isnyklwaf5-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/b6j0s3xi3ynmfpblp7yfc988gfvc10im-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/d9zbhg9ziyhhx3fpqkra7bizx9vsmjk8-swift-5.10.1` |
@@ -99,11 +100,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 131 |
+| `page_hash_mismatch` | 132 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 551,918 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 53,665 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 19,434 |
+| `clean` (signed, verified) | 567,802 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 53,673 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 20,078 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -129,7 +130,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 51 |
+| Distinct failing seeds | 52 |
 
 Edges by kind (default view only):
 
