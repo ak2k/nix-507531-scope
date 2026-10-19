@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — release-26.05 @ 8ce73368d1ef (2026-10-18)
+# NixOS/nixpkgs#507531 cache scan — release-26.05 @ e16b7a8dc0d4 (2026-10-19)
 
-Generated: 2026-10-18 07:18:06 UTC
+Generated: 2026-10-19 07:41:06 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 608,408 |
-| Mach-O slices parsed | 641,685 |
+| Store paths scanned | 608,423 |
+| Mach-O slices parsed | 642,679 |
 | Page-hash mismatches (slices) | 132 |
 | Page-hash mismatches (distinct packages) | 52 |
 |   of which linker-signed (flags=0x20002) | 35 |
@@ -22,9 +22,9 @@ Generated: 2026-10-18 07:18:06 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 604,016 | 132 | 0 | 556,301 | 47,534 | 49 |
+| `arm64` | 604,655 | 132 | 0 | 556,937 | 47,537 | 49 |
 | `arm64e` | 280 | 0 | 0 | 90 | 0 | 190 |
-| `x86_64` | 17,265 | 0 | 0 | 11,123 | 5,937 | 205 |
+| `x86_64` | 17,620 | 0 | 0 | 11,477 | 5,938 | 205 |
 | `i386` | 440 | 0 | 0 | 269 | 166 | 5 |
 | other/legacy (11 arch codes) | 19,684 | 0 | 0 | 19 | 36 | 19,629 |
 
@@ -32,10 +32,10 @@ Generated: 2026-10-18 07:18:06 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 607,270 | 42 | 0 | 554,897 | 52,322 |
-| fat | 34,415 | 90 | 0 | 12,905 | 1,351 |
+| thin | 607,568 | 42 | 0 | 555,191 | 52,326 |
+| fat | 35,111 | 90 | 0 | 13,601 | 1,351 |
 
-Unique fat binary files: 26,782 in 1,589 packages. 10 of those packages contain at least one failing fat slice.
+Unique fat binary files: 27,130 in 1,590 packages. 10 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -102,8 +102,8 @@ Sorted alphabetically by package name.
 |---|---:|
 | `page_hash_mismatch` | 132 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 567,802 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 53,673 |
+| `clean` (signed, verified) | 568,792 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 53,677 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 20,078 |
 | `scanner_error` | 0 |
 

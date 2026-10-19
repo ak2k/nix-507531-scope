@@ -79,14 +79,14 @@
       "unsigned": 21249
     }
   },
-  "channel_label": "nixpkgs-unstable @ f20cd90e28fe (2026-10-18)",
+  "channel_label": "nixpkgs-unstable @ f20cd90e28fe (2026-10-19)",
   "coverage": {
     "not_real_macho": 261144,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-18 07:18:44 UTC",
+  "generated_at": "2026-10-19 07:41:29 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
