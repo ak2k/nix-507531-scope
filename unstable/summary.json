@@ -1,107 +1,107 @@
 {
   "buckets": {
-    "clean": 679018,
-    "not_real_macho": 261144,
+    "clean": 791619,
+    "not_real_macho": 313058,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 143,
-    "unsigned": 73863
+    "page_hash_mismatch": 150,
+    "unsigned": 87294
   },
   "buckets_by_arch": {
     "arm": {
-      "not_real_macho": 25,
-      "unsigned": 296
+      "not_real_macho": 28,
+      "unsigned": 347
     },
     "arm64": {
-      "clean": 663382,
-      "not_real_macho": 177,
-      "page_hash_mismatch": 143,
-      "unsigned": 51461
+      "clean": 773463,
+      "not_real_macho": 212,
+      "page_hash_mismatch": 150,
+      "unsigned": 61944
     },
     "arm64e": {
-      "clean": 65,
-      "not_real_macho": 86
+      "clean": 84,
+      "not_real_macho": 112
     },
     "cpu_0x00000000/0x00000000": {
       "unsigned": 9
     },
     "cpu_0x00000001/0x00000000": {
-      "clean": 4
+      "clean": 5
     },
     "cpu_0x00000002/0x00000000": {
-      "not_real_macho": 4
+      "not_real_macho": 5
     },
     "cpu_0x00000004/0x00000000": {
-      "unsigned": 4
+      "unsigned": 5
     },
     "cpu_0x00000005/0x00000000": {
-      "not_real_macho": 4
+      "not_real_macho": 5
     },
     "cpu_0x00000012/0x00000000": {
-      "not_real_macho": 257
+      "not_real_macho": 319
     },
     "cpu_0x00000012/0x0000000a": {
-      "not_real_macho": 37
+      "not_real_macho": 46
     },
     "cpu_0x00000012/0x00000064": {
-      "not_real_macho": 4
+      "not_real_macho": 5
     },
     "cpu_0x00000148/0x00000003": {
       "unsigned": 1
     },
     "cpu_0x01000012/0x00000000": {
-      "not_real_macho": 105
+      "not_real_macho": 129
     },
     "cpu_0x01000012/0x80000000": {
-      "not_real_macho": 4
+      "not_real_macho": 5
     },
     "cpu_0x01000017/0x00000008": {
-      "not_real_macho": 1
+      "not_real_macho": 2
     },
     "cpu_0x01000017/0x0000000d": {
-      "not_real_macho": 1
+      "not_real_macho": 2
     },
     "cpu_0x81000007/0x00000003": {
       "unsigned": 5
     },
     "i386": {
-      "clean": 315,
-      "not_real_macho": 38,
+      "clean": 388,
+      "not_real_macho": 41,
       "other_sig_invalid": 1,
-      "unsigned": 838
+      "unsigned": 974
     },
     "unknown": {
-      "not_real_macho": 260171
+      "not_real_macho": 311866
     },
     "x86_64": {
-      "clean": 15252,
-      "not_real_macho": 230,
+      "clean": 17679,
+      "not_real_macho": 281,
       "other_sig_invalid": 2,
-      "unsigned": 21249
+      "unsigned": 24009
     }
   },
-  "channel_label": "nixpkgs-unstable @ f20cd90e28fe (2026-10-19)",
+  "channel_label": "nixpkgs-unstable @ f3a77a0c9b18 (2026-10-20)",
   "coverage": {
-    "not_real_macho": 261144,
+    "not_real_macho": 313058,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-19 07:41:29 UTC",
+  "generated_at": "2026-10-20 07:50:18 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-real": 14,
-      "C2": 76,
-      "L": 53
+      "B7-real": 15,
+      "C2": 77,
+      "L": 58
     },
     "by_signer": {
-      "codesign_signed": 90,
-      "linker_signed": 53
+      "codesign_signed": 92,
+      "linker_signed": 58
     },
-    "packages": 79,
+    "packages": 86,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-9.6.0",
@@ -138,35 +138,35 @@
       "vscode-extension-kilocode-Kilo-Code-7.7.9",
       "vscode-extension-kilocode-Kilo-Code-7.8.3"
     ],
-    "slices": 143
+    "slices": 150
   },
   "paths_by_status": {
-    "fetch_error": 17,
-    "ok": 1655877,
-    "parse_error": 23
+    "fetch_error": 37,
+    "ok": 1961469,
+    "parse_error": 35
   },
-  "paths_scanned": 1655917,
+  "paths_scanned": 1961541,
   "slices_by_arch": {
-    "arm": 321,
-    "arm64": 715163,
-    "arm64e": 151,
+    "arm": 375,
+    "arm64": 835769,
+    "arm64e": 196,
     "cpu_0x00000000/0x00000000": 9,
-    "cpu_0x00000001/0x00000000": 4,
-    "cpu_0x00000002/0x00000000": 4,
-    "cpu_0x00000004/0x00000000": 4,
-    "cpu_0x00000005/0x00000000": 4,
-    "cpu_0x00000012/0x00000000": 257,
-    "cpu_0x00000012/0x0000000a": 37,
-    "cpu_0x00000012/0x00000064": 4,
+    "cpu_0x00000001/0x00000000": 5,
+    "cpu_0x00000002/0x00000000": 5,
+    "cpu_0x00000004/0x00000000": 5,
+    "cpu_0x00000005/0x00000000": 5,
+    "cpu_0x00000012/0x00000000": 319,
+    "cpu_0x00000012/0x0000000a": 46,
+    "cpu_0x00000012/0x00000064": 5,
     "cpu_0x00000148/0x00000003": 1,
-    "cpu_0x01000012/0x00000000": 105,
-    "cpu_0x01000012/0x80000000": 4,
-    "cpu_0x01000017/0x00000008": 1,
-    "cpu_0x01000017/0x0000000d": 1,
+    "cpu_0x01000012/0x00000000": 129,
+    "cpu_0x01000012/0x80000000": 5,
+    "cpu_0x01000017/0x00000008": 2,
+    "cpu_0x01000017/0x0000000d": 2,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 1192,
-    "unknown": 260171,
-    "x86_64": 36733
+    "i386": 1404,
+    "unknown": 311866,
+    "x86_64": 41971
   },
-  "slices_total": 1014171
+  "slices_total": 1192124
 }
