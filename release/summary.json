@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 573850,
+    "clean": 575114,
     "not_real_macho": 19265,
-    "page_hash_mismatch": 137,
-    "unsigned": 52568
+    "page_hash_mismatch": 138,
+    "unsigned": 53222
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 35
     },
     "arm64": {
-      "clean": 562206,
+      "clean": 563453,
       "not_real_macho": 51,
-      "page_hash_mismatch": 137,
-      "unsigned": 46359
+      "page_hash_mismatch": 138,
+      "unsigned": 46947
     },
     "arm64e": {
       "clean": 90,
@@ -51,25 +51,25 @@
     "i386": {
       "clean": 272,
       "not_real_macho": 5,
-      "unsigned": 177
+      "unsigned": 179
     },
     "unknown": {
       "not_real_macho": 18516
     },
     "x86_64": {
-      "clean": 11262,
+      "clean": 11279,
       "not_real_macho": 206,
-      "unsigned": 5992
+      "unsigned": 6056
     }
   },
-  "channel_label": "release-26.05 @ 2544984418e6 (2026-10-21)",
+  "channel_label": "release-26.05 @ c5b062a37a10 (2026-10-22)",
   "coverage": {
     "not_real_macho": 19265,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-21 07:53:19 UTC",
+  "generated_at": "2026-10-22 07:29:21 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -78,13 +78,13 @@
     "by_signature_class": {
       "B7-real": 1,
       "C2": 95,
-      "L": 41
+      "L": 42
     },
     "by_signer": {
       "codesign_signed": 96,
-      "linker_signed": 41
+      "linker_signed": 42
     },
-    "packages": 57,
+    "packages": 58,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-8.89.0",
@@ -105,17 +105,17 @@
       "teams-for-linux-2.25.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 137
+    "slices": 138
   },
   "paths_by_status": {
     "fetch_error": 1,
-    "no_narinfo": 164122,
-    "ok": 444702
+    "no_narinfo": 164118,
+    "ok": 445648
   },
-  "paths_scanned": 608825,
+  "paths_scanned": 609767,
   "slices_by_arch": {
     "arm": 55,
-    "arm64": 608753,
+    "arm64": 610589,
     "arm64e": 280,
     "cpu_0x00000001/0x00000000": 5,
     "cpu_0x00000002/0x00000000": 5,
@@ -126,9 +126,9 @@
     "cpu_0x00000012/0x00000064": 5,
     "cpu_0x01000012/0x00000000": 31,
     "cpu_0x01000012/0x80000000": 5,
-    "i386": 454,
+    "i386": 456,
     "unknown": 18516,
-    "x86_64": 17460
+    "x86_64": 17541
   },
-  "slices_total": 645820
+  "slices_total": 647739
 }

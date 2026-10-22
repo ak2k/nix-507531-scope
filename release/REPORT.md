@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — release-26.05 @ 2544984418e6 (2026-10-21)
+# NixOS/nixpkgs#507531 cache scan — release-26.05 @ c5b062a37a10 (2026-10-22)
 
-Generated: 2026-10-21 07:53:19 UTC
+Generated: 2026-10-22 07:29:21 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 608,825 |
-| Mach-O slices parsed | 645,820 |
-| Page-hash mismatches (slices) | 137 |
-| Page-hash mismatches (distinct packages) | 57 |
-|   of which linker-signed (flags=0x20002) | 41 |
+| Store paths scanned | 609,767 |
+| Mach-O slices parsed | 647,739 |
+| Page-hash mismatches (slices) | 138 |
+| Page-hash mismatches (distinct packages) | 58 |
+|   of which linker-signed (flags=0x20002) | 42 |
 |   of which codesign-signed (flags=0x2) | 96 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-10-21 07:53:19 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 608,753 | 137 | 0 | 562,206 | 46,359 | 51 |
+| `arm64` | 610,589 | 138 | 0 | 563,453 | 46,947 | 51 |
 | `arm64e` | 280 | 0 | 0 | 90 | 0 | 190 |
-| `x86_64` | 17,460 | 0 | 0 | 11,262 | 5,992 | 206 |
-| `i386` | 454 | 0 | 0 | 272 | 177 | 5 |
+| `x86_64` | 17,541 | 0 | 0 | 11,279 | 6,056 | 206 |
+| `i386` | 456 | 0 | 0 | 272 | 179 | 5 |
 | other/legacy (11 arch codes) | 18,873 | 0 | 0 | 20 | 40 | 18,813 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 611,367 | 47 | 0 | 560,112 | 51,198 |
-| fat | 34,453 | 90 | 0 | 13,738 | 1,370 |
+| thin | 613,212 | 48 | 0 | 561,325 | 51,829 |
+| fat | 34,527 | 90 | 0 | 13,789 | 1,393 |
 
-Unique fat binary files: 26,390 in 1,598 packages. 10 of those packages contain at least one failing fat slice.
+Unique fat binary files: 26,427 in 1,616 packages. 10 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -48,6 +48,7 @@ Sorted alphabetically by package name.
 | filen-cli-0.0.36 | 1 | `/nix/store/vrfabd48b3h6wi2dw16k21jzrqvr124a-filen-cli-0.0.36` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/1xz10lzh159dca8yz6nl2wv08y0qr9dr-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/45sv48r91qgzi3fjsgwaa4h8714j769z-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/60zbrz834i5p0r0z181x0wfy9wg4fnwi-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/y4mi54n2754rv4gb0i1919iniv02sghd-gitlab-duo-8.89.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/f8916ng5b41vy8zipihapni7ggjkmskj-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/in4scnwyz4hn7xalw4jjcwqmpf6vrk9r-httptoolkit-1.26.0` |
@@ -105,10 +106,10 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 137 |
+| `page_hash_mismatch` | 138 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 573,850 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 52,568 |
+| `clean` (signed, verified) | 575,114 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 53,222 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 19,265 |
 | `scanner_error` | 0 |
 
@@ -135,7 +136,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 57 |
+| Distinct failing seeds | 58 |
 
 Edges by kind (default view only):
 
