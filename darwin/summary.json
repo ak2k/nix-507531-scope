@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 617627,
+    "clean": 618863,
     "not_real_macho": 38727,
-    "page_hash_mismatch": 314,
-    "unsigned": 636128
+    "page_hash_mismatch": 315,
+    "unsigned": 637601
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 30
     },
     "arm64": {
-      "clean": 573934,
+      "clean": 575158,
       "not_real_macho": 112,
-      "page_hash_mismatch": 164,
-      "unsigned": 48698
+      "page_hash_mismatch": 165,
+      "unsigned": 49317
     },
     "arm64e": {
       "clean": 125,
@@ -50,26 +50,26 @@
     "i386": {
       "clean": 565,
       "not_real_macho": 10,
-      "unsigned": 408
+      "unsigned": 410
     },
     "unknown": {
       "not_real_macho": 37504
     },
     "x86_64": {
-      "clean": 42993,
+      "clean": 43005,
       "not_real_macho": 271,
       "page_hash_mismatch": 150,
-      "unsigned": 586982
+      "unsigned": 587834
     }
   },
-  "channel_label": "nixpkgs-26.05-darwin @ 36fd15bbb657 (2026-10-22)",
+  "channel_label": "nixpkgs-26.05-darwin @ 202ef6b77f37 (2026-10-23)",
   "coverage": {
     "not_real_macho": 38727,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-22 07:29:19 UTC",
+  "generated_at": "2026-10-23 07:21:26 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -79,13 +79,13 @@
       "B7-empty": 12,
       "B7-real": 15,
       "C2": 239,
-      "L": 48
+      "L": 49
     },
     "by_signer": {
       "codesign_signed": 266,
-      "linker_signed": 48
+      "linker_signed": 49
     },
-    "packages": 108,
+    "packages": 109,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "filen-cli-0.0.36",
@@ -107,15 +107,15 @@
       "teams-for-linux-2.25.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 314
+    "slices": 315
   },
   "paths_by_status": {
-    "ok": 849237
+    "ok": 850831
   },
-  "paths_scanned": 849237,
+  "paths_scanned": 850831,
   "slices_by_arch": {
     "arm": 40,
-    "arm64": 622908,
+    "arm64": 624752,
     "arm64e": 325,
     "cpu_0x00000001/0x00000000": 10,
     "cpu_0x00000002/0x00000000": 10,
@@ -126,9 +126,9 @@
     "cpu_0x00000012/0x00000064": 10,
     "cpu_0x01000012/0x00000000": 80,
     "cpu_0x01000012/0x80000000": 10,
-    "i386": 983,
+    "i386": 985,
     "unknown": 37504,
-    "x86_64": 630396
+    "x86_64": 631260
   },
-  "slices_total": 1292796
+  "slices_total": 1295506
 }
