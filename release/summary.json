@@ -1,6 +1,6 @@
 {
   "buckets": {
-    "clean": 575542,
+    "clean": 575615,
     "not_real_macho": 19265,
     "page_hash_mismatch": 138,
     "unsigned": 53233
@@ -12,7 +12,7 @@
       "unsigned": 35
     },
     "arm64": {
-      "clean": 563801,
+      "clean": 563874,
       "not_real_macho": 51,
       "page_hash_mismatch": 138,
       "unsigned": 46954
@@ -62,14 +62,14 @@
       "unsigned": 6060
     }
   },
-  "channel_label": "release-26.05 @ c0ada6e47b5f (2026-10-23)",
+  "channel_label": "release-26.05 @ fa5d207e04f8 (2026-10-24)",
   "coverage": {
     "not_real_macho": 19265,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-23 07:24:09 UTC",
+  "generated_at": "2026-10-24 07:20:47 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -109,13 +109,13 @@
   },
   "paths_by_status": {
     "fetch_error": 1,
-    "no_narinfo": 163974,
-    "ok": 445875
+    "no_narinfo": 165027,
+    "ok": 445996
   },
-  "paths_scanned": 609850,
+  "paths_scanned": 611024,
   "slices_by_arch": {
     "arm": 55,
-    "arm64": 610944,
+    "arm64": 611017,
     "arm64e": 280,
     "cpu_0x00000001/0x00000000": 5,
     "cpu_0x00000002/0x00000000": 5,
@@ -130,5 +130,5 @@
     "unknown": 18516,
     "x86_64": 17625
   },
-  "slices_total": 648178
+  "slices_total": 648251
 }
