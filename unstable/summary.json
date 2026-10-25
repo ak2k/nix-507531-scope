@@ -1,21 +1,21 @@
 {
   "buckets": {
-    "clean": 799129,
-    "not_real_macho": 347446,
+    "clean": 871974,
+    "not_real_macho": 395556,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 150,
-    "unsigned": 88360
+    "page_hash_mismatch": 154,
+    "unsigned": 95587
   },
   "buckets_by_arch": {
     "arm": {
-      "not_real_macho": 28,
-      "unsigned": 347
+      "not_real_macho": 31,
+      "unsigned": 398
     },
     "arm64": {
-      "clean": 780771,
-      "not_real_macho": 212,
-      "page_hash_mismatch": 150,
-      "unsigned": 62657
+      "clean": 853025,
+      "not_real_macho": 225,
+      "page_hash_mismatch": 154,
+      "unsigned": 67939
     },
     "arm64e": {
       "clean": 85,
@@ -37,10 +37,10 @@
       "not_real_macho": 5
     },
     "cpu_0x00000012/0x00000000": {
-      "not_real_macho": 322
+      "not_real_macho": 334
     },
     "cpu_0x00000012/0x0000000a": {
-      "not_real_macho": 46
+      "not_real_macho": 48
     },
     "cpu_0x00000012/0x00000064": {
       "not_real_macho": 5
@@ -49,10 +49,10 @@
       "unsigned": 1
     },
     "cpu_0x01000012/0x00000000": {
-      "not_real_macho": 132
+      "not_real_macho": 144
     },
     "cpu_0x01000012/0x80000000": {
-      "not_real_macho": 5
+      "not_real_macho": 6
     },
     "cpu_0x01000017/0x00000008": {
       "not_real_macho": 2
@@ -64,44 +64,44 @@
       "unsigned": 5
     },
     "i386": {
-      "clean": 388,
-      "not_real_macho": 41,
+      "clean": 403,
+      "not_real_macho": 44,
       "other_sig_invalid": 1,
-      "unsigned": 977
+      "unsigned": 1093
     },
     "unknown": {
-      "not_real_macho": 346248
+      "not_real_macho": 394302
     },
     "x86_64": {
-      "clean": 17880,
-      "not_real_macho": 281,
+      "clean": 18456,
+      "not_real_macho": 291,
       "other_sig_invalid": 2,
-      "unsigned": 24359
+      "unsigned": 26137
     }
   },
-  "channel_label": "nixpkgs-unstable @ 5adc50831c25 (2026-10-24)",
+  "channel_label": "nixpkgs-unstable @ 674a2028661e (2026-10-25)",
   "coverage": {
-    "not_real_macho": 347446,
+    "not_real_macho": 395556,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-24 07:21:37 UTC",
+  "generated_at": "2026-10-25 07:40:59 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
   },
   "page_hash_mismatch": {
     "by_signature_class": {
-      "B7-real": 15,
+      "B7-real": 16,
       "C2": 77,
-      "L": 58
+      "L": 61
     },
     "by_signer": {
-      "codesign_signed": 92,
-      "linker_signed": 58
+      "codesign_signed": 93,
+      "linker_signed": 61
     },
-    "packages": 86,
+    "packages": 90,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-9.6.0",
@@ -138,35 +138,35 @@
       "vscode-extension-kilocode-Kilo-Code-7.7.9",
       "vscode-extension-kilocode-Kilo-Code-7.8.3"
     ],
-    "slices": 150
+    "slices": 154
   },
   "paths_by_status": {
     "fetch_error": 37,
-    "ok": 1983331,
+    "ok": 2195016,
     "parse_error": 35
   },
-  "paths_scanned": 1983403,
+  "paths_scanned": 2195088,
   "slices_by_arch": {
-    "arm": 375,
-    "arm64": 843790,
+    "arm": 429,
+    "arm64": 921343,
     "arm64e": 197,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 5,
     "cpu_0x00000002/0x00000000": 5,
     "cpu_0x00000004/0x00000000": 5,
     "cpu_0x00000005/0x00000000": 5,
-    "cpu_0x00000012/0x00000000": 322,
-    "cpu_0x00000012/0x0000000a": 46,
+    "cpu_0x00000012/0x00000000": 334,
+    "cpu_0x00000012/0x0000000a": 48,
     "cpu_0x00000012/0x00000064": 5,
     "cpu_0x00000148/0x00000003": 1,
-    "cpu_0x01000012/0x00000000": 132,
-    "cpu_0x01000012/0x80000000": 5,
+    "cpu_0x01000012/0x00000000": 144,
+    "cpu_0x01000012/0x80000000": 6,
     "cpu_0x01000017/0x00000008": 2,
     "cpu_0x01000017/0x0000000d": 2,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 1407,
-    "unknown": 346248,
-    "x86_64": 42522
+    "i386": 1541,
+    "unknown": 394302,
+    "x86_64": 44886
   },
-  "slices_total": 1235088
+  "slices_total": 1363274
 }
