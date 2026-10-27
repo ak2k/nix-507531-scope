@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ d592aacecd35 (2026-10-26)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ 1e67485f1727 (2026-10-27)
 
-Generated: 2026-10-26 07:40:12 UTC
+Generated: 2026-10-27 07:50:50 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 853,581 |
-| Mach-O slices parsed | 1,298,286 |
+| Store paths scanned | 853,755 |
+| Mach-O slices parsed | 1,298,607 |
 | Page-hash mismatches (slices) | 316 |
 | Page-hash mismatches (distinct packages) | 110 |
 |   of which linker-signed (flags=0x20002) | 50 |
@@ -22,9 +22,9 @@ Generated: 2026-10-26 07:40:12 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 626,117 | 166 | 0 | 575,961 | 49,878 | 112 |
+| `arm64` | 626,362 | 166 | 0 | 576,206 | 49,878 | 112 |
 | `arm64e` | 325 | 0 | 0 | 125 | 0 | 200 |
-| `x86_64` | 632,675 | 150 | 0 | 43,008 | 589,246 | 271 |
+| `x86_64` | 632,751 | 150 | 0 | 43,008 | 589,322 | 271 |
 | `i386` | 985 | 0 | 0 | 565 | 410 | 10 |
 | other/legacy (11 arch codes) | 38,184 | 0 | 0 | 10 | 40 | 38,134 |
 
@@ -32,7 +32,7 @@ Generated: 2026-10-26 07:40:12 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,226,535 | 82 | 0 | 590,267 | 636,176 |
+| thin | 1,226,856 | 82 | 0 | 590,512 | 636,252 |
 | fat | 71,751 | 234 | 0 | 29,402 | 3,398 |
 
 Unique fat binary files: 54,450 in 3,412 packages. 28 of those packages contain at least one failing fat slice.
@@ -160,8 +160,8 @@ Sorted alphabetically by package name.
 |---|---:|
 | `page_hash_mismatch` | 316 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 619,669 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 639,574 |
+| `clean` (signed, verified) | 619,914 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 639,650 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 38,727 |
 | `scanner_error` | 0 |
 
