@@ -1,6 +1,6 @@
 # NixOS/nixpkgs#507531 darwin Mach-O page-hash scope
 
-Generated: 2026-10-27 08:24:03 UTC
+Generated: 2026-10-28 08:21:18 UTC
 
 Daily scan across three darwin caches of the [NixOS/nixpkgs#507531](https://github.com/NixOS/nixpkgs/issues/507531) page-hash bug. Fix PR: [NixOS/nix#15638](https://github.com/NixOS/nix/pull/15638).
 
@@ -22,8 +22,8 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | Type| darwin | release | unstable | Union |
 |---|---:|---:|---:|---:|
-| **1. Direct failure** (slices) | 316 | 141 | 154 | 611 |
-| &emsp;↳ distinct packages | 110 | 61 | 90 | 40 |
+| **1. Direct failure** (slices) | 319 | 141 | 156 | 616 |
+| &emsp;↳ distinct packages | 113 | 61 | 92 | 42 |
 | **3. Build-time dependent** (packages, default view) | 1 | 1 | 1 | 1 |
 
 ## Canonical examples
@@ -36,9 +36,9 @@ The bug's effect surfaces in three types of failure. Each type's membership and 
 
 | | darwin | release | unstable |
 |---|---:|---:|---:|
-| Channel label | nixpkgs-26.05-darwin @ 1e67485f1727 (2026-10-27) | release-26.05 @ 4fb45a87dacd (2026-10-27) | nixpkgs-unstable @ d3b13ad75cc4 (2026-10-27) |
-| Paths scanned | 853,755 | 611,828 | 2,199,275 |
-| Mach-O slices | 1,298,607 | 651,470 | 1,366,021 |
+| Channel label | nixpkgs-26.05-darwin @ 36173dbc6ff2 (2026-10-28) | release-26.05 @ 91ec4d7d1892 (2026-10-28) | nixpkgs-unstable @ f05535a0efcb (2026-10-28) |
+| Paths scanned | 854,647 | 611,982 | 2,215,027 |
+| Mach-O slices | 1,301,988 | 651,904 | 1,403,827 |
 
 ## Direct-failure slices by signature shape
 
@@ -46,11 +46,11 @@ Classes `linker-signed`, `codesign ad-hoc`, and `ad-hoc with Entitlements + empt
 
 | Signature shape | darwin | release | unstable | Total |
 |---|---:|---:|---:|---:|
-| linker-signed ad-hoc, no CMS slot | 50 | 45 | 61 | 156 |
+| linker-signed ad-hoc, no CMS slot | 53 | 45 | 62 | 160 |
 | codesign ad-hoc, empty 8 B CMS wrapper | 239 | 95 | 77 | 411 |
 | ad-hoc with Entitlements + empty CMS wrapper | 12 | 0 | 0 | 12 |
-| Developer-ID-signed (non-empty CMS payload) | 15 | 1 | 16 | 32 |
-| **Total** | **316** | **141** | **154** | **611** |
+| Developer-ID-signed (non-empty CMS payload) | 15 | 1 | 17 | 33 |
+| **Total** | **319** | **141** | **156** | **616** |
 
 ## Affected packages
 
@@ -73,6 +73,7 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 | `renovate-44.104.0` | direct | unstable | — |
 | `renovate-44.126.1` | direct | unstable | — |
 | `renovate-44.151.2` | direct | unstable | — |
+| `renovate-44.181.0` | direct | unstable | — |
 | `renovate-44.24.3` | direct | unstable | — |
 | `renovate-44.37.1` | direct | unstable | — |
 | `renovate-44.52.0` | direct | unstable | — |
@@ -93,6 +94,7 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 | `teams-for-linux-2.22.0` | direct | darwin, release, unstable | — |
 | `teams-for-linux-2.23.0` | direct | darwin, release, unstable | — |
 | `teams-for-linux-2.25.0` | direct | darwin, release, unstable | — |
+| `teams-for-linux-2.27.0` | direct | unstable | — |
 | `vscode-extension-kilocode-Kilo-Code-7.2.20` | direct | darwin, release | — |
 | `vscode-extension-kilocode-Kilo-Code-7.4.16` | direct | unstable | — |
 | `vscode-extension-kilocode-Kilo-Code-7.5.9` | direct | unstable | — |
@@ -102,9 +104,9 @@ Flat alphabetical list of every package implicated by any tier, across all lanes
 
 ## Drill-downs
 
-- [darwin channel report](darwin/REPORT.md) — `nixpkgs-26.05-darwin @ 1e67485f1727 (2026-10-27)`
-- [release channel report](release/REPORT.md) — `release-26.05 @ 4fb45a87dacd (2026-10-27)`
-- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ d3b13ad75cc4 (2026-10-27)`
+- [darwin channel report](darwin/REPORT.md) — `nixpkgs-26.05-darwin @ 36173dbc6ff2 (2026-10-28)`
+- [release channel report](release/REPORT.md) — `release-26.05 @ 91ec4d7d1892 (2026-10-28)`
+- [unstable channel report](unstable/REPORT.md) — `nixpkgs-unstable @ f05535a0efcb (2026-10-28)`
 - [Scanner source](scripts/scan-darwin-cache.py)
 - [Type 2 analyzer](scripts/compute-load-time-dependents.py)
 - [Type 3 analyzer](scripts/compute-build-time-dependents.py)
