@@ -1,21 +1,21 @@
 {
   "buckets": {
-    "clean": 691274,
-    "not_real_macho": 24498,
+    "clean": 693627,
+    "not_real_macho": 24502,
     "page_hash_mismatch": 165,
-    "unsigned": 66549
+    "unsigned": 66726
   },
   "buckets_by_arch": {
     "arm": {
       "clean": 18,
-      "not_real_macho": 6,
+      "not_real_macho": 7,
       "unsigned": 42
     },
     "arm64": {
-      "clean": 676618,
-      "not_real_macho": 64,
+      "clean": 678962,
+      "not_real_macho": 65,
       "page_hash_mismatch": 165,
-      "unsigned": 59218
+      "unsigned": 59371
     },
     "arm64e": {
       "clean": 109,
@@ -50,26 +50,26 @@
     },
     "i386": {
       "clean": 241,
-      "not_real_macho": 6,
+      "not_real_macho": 7,
       "unsigned": 217
     },
     "unknown": {
       "not_real_macho": 23655
     },
     "x86_64": {
-      "clean": 14282,
-      "not_real_macho": 251,
-      "unsigned": 7066
+      "clean": 14291,
+      "not_real_macho": 252,
+      "unsigned": 7090
     }
   },
-  "channel_label": "release-26.05 @ 0a6c6989f303 (2026-10-30)",
+  "channel_label": "release-26.05 @ c0ae35c6460f (2026-11-01)",
   "coverage": {
-    "not_real_macho": 24498,
+    "not_real_macho": 24502,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-10-30 07:25:57 UTC",
+  "generated_at": "2026-11-01 07:26:50 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -108,13 +108,13 @@
     "slices": 165
   },
   "paths_by_status": {
-    "no_narinfo": 189069,
-    "ok": 539747
+    "no_narinfo": 191273,
+    "ok": 540516
   },
-  "paths_scanned": 728816,
+  "paths_scanned": 731789,
   "slices_by_arch": {
-    "arm": 66,
-    "arm64": 736065,
+    "arm": 67,
+    "arm64": 738563,
     "arm64e": 337,
     "cpu_0x00000001/0x00000000": 6,
     "cpu_0x00000002/0x00000000": 6,
@@ -125,9 +125,9 @@
     "cpu_0x00000012/0x00000064": 4,
     "cpu_0x01000012/0x00000000": 46,
     "cpu_0x01000012/0x80000000": 6,
-    "i386": 464,
+    "i386": 465,
     "unknown": 23655,
-    "x86_64": 21599
+    "x86_64": 21633
   },
-  "slices_total": 782486
+  "slices_total": 785020
 }
