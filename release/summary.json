@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 694038,
+    "clean": 695188,
     "not_real_macho": 24502,
-    "page_hash_mismatch": 165,
-    "unsigned": 66843
+    "page_hash_mismatch": 166,
+    "unsigned": 66845
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,9 +12,9 @@
       "unsigned": 42
     },
     "arm64": {
-      "clean": 679373,
+      "clean": 680269,
       "not_real_macho": 65,
-      "page_hash_mismatch": 165,
+      "page_hash_mismatch": 166,
       "unsigned": 59486
     },
     "arm64e": {
@@ -57,19 +57,19 @@
       "not_real_macho": 23655
     },
     "x86_64": {
-      "clean": 14291,
+      "clean": 14545,
       "not_real_macho": 252,
-      "unsigned": 7092
+      "unsigned": 7094
     }
   },
-  "channel_label": "release-26.05 @ 417715b36d7d (2026-11-02)",
+  "channel_label": "release-26.05 @ 60432a3bbb14 (2026-11-03)",
   "coverage": {
     "not_real_macho": 24502,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-11-02 07:30:21 UTC",
+  "generated_at": "2026-11-03 07:27:08 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -78,13 +78,13 @@
     "by_signature_class": {
       "B7-real": 2,
       "C2": 114,
-      "L": 49
+      "L": 50
     },
     "by_signer": {
       "codesign_signed": 116,
-      "linker_signed": 49
+      "linker_signed": 50
     },
-    "packages": 69,
+    "packages": 70,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-8.89.0",
@@ -105,16 +105,16 @@
       "teams-for-linux-2.25.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 165
+    "slices": 166
   },
   "paths_by_status": {
-    "no_narinfo": 191073,
-    "ok": 540750
+    "no_narinfo": 190976,
+    "ok": 540884
   },
-  "paths_scanned": 731823,
+  "paths_scanned": 731860,
   "slices_by_arch": {
     "arm": 67,
-    "arm64": 739089,
+    "arm64": 739986,
     "arm64e": 337,
     "cpu_0x00000001/0x00000000": 6,
     "cpu_0x00000002/0x00000000": 6,
@@ -127,7 +127,7 @@
     "cpu_0x01000012/0x80000000": 6,
     "i386": 465,
     "unknown": 23655,
-    "x86_64": 21635
+    "x86_64": 21891
   },
-  "slices_total": 785548
+  "slices_total": 786701
 }
