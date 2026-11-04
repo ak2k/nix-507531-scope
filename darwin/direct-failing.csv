@@ -265,6 +265,36 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/akpvvjz4d3wqbayc88l43ncnafc2d9b0-shogihome-1.29.1,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,195768064,True,131074,4096,47425,194250320,1,37202,152379392,thin,0,False,False,0,L
 /nix/store/s5clv8n9gi844rc9384vwda8zcjfpirl-teams-for-linux-2.25.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,196510528,True,131074,4096,47605,194987024,1,37338,152936448,thin,0,False,False,0,L
 /nix/store/x09cnkw5mrbwpi24xsr38691saccr7a6-httptoolkit-1.27.1,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,191741200,True,131074,4096,46449,190254688,1,36627,150024192,thin,0,False,False,0,L
+/nix/store/23xp0z2wa1vaaqxkfm2k0vrly2klqff6-swift-5.10.1-lib,lib/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
+/nix/store/23xp0z2wa1vaaqxkfm2k0vrly2klqff6-swift-5.10.1-lib,lib/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
+/nix/store/23xp0z2wa1vaaqxkfm2k0vrly2klqff6-swift-5.10.1-lib,lib/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
+/nix/store/23xp0z2wa1vaaqxkfm2k0vrly2klqff6-swift-5.10.1-lib,lib/swift/macosx/libswift_Backtracing.dylib,arm64,664704,False,2,4096,157,642032,1,0,0,fat32,8,False,False,0,C2
+/nix/store/23xp0z2wa1vaaqxkfm2k0vrly2klqff6-swift-5.10.1-lib,lib/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
+/nix/store/23xp0z2wa1vaaqxkfm2k0vrly2klqff6-swift-5.10.1-lib,lib/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
+/nix/store/23xp0z2wa1vaaqxkfm2k0vrly2klqff6-swift-5.10.1-lib,lib/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswiftCore.dylib,arm64,8349008,False,2,4096,2019,8266752,2,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswiftDarwin.dylib,arm64,122192,False,2,4096,26,103712,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswiftDistributed.dylib,arm64,203264,False,2,4096,45,184176,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswiftObservation.dylib,arm64,161648,False,2,4096,35,142880,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswiftRegexBuilder.dylib,arm64,177344,False,2,4096,39,158448,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswiftSwiftOnoneSupport.dylib,arm64,439152,False,2,4096,103,418208,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswift_Backtracing.dylib,arm64,664704,False,2,4096,157,642032,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswift_Concurrency.dylib,arm64,778752,False,2,4096,185,755184,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswift_Differentiation.dylib,arm64,554832,False,2,4096,131,532992,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswift_RegexParser.dylib,arm64,1405264,False,2,4096,333,1360576,1,0,0,fat32,8,False,False,0,C2
+/nix/store/f5s3bcx03904sf2pqx7wgkfyg9dfi7xd-swift-5.10.1,lib/lldb/swift/macosx/libswift_StringProcessing.dylib,arm64,1221360,False,2,4096,288,1178112,1,0,0,fat32,8,False,False,0,C2
+/nix/store/ggkd0bjwgmri2rqkikz1c30s226h4c06-tailwindcss_4-4.3.1,bin/.tailwindcss-wrapped,x86_64,83607632,False,65536,4096,16753,68617792,55,0,0,thin,8985,True,True,0,B7-real
+/nix/store/ihd5rq6v1pslnrqc5vnvbh5d1nz66wc6-vscode-extension-kilocode-Kilo-Code-7.2.20,share/vscode/extensions/kilocode.Kilo-Code/bin/kilo,x86_64,107088448,False,65536,4096,16015,65596528,54,0,0,thin,8984,True,True,0,B7-real
+/nix/store/ilhfsqvskam95aidmxs75w63666lhxda-gitlab-duo-8.89.0,bin/.duo-wrapped,arm64,78888610,True,131074,4096,19111,78276944,1,19110,78274560,thin,0,False,False,0,L
+/nix/store/m0g6yfvzwfhzinms9pg5xcf3gm5mcxxx-libtorch-2.9.0,lib/libomp.dylib,arm64,754912,False,2,4096,179,730928,1,0,0,thin,8,False,False,0,C2
+/nix/store/m9761zbi6cw1f9475zrh9fi5ym1lyqnq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,x86_64,950432,False,2,4096,107,436128,1,0,0,fat32,8,False,False,0,C2
+/nix/store/m9761zbi6cw1f9475zrh9fi5ym1lyqnq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,arm64,950432,False,2,4096,111,453504,1,0,0,fat32,8,False,False,0,C2
+/nix/store/m9761zbi6cw1f9475zrh9fi5ym1lyqnq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,x86_64,2245648,False,2,4096,277,1133104,1,0,0,fat32,8,False,False,1,C2
+/nix/store/m9761zbi6cw1f9475zrh9fi5ym1lyqnq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,arm64,2245648,False,2,4096,249,1018192,1,0,0,fat32,8,False,False,1,C2
+/nix/store/m9761zbi6cw1f9475zrh9fi5ym1lyqnq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,x86_64,15155072,False,2,4096,2081,8521088,1,0,0,fat32,8,False,False,1,C2
+/nix/store/m9761zbi6cw1f9475zrh9fi5ym1lyqnq-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libSkiaSharp.dylib,arm64,15155072,False,2,4096,1560,6388352,1,0,0,fat32,8,False,False,1,C2
+/nix/store/mccds0sai2mhpf9h2myzid1hwx87g03j-shogihome-1.29.1,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,196510528,True,131074,4096,47605,194987024,1,37338,152936448,thin,0,False,False,0,L
+/nix/store/pdx5zycp8pq3sclphybgdd1xq9qjgrl4-renovate-44.79.2,lib/node_modules/renovate/node_modules/.pnpm/@typescript+typescript-darwin-arm64@7.0.2/node_modules/@typescript/typescript-darwin-arm64/lib/tsc,arm64,23653664,False,65536,4096,5723,23437328,5,0,0,thin,9021,False,False,0,B7-real
 /nix/store/3y4p51ky7ybivbj9pq0mp7n573mqlfr0-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,x86_64,950432,False,2,4096,107,436128,1,0,0,fat32,8,False,False,0,C2
 /nix/store/3y4p51ky7ybivbj9pq0mp7n573mqlfr0-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,arm64,950432,False,2,4096,111,453504,1,0,0,fat32,8,False,False,0,C2
 /nix/store/3y4p51ky7ybivbj9pq0mp7n573mqlfr0-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libHarfBuzzSharp.dylib,x86_64,2245648,False,2,4096,277,1133104,1,0,0,fat32,8,False,False,1,C2
@@ -306,6 +336,9 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/4chsyvc0wjr53m6rwbxvs3y6k3l8y63l-shogihome-1.29.0,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,192153728,True,131074,4096,46549,190664016,1,36722,150413312,thin,0,False,False,0,L
 /nix/store/hyij6zl1nrlgwdhcfdj8miw0s3azgcxi-opencode-1.15.10,bin/.opencode-wrapped,x86_64,111873840,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/q9cbh3hcdgmz5dnfy58gnlp6rjjmpirb-shogihome-1.29.1,Applications/ShogiHome.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,196510528,True,131074,4096,47605,194987024,1,37338,152936448,thin,0,False,False,0,L
+/nix/store/1qv1yz8wl3dqs8rh1r0c5nzy6ivrhghb-teams-for-linux-2.25.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,196510528,True,131074,4096,47605,194987024,1,37338,152936448,thin,0,False,False,0,L
+/nix/store/iw0hy633a4xv5334j7slyvd9v7jvys86-vscode-extension-kilocode-Kilo-Code-7.2.20,share/vscode/extensions/kilocode.Kilo-Code/bin/kilo,arm64,102332704,True,131074,4096,24786,101520112,1,24785,101519360,thin,0,False,False,0,L
+/nix/store/zng32ingb4dldqaf1c36f0zqlcz17jzx-tailwindcss_4-4.3.1,bin/.tailwindcss-wrapped,arm64,79759970,True,131074,4096,19322,79141552,1,19321,79138816,thin,0,False,False,0,L
 /nix/store/iz59kqpk17w1dag1c2knnv8902wsd25h-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
 /nix/store/0idly66qjy09bncs64gl28xphwbg3nqf-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,x86_64,950432,False,2,4096,107,436128,1,0,0,fat32,8,False,False,0,C2
 /nix/store/0idly66qjy09bncs64gl28xphwbg3nqf-avalonia-ilspy-7.2-rc,lib/avalonia-ilspy/libAvaloniaNative.dylib,arm64,950432,False,2,4096,111,453504,1,0,0,fat32,8,False,False,0,C2
@@ -318,3 +351,8 @@ store_path,path,arch,size,linker_signed,cd_flags,page_size,n_code_slots,code_lim
 /nix/store/grqiv3wddm3p2mzs5iakvdffrxhfj7an-renovate-44.79.2,lib/node_modules/renovate/node_modules/.pnpm/@typescript+typescript-darwin-x64@7.0.2/node_modules/@typescript/typescript-darwin-x64/lib/tsc,x86_64,24971232,False,65536,4096,6042,24744688,3,0,0,thin,9021,False,False,0,B7-real
 /nix/store/g51mdmhzazp10dp309f2accbwxh7w5fk-teams-for-linux-2.23.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,195854608,True,131074,4096,47446,194336192,1,37249,152571904,thin,0,False,False,0,L
 /nix/store/4kwfkpfkvbaxmxsha6nal27r8723fx6p-teams-for-linux-2.25.0,Applications/teams-for-linux.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework,arm64,195854608,True,131074,4096,47446,194336192,1,37249,152571904,thin,0,False,False,0,L
+/nix/store/7cpj7wxqifv1g170m367wrys17n8h0kj-httptoolkit-1.27.1,Applications/HTTP Toolkit.app/Contents/Frameworks/Electron Framework.framework/Electron Framework,arm64,196510528,True,131074,4096,47605,194987024,1,37338,152936448,thin,0,False,False,0,L
+/nix/store/9zk11k97fq1sc14aray2yxz7hf15j1ky-filen-cli-0.0.36,bin/.filen-wrapped,x86_64,78892848,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
+/nix/store/pw9szxliaasai3j8n3q52prndlvpam0z-gitlab-duo-8.89.0,bin/.duo-wrapped,x86_64,83971888,False,2,4096,16535,67724080,56,0,0,thin,8,True,True,0,B7-empty
+/nix/store/rkkygqfd0nkc78xkxvbipn4fp74ilc8m-renovate-44.79.2,lib/node_modules/renovate/node_modules/.pnpm/@typescript+typescript-darwin-x64@7.0.2/node_modules/@typescript/typescript-darwin-x64/lib/tsc,x86_64,24971232,False,65536,4096,6042,24744688,3,0,0,thin,9021,False,False,0,B7-real
+/nix/store/ry4whmv7rirq6h23b1xfzfrr6k73n1sq-filen-cli-0.0.36,bin/.filen-wrapped,arm64,73769890,True,131074,4096,17871,73197904,1,17870,73195520,thin,0,False,False,0,L

@@ -1,6 +1,6 @@
 # Scanner × codesign -v cross-validation
 
-Generated: 2026-11-03 07:59:45 UTC
+Generated: 2026-11-04 08:22:44 UTC
 
 Each flagged package is signature- and content-verified by Nix itself
 (`nix store verify` against the binary cache), restored with Nix's NAR
