@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 690514,
+    "clean": 690838,
     "not_real_macho": 24373,
-    "page_hash_mismatch": 164,
-    "unsigned": 66166
+    "page_hash_mismatch": 165,
+    "unsigned": 66173
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 39
     },
     "arm64": {
-      "clean": 675674,
+      "clean": 675998,
       "not_real_macho": 61,
-      "page_hash_mismatch": 164,
-      "unsigned": 58663
+      "page_hash_mismatch": 165,
+      "unsigned": 58670
     },
     "arm64e": {
       "clean": 109,
@@ -62,14 +62,14 @@
       "unsigned": 7259
     }
   },
-  "channel_label": "release-26.05 @ daeef707f1d3 (2026-11-06)",
+  "channel_label": "release-26.05 @ d29105b07567 (2026-11-07)",
   "coverage": {
     "not_real_macho": 24373,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-11-06 07:38:02 UTC",
+  "generated_at": "2026-11-07 07:25:33 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -78,13 +78,13 @@
     "by_signature_class": {
       "B7-real": 2,
       "C2": 114,
-      "L": 48
+      "L": 49
     },
     "by_signer": {
       "codesign_signed": 116,
-      "linker_signed": 48
+      "linker_signed": 49
     },
-    "packages": 68,
+    "packages": 69,
     "packages_list": [
       "filen-cli-0.0.36",
       "gitlab-duo-8.89.0",
@@ -102,18 +102,19 @@
       "teams-for-linux-2.17.1",
       "teams-for-linux-2.22.0",
       "teams-for-linux-2.25.0",
+      "teams-for-linux-2.29.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 164
+    "slices": 165
   },
   "paths_by_status": {
-    "no_narinfo": 191094,
-    "ok": 541057
+    "no_narinfo": 191667,
+    "ok": 541135
   },
-  "paths_scanned": 732151,
+  "paths_scanned": 732802,
   "slices_by_arch": {
     "arm": 64,
-    "arm64": 734562,
+    "arm64": 734894,
     "arm64e": 337,
     "cpu_0x00000001/0x00000000": 5,
     "cpu_0x00000002/0x00000000": 5,
@@ -128,5 +129,5 @@
     "unknown": 23465,
     "x86_64": 21891
   },
-  "slices_total": 781217
+  "slices_total": 781549
 }
