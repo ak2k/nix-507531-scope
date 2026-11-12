@@ -64,6 +64,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import traceback
 from pathlib import Path
 
 CACHE_NIXOS_ORG_KEY = "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -124,8 +125,18 @@ def load_other_sig_from_jsonl(path: Path) -> list[dict]:
 
 
 def run_nix(args: list[str], timeout: int = 600) -> subprocess.CompletedProcess:
+    # A 404 is otherwise cached for an hour, so with_retry's retries would
+    # read the cached miss instead of asking the cache again.
     return subprocess.run(
-        ["nix", "--extra-experimental-features", "nix-command", *args],
+        [
+            "nix",
+            "--extra-experimental-features",
+            "nix-command",
+            "--option",
+            "narinfo-cache-negative-ttl",
+            "0",
+            *args,
+        ],
         capture_output=True,
         text=True,
         timeout=timeout,
@@ -652,4 +663,10 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    # Exit 1 means disagreement; an unhandled error is an infrastructure
+    # failure (exit 2), not a finding.
+    try:
+        sys.exit(main())
+    except Exception:  # noqa: BLE001
+        traceback.print_exc()
+        sys.exit(2)
