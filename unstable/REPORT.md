@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 4fe25e12eb9f (2026-11-11)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ f6bf1059f025 (2026-11-12)
 
-Generated: 2026-11-11 07:16:41 UTC
+Generated: 2026-11-12 07:46:42 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 2,291,305 |
-| Mach-O slices parsed | 1,466,376 |
-| Page-hash mismatches (slices) | 159 |
-| Page-hash mismatches (distinct packages) | 95 |
-|   of which linker-signed (flags=0x20002) | 64 |
-|   of which codesign-signed (flags=0x2) | 95 |
+| Store paths scanned | 2,607,173 |
+| Mach-O slices parsed | 1,645,363 |
+| Page-hash mismatches (slices) | 162 |
+| Page-hash mismatches (distinct packages) | 98 |
+|   of which linker-signed (flags=0x20002) | 65 |
+|   of which codesign-signed (flags=0x2) | 97 |
 | Other signature-invalid (slices) | 3 |
 | Other signature-invalid (distinct packages) | 1 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-11-11 07:16:41 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 956,960 | 159 | 0 | 882,952 | 73,573 | 276 |
-| `arm64e` | 197 | 0 | 0 | 85 | 0 | 112 |
-| `x86_64` | 47,941 | 0 | 2 | 19,337 | 28,268 | 334 |
-| `i386` | 1,640 | 0 | 1 | 409 | 1,186 | 44 |
-| other/legacy (16 arch codes) | 459,638 | 0 | 0 | 5 | 476 | 459,157 |
+| `arm64` | 1,079,172 | 162 | 0 | 991,908 | 86,780 | 322 |
+| `arm64e` | 242 | 0 | 0 | 104 | 0 | 138 |
+| `x86_64` | 52,538 | 0 | 2 | 21,449 | 30,690 | 397 |
+| `i386` | 1,851 | 0 | 1 | 482 | 1,321 | 47 |
+| other/legacy (16 arch codes) | 511,560 | 0 | 0 | 6 | 542 | 511,012 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 969,679 | 87 | 3 | 872,488 | 96,340 |
-| fat | 496,697 | 72 | 0 | 30,300 | 7,163 |
+| thin | 1,092,500 | 90 | 3 | 979,973 | 111,556 |
+| fat | 552,863 | 72 | 0 | 33,976 | 7,777 |
 
-Unique fat binary files: 477,252 in 5,829 packages. 8 of those packages contain at least one failing fat slice.
+Unique fat binary files: 531,128 in 6,409 packages. 8 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -50,6 +50,7 @@ Sorted alphabetically by package name.
 | httptoolkit-1.26.0 | 1 | `/nix/store/0dgwk9vdd4g1x8p4snq5zm68yl1lj7dj-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/qpzcwid5hr9s91azg6fmwwwyqxfc25dq-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/xi594ayfmlvbippjm2c8yd9xlyg0k548-httptoolkit-1.26.0` |
+| httptoolkit-1.27.1 | 1 | `/nix/store/2dhay2qmx5zmz4g1r2fwm548gcv44h9z-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/6hp6j1pbjvbxpwlia9x2sdjn1wgkg63h-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/7jrrrhq0vbzbbmc8sjimvjcz48kics0m-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/7zrz5z40yjkrhc8n6hh7f23bhrrxr915-httptoolkit-1.27.1` |
@@ -69,6 +70,7 @@ Sorted alphabetically by package name.
 | libtorch-2.9.0 | 1 | `/nix/store/g5s6ipanzi6s8c7rf4yj5dxdk9van140-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/gzwlq7lx91nkq3pnl8i851a4q9l8i8a6-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/l91spz32g5a5dzdcz18kb11a5b7xi9ks-libtorch-2.9.0` |
+| libtorch-2.9.0 | 1 | `/nix/store/p278z7iff1yqvl0vr5rhyn0dqvg8bp9f-libtorch-2.9.0` |
 | renovate-44.104.0 | 1 | `/nix/store/1gfc4cmliy8la1q68l67yh7d6r6mv4vr-renovate-44.104.0` |
 | renovate-44.104.0 | 1 | `/nix/store/4nik2aw4a45h5xss1snsciwj4kmij48y-renovate-44.104.0` |
 | renovate-44.126.1 | 1 | `/nix/store/ppbydbmscqhdmldxn120bv7idd39rc0v-renovate-44.126.1` |
@@ -77,6 +79,7 @@ Sorted alphabetically by package name.
 | renovate-44.151.2 | 1 | `/nix/store/kg0ravdi5b3vhipaxrqhjhhwa2jysi86-renovate-44.151.2` |
 | renovate-44.181.0 | 1 | `/nix/store/xnwg76w9l227k3qkhn1nhsb5qcvk55x3-renovate-44.181.0` |
 | renovate-44.216.0 | 1 | `/nix/store/ajy1ks06j0yx5sj6l3av363byy96aric-renovate-44.216.0` |
+| renovate-44.216.0 | 1 | `/nix/store/hn5ds3fxm1f6g599hdzi8lwjyqb7lp8i-renovate-44.216.0` |
 | renovate-44.24.3 | 1 | `/nix/store/hj4hv32i4w8f2h6pr4cswhlbrlq3ny7p-renovate-44.24.3` |
 | renovate-44.24.3 | 1 | `/nix/store/vk7chz9c70a60rdbjgk11fbg2231fi8i-renovate-44.24.3` |
 | renovate-44.37.1 | 1 | `/nix/store/fzrbllw3wdv2c78h26wmhvw13gg43pym-renovate-44.37.1` |
@@ -151,11 +154,11 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 159 |
+| `page_hash_mismatch` | 162 |
 | `other_sig_invalid` | 3 |
-| `clean` (signed, verified) | 902,788 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 103,503 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 459,923 |
+| `clean` (signed, verified) | 1,013,949 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 119,333 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 511,916 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -166,7 +169,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 0 |
 | Distinct packages containing such binaries | 0 |
-| Failing dylibs that serve as seeds | 77 |
+| Failing dylibs that serve as seeds | 78 |
 | Total (binary, failing-dylib) pairs | 0 |
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).
@@ -181,7 +184,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 95 |
+| Distinct failing seeds | 98 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 
