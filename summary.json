@@ -90,14 +90,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "nixpkgs-26.05-darwin @ f4244ef33645 (2026-11-14)",
+      "channel_label": "nixpkgs-26.05-darwin @ f4244ef33645 (2026-11-15)",
       "coverage": {
         "not_real_macho": 46424,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-11-14 07:18:15 UTC",
+      "generated_at": "2026-11-15 07:35:57 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -173,7 +173,7 @@
     },
     "release": {
       "buckets": {
-        "clean": 693854,
+        "clean": 694001,
         "not_real_macho": 24373,
         "page_hash_mismatch": 165,
         "unsigned": 66185
@@ -185,7 +185,7 @@
           "unsigned": 39
         },
         "arm64": {
-          "clean": 678996,
+          "clean": 679143,
           "not_real_macho": 61,
           "page_hash_mismatch": 165,
           "unsigned": 58678
@@ -261,14 +261,14 @@
         "rows_in_default_view": 1,
         "total_rows": 1
       },
-      "channel_label": "release-26.05 @ b05fe01c7551 (2026-11-14)",
+      "channel_label": "release-26.05 @ 7cff72337e13 (2026-11-15)",
       "coverage": {
         "not_real_macho": 24373,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-11-14 07:18:12 UTC",
+      "generated_at": "2026-11-15 07:36:19 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -316,13 +316,13 @@
         "slices": 165
       },
       "paths_by_status": {
-        "no_narinfo": 193990,
-        "ok": 542007
+        "no_narinfo": 193972,
+        "ok": 542036
       },
-      "paths_scanned": 735997,
+      "paths_scanned": 736008,
       "slices_by_arch": {
         "arm": 64,
-        "arm64": 737900,
+        "arm64": 738047,
         "arm64e": 337,
         "cpu_0x00000001/0x00000000": 5,
         "cpu_0x00000002/0x00000000": 5,
@@ -337,15 +337,15 @@
         "unknown": 23465,
         "x86_64": 21913
       },
-      "slices_total": 784577
+      "slices_total": 784724
     },
     "unstable": {
       "buckets": {
-        "clean": 1026546,
+        "clean": 1027803,
         "not_real_macho": 516664,
         "other_sig_invalid": 3,
-        "page_hash_mismatch": 164,
-        "unsigned": 120506
+        "page_hash_mismatch": 165,
+        "unsigned": 120656
       },
       "buckets_by_arch": {
         "arm": {
@@ -353,10 +353,10 @@
           "unsigned": 521
         },
         "arm64": {
-          "clean": 1004250,
+          "clean": 1005441,
           "not_real_macho": 322,
-          "page_hash_mismatch": 164,
-          "unsigned": 87358
+          "page_hash_mismatch": 165,
+          "unsigned": 87394
         },
         "arm64e": {
           "clean": 105,
@@ -414,10 +414,10 @@
           "not_real_macho": 515059
         },
         "x86_64": {
-          "clean": 21699,
+          "clean": 21765,
           "not_real_macho": 397,
           "other_sig_invalid": 2,
-          "unsigned": 31273
+          "unsigned": 31387
         }
       },
       "build_time_dependents": {
@@ -426,7 +426,7 @@
         "dependent_attrs_default_view": [],
         "dependents_by_pkg_default_view": {},
         "distinct_dependent_attrs_default_view": 0,
-        "distinct_seeds": 100,
+        "distinct_seeds": 101,
         "edge_filter_default": [
           "buildInputs",
           "checkInputs",
@@ -436,14 +436,14 @@
         "rows_in_default_view": 0,
         "total_rows": 0
       },
-      "channel_label": "nixpkgs-unstable @ 2074cc672349 (2026-11-14)",
+      "channel_label": "nixpkgs-unstable @ e126e9e73c33 (2026-11-15)",
       "coverage": {
         "not_real_macho": 516664,
         "page_size_zero_cds": 0,
         "scanner_errors": 0,
         "sha1_only_cds": 0
       },
-      "generated_at": "2026-11-14 07:19:18 UTC",
+      "generated_at": "2026-11-15 07:36:53 UTC",
       "load_time_transitive": {
         "by_seed_package": {},
         "dependent_packages": [],
@@ -459,15 +459,15 @@
       },
       "page_hash_mismatch": {
         "by_signature_class": {
-          "B7-real": 19,
+          "B7-real": 20,
           "C2": 78,
           "L": 67
         },
         "by_signer": {
-          "codesign_signed": 97,
+          "codesign_signed": 98,
           "linker_signed": 67
         },
-        "packages": 100,
+        "packages": 101,
         "packages_list": [
           "filen-cli-0.0.36",
           "gitlab-duo-9.6.0",
@@ -483,6 +483,7 @@
           "renovate-44.151.2",
           "renovate-44.181.0",
           "renovate-44.216.0",
+          "renovate-44.236.2",
           "renovate-44.24.3",
           "renovate-44.37.1",
           "renovate-44.52.0",
@@ -508,17 +509,17 @@
           "vscode-extension-kilocode-Kilo-Code-7.7.9",
           "vscode-extension-kilocode-Kilo-Code-7.8.3"
         ],
-        "slices": 164
+        "slices": 165
       },
       "paths_by_status": {
         "fetch_error": 53,
-        "ok": 2653520,
+        "ok": 2659121,
         "parse_error": 21
       },
-      "paths_scanned": 2653594,
+      "paths_scanned": 2659195,
       "slices_by_arch": {
         "arm": 555,
-        "arm64": 1092094,
+        "arm64": 1093322,
         "arm64e": 243,
         "cpu_0x00000000/0x00000000": 9,
         "cpu_0x00000001/0x00000000": 6,
@@ -536,25 +537,25 @@
         "cpu_0x81000007/0x00000003": 5,
         "i386": 1867,
         "unknown": 515059,
-        "x86_64": 53371
+        "x86_64": 53551
       },
-      "slices_total": 1663883
+      "slices_total": 1665291
     }
   },
-  "generated_at": "2026-11-14 08:07:36 UTC",
+  "generated_at": "2026-11-15 08:33:18 UTC",
   "page_hash_mismatch": {
     "by_signature_class": {
       "B7-empty": 14,
-      "B7-real": 40,
+      "B7-real": 41,
       "C2": 456,
       "L": 178,
       "unknown": 0
     },
-    "packages": 44,
-    "slices": 688
+    "packages": 45,
+    "slices": 689
   },
-  "paths_scanned": 4412652,
-  "slices_total": 3984483,
+  "paths_scanned": 4418264,
+  "slices_total": 3986038,
   "union": {
     "build_time_packages_default_view": [
       "rimgo"
@@ -578,6 +579,7 @@
       "renovate-44.151.2",
       "renovate-44.181.0",
       "renovate-44.216.0",
+      "renovate-44.236.2",
       "renovate-44.24.3",
       "renovate-44.37.1",
       "renovate-44.52.0",
@@ -606,7 +608,7 @@
       "vscode-extension-kilocode-Kilo-Code-7.7.9",
       "vscode-extension-kilocode-Kilo-Code-7.8.3"
     ],
-    "direct_packages_count": 44,
+    "direct_packages_count": 45,
     "load_time_packages": [],
     "load_time_packages_count": 0
   }
