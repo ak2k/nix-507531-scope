@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 1027803,
-    "not_real_macho": 516664,
+    "clean": 1034653,
+    "not_real_macho": 551203,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 165,
-    "unsigned": 120656
+    "page_hash_mismatch": 166,
+    "unsigned": 122730
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,13 +12,13 @@
       "unsigned": 521
     },
     "arm64": {
-      "clean": 1005441,
-      "not_real_macho": 322,
-      "page_hash_mismatch": 165,
-      "unsigned": 87394
+      "clean": 1012142,
+      "not_real_macho": 323,
+      "page_hash_mismatch": 166,
+      "unsigned": 89407
     },
     "arm64e": {
-      "clean": 105,
+      "clean": 117,
       "not_real_macho": 138
     },
     "cpu_0x00000000/0x00000000": {
@@ -70,23 +70,23 @@
       "unsigned": 1333
     },
     "unknown": {
-      "not_real_macho": 515059
+      "not_real_macho": 549596
     },
     "x86_64": {
-      "clean": 21765,
-      "not_real_macho": 397,
+      "clean": 21902,
+      "not_real_macho": 398,
       "other_sig_invalid": 2,
-      "unsigned": 31387
+      "unsigned": 31448
     }
   },
-  "channel_label": "nixpkgs-unstable @ e126e9e73c33 (2026-11-15)",
+  "channel_label": "nixpkgs-unstable @ 5d2b81a7a3be (2026-11-16)",
   "coverage": {
-    "not_real_macho": 516664,
+    "not_real_macho": 551203,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-11-15 07:36:53 UTC",
+  "generated_at": "2026-11-16 07:43:08 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
@@ -95,14 +95,15 @@
     "by_signature_class": {
       "B7-real": 20,
       "C2": 78,
-      "L": 67
+      "L": 68
     },
     "by_signer": {
       "codesign_signed": 98,
-      "linker_signed": 67
+      "linker_signed": 68
     },
-    "packages": 101,
+    "packages": 102,
     "packages_list": [
+      "blockbench-5.2.2",
       "filen-cli-0.0.36",
       "gitlab-duo-9.6.0",
       "httptoolkit-1.26.0",
@@ -143,18 +144,18 @@
       "vscode-extension-kilocode-Kilo-Code-7.7.9",
       "vscode-extension-kilocode-Kilo-Code-7.8.3"
     ],
-    "slices": 165
+    "slices": 166
   },
   "paths_by_status": {
     "fetch_error": 53,
-    "ok": 2659121,
+    "ok": 2676834,
     "parse_error": 21
   },
-  "paths_scanned": 2659195,
+  "paths_scanned": 2676908,
   "slices_by_arch": {
     "arm": 555,
-    "arm64": 1093322,
-    "arm64e": 243,
+    "arm64": 1102038,
+    "arm64e": 255,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 6,
     "cpu_0x00000002/0x00000000": 6,
@@ -170,8 +171,8 @@
     "cpu_0x01000017/0x0000000d": 3,
     "cpu_0x81000007/0x00000003": 5,
     "i386": 1867,
-    "unknown": 515059,
-    "x86_64": 53551
+    "unknown": 549596,
+    "x86_64": 53750
   },
-  "slices_total": 1665291
+  "slices_total": 1708755
 }
