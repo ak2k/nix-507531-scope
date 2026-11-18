@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 1034653,
-    "not_real_macho": 551203,
+    "clean": 1053367,
+    "not_real_macho": 551784,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 166,
-    "unsigned": 122730
+    "page_hash_mismatch": 170,
+    "unsigned": 123306
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 521
     },
     "arm64": {
-      "clean": 1012142,
+      "clean": 1030799,
       "not_real_macho": 323,
-      "page_hash_mismatch": 166,
-      "unsigned": 89407
+      "page_hash_mismatch": 170,
+      "unsigned": 89578
     },
     "arm64e": {
       "clean": 117,
@@ -64,29 +64,29 @@
       "unsigned": 5
     },
     "i386": {
-      "clean": 486,
+      "clean": 491,
       "not_real_macho": 47,
       "other_sig_invalid": 1,
-      "unsigned": 1333
+      "unsigned": 1334
     },
     "unknown": {
-      "not_real_macho": 549596
+      "not_real_macho": 550177
     },
     "x86_64": {
-      "clean": 21902,
+      "clean": 21954,
       "not_real_macho": 398,
       "other_sig_invalid": 2,
-      "unsigned": 31448
+      "unsigned": 31852
     }
   },
-  "channel_label": "nixpkgs-unstable @ 5d2b81a7a3be (2026-11-17)",
+  "channel_label": "nixpkgs-unstable @ e21fec321d73 (2026-11-18)",
   "coverage": {
-    "not_real_macho": 551203,
+    "not_real_macho": 551784,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-11-17 07:28:34 UTC",
+  "generated_at": "2026-11-18 07:39:31 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
@@ -95,13 +95,13 @@
     "by_signature_class": {
       "B7-real": 20,
       "C2": 78,
-      "L": 68
+      "L": 72
     },
     "by_signer": {
       "codesign_signed": 98,
-      "linker_signed": 68
+      "linker_signed": 72
     },
-    "packages": 102,
+    "packages": 106,
     "packages_list": [
       "blockbench-5.2.2",
       "filen-cli-0.0.36",
@@ -144,17 +144,17 @@
       "vscode-extension-kilocode-Kilo-Code-7.7.9",
       "vscode-extension-kilocode-Kilo-Code-7.8.3"
     ],
-    "slices": 166
+    "slices": 170
   },
   "paths_by_status": {
     "fetch_error": 53,
-    "ok": 2676834,
-    "parse_error": 21
+    "ok": 2691755,
+    "parse_error": 23
   },
-  "paths_scanned": 2676908,
+  "paths_scanned": 2691831,
   "slices_by_arch": {
     "arm": 555,
-    "arm64": 1102038,
+    "arm64": 1120870,
     "arm64e": 255,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 6,
@@ -170,9 +170,9 @@
     "cpu_0x01000017/0x00000008": 3,
     "cpu_0x01000017/0x0000000d": 3,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 1867,
-    "unknown": 549596,
-    "x86_64": 53750
+    "i386": 1873,
+    "unknown": 550177,
+    "x86_64": 54206
   },
-  "slices_total": 1708755
+  "slices_total": 1728630
 }
