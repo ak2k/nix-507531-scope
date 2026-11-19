@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ e21fec321d73 (2026-11-18)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ e21fec321d73 (2026-11-19)
 
-Generated: 2026-11-18 07:39:31 UTC
+Generated: 2026-11-19 07:18:44 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
 | Store paths scanned | 2,691,831 |
-| Mach-O slices parsed | 1,728,630 |
+| Mach-O slices parsed | 1,725,565 |
 | Page-hash mismatches (slices) | 170 |
 | Page-hash mismatches (distinct packages) | 106 |
 |   of which linker-signed (flags=0x20002) | 72 |
@@ -22,9 +22,9 @@ Generated: 2026-11-18 07:39:31 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 1,120,870 | 170 | 0 | 1,030,799 | 89,578 | 323 |
-| `arm64e` | 255 | 0 | 0 | 117 | 0 | 138 |
-| `x86_64` | 54,206 | 0 | 2 | 21,954 | 31,852 | 398 |
+| `arm64` | 1,117,812 | 170 | 0 | 1,027,709 | 89,610 | 323 |
+| `arm64e` | 254 | 0 | 0 | 116 | 0 | 138 |
+| `x86_64` | 54,200 | 0 | 2 | 21,951 | 31,849 | 398 |
 | `i386` | 1,873 | 0 | 1 | 491 | 1,334 | 47 |
 | other/legacy (16 arch codes) | 551,426 | 0 | 0 | 6 | 542 | 550,878 |
 
@@ -32,10 +32,10 @@ Generated: 2026-11-18 07:39:31 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,134,703 | 98 | 3 | 1,018,472 | 115,250 |
-| fat | 593,927 | 72 | 0 | 34,895 | 8,056 |
+| thin | 1,131,651 | 98 | 3 | 1,015,387 | 115,283 |
+| fat | 593,914 | 72 | 0 | 34,886 | 8,052 |
 
-Unique fat binary files: 571,583 in 6,635 packages. 8 of those packages contain at least one failing fat slice.
+Unique fat binary files: 571,577 in 6,632 packages. 8 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -164,8 +164,8 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 |---|---:|
 | `page_hash_mismatch` | 170 |
 | `other_sig_invalid` | 3 |
-| `clean` (signed, verified) | 1,053,367 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 123,306 |
+| `clean` (signed, verified) | 1,050,273 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 123,335 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 551,784 |
 | `scanner_error` | 0 |
 

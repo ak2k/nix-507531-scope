@@ -62,14 +62,14 @@
       "unsigned": 797370
     }
   },
-  "channel_label": "nixpkgs-26.05-darwin @ 94d362415787 (2026-11-18)",
+  "channel_label": "nixpkgs-26.05-darwin @ 94d362415787 (2026-11-19)",
   "coverage": {
     "not_real_macho": 53480,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-11-18 07:37:53 UTC",
+  "generated_at": "2026-11-19 07:17:36 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
