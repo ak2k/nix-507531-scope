@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ e21fec321d73 (2026-11-19)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 19cfded70b91 (2026-11-20)
 
-Generated: 2026-11-19 07:18:44 UTC
+Generated: 2026-11-20 07:35:08 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 2,691,831 |
-| Mach-O slices parsed | 1,725,565 |
-| Page-hash mismatches (slices) | 170 |
-| Page-hash mismatches (distinct packages) | 106 |
-|   of which linker-signed (flags=0x20002) | 72 |
-|   of which codesign-signed (flags=0x2) | 98 |
+| Store paths scanned | 2,710,571 |
+| Mach-O slices parsed | 1,752,001 |
+| Page-hash mismatches (slices) | 174 |
+| Page-hash mismatches (distinct packages) | 110 |
+|   of which linker-signed (flags=0x20002) | 75 |
+|   of which codesign-signed (flags=0x2) | 99 |
 | Other signature-invalid (slices) | 3 |
 | Other signature-invalid (distinct packages) | 1 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-11-19 07:18:44 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 1,117,812 | 170 | 0 | 1,027,709 | 89,610 | 323 |
-| `arm64e` | 254 | 0 | 0 | 116 | 0 | 138 |
-| `x86_64` | 54,200 | 0 | 2 | 21,951 | 31,849 | 398 |
-| `i386` | 1,873 | 0 | 1 | 491 | 1,334 | 47 |
-| other/legacy (16 arch codes) | 551,426 | 0 | 0 | 6 | 542 | 550,878 |
+| `arm64` | 1,142,017 | 174 | 0 | 1,051,353 | 90,161 | 329 |
+| `arm64e` | 255 | 0 | 0 | 117 | 0 | 138 |
+| `x86_64` | 54,791 | 0 | 2 | 22,040 | 32,345 | 404 |
+| `i386` | 1,895 | 0 | 1 | 491 | 1,356 | 47 |
+| other/legacy (16 arch codes) | 553,043 | 0 | 0 | 6 | 542 | 552,495 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,131,651 | 98 | 3 | 1,015,387 | 115,283 |
-| fat | 593,914 | 72 | 0 | 34,886 | 8,052 |
+| thin | 1,156,028 | 102 | 3 | 1,038,862 | 116,181 |
+| fat | 595,973 | 72 | 0 | 35,145 | 8,223 |
 
-Unique fat binary files: 571,577 in 6,632 packages. 8 of those packages contain at least one failing fat slice.
+Unique fat binary files: 573,411 in 6,719 packages. 8 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -44,6 +44,7 @@ Sorted alphabetically by package name.
 | Package | Failing slices | Store path |
 |---|---:|---|
 | blockbench-5.2.2 | 1 | `/nix/store/99gmgs4wlwr7ha6ksnap8rv9vbmwqg6j-blockbench-5.2.2` |
+| blockbench-5.2.2 | 1 | `/nix/store/a4bqcvki11qwq1a573bvj2z6jz5nfl77-blockbench-5.2.2` |
 | blockbench-5.2.2 | 1 | `/nix/store/krb4kqffjd96bj0jw9961r5a6672h2ll-blockbench-5.2.2` |
 | filen-cli-0.0.36 | 1 | `/nix/store/5g52w7dv6mll9f37aqgl79mwwprmmbi4-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/h3hiral71d200cywyklf3w2672q7fkfc-filen-cli-0.0.36` |
@@ -52,6 +53,7 @@ Sorted alphabetically by package name.
 | httptoolkit-1.26.0 | 1 | `/nix/store/0dgwk9vdd4g1x8p4snq5zm68yl1lj7dj-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/qpzcwid5hr9s91azg6fmwwwyqxfc25dq-httptoolkit-1.26.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/xi594ayfmlvbippjm2c8yd9xlyg0k548-httptoolkit-1.26.0` |
+| httptoolkit-1.27.1 | 1 | `/nix/store/0jfkh31d0pv3k0v0dnv7hh0pdawnk08n-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/2dhay2qmx5zmz4g1r2fwm548gcv44h9z-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/4bp77p1p89g3g8p328bc25znikgify4v-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/6hp6j1pbjvbxpwlia9x2sdjn1wgkg63h-httptoolkit-1.27.1` |
@@ -86,6 +88,7 @@ Sorted alphabetically by package name.
 | renovate-44.236.2 | 1 | `/nix/store/8wh9cs4z0kbc20g7f4j3sisz7rwiyhff-renovate-44.236.2` |
 | renovate-44.24.3 | 1 | `/nix/store/hj4hv32i4w8f2h6pr4cswhlbrlq3ny7p-renovate-44.24.3` |
 | renovate-44.24.3 | 1 | `/nix/store/vk7chz9c70a60rdbjgk11fbg2231fi8i-renovate-44.24.3` |
+| renovate-44.247.1 | 1 | `/nix/store/fiswmyv4jhb7qfyzpamplhr1043ibfhm-renovate-44.247.1` |
 | renovate-44.37.1 | 1 | `/nix/store/fzrbllw3wdv2c78h26wmhvw13gg43pym-renovate-44.37.1` |
 | renovate-44.37.1 | 1 | `/nix/store/gbyl4z0pasqy2c4lrgghdyx4jayb1cqi-renovate-44.37.1` |
 | renovate-44.37.1 | 1 | `/nix/store/gqfmfrh2clzjgc705ync1c6jvrscgjm0-renovate-44.37.1` |
@@ -140,6 +143,7 @@ Sorted alphabetically by package name.
 | teams-for-linux-2.29.0 | 1 | `/nix/store/0gikw9f58q3v119dzjakkfl63wznfd0z-teams-for-linux-2.29.0` |
 | teams-for-linux-2.29.0 | 1 | `/nix/store/5zc77c035ndkxw41b2xixrckm2qhxhv6-teams-for-linux-2.29.0` |
 | teams-for-linux-2.29.0 | 1 | `/nix/store/pyh3g7335sx19lcf5sjgd0hf28l9syv5-teams-for-linux-2.29.0` |
+| teams-for-linux-2.32.1 | 1 | `/nix/store/xf4pls2kjycbpl4wq2knpw7fnpnsg932-teams-for-linux-2.32.1` |
 | vscode-extension-kilocode-Kilo-Code-7.4.16 | 1 | `/nix/store/f2r9lh1sch92zfl1dd41b6cvp6hzj4v7-vscode-extension-kilocode-Kilo-Code-7.4.16` |
 | vscode-extension-kilocode-Kilo-Code-7.4.16 | 1 | `/nix/store/smhfspqikyayf45jpz86rj9lbi6lmyc7-vscode-extension-kilocode-Kilo-Code-7.4.16` |
 | vscode-extension-kilocode-Kilo-Code-7.5.9 | 1 | `/nix/store/hdlfqcx3g1z1wqjh7cyy1krj1wsbqdbi-vscode-extension-kilocode-Kilo-Code-7.5.9` |
@@ -162,11 +166,11 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 170 |
+| `page_hash_mismatch` | 174 |
 | `other_sig_invalid` | 3 |
-| `clean` (signed, verified) | 1,050,273 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 123,335 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 551,784 |
+| `clean` (signed, verified) | 1,074,007 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 124,404 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 553,413 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -192,7 +196,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 106 |
+| Distinct failing seeds | 110 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 
