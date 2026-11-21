@@ -1,10 +1,10 @@
 {
   "buckets": {
-    "clean": 1074007,
-    "not_real_macho": 553413,
+    "clean": 1079009,
+    "not_real_macho": 566608,
     "other_sig_invalid": 3,
-    "page_hash_mismatch": 174,
-    "unsigned": 124404
+    "page_hash_mismatch": 175,
+    "unsigned": 125033
   },
   "buckets_by_arch": {
     "arm": {
@@ -12,10 +12,10 @@
       "unsigned": 521
     },
     "arm64": {
-      "clean": 1051353,
-      "not_real_macho": 329,
-      "page_hash_mismatch": 174,
-      "unsigned": 90161
+      "clean": 1056255,
+      "not_real_macho": 333,
+      "page_hash_mismatch": 175,
+      "unsigned": 90338
     },
     "arm64e": {
       "clean": 117,
@@ -64,29 +64,29 @@
       "unsigned": 5
     },
     "i386": {
-      "clean": 491,
+      "clean": 493,
       "not_real_macho": 47,
       "other_sig_invalid": 1,
-      "unsigned": 1356
+      "unsigned": 1357
     },
     "unknown": {
-      "not_real_macho": 551788
+      "not_real_macho": 564975
     },
     "x86_64": {
-      "clean": 22040,
-      "not_real_macho": 404,
+      "clean": 22138,
+      "not_real_macho": 408,
       "other_sig_invalid": 2,
-      "unsigned": 32345
+      "unsigned": 32796
     }
   },
-  "channel_label": "nixpkgs-unstable @ 19cfded70b91 (2026-11-20)",
+  "channel_label": "nixpkgs-unstable @ 9996594bd380 (2026-11-21)",
   "coverage": {
-    "not_real_macho": 553413,
+    "not_real_macho": 566608,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-11-20 07:35:08 UTC",
+  "generated_at": "2026-11-21 07:32:27 UTC",
   "other_sig_invalid": {
     "packages": 1,
     "slices": 3
@@ -95,13 +95,13 @@
     "by_signature_class": {
       "B7-real": 21,
       "C2": 78,
-      "L": 75
+      "L": 76
     },
     "by_signer": {
       "codesign_signed": 99,
-      "linker_signed": 75
+      "linker_signed": 76
     },
-    "packages": 110,
+    "packages": 111,
     "packages_list": [
       "blockbench-5.2.2",
       "filen-cli-0.0.36",
@@ -126,6 +126,7 @@
       "renovate-44.79.2",
       "shogihome-1.29.0",
       "shogihome-1.29.1",
+      "shogihome-1.30.0",
       "swift-5.10.1",
       "swift-5.10.1-lib",
       "tailwindcss_4-4.3.3",
@@ -146,17 +147,17 @@
       "vscode-extension-kilocode-Kilo-Code-7.7.9",
       "vscode-extension-kilocode-Kilo-Code-7.8.3"
     ],
-    "slices": 174
+    "slices": 175
   },
   "paths_by_status": {
-    "fetch_error": 53,
-    "ok": 2710497,
-    "parse_error": 21
+    "fetch_error": 25,
+    "ok": 2724105,
+    "parse_error": 31
   },
-  "paths_scanned": 2710571,
+  "paths_scanned": 2724161,
   "slices_by_arch": {
     "arm": 555,
-    "arm64": 1142017,
+    "arm64": 1147101,
     "arm64e": 255,
     "cpu_0x00000000/0x00000000": 9,
     "cpu_0x00000001/0x00000000": 6,
@@ -172,9 +173,9 @@
     "cpu_0x01000017/0x00000008": 3,
     "cpu_0x01000017/0x0000000d": 3,
     "cpu_0x81000007/0x00000003": 5,
-    "i386": 1895,
-    "unknown": 551788,
-    "x86_64": 54791
+    "i386": 1898,
+    "unknown": 564975,
+    "x86_64": 55344
   },
-  "slices_total": 1752001
+  "slices_total": 1770828
 }

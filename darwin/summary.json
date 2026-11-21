@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 845030,
+    "clean": 847118,
     "not_real_macho": 53678,
-    "page_hash_mismatch": 415,
-    "unsigned": 866543
+    "page_hash_mismatch": 418,
+    "unsigned": 869935
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 42
     },
     "arm64": {
-      "clean": 784353,
+      "clean": 786214,
       "not_real_macho": 154,
-      "page_hash_mismatch": 231,
-      "unsigned": 68383
+      "page_hash_mismatch": 234,
+      "unsigned": 69278
     },
     "arm64e": {
       "clean": 175,
@@ -50,26 +50,26 @@
     "i386": {
       "clean": 791,
       "not_real_macho": 14,
-      "unsigned": 561
+      "unsigned": 567
     },
     "unknown": {
       "not_real_macho": 51970
     },
     "x86_64": {
-      "clean": 59697,
+      "clean": 59924,
       "not_real_macho": 378,
       "page_hash_mismatch": 184,
-      "unsigned": 797543
+      "unsigned": 800034
     }
   },
-  "channel_label": "nixpkgs-26.05-darwin @ 31cff629c632 (2026-11-20)",
+  "channel_label": "nixpkgs-26.05-darwin @ c78b9f9c117e (2026-11-21)",
   "coverage": {
     "not_real_macho": 53678,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-11-20 07:33:54 UTC",
+  "generated_at": "2026-11-21 07:31:36 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -79,13 +79,13 @@
       "B7-empty": 16,
       "B7-real": 23,
       "C2": 307,
-      "L": 69
+      "L": 72
     },
     "by_signer": {
       "codesign_signed": 346,
-      "linker_signed": 69
+      "linker_signed": 72
     },
-    "packages": 151,
+    "packages": 154,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "filen-cli-0.0.36",
@@ -97,6 +97,7 @@
       "renovate-44.79.2",
       "shogihome-1.29.0",
       "shogihome-1.29.1",
+      "shogihome-1.30.0",
       "swift-5.10.1",
       "swift-5.10.1-lib",
       "tailwindcss_4-4.3.1",
@@ -108,17 +109,17 @@
       "teams-for-linux-2.29.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 415
+    "slices": 418
   },
   "paths_by_status": {
     "fetch_error": 2,
-    "ok": 1189854,
+    "ok": 1193130,
     "parse_error": 8
   },
-  "paths_scanned": 1189864,
+  "paths_scanned": 1193140,
   "slices_by_arch": {
     "arm": 56,
-    "arm64": 853121,
+    "arm64": 855880,
     "arm64e": 455,
     "cpu_0x00000001/0x00000000": 14,
     "cpu_0x00000002/0x00000000": 14,
@@ -129,9 +130,9 @@
     "cpu_0x00000012/0x00000064": 14,
     "cpu_0x01000012/0x00000000": 112,
     "cpu_0x01000012/0x80000000": 14,
-    "i386": 1366,
+    "i386": 1372,
     "unknown": 51970,
-    "x86_64": 857802
+    "x86_64": 860520
   },
-  "slices_total": 1765666
+  "slices_total": 1771149
 }
