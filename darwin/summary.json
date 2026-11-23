@@ -1,9 +1,9 @@
 {
   "buckets": {
-    "clean": 847118,
-    "not_real_macho": 53678,
-    "page_hash_mismatch": 418,
-    "unsigned": 869935
+    "clean": 848475,
+    "not_real_macho": 53681,
+    "page_hash_mismatch": 424,
+    "unsigned": 870417
   },
   "buckets_by_arch": {
     "arm": {
@@ -11,10 +11,10 @@
       "unsigned": 42
     },
     "arm64": {
-      "clean": 786214,
-      "not_real_macho": 154,
-      "page_hash_mismatch": 234,
-      "unsigned": 69278
+      "clean": 787193,
+      "not_real_macho": 156,
+      "page_hash_mismatch": 237,
+      "unsigned": 69290
     },
     "arm64e": {
       "clean": 175,
@@ -48,28 +48,28 @@
       "not_real_macho": 14
     },
     "i386": {
-      "clean": 791,
+      "clean": 793,
       "not_real_macho": 14,
-      "unsigned": 567
+      "unsigned": 572
     },
     "unknown": {
       "not_real_macho": 51970
     },
     "x86_64": {
-      "clean": 59924,
-      "not_real_macho": 378,
-      "page_hash_mismatch": 184,
-      "unsigned": 800034
+      "clean": 60300,
+      "not_real_macho": 379,
+      "page_hash_mismatch": 187,
+      "unsigned": 800499
     }
   },
-  "channel_label": "nixpkgs-26.05-darwin @ c78b9f9c117e (2026-11-21)",
+  "channel_label": "nixpkgs-26.05-darwin @ f0b41a99f28c (2026-11-23)",
   "coverage": {
-    "not_real_macho": 53678,
+    "not_real_macho": 53681,
     "page_size_zero_cds": 0,
     "scanner_errors": 0,
     "sha1_only_cds": 0
   },
-  "generated_at": "2026-11-21 07:31:36 UTC",
+  "generated_at": "2026-11-23 07:26:42 UTC",
   "other_sig_invalid": {
     "packages": 0,
     "slices": 0
@@ -78,14 +78,14 @@
     "by_signature_class": {
       "B7-empty": 16,
       "B7-real": 23,
-      "C2": 307,
+      "C2": 313,
       "L": 72
     },
     "by_signer": {
-      "codesign_signed": 346,
+      "codesign_signed": 352,
       "linker_signed": 72
     },
-    "packages": 154,
+    "packages": 155,
     "packages_list": [
       "avalonia-ilspy-7.2-rc",
       "filen-cli-0.0.36",
@@ -109,17 +109,17 @@
       "teams-for-linux-2.29.0",
       "vscode-extension-kilocode-Kilo-Code-7.2.20"
     ],
-    "slices": 418
+    "slices": 424
   },
   "paths_by_status": {
     "fetch_error": 2,
-    "ok": 1193130,
+    "ok": 1193576,
     "parse_error": 8
   },
-  "paths_scanned": 1193140,
+  "paths_scanned": 1193586,
   "slices_by_arch": {
     "arm": 56,
-    "arm64": 855880,
+    "arm64": 856876,
     "arm64e": 455,
     "cpu_0x00000001/0x00000000": 14,
     "cpu_0x00000002/0x00000000": 14,
@@ -130,9 +130,9 @@
     "cpu_0x00000012/0x00000064": 14,
     "cpu_0x01000012/0x00000000": 112,
     "cpu_0x01000012/0x80000000": 14,
-    "i386": 1372,
+    "i386": 1379,
     "unknown": 51970,
-    "x86_64": 860520
+    "x86_64": 861365
   },
-  "slices_total": 1771149
+  "slices_total": 1772997
 }

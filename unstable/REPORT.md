@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 9996594bd380 (2026-11-21)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 93a9ed0a8660 (2026-11-23)
 
-Generated: 2026-11-21 07:32:27 UTC
+Generated: 2026-11-23 07:27:44 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 2,724,161 |
-| Mach-O slices parsed | 1,770,828 |
+| Store paths scanned | 2,734,497 |
+| Mach-O slices parsed | 1,809,392 |
 | Page-hash mismatches (slices) | 175 |
 | Page-hash mismatches (distinct packages) | 111 |
 |   of which linker-signed (flags=0x20002) | 76 |
@@ -22,20 +22,20 @@ Generated: 2026-11-21 07:32:27 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 1,147,101 | 175 | 0 | 1,056,255 | 90,338 | 333 |
-| `arm64e` | 255 | 0 | 0 | 117 | 0 | 138 |
-| `x86_64` | 55,344 | 0 | 2 | 22,138 | 32,796 | 408 |
-| `i386` | 1,898 | 0 | 1 | 493 | 1,357 | 47 |
-| other/legacy (16 arch codes) | 566,230 | 0 | 0 | 6 | 542 | 565,682 |
+| `arm64` | 1,146,133 | 175 | 0 | 1,055,099 | 90,524 | 335 |
+| `arm64e` | 254 | 0 | 0 | 116 | 0 | 138 |
+| `x86_64` | 55,580 | 0 | 2 | 22,231 | 32,937 | 410 |
+| `i386` | 1,901 | 0 | 1 | 493 | 1,360 | 47 |
+| other/legacy (16 arch codes) | 605,524 | 0 | 0 | 6 | 542 | 604,976 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,161,358 | 103 | 3 | 1,043,660 | 116,712 |
-| fat | 609,470 | 72 | 0 | 35,349 | 8,321 |
+| thin | 1,160,428 | 103 | 3 | 1,042,440 | 117,002 |
+| fat | 648,964 | 72 | 0 | 35,505 | 8,361 |
 
-Unique fat binary files: 586,754 in 6,782 packages. 8 of those packages contain at least one failing fat slice.
+Unique fat binary files: 626,151 in 6,863 packages. 8 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -169,9 +169,9 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 |---|---:|
 | `page_hash_mismatch` | 175 |
 | `other_sig_invalid` | 3 |
-| `clean` (signed, verified) | 1,079,009 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 125,033 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 566,608 |
+| `clean` (signed, verified) | 1,077,945 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 125,363 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 605,906 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries

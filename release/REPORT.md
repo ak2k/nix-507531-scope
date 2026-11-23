@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — release-26.05 @ 8d94e175f0df (2026-11-21)
+# NixOS/nixpkgs#507531 cache scan — release-26.05 @ 68c736c99ad3 (2026-11-23)
 
-Generated: 2026-11-21 07:31:53 UTC
+Generated: 2026-11-23 07:26:42 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 854,297 |
-| Mach-O slices parsed | 915,671 |
-| Page-hash mismatches (slices) | 195 |
-| Page-hash mismatches (distinct packages) | 83 |
-|   of which linker-signed (flags=0x20002) | 59 |
+| Store paths scanned | 854,749 |
+| Mach-O slices parsed | 920,012 |
+| Page-hash mismatches (slices) | 196 |
+| Page-hash mismatches (distinct packages) | 84 |
+|   of which linker-signed (flags=0x20002) | 60 |
 |   of which codesign-signed (flags=0x2) | 136 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-11-21 07:31:53 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 862,287 | 195 | 0 | 793,787 | 68,231 | 74 |
+| `arm64` | 865,090 | 196 | 0 | 795,798 | 69,022 | 74 |
 | `arm64e` | 394 | 0 | 0 | 128 | 0 | 266 |
-| `x86_64` | 25,235 | 0 | 0 | 16,323 | 8,621 | 291 |
-| `i386` | 651 | 0 | 0 | 384 | 259 | 8 |
-| other/legacy (11 arch codes) | 27,104 | 0 | 0 | 27 | 55 | 27,022 |
+| `x86_64` | 25,685 | 0 | 0 | 16,910 | 8,484 | 291 |
+| `i386` | 639 | 0 | 0 | 382 | 249 | 8 |
+| other/legacy (11 arch codes) | 28,204 | 0 | 0 | 27 | 52 | 28,125 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 865,395 | 69 | 0 | 790,132 | 75,180 |
-| fat | 50,276 | 126 | 0 | 20,517 | 1,986 |
+| thin | 868,900 | 70 | 0 | 793,003 | 75,814 |
+| fat | 51,112 | 126 | 0 | 20,242 | 1,993 |
 
-Unique fat binary files: 38,305 in 2,331 packages. 14 of those packages contain at least one failing fat slice.
+Unique fat binary files: 39,274 in 2,340 packages. 14 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -47,10 +47,10 @@ Sorted alphabetically by package name.
 | filen-cli-0.0.36 | 1 | `/nix/store/hf2p6lqwg7sr394wji7m4pkx66mqjrmw-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/n830q9qdkqd8wb50r5i5gc6vhfi35447-filen-cli-0.0.36` |
 | filen-cli-0.0.36 | 1 | `/nix/store/ry4whmv7rirq6h23b1xfzfrr6k73n1sq-filen-cli-0.0.36` |
-| filen-cli-0.0.36 | 1 | `/nix/store/vrfabd48b3h6wi2dw16k21jzrqvr124a-filen-cli-0.0.36` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/45sv48r91qgzi3fjsgwaa4h8714j769z-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/60zbrz834i5p0r0z181x0wfy9wg4fnwi-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/azjiwirm2dx909cpdrpi9q2dh0nmc7c5-gitlab-duo-8.89.0` |
+| gitlab-duo-8.89.0 | 1 | `/nix/store/hkxwa89zsjaprxfqgfihmyip1n1avsrl-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/ilhfsqvskam95aidmxs75w63666lhxda-gitlab-duo-8.89.0` |
 | gitlab-duo-8.89.0 | 1 | `/nix/store/y4mi54n2754rv4gb0i1919iniv02sghd-gitlab-duo-8.89.0` |
 | httptoolkit-1.26.0 | 1 | `/nix/store/f8916ng5b41vy8zipihapni7ggjkmskj-httptoolkit-1.26.0` |
@@ -58,12 +58,13 @@ Sorted alphabetically by package name.
 | httptoolkit-1.26.0 | 1 | `/nix/store/kglqi3s566b97y0mp4jamgp153v710fi-httptoolkit-1.26.0` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/0mig56495glb099xx1yzlmbw454xhmlq-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/23zjab0n5m33qfd1rqd99pfb0vngzm3z-httptoolkit-1.27.1` |
-| httptoolkit-1.27.1 | 1 | `/nix/store/7a9zzfr8by69f107vnmikflygk7xcgpn-httptoolkit-1.27.1` |
+| httptoolkit-1.27.1 | 1 | `/nix/store/7cpj7wxqifv1g170m367wrys17n8h0kj-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/9wp1shrsad0aws4g7619q3h5ld0cp9n3-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/bl45i4hnmy4xg7vcg9y4lf1gnqsi2cmw-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/gjg0127c5nl8prsq36g504hfnqzyp3av-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/iq00sx2ybsd5sn5l2lp89ymp6dpm8la6-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/x09cnkw5mrbwpi24xsr38691saccr7a6-httptoolkit-1.27.1` |
+| httptoolkit-1.27.1 | 1 | `/nix/store/zbn6awln5lgykd27d06fdj4nwz844wwh-httptoolkit-1.27.1` |
 | libtorch-2.9.0 | 1 | `/nix/store/hclj167mjxz756a4irwl7w3ln0m996l5-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/jxm3srv0dnhc20grghh56hycifsbvjaf-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/lh7hw0zhm2fxhwpqbv3qqyzh4qqac1p8-libtorch-2.9.0` |
@@ -72,7 +73,7 @@ Sorted alphabetically by package name.
 | libtorch-2.9.0 | 1 | `/nix/store/qmgv36cxksxgkfsjh2g4rl7fqjg8kxar-libtorch-2.9.0` |
 | libtorch-2.9.0 | 1 | `/nix/store/r28bn7sm0i61lph6mnlcwdbwr4vdd48b-libtorch-2.9.0` |
 | opencode-1.15.10 | 1 | `/nix/store/18jmwdml857xgwsnalfpy4922av79fzf-opencode-1.15.10` |
-| opencode-1.15.10 | 1 | `/nix/store/44xkfcipvpwacbijj0aa0qxrsp779348-opencode-1.15.10` |
+| opencode-1.15.10 | 1 | `/nix/store/7fwmgsh2zax604w9kpnxr6r55pw8jx6g-opencode-1.15.10` |
 | opencode-1.15.10 | 1 | `/nix/store/9wrrk545kn212663a3f5h5qvd6icf3yd-opencode-1.15.10` |
 | opencode-1.15.10 | 1 | `/nix/store/p5x7c6fdibscb7d55bzlm39sb4x6zxnl-opencode-1.15.10` |
 | renovate-44.79.2 | 1 | `/nix/store/lsy6zjpskbmvjbfv142vw4ypdni8x76x-renovate-44.79.2` |
@@ -84,9 +85,11 @@ Sorted alphabetically by package name.
 | shogihome-1.29.0 | 1 | `/nix/store/6019hnqs6wxxhjnyxgq5cyy0v8a9jhm6-shogihome-1.29.0` |
 | shogihome-1.29.0 | 1 | `/nix/store/95wlkqxq6wxslrhzqjdidj42cfz83l8m-shogihome-1.29.0` |
 | shogihome-1.29.0 | 1 | `/nix/store/mssk554g3siy8nkidw8pjzrkr107xkjn-shogihome-1.29.0` |
+| shogihome-1.29.1 | 1 | `/nix/store/akpvvjz4d3wqbayc88l43ncnafc2d9b0-shogihome-1.29.1` |
 | shogihome-1.29.1 | 1 | `/nix/store/f8s3j2a5h169y0wnv2lfr7wffhnkdy5h-shogihome-1.29.1` |
 | shogihome-1.29.1 | 1 | `/nix/store/mccds0sai2mhpf9h2myzid1hwx87g03j-shogihome-1.29.1` |
 | shogihome-1.29.1 | 1 | `/nix/store/q9cbh3hcdgmz5dnfy58gnlp6rjjmpirb-shogihome-1.29.1` |
+| shogihome-1.29.1 | 1 | `/nix/store/yzm9xhns7w7av03avd71hcwb3wjznv4b-shogihome-1.29.1` |
 | shogihome-1.30.0 | 1 | `/nix/store/hd7avxwqi3dabw5wl4lsza0l17pkhjfz-shogihome-1.30.0` |
 | swift-5.10.1 | 11 | `/nix/store/5caplwxxb1qnjscim7cks1isnyklwaf5-swift-5.10.1` |
 | swift-5.10.1 | 11 | `/nix/store/8v1fhhdski5w1bd3fdyfpcrl3sxzrkjj-swift-5.10.1` |
@@ -110,10 +113,9 @@ Sorted alphabetically by package name.
 | tailwindcss_4-4.3.1 | 1 | `/nix/store/zng32ingb4dldqaf1c36f0zqlcz17jzx-tailwindcss_4-4.3.1` |
 | teams-for-linux-2.11.1 | 1 | `/nix/store/gls3gcn5fia3l0157pkd0lvp3dbl3amm-teams-for-linux-2.11.1` |
 | teams-for-linux-2.11.1 | 1 | `/nix/store/l2738npx9g9wsb587qqkyaxgdal928k6-teams-for-linux-2.11.1` |
-| teams-for-linux-2.22.0 | 1 | `/nix/store/1cga4x9wn0d0p8dq5d5zhyh50x4wz2hy-teams-for-linux-2.22.0` |
+| teams-for-linux-2.17.1 | 1 | `/nix/store/4wqycxqf6r2mgjdx4p0arzax6s02sxfl-teams-for-linux-2.17.1` |
 | teams-for-linux-2.22.0 | 1 | `/nix/store/4jzqm158wh2dd2abcsckkw48hf1n5x3c-teams-for-linux-2.22.0` |
 | teams-for-linux-2.23.0 | 1 | `/nix/store/ffv518y5nq73qpjic4wxskp78zp00dnl-teams-for-linux-2.23.0` |
-| teams-for-linux-2.23.0 | 1 | `/nix/store/g51mdmhzazp10dp309f2accbwxh7w5fk-teams-for-linux-2.23.0` |
 | teams-for-linux-2.25.0 | 1 | `/nix/store/1qv1yz8wl3dqs8rh1r0c5nzy6ivrhghb-teams-for-linux-2.25.0` |
 | teams-for-linux-2.25.0 | 1 | `/nix/store/4kwfkpfkvbaxmxsha6nal27r8723fx6p-teams-for-linux-2.25.0` |
 | teams-for-linux-2.25.0 | 1 | `/nix/store/axjjfhd4izws60sigb9fmcrkdvlhb5dn-teams-for-linux-2.25.0` |
@@ -122,20 +124,19 @@ Sorted alphabetically by package name.
 | teams-for-linux-2.29.0 | 1 | `/nix/store/xfbg58p797f1ha3gdak87k97il8zkq77-teams-for-linux-2.29.0` |
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/4j2sgj1x9vc40x61iz99lriyzbz9lldn-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/8dl3r94rxjcjc3igap902ghjxh301wbc-vscode-extension-kilocode-Kilo-Code-7.2.20` |
+| vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/g1xpic0i2kymmviqv5n5wb91mvzpi2rm-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/iw0hy633a4xv5334j7slyvd9v7jvys86-vscode-extension-kilocode-Kilo-Code-7.2.20` |
-| vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/qdahqy17jcg601fmzixxzv9hxckn1zb8-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 | vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/v4b13jy388h6rnvnp9qjxyzs0xn9l8qb-vscode-extension-kilocode-Kilo-Code-7.2.20` |
-| vscode-extension-kilocode-Kilo-Code-7.2.20 | 1 | `/nix/store/z68c59jkjhkg7c2dxaqxpryyfkksl5vx-vscode-extension-kilocode-Kilo-Code-7.2.20` |
 
 ## Slice classification
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 195 |
+| `page_hash_mismatch` | 196 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 810,649 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 77,166 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 27,661 |
+| `clean` (signed, verified) | 813,245 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 77,807 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 28,764 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -161,7 +162,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 83 |
+| Distinct failing seeds | 84 |
 
 Edges by kind (default view only):
 

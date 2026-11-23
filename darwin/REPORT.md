@@ -1,17 +1,17 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ c78b9f9c117e (2026-11-21)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ f0b41a99f28c (2026-11-23)
 
-Generated: 2026-11-21 07:31:36 UTC
+Generated: 2026-11-23 07:26:42 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 1,193,140 |
-| Mach-O slices parsed | 1,771,149 |
-| Page-hash mismatches (slices) | 418 |
-| Page-hash mismatches (distinct packages) | 154 |
+| Store paths scanned | 1,193,586 |
+| Mach-O slices parsed | 1,772,997 |
+| Page-hash mismatches (slices) | 424 |
+| Page-hash mismatches (distinct packages) | 155 |
 |   of which linker-signed (flags=0x20002) | 72 |
-|   of which codesign-signed (flags=0x2) | 346 |
+|   of which codesign-signed (flags=0x2) | 352 |
 | Other signature-invalid (slices) | 0 |
 | Other signature-invalid (distinct packages) | 0 |
 | Type 2 — binaries linking a failing dylib | 0 |
@@ -22,20 +22,20 @@ Generated: 2026-11-21 07:31:36 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 855,880 | 234 | 0 | 786,214 | 69,278 | 154 |
+| `arm64` | 856,876 | 237 | 0 | 787,193 | 69,290 | 156 |
 | `arm64e` | 455 | 0 | 0 | 175 | 0 | 280 |
-| `x86_64` | 860,520 | 184 | 0 | 59,924 | 800,034 | 378 |
-| `i386` | 1,372 | 0 | 0 | 791 | 567 | 14 |
+| `x86_64` | 861,365 | 187 | 0 | 60,300 | 800,499 | 379 |
+| `i386` | 1,379 | 0 | 0 | 793 | 572 | 14 |
 | other/legacy (11 arch codes) | 52,922 | 0 | 0 | 14 | 56 | 52,852 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,672,016 | 118 | 0 | 806,489 | 865,395 |
-| fat | 99,133 | 300 | 0 | 40,629 | 4,540 |
+| thin | 1,673,595 | 118 | 0 | 807,630 | 865,833 |
+| fat | 99,402 | 306 | 0 | 40,845 | 4,584 |
 
-Unique fat binary files: 75,277 in 4,624 packages. 36 of those packages contain at least one failing fat slice.
+Unique fat binary files: 75,411 in 4,659 packages. 37 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -47,6 +47,7 @@ Sorted alphabetically by package name.
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/176p2f4dkqzplz0prgg0rg7myq8aqqvs-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/2xpppd83pm1fmnm3h8gh5knwryxs6b3v-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/3y4p51ky7ybivbj9pq0mp7n573mqlfr0-avalonia-ilspy-7.2-rc` |
+| avalonia-ilspy-7.2-rc | 6 | `/nix/store/bz2wr33k73mdln3jkjml3bh1z4z5jxgm-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/ji5n2hj8x48dv1hxmx5mjwhvgd4zi4rs-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/l7xv7bgm1a0072is202jbc3rv1i2mvnh-avalonia-ilspy-7.2-rc` |
 | avalonia-ilspy-7.2-rc | 6 | `/nix/store/m9761zbi6cw1f9475zrh9fi5ym1lyqnq-avalonia-ilspy-7.2-rc` |
@@ -202,11 +203,11 @@ Sorted alphabetically by package name.
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 418 |
+| `page_hash_mismatch` | 424 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 847,118 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 869,935 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 53,678 |
+| `clean` (signed, verified) | 848,475 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 870,417 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 53,681 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -217,7 +218,7 @@ Binaries whose own code signatures are valid but which dyld cannot map at proces
 |---|---:|
 | Binaries that link at least one failing dylib | 0 |
 | Distinct packages containing such binaries | 0 |
-| Failing dylibs that serve as seeds | 283 |
+| Failing dylibs that serve as seeds | 286 |
 | Total (binary, failing-dylib) pairs | 0 |
 
 Full detail: [`load-time-dependents.csv`](load-time-dependents.csv) (one row per `(binary, linked_failing_dylib)` pair).
@@ -232,7 +233,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 1 |
 | Total direct-edge rows (default view) | 1 |
 | Total rows including propagated edges | 1 |
-| Distinct failing seeds | 154 |
+| Distinct failing seeds | 155 |
 
 Edges by kind (default view only):
 
