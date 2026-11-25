@@ -1,16 +1,16 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 93a9ed0a8660 (2026-11-23)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-unstable @ 619c39f6eac5 (2026-11-25)
 
-Generated: 2026-11-23 07:27:44 UTC
+Generated: 2026-11-25 07:22:39 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 2,734,497 |
-| Mach-O slices parsed | 1,809,392 |
-| Page-hash mismatches (slices) | 175 |
-| Page-hash mismatches (distinct packages) | 111 |
-|   of which linker-signed (flags=0x20002) | 76 |
+| Store paths scanned | 2,740,031 |
+| Mach-O slices parsed | 1,815,563 |
+| Page-hash mismatches (slices) | 176 |
+| Page-hash mismatches (distinct packages) | 112 |
+|   of which linker-signed (flags=0x20002) | 77 |
 |   of which codesign-signed (flags=0x2) | 99 |
 | Other signature-invalid (slices) | 3 |
 | Other signature-invalid (distinct packages) | 1 |
@@ -22,20 +22,20 @@ Generated: 2026-11-23 07:27:44 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 1,146,133 | 175 | 0 | 1,055,099 | 90,524 | 335 |
-| `arm64e` | 254 | 0 | 0 | 116 | 0 | 138 |
-| `x86_64` | 55,580 | 0 | 2 | 22,231 | 32,937 | 410 |
-| `i386` | 1,901 | 0 | 1 | 493 | 1,360 | 47 |
-| other/legacy (16 arch codes) | 605,524 | 0 | 0 | 6 | 542 | 604,976 |
+| `arm64` | 1,149,419 | 176 | 0 | 1,058,173 | 90,729 | 341 |
+| `arm64e` | 255 | 0 | 0 | 117 | 0 | 138 |
+| `x86_64` | 56,000 | 0 | 2 | 22,270 | 33,312 | 416 |
+| `i386` | 1,911 | 0 | 1 | 493 | 1,370 | 47 |
+| other/legacy (16 arch codes) | 607,978 | 0 | 0 | 6 | 548 | 607,424 |
 
 ## Fat vs thin Mach-O
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,160,428 | 103 | 3 | 1,042,440 | 117,002 |
-| fat | 648,964 | 72 | 0 | 35,505 | 8,361 |
+| thin | 1,163,886 | 104 | 3 | 1,045,408 | 117,489 |
+| fat | 651,677 | 72 | 0 | 35,651 | 8,470 |
 
-Unique fat binary files: 626,151 in 6,863 packages. 8 of those packages contain at least one failing fat slice.
+Unique fat binary files: 628,729 in 6,918 packages. 8 of those packages contain at least one failing fat slice.
 
 ## Failing packages (page-hash mismatch)
 
@@ -59,6 +59,7 @@ Sorted alphabetically by package name.
 | httptoolkit-1.27.1 | 1 | `/nix/store/6hp6j1pbjvbxpwlia9x2sdjn1wgkg63h-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/7jrrrhq0vbzbbmc8sjimvjcz48kics0m-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/7zrz5z40yjkrhc8n6hh7f23bhrrxr915-httptoolkit-1.27.1` |
+| httptoolkit-1.27.1 | 1 | `/nix/store/a5j9qy075qfsv2w35n43q9y0qmm75dca-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/ag6v0cxzjq7dxywdjsw7bxmnv4sxvwgl-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/djmm18j193lmbq35g7673nm84qpcqawk-httptoolkit-1.27.1` |
 | httptoolkit-1.27.1 | 1 | `/nix/store/favv764pxkhnw6cg44drbvpj9f4maknp-httptoolkit-1.27.1` |
@@ -167,11 +168,11 @@ Slices where the scanner found a structural signature problem (not a page-hash m
 
 | Category | Count |
 |---|---:|
-| `page_hash_mismatch` | 175 |
+| `page_hash_mismatch` | 176 |
 | `other_sig_invalid` | 3 |
-| `clean` (signed, verified) | 1,077,945 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 125,363 |
-| `not_real_macho` (Java .class, PPC big-endian, etc.) | 605,906 |
+| `clean` (signed, verified) | 1,081,059 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 125,959 |
+| `not_real_macho` (Java .class, PPC big-endian, etc.) | 608,366 |
 | `scanner_error` | 0 |
 
 ## Load-time transitive broken binaries
@@ -197,7 +198,7 @@ Default view excludes `propagatedBuildInputs` / `propagatedNativeBuildInputs` ed
 | Packages with failing seeds in declared build/check inputs (default view) | 0 |
 | Total direct-edge rows (default view) | 0 |
 | Total rows including propagated edges | 0 |
-| Distinct failing seeds | 111 |
+| Distinct failing seeds | 112 |
 
 Full detail: [`build-time-dependents.csv`](build-time-dependents.csv) (one row per `(dependent, edge_kind, seed)` tuple; `in_default_view=true` marks default-filter rows).
 
