@@ -1,13 +1,13 @@
-# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ f0b41a99f28c (2026-11-25)
+# NixOS/nixpkgs#507531 cache scan — nixpkgs-26.05-darwin @ b79fb1868026 (2026-11-26)
 
-Generated: 2026-11-25 07:21:11 UTC
+Generated: 2026-11-26 07:23:05 UTC
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| Store paths scanned | 1,193,586 |
-| Mach-O slices parsed | 1,772,997 |
+| Store paths scanned | 1,194,918 |
+| Mach-O slices parsed | 1,774,235 |
 | Page-hash mismatches (slices) | 424 |
 | Page-hash mismatches (distinct packages) | 155 |
 |   of which linker-signed (flags=0x20002) | 72 |
@@ -22,9 +22,9 @@ Generated: 2026-11-25 07:21:11 UTC
 
 | Arch | Slices scanned | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned | Noise |
 |---|---:|---:|---:|---:|---:|---:|
-| `arm64` | 856,876 | 237 | 0 | 787,193 | 69,290 | 156 |
+| `arm64` | 857,499 | 237 | 0 | 787,815 | 69,291 | 156 |
 | `arm64e` | 455 | 0 | 0 | 175 | 0 | 280 |
-| `x86_64` | 861,365 | 187 | 0 | 60,300 | 800,499 | 379 |
+| `x86_64` | 861,980 | 187 | 0 | 60,301 | 801,113 | 379 |
 | `i386` | 1,379 | 0 | 0 | 793 | 572 | 14 |
 | other/legacy (11 arch codes) | 52,922 | 0 | 0 | 14 | 56 | 52,852 |
 
@@ -32,7 +32,7 @@ Generated: 2026-11-25 07:21:11 UTC
 
 | Kind | Slices | Page-hash mismatch | Other sig-invalid | Clean (signed) | Unsigned |
 |---|---:|---:|---:|---:|---:|
-| thin | 1,673,595 | 118 | 0 | 807,630 | 865,833 |
+| thin | 1,674,833 | 118 | 0 | 808,253 | 866,448 |
 | fat | 99,402 | 306 | 0 | 40,845 | 4,584 |
 
 Unique fat binary files: 75,411 in 4,659 packages. 37 of those packages contain at least one failing fat slice.
@@ -205,8 +205,8 @@ Sorted alphabetically by package name.
 |---|---:|
 | `page_hash_mismatch` | 424 |
 | `other_sig_invalid` | 0 |
-| `clean` (signed, verified) | 848,475 |
-| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 870,417 |
+| `clean` (signed, verified) | 849,098 |
+| `unsigned` (Mach-O without LC_CODE_SIGNATURE) | 871,032 |
 | `not_real_macho` (Java .class, PPC big-endian, etc.) | 53,681 |
 | `scanner_error` | 0 |
 
